@@ -24,3 +24,19 @@ For here
 Am I copying solutions  
 From Stack Overflow  
 And there’s nothing I can do  
+
+## Local Development
+
+```bash
+# clone the repo
+git clone git@github.com:netlify/explorers.git
+
+# move into the new project
+cd explorers/
+
+# install dependencies
+npm install
+
+# start the site with Netlify Dev
+ntl dev
+```
