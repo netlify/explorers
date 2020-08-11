@@ -1,0 +1,29 @@
+.header {
+  background: var(--color-primary);
+  color: var(--color-white);
+  margin: 0 0 4rem;
+  padding: 1rem 5vw;
+}
+
+.home {
+  color: var(--color-white);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.footer {
+  font-size: 0.75rem;
+  margin: 4rem auto;
+  max-width: 90vw;
+  text-align: center;
+  vertical-align: top;
+}
+
+.footer a {
+  color: inherit;
+}
+
+.netliheart {
+  vertical-align: middle;
+  width: 25px;
+}

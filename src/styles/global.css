@@ -1,0 +1,62 @@
+/*
+ *         __                 
+ *        /  \          _____________ 
+ *        |  |        /               \
+ *        @  @       | It looks you’re |
+ *        || ||      | trying to add   |
+ *        || ||   <--| global styles!  |
+ *        \___/       \_______________/
+ *
+ * Hello, friends! This stylesheet should *only* be used for truly global
+ * styles, such as resets, accessibility classes, and shared variables.
+ *
+ * Everything else should be set in a CSS module and imported to the component
+ * where it’s used. This helps keep styles scoped to the components that use
+ * them, which is good for both performance and maintainability.
+ *
+ * Also if you don’t do it @jlengstorf will find you and endlessly nitpick your
+ * pull requests, so really you’re doing yourself a favor.
+ */
+
+:root {
+  /* colors */
+  --color-gray: #555;
+  --color-black: #111;
+  --color-primary: teal;
+  --color-white: #fff;
+
+  /* typography */
+  --color-text-base: var(--color-gray);
+  --color-text-heading: var(--color-black);
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  --font-size-base: 18px;
+  --line-height-base: 1.45;
+  --line-height-heading: 1.1;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  color: var(--color-text-base);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-black);
+  line-height: var(--line-height-heading);
+}

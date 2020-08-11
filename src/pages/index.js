@@ -1,5 +1,10 @@
-import React from "react"
+import React from 'react';
+import { Layout } from '../components/layout';
 
 export default function Home() {
-  return <div>TODO: build Jamstack Explorers</div>
+  return (
+    <Layout>
+      <h1 style={{ textAlign: 'center' }}>TODO: build Jamstack Explorers</h1>
+    </Layout>
+  );
 }
