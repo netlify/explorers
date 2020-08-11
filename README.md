@@ -1,4 +1,3 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <h1 align="center">
   🚀👩‍🚀👨‍🚀<br />
   Jamstack Explorers
