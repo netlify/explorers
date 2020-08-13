@@ -5,7 +5,7 @@
   padding: 1rem 5vw;
 }
 
-.home {
+.homeLink {
   color: var(--color-white);
   font-weight: bold;
   text-decoration: none;

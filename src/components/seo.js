@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 
 export function SEO({
   title = 'Jamstack Explorers',
@@ -9,16 +9,20 @@ export function SEO({
   creator = '@netlify',
 }) {
   return (
-    <Helmet defer={false}>
-      <title>{title}</title>
-      <link rel="canonical" href={url} />
+    <Head>
+      <title key="title">{title}</title>
+      <link key="canonical" rel="canonical" href={url} />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
 
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={url} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta name="og:type" property="og:type" content="website" />
+      <meta name="og:url" property="og:url" content={url} />
+      <meta
+        name="og:description"
+        property="og:description"
+        content={description}
+      />
+      <meta name="og:image" property="og:image" content={image} />
 
       <meta name="twitter:dnt" content="on" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -26,6 +30,6 @@ export function SEO({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
-    </Helmet>
+    </Head>
   );
 }

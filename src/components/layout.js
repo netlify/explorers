@@ -1,23 +1,16 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
+import Link from 'next/link';
 import { SEO } from './seo';
-import { Link } from 'gatsby';
-
-// global styles
-import '../styles/global.css';
 
 import styles from '../styles/layout.module.css';
 
 export function Layout({ children }) {
   return (
     <>
-      <Helmet
-        titleTemplate="%s · Jamstack Explorers"
-        defaultTitle="Jamstack Explorers · Presented by Netlify"
-      >
-        <html lang="en" />
-        <meta charSet="utf-8" />
-      </Helmet>
+      <Head>
+        <title key="title">Jamstack Explorers · Presented by Netlify</title>
+      </Head>
       <SEO
         title="Jamstack Explorers"
         description="It’s not flying; it’s FTP with style!"
@@ -25,8 +18,8 @@ export function Layout({ children }) {
         image="https://images.unsplash.com/photo-1536697246787-1f7ae568d89a?q=85&fm=jpg&fit=crop&w=1600&h=800"
       />
       <header className={styles.header}>
-        <Link to="/" className={styles.home}>
-          Jamstack Explorers
+        <Link href="/" passHref>
+          <a className={styles.homeLink}>Jamstack Explorers</a>
         </Link>
       </header>
       <main>{children}</main>
