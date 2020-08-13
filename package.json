@@ -14,8 +14,7 @@
   "dependencies": {
     "next": "^9.5.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0"
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "prettier": "2.0.5"
