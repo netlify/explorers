@@ -66,3 +66,13 @@ After making changes, you need to deploy both the studio and the GraphQL API.
 sanity deploy
 sanity graphql deploy
 ```
+
+## How to commit to this repo!
+
+- We use the following branch convention:
+      tzm/13/fixesThing
+      <initials>/<issue #>/<title of issue camelcase>
+
+- Everything needs to be a pull request — no direct commits to `main`
+- PRs are merged with squash merges only and use [conventional commits](https://github.com/commitizen/cz-cli#if-your-repo-is-commitizen-friendly) for easier changelog generation
+- All PRs need to be approved by one of the CODEOWNERS
