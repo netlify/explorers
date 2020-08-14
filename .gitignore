@@ -54,6 +54,9 @@ typings/
 # dotenv environment variable files
 .env*
 
+# sanity
+dist/
+
 # next files
 .next/
 out/
