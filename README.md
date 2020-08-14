@@ -27,6 +27,10 @@ And there’s nothing I can do
 
 ## Local Development
 
+### Front-End
+
+The frontend is a Next site. Env vars are in Netlify, so work with Netlify Dev for easier local development.
+
 ```bash
 # clone the repo
 git clone git@github.com:netlify/explorers.git
@@ -39,4 +43,26 @@ npm install
 
 # start the site with Netlify Dev
 ntl dev
+```
+
+### Sanity
+
+```bash
+# install the Sanity CLI if you don’t have it already
+npm i -g @sanity/cli
+
+# go into the Sanity folder
+cd backend/
+
+# start the studio
+sanity start
+```
+
+> **NOTE:** you don’t have to run the studio locally during development. You _only_ need to run the studio locally if you’re making changes to the data schema.
+
+After making changes, you need to deploy both the studio and the GraphQL API.
+
+```bash
+sanity deploy
+sanity graphql deploy
 ```
