@@ -5,6 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 // We import object and document schemas
+import certification from './certification';
 import mission from './mission';
 import stage from './stage';
 import video from './video';
@@ -13,5 +14,5 @@ import instructor from './instructor';
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   name: 'default',
-  types: schemaTypes.concat([mission, stage, video, instructor]),
+  types: schemaTypes.concat([certification, mission, stage, video, instructor]),
 });
