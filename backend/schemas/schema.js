@@ -8,9 +8,11 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import mission from './mission';
 import stage from './stage';
 import video from './video';
+import checkpoint from './checkpoint';
+import question from './question';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   name: 'default',
-  types: schemaTypes.concat([mission, stage, video]),
+  types: schemaTypes.concat([mission, stage, video, checkpoint, question]),
 });

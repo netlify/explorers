@@ -8,5 +8,12 @@ export default {
       title: 'Title',
       type: 'string',
     },
+    {
+      name: 'checkpoint',
+      title: 'Checkpoint',
+      type: 'reference',
+      to: { type: 'checkpoint' },
+    },
   ],
+
 };
