@@ -17,6 +17,7 @@ export default {
       name: 'social',
       title: 'Social',
       type: 'array',
+      of: [{ type: 'string' }],
     },
     {
       name: 'stages',

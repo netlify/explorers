@@ -54,6 +54,9 @@ npm i -g @sanity/cli
 # go into the Sanity folder
 cd backend/
 
+# install sanity into the project
+sanity install
+
 # start the studio
 sanity start
 ```
