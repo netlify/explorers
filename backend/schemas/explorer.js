@@ -13,39 +13,9 @@ export default {
       title: 'Achievements',
       type: 'array',
       of: [
-        {
-          name: 'certifications',
-          title: 'Certifications',
-          type: 'array',
-          of: [
-            {
-              type: 'reference',
-              to: { type: 'certification' }
-            }
-          ]
-        },
-        {
-          name: 'missions',
-          title: 'Missions',
-          type: 'array',
-          of: [
-            {
-              type: 'reference',
-              to: { type: 'mission' }
-            }
-          ]
-        },
-        {
-          name: 'stages',
-          title: 'Stages',
-          type: 'array',
-          of: [
-            {
-              type: 'reference',
-              to: { type: 'stage' }
-            }
-          ]
-        }
+        { type: 'reference', to: { type: 'certification' } },
+        { type: 'reference', to: { type: 'mission' } },
+        { type: 'reference', to: { type: 'stage' } }
       ]
     }
   ]
