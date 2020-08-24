@@ -13,6 +13,7 @@ import checkpoint from './checkpoint';
 import question from './question';
 import answer from './answer';
 import instructor from './instructor';
+import explorer from './explorer';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -25,6 +26,7 @@ export default createSchema({
     instructor,
     checkpoint,
     question,
+    explorer,
     answer,
   ]),
 });
