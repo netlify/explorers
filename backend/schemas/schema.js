@@ -11,6 +11,7 @@ import stage from './stage';
 import video from './video';
 import checkpoint from './checkpoint';
 import question from './question';
+import answer from './answer';
 import instructor from './instructor';
 import explorer from './explorer';
 
@@ -26,5 +27,6 @@ export default createSchema({
     checkpoint,
     question,
     explorer,
-  ])
-})
+    answer,
+  ]),
+});
