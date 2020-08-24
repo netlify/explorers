@@ -9,9 +9,14 @@ export default {
       type: 'string',
     },
     {
-      name: 'answer',
-      title: 'Answer',
-      type: 'string',
+      name: 'answers',
+      title: 'Answers',
+      type: 'array',
+      of: [
+        {
+          type: 'answer',
+        },
+      ],
     },
   ],
 };

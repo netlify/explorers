@@ -11,6 +11,7 @@ import stage from './stage';
 import video from './video';
 import checkpoint from './checkpoint';
 import question from './question';
+import answer from './answer';
 import instructor from './instructor';
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -24,5 +25,6 @@ export default createSchema({
     instructor,
     checkpoint,
     question,
+    answer,
   ]),
 });
