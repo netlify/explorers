@@ -13,9 +13,9 @@ export default {
       title: 'Achievements',
       type: 'array',
       of: [
-        { type: 'reference', to: { type: 'certification' } },
+        // { type: 'reference', to: { type: 'certification' } },
         { type: 'reference', to: { type: 'mission' } },
-        { type: 'reference', to: { type: 'stage' } }
+        // { type: 'reference', to: { type: 'stage' } }
       ]
     }
   ]
