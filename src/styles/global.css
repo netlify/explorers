@@ -1,6 +1,6 @@
 /*
- *         __                 
- *        /  \          _____________ 
+ *         __
+ *        /  \          _____________
  *        |  |        /               \
  *        @  @       | It looks you’re |
  *        || ||      | trying to add   |
@@ -59,4 +59,9 @@ h5,
 h6 {
   color: var(--color-black);
   line-height: var(--line-height-heading);
+}
+
+section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
