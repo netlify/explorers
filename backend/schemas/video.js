@@ -25,6 +25,11 @@ export default {
         minRows: 20,
       },
     },
+    {
+      name: 'cloudinaryVideo',
+      title: 'Video',
+      type: 'cloudinary.video',
+    },
   ],
 
   preview: {
