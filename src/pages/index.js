@@ -34,8 +34,8 @@ export default function Home({ missions }) {
             <div key={index}>
               <h3>
                 <Link
-                  href="/missions/[slug]"
-                  as={`/missions/${mission.slug.current}`}
+                  href="/learn/[slug]"
+                  as={`/learn/${mission.slug.current}`}
                 >
                   <a>{mission.title}</a>
                 </Link>
