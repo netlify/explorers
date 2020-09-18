@@ -6,17 +6,21 @@ export default {
     {
       name: 'avatar',
       title: 'Explorer Avatar',
-      type: 'string'
+      type: 'string',
     },
     {
       name: 'achievements',
       title: 'Achievements',
       type: 'array',
       of: [
-        // { type: 'reference', to: { type: 'certification' } },
-        { type: 'reference', to: { type: 'mission' } },
-        // { type: 'reference', to: { type: 'stage' } }
-      ]
-    }
-  ]
-}
+        {
+          name: 'certification',
+          type: 'reference',
+          to: { type: 'certification' },
+        },
+        { name: 'mission', type: 'reference', to: { type: 'mission' } },
+        { name: 'stage', type: 'reference', to: { type: 'stage' } },
+      ],
+    },
+  ],
+};

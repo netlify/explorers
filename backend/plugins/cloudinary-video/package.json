@@ -1,0 +1,27 @@
+{
+  "name": "sanity-plugin-cloudinary-video",
+  "version": "1.0.0",
+  "author": "Jason Lengstorf <jason@lengstorf.com>",
+  "main": "build/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -d build --copy-files",
+    "prepublish": "npm run build"
+  },
+  "peerDependencies": {
+    "@sanity/base": ">= 0.135.x",
+    "@sanity/core": ">= 0.135.x",
+    "@sanity/components": ">= 0.135.x",
+    "@sanity/form-builder": ">= 0.135.x",
+    "rxjs": ">= 6.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4"
+  },
+  "dependencies": {
+    "react-dropzone": "^11.1.0"
+  }
+}
