@@ -1,0 +1,16 @@
+{
+  "paths": {
+    "source": "./src",
+    "compiled": "./build"
+  },
+  "parts": [
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "schemas/video.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "schemas/video-asset.js"
+    }
+  ]
+}
