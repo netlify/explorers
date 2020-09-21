@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '../components/Layout';
+import { Layout } from '@components/Layout';
 import Link from 'next/link';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
@@ -87,8 +87,7 @@ export const getStaticProps = async () => {
   ).then((response) => response.json());
 
   let promises = data.data.allMission.map(async (mission) => {
-    let str = mission.description;
-    let renderedDescription = await renderToString(str, {
+    let renderedDescription = await renderToString(mission.description, {
       components: {},
     });
 
