@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '../components/layout';
+import { Layout } from '../components/Layout';
 import Link from 'next/link';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
@@ -7,7 +7,7 @@ import hydrate from 'next-mdx-remote/hydrate';
 export default function Home({ missions }) {
   return (
     <Layout>
-      <div style={{ textAlign: 'center' }}>
+      <div>
         <h1>Jamstack Explorers: Mission Control</h1>
         <section>
           <p>
