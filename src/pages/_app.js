@@ -1,5 +1,3 @@
-import React from 'react';
-
 // global styles
 import '../styles/global.css';
 

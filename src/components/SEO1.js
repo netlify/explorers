@@ -1,7 +1,6 @@
-import React from 'react';
 import Head from 'next/head';
 
-export function SEO({
+export default function SEO({
   title = 'Jamstack Explorers',
   description = 'It’s not flying; it’s FTP with style!',
   url = 'https://explorers.netlify.com/',
