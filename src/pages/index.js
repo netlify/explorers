@@ -87,8 +87,7 @@ export const getStaticProps = async () => {
   ).then((response) => response.json());
 
   let promises = data.data.allMission.map(async (mission) => {
-    let str = mission.description;
-    let renderedDescription = await renderToString(str, {
+    let renderedDescription = await renderToString(mission.description, {
       components: {},
     });
 
