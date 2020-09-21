@@ -5,7 +5,7 @@ import { SEO } from './SEO';
 
 import styles from './Layout.module.css';
 
-export function Layout({ children }) {
+export default function Layout({ children }) {
   return (
     <>
       <Head>
