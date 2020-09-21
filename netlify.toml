@@ -1,10 +1,7 @@
 [build]
-  command = "npm run build"
+  command = "npm run build && npm run export"
   publish = "out"
   functions = "functions"
 
 [dev]
   command = "npm run dev"
-
-[[plugins]]
-  package = "netlify-plugin-cache-nextjs"
