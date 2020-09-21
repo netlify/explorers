@@ -1,4 +1,3 @@
-import React from 'react';
 import Layout from '@components/Layout';
 import Link from 'next/link';
 import renderToString from 'next-mdx-remote/render-to-string';
@@ -20,7 +19,7 @@ export default function Home({ missions }) {
           </p>
           <p>
             Choose your mission. Track your progress. Earn rewards. And join us
-            as we explore the Jamstack together.
+            as we explore the Jamstack together!
           </p>
         </section>
 
