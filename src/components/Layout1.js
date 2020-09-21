@@ -1,11 +1,10 @@
-import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { SEO } from './seo';
+import SEO from '@components/SEO1';
 
-import styles from '../styles/layout.module.css';
+import styles from './Layout.module.css';
 
-export function Layout({ children }) {
+export default function Layout({ children }) {
   return (
     <>
       <Head>
@@ -13,7 +12,7 @@ export function Layout({ children }) {
       </Head>
       <SEO
         title="Jamstack Explorers"
-        description="It’s not flying; it’s FTP with style!"
+        description="It's not flying; it's FTP with style!"
         url="https://explorers.netlify.com/"
         image="https://images.unsplash.com/photo-1536697246787-1f7ae568d89a?q=85&fm=jpg&fit=crop&w=1600&h=800"
       />
@@ -22,7 +21,7 @@ export function Layout({ children }) {
           <a className={styles.homeLink}>Jamstack Explorers</a>
         </Link>
       </header>
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
         created with{' '}
         <img
