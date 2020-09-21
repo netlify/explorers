@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '@components/Layout';
+import Layout from '@components/Layout';
 import Link from 'next/link';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
