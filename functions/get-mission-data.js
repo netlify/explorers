@@ -1,8 +1,7 @@
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 
 exports.handler = async () => {
-
-  const {data} = await fetch(
+  const { data } = await fetch(
     'https://q8efilev.api.sanity.io/v1/graphql/production/default',
     {
       method: 'POST',
@@ -25,6 +24,6 @@ exports.handler = async () => {
 
   return {
     statusCode: 200,
-    body: JSON.stringify(data.allMission)
-  }
-}
+    body: JSON.stringify(data.allMission),
+  };
+};

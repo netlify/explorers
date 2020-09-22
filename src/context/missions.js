@@ -9,17 +9,18 @@ export function MissionsProvider({ children }) {
       .then((response) => response.json())
       .then((missions) => {
         setMissions(missions);
-      })
-  }, [])
+      });
+  }, []);
 
   const state = {
     missions,
-    getMissionBySlug: (slug) => missions.find((mission) => mission.slug === slug),
-  }
+    getMissionBySlug: (slug) =>
+      missions.find((mission) => mission.slug === slug),
+  };
 
-  const updateFns ={
-    donuts: true
-  }
+  const updateFns = {
+    donuts: true,
+  };
 
   return (
     <MissionsStateContext.Provider value={state}>
@@ -27,14 +28,14 @@ export function MissionsProvider({ children }) {
         {children}
       </MissionsUpdateContext.Provider>
     </MissionsStateContext.Provider>
-  )
+  );
 }
 
 export function useMissionsState() {
   const state = React.useContext(MissionsStateContext);
-  
+
   if (state === undefined) {
-    throw new Error("useMissionsState must be used within a MissionsProvider");
+    throw new Error('useMissionsState must be used within a MissionsProvider');
   }
 
   return state;
@@ -44,7 +45,7 @@ export function useMissionsUpdate() {
   const updateFns = React.useContext(MissionsUpdateContext);
 
   if (updateFns === undefined) {
-    throw new Error("useMissionsUpdate must be used within a MissionsProvider");
+    throw new Error('useMissionsUpdate must be used within a MissionsProvider');
   }
 
   return updateFns;
