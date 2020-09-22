@@ -8,7 +8,7 @@ function MissionSummary({ title, description }) {
         <p>{description}</p>
       </div>
     </div>
-  )
+  );
 }
 
-export default MissionSummary
+export default MissionSummary;
