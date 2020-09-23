@@ -1,4 +1,4 @@
-import Layout from '@components/Layout1';
+import Layout from '@components/Layout';
 import Link from 'next/link';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
