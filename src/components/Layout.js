@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import SEO from '@components/SEO1';
+import SEO from '@components/SEO';
 
 import styles from './Layout.module.css';
 
