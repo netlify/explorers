@@ -1,19 +1,21 @@
-import { useRouter } from 'next/router';
-
 // /learn/{mission-name}/{stage-name}
 // /learn/{mission-name}
 // /learn/{stage-name}
 
-const Lesson = (props) => {
-  const router = useRouter();
-  const { asPath } = router;
-
-  return <p>Lesson: {asPath}</p>;
+const Lesson = ({ missionSlug }) => {
+  return <p>Lesson: {missionSlug}</p>;
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ ...ctx }) => {
+  // In here, we will do the logic to differentiate between
+  // missions and lessons, and send props to the Lesson
+  // component based on the route, and then render different
+  // page types based on that!
+
   return {
-    props: {},
+    props: {
+      missionSlug: ctx.params.lesson,
+    },
   };
 };
 
