@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router';
 
-// /learn/{mission-name}/{lesson-name}
+// /learn/{mission-name}/{stage-name}
 // /learn/{mission-name}
-// /learn/{lesson-name}
+// /learn/{stage-name}
 
-const Lesson = ({ data }) => {
+const Lesson = (props) => {
   const router = useRouter();
   const { asPath } = router;
 
