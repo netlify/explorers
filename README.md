@@ -9,12 +9,12 @@ Ground Control to Major Tom
 Check your Lighthouse scores and put your `<Helmet />` on  
 Ground Control to Major Tom  
 Commencing countdown, dark mode on  
-Check your build logs and why didn’t you use Vue?  
+Check your build logs and why didn’t you use Vue?
 
 This is Ground Control to Major Tom  
 Your pull request looks great  
 And the Twitters want to know whose theme you use  
-Now it's time to tell us what’s the font you choose  
+Now it's time to tell us what’s the font you choose
 
 This is Major Tom to Ground Control  
 I'm shipping to the cloud  
@@ -23,7 +23,7 @@ GitHub stars feel very different today
 For here  
 Am I copying solutions  
 From Stack Overflow  
-And there’s nothing I can do  
+And there’s nothing I can do
 
 ## Local Development
 
@@ -73,8 +73,8 @@ sanity graphql deploy
 ## How to commit to this repo!
 
 - We use the following branch convention:
-      tzm/13/fixesThing
-      <initials>/<issue #>/<title of issue camelcase>
+  tzm/13/fixesThing
+  <initials>/<issue #>/<title of issue camelcase>
 
 - Everything needs to be a pull request — no direct commits to `main`
 - PRs are merged with squash merges only and use [conventional commits](https://github.com/commitizen/cz-cli#if-your-repo-is-commitizen-friendly) for easier changelog generation

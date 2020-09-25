@@ -1,10 +1,9 @@
 ---
 name: Content
 about: Create a video for an issue
-title: "[Your Technology, e.g. Nuxt] Mission: [Content Name]"
+title: '[Your Technology, e.g. Nuxt] Mission: [Content Name]'
 labels: 'mscw: must, type: content'
 assignees: ''
-
 ---
 
 **What will you cover in this video**
