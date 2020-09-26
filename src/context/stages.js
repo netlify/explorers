@@ -8,14 +8,13 @@ export function StagesProvider({ children }) {
     fetch('/.netlify/functions/get-stage-data')
       .then((response) => response.json())
       .then((stages) => {
-        setStages(stages)
+        setStages(stages);
       });
   }, []);
 
   const state = {
     stages,
-    getStageBySlug: (slug) =>
-      stages.find((stage) => stage.slug === slug),
+    getStageBySlug: (slug) => stages.find((stage) => stage.slug === slug),
   };
 
   const updateFns = {
@@ -28,7 +27,7 @@ export function StagesProvider({ children }) {
         {children}
       </StagesUpdateContext.Provider>
     </StagesStateContext.Provider>
-  )
+  );
 }
 
 export function useStagesState() {
