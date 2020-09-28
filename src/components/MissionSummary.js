@@ -1,10 +1,12 @@
+import styles from './MissionSummary.module.css';
+
 function MissionSummary({ title, description }) {
   return (
-    <div className="mission-summary">
-      <div className="mission-title">
+    <div className={styles.missionSummary}>
+      <div className={styles.missionTitle}>
         <h2>{title}</h2>
       </div>
-      <div className="mission-description">
+      <div className={styles.missionDescription}>
         <p>{description}</p>
       </div>
     </div>
