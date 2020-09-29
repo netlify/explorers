@@ -12,6 +12,7 @@ exports.handler = async () => {
         query: `
           {
             allMission {
+              _id
               title
               description
             }
