@@ -14,6 +14,7 @@ import question from './question';
 import answer from './answer';
 import instructor from './instructor';
 import explorer from './explorer';
+import marketingCopy from './marketingCopy';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -28,5 +29,6 @@ export default createSchema({
     question,
     explorer,
     answer,
+    marketingCopy,
   ]),
 });
