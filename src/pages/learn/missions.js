@@ -1,7 +1,7 @@
 import MissionSummary from '../../components/MissionSummary';
 import { useMissionsState } from '../../context/missions';
 
-export default function Missions({ pageProps }) {
+export default function Missions() {
   const { missions } = useMissionsState();
 
   return missions.map((mission) => (
