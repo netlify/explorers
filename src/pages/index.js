@@ -59,7 +59,7 @@ export default function Home({ missions }) {
 
         <section className="cardrow">
           {videoplaceholder.map(video => (
-            <VideoCard {...props} key={video.id} />
+            <VideoCard key={video.id} video={video} />
           ))}
         </section>
 
