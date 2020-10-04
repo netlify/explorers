@@ -1,4 +1,5 @@
 import Layout from '@components/Layout';
+import MissionTracker from '@components/MissionTracker';
 import Link from 'next/link';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
@@ -48,6 +49,7 @@ export default function Home({ missions }) {
 
         <section>
           <h2>Your progress</h2>
+          <MissionTracker />
           <p>
             Track your progress through missions, stages, and certifications.
           </p>
