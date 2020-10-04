@@ -11,13 +11,19 @@ function VideoCard({ video }) {
       <div className={ styles.cardinfo }>
         <div className={ styles.carddescription }>
           <h3>{ video.title }</h3>
+          <div className="avatarrow">
+            <p className="uppercase">{ video.instructor }</p>
+            <img src={ video.avatar } className="avatar" />
+          </div>
+        </div>
+        <div>{ video.body }</div>
+        <div className={ styles.cardbutton }>
           <Link href="/learn/[slug]" as={`/learn/${ video.slug }`}>
             <a className="btn">
               Watch Course
             </a>
           </Link>
         </div>
-        <div>{ video.body }</div>
       </div>
     </div>
   );

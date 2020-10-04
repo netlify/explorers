@@ -1,5 +1,5 @@
 .card {
-  height: 250px;
+  height: 300px;
   border-radius: 5px;
   background-size: cover;
   position: relative;
@@ -19,4 +19,9 @@
   display: flex;
   justify-content: space-between;
   text-align: left;
+}
+
+.cardbutton {
+  float: right;
+  margin-top: 10px;
 }

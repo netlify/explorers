@@ -70,9 +70,9 @@ section {
   margin: 10px 0 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 200px);
+  grid-template-rows: repeat(1, 250px);
   grid-column-gap: 30px;
-  grid-row-gap: 60px;
+  grid-row-gap: 80px;
 }
 
 @media screen and (max-width: 900px) {
@@ -110,8 +110,25 @@ section {
   color: #fff;
 }
 
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 1000px;
+  margin-left: 7px;
+}
+
+.avatarrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 @media screen and (max-width: 600px) {
   .cardrow {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
