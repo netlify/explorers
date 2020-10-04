@@ -7,10 +7,10 @@ import MissionTracker from '@components/MissionTracker';
 
 const Lesson = ({ missionSlug }) => {
   return (
-    <main>
+    <section>
       <h1>Lesson: {missionSlug}</h1>
       <MissionTracker />
-    </main>
+    </section>
   );
 };
 
