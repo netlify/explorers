@@ -11,7 +11,7 @@ function VideoCard({ video }) {
       <div className={ styles.cardinfo }>
         <div className={ styles.carddescription }>
           <h3>{ video.title }</h3>
-          <div className="avatarrow">
+          <div className="avatar-row">
             <p className="uppercase">{ video.instructor }</p>
             <img src={ video.avatar } className="avatar" />
           </div>

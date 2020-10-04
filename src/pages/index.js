@@ -5,6 +5,7 @@ import hydrate from 'next-mdx-remote/hydrate';
 import VideoCard from '@components/VideoCard';
 
 export default function Home({ missions }) {
+  // placeholder for now to see if folks want to do the schemas the way I set them up in the PR
   const videoplaceholder = new Array(6).fill(1).map((e, i) => ({
     id: i, 
     title: `Video Title ${i}`,
@@ -57,7 +58,7 @@ export default function Home({ missions }) {
           ))}
         </section>
 
-        <section className="cardrow">
+        <section className="row">
           {videoplaceholder.map(video => (
             <VideoCard key={video.id} video={video} />
           ))}
