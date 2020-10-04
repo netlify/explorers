@@ -49,7 +49,6 @@ export default function Home({ missions }) {
 
         <section>
           <h2>Your progress</h2>
-          <MissionTracker />
           <p>
             Track your progress through missions, stages, and certifications.
           </p>

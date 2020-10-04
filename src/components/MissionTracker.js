@@ -41,6 +41,7 @@ function MissionTracker() {
     <div className={styles.container}>
       <section>
         <svg viewBox={`0 0 30 ${tasks.length * 50}`}
+            className={styles.trackersvg}
             xmlns="http://www.w3.org/2000/svg" 
             width="30" 
             stroke="currentColor" 
