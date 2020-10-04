@@ -4,14 +4,19 @@
   background-size: cover;
   position: relative;
   box-shadow: 2px 6px 6px 0 rgb(215, 215, 215);
+  font-size: 13px;
 }
 
 .cardinfo {
   background: white;
   width: 100%;
-  padding: 15px;
+  padding: 5px 12px 10px;
   position: absolute;
   bottom: 0;
+}
+
+.carddescription {
   display: flex;
   justify-content: space-between;
+  text-align: left;
 }
