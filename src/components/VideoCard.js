@@ -1,24 +1,24 @@
 import styles from './VideoCard.module.css';
 import Link from 'next/link';
 
-function VideoCard({ video }) {
+const VideoCard = ({ video: { coverImage, title, instructor, avatar, body, slug } }) => {
   const bkStyle = {
-    background: `url(${ video.coverImage }) center top no-repeat`
+    background: `url(${ coverImage }) center top no-repeat`
   };
 
   return (
     <div className={ styles.card } style={ bkStyle }>
       <div className={ styles.cardinfo }>
         <div className={ styles.carddescription }>
-          <h3>{ video.title }</h3>
-          <div className="avatar-row">
-            <p className="uppercase">{ video.instructor }</p>
-            <img src={ video.avatar } className="avatar" />
+          <h3>{ title }</h3>
+          <div className="avatarrow">
+            <p className="uppercase">{ instructor }</p>
+            <img src={ avatar } className="avatar" />
           </div>
         </div>
-        <div>{ video.body }</div>
+        <div>{ body }</div>
         <div className={ styles.cardbutton }>
-          <Link href="/learn/[slug]" as={`/learn/${ video.slug }`}>
+          <Link href="/learn/[slug]" as={`/learn/${ slug }`}>
             <a className="btn">
               Watch Course
             </a>

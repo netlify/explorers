@@ -106,7 +106,7 @@ section {
   margin-left: 7px;
 }
 
-.avatar-row {
+.avatarrow {
   display: flex;
   flex-direction: row;
   align-items: center;
