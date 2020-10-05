@@ -118,8 +118,6 @@ section {
   text-transform: uppercase;
 }
 
-/* -- Utility -- */
-
 .row {
   margin: 10px 0 30px;
   display: grid;
