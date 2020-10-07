@@ -1,0 +1,44 @@
+.nav {
+  padding: 5px 60px;
+  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.nav li {
+  padding-right: 40px;
+}
+
+/* dark pages */
+
+.navdark {
+  background: #082c40;
+  color: white;
+}
+
+.navdark a {
+  color: white;
+}
+
+/* light pages */
+
+.navlight {
+  background: white;
+  color: #082c40;
+}
+
+.navlight a {
+  color: #082c40;
+}
