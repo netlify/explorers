@@ -2,8 +2,16 @@
 // /learn/{mission-name}
 // /learn/{stage-name}
 
+import { Main } from "next/document";
+import MissionTracker from '@components/MissionTracker';
+
 const Lesson = ({ missionSlug }) => {
-  return <p>Lesson: {missionSlug}</p>;
+  return (
+    <section>
+      <h1>Lesson: {missionSlug}</h1>
+      <MissionTracker />
+    </section>
+  );
 };
 
 export const getStaticProps = async ({ ...ctx }) => {

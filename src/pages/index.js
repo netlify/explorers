@@ -1,10 +1,22 @@
 import Layout from '@components/Layout';
 import HomeHero from '@components/HomeHero';
+import MissionTracker from '@components/MissionTracker';
 import Link from 'next/link';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
+import VideoCard from '@components/VideoCard';
 
 export default function Home({ missions }) {
+  const videoplaceholder = new Array(6).fill(1).map((e, i) => ({
+    id: i, 
+    title: `Video Title ${i}`,
+    coverImage: `https://via.placeholder.com/450x200?text=Woo+Jamstack+Explorers`,
+    body: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.`,
+    instructor: `Tara Manicsic`,
+    slug: `learn-things`,
+    avatar: `https://via.placeholder.com/30`
+  }))
+
   return (
     <Layout>
       <div>
@@ -30,6 +42,12 @@ export default function Home({ missions }) {
                 {hydrate(mission.renderedDescription, { components: {} })}
               </div>
             </div>
+          ))}
+        </section>
+
+        <section className="row">
+          {videoplaceholder.map(video => (
+            <VideoCard key={video.id} video={video} />
           ))}
         </section>
 

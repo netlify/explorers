@@ -4,9 +4,14 @@ export default {
   type: 'document',
   fields: [
     {
+      name: 'name',
+      title: 'Instructor Name',
+      type: 'string',
+    },
+    {
       name: 'avatar',
       title: 'Instructor Avatar',
-      type: 'string',
+      type: 'image',
     },
     {
       name: 'company',

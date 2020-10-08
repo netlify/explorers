@@ -18,9 +18,11 @@
  * pull requests, so really you’re doing yourself a favor.
  */
 
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap');
+
 :root {
   /* colors */
-  --color-gray: #555;
+  --color-gray: #444;
   --color-black: #111;
   --color-primary: teal;
   --color-white: #fff;
@@ -28,10 +30,11 @@
   /* typography */
   --color-text-base: var(--color-gray);
   --color-text-heading: var(--color-black);
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  --font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol';
   --font-size-base: 18px;
+  --font-weight-base: 400;
   --line-height-base: 1.45;
   --line-height-heading: 1.1;
 }
@@ -47,7 +50,20 @@ body {
   color: var(--color-text-base);
   font-family: var(--font-family);
   font-size: var(--font-size-base);
+  font-weight: var(--font-weight-base);
   line-height: var(--line-height-base);
+  margin: 0;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
 }
 
@@ -59,12 +75,86 @@ h5,
 h6 {
   color: var(--color-black);
   line-height: var(--line-height-heading);
+  font-weight: 600;
 }
 
 section {
   padding: 2rem 4rem;
 }
 
+    
+/* -- Buttons -- */
+
+.btn {
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 500;
+  -ms-flex-item-align: center;
+  align-self: center;
+  background-color: #e9ebeb;
+  border: 0;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #0e1e24;
+  display: inline-block;
+  line-height: 20px;
+  min-width: 36px;
+  outline: 0;
+  padding: 8px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  width: auto;
+}
+
+.btn.primary {
+  background-color: #009387;
+  color: #fff;
+}
+
+/* -- Avatars -- */
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 1000px;
+  margin-left: 7px;
+}
+
+.avatarrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* -- Utility -- */
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.row {
+  margin: 10px 0 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 250px);
+  grid-column-gap: 30px;
+  grid-row-gap: 80px;
+}
+
+@media screen and (max-width: 900px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 
 /* ---- SVG STYLES ----- */
 
