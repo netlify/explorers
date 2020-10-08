@@ -15,5 +15,4 @@ export default {
       to: { type: 'checkpoint' },
     },
   ],
-
 };
