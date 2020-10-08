@@ -15,17 +15,23 @@
   align-items: center;
   list-style: none;
   padding: 0;
+  margin: 5px 0;
 }
 
 .nav li {
   padding-right: 40px;
 }
 
+.nav svg {
+  margin-top: 5px;
+}
+
 /* dark pages */
 
 .navdark {
-  background: #082c40;
+  background: rgba(0, 0, 0, 0.8);
   color: white;
+  border-bottom: #000;
 }
 
 .navdark a {
@@ -35,8 +41,8 @@
 /* light pages */
 
 .navlight {
-  background: white;
-  color: #082c40;
+  background: rgba(255, 255, 255, 0.8);
+  color: #fff;
 }
 
 .navlight a {
