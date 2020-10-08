@@ -1,3 +1,9 @@
+.header {
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 1rem 5vw;
+}
+
 .homeLink {
   color: var(--color-white);
   font-weight: bold;

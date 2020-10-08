@@ -1,0 +1,27 @@
+.hero {
+  min-height: 70vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 30px;
+  padding-top: 110px;
+  background: url('/homepage-bk.jpg') center center no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.hero h2 {
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.astronautcontain {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
