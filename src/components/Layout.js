@@ -6,7 +6,7 @@ import styles from './Layout.module.css';
 
 export default function Layout({ children }) {
   return (
-    <>
+    <div className={styles.container}>
       <Head>
         <title key="title">Jamstack Explorers · Presented by Netlify</title>
       </Head>
@@ -31,6 +31,6 @@ export default function Layout({ children }) {
         </a>{' '}
         team
       </footer>
-    </>
+    </div>
   );
 }
