@@ -1,4 +1,5 @@
 import Layout from '@components/Layout';
+import MissionTracker from '@components/MissionTracker';
 import Link from 'next/link';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
