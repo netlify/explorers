@@ -28,8 +28,8 @@ function MissionTracker() {
       done: false
     },
   ])
-  const [num1] = useState([32])
-  const [num2] = useState([15])
+  const num1 = [32]
+  const num2 = [15]
 
   const updateDoneTasks = (index) => () => {
     let tasksCopy = [...tasks];
