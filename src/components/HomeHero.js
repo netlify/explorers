@@ -22,7 +22,7 @@ function HomeHero({ textcontent }) {
         <p>{textcontent}</p>
       </div>
 
-      <div>
+      <div className={styles.astronautcontain}>
         <Astronaut />
       </div>
     </section>
