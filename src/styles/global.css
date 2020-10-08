@@ -78,9 +78,26 @@ h6 {
   font-weight: 600;
 }
 
+h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #7ecece;
+}
+
 section {
   margin-top: 2rem 0;
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
 .sectioncontain {
@@ -147,7 +164,7 @@ section {
 }
 
 .row {
-  margin: 10px 0 30px;
+  margin: 10px auto 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, 250px);
