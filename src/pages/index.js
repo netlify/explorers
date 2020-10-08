@@ -1,6 +1,5 @@
 import Layout from '@components/Layout';
 import HomeHero from '@components/HomeHero';
-import MissionTracker from '@components/MissionTracker';
 import Link from 'next/link';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
@@ -23,32 +22,34 @@ export default function Home({ missions }) {
         <HomeHero />
 
         <section>
-          <h2>Missions</h2>
-          <p>
-            Here in Mission Control, you'll find missions covering all sorts of
-            web development and Jamstack topics.
-          </p>
-          {missions.map((mission, index) => (
-            <div key={index}>
-              <h3>
-                <Link
-                  href="/learn/[slug]"
-                  as={`/learn/${mission.slug.current}`}
-                >
-                  <a>{mission.title}</a>
-                </Link>
-              </h3>
-              <div className="mission-description">
-                {hydrate(mission.renderedDescription, { components: {} })}
+          <div className="sectioncontain">
+            <h2>Missions</h2>
+            <p>
+              Here in Mission Control, you'll find missions covering all sorts
+              of web development and Jamstack topics.
+            </p>
+            {missions.map((mission, index) => (
+              <div key={index}>
+                <h3>
+                  <Link
+                    href="/learn/[slug]"
+                    as={`/learn/${mission.slug.current}`}
+                  >
+                    <a>{mission.title}</a>
+                  </Link>
+                </h3>
+                <div className="mission-description">
+                  {hydrate(mission.renderedDescription, { components: {} })}
+                </div>
               </div>
-            </div>
-          ))}
-        </section>
+            ))}
+          </div>
 
-        <section className="row">
-          {videoplaceholder.map((video) => (
-            <VideoCard key={video.id} video={video} />
-          ))}
+          <div className="row sectioncontain">
+            {videoplaceholder.map((video) => (
+              <VideoCard key={video.id} video={video} />
+            ))}
+          </div>
         </section>
       </div>
     </Layout>
