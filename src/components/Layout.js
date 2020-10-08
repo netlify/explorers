@@ -16,7 +16,7 @@ export default function Layout({ children }) {
         url="https://explorers.netlify.com/"
         image="https://images.unsplash.com/photo-1536697246787-1f7ae568d89a?q=85&fm=jpg&fit=crop&w=1600&h=800"
       />
-      <Navigation theme={'dark'} />
+      <Navigation theme={'light'} />
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
         created with{' '}

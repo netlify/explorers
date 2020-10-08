@@ -83,7 +83,12 @@ section {
   padding: 2rem 0;
 }
 
-    
+.sectioncontain {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
 /* -- Buttons -- */
 
 .btn {

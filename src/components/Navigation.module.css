@@ -1,6 +1,11 @@
 .nav {
   padding: 5px 60px;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: block;
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -29,7 +34,7 @@
 /* dark pages */
 
 .navdark {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.5);
   color: white;
   border-bottom: 1px solid #000;
 }
@@ -41,7 +46,7 @@
 /* light pages */
 
 .navlight {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.5);
   color: #000;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
