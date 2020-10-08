@@ -18,7 +18,7 @@
  * pull requests, so really you’re doing yourself a favor.
  */
 
- @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap');
 
 :root {
   /* colors */
@@ -79,7 +79,8 @@ h6 {
 }
 
 section {
-  padding: 2rem 4rem;
+  margin-top: 2rem 0;
+  padding: 2rem 0;
 }
 
     
@@ -109,8 +110,13 @@ section {
   width: auto;
 }
 
-.btn.primary {
+.btn.btnprimary {
   background-color: #009387;
+  color: #fff;
+}
+
+.btn.btndark {
+  background-color: #0E3D46;
   color: #fff;
 }
 

@@ -8,14 +8,14 @@ import VideoCard from '@components/VideoCard';
 
 export default function Home({ missions }) {
   const videoplaceholder = new Array(6).fill(1).map((e, i) => ({
-    id: i, 
+    id: i,
     title: `Video Title ${i}`,
     coverImage: `https://via.placeholder.com/450x200?text=Woo+Jamstack+Explorers`,
     body: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.`,
     instructor: `Tara Manicsic`,
     slug: `learn-things`,
-    avatar: `https://via.placeholder.com/30`
-  }))
+    avatar: `https://via.placeholder.com/30`,
+  }));
 
   return (
     <Layout>
@@ -46,19 +46,9 @@ export default function Home({ missions }) {
         </section>
 
         <section className="row">
-          {videoplaceholder.map(video => (
+          {videoplaceholder.map((video) => (
             <VideoCard key={video.id} video={video} />
           ))}
-        </section>
-
-        <section>
-          <h2>Your progress</h2>
-          <p>
-            Track your progress through missions, stages, and certifications.
-          </p>
-          <p>
-            <a href="#">Log in</a> to track your progress and earn rewards.
-          </p>
         </section>
       </div>
     </Layout>
