@@ -1,0 +1,51 @@
+.nav {
+  padding: 5px 60px;
+  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 5px 0;
+}
+
+.nav li {
+  padding-right: 40px;
+}
+
+.nav svg {
+  margin-top: 5px;
+}
+
+/* dark pages */
+
+.navdark {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-bottom: 1px solid #000;
+}
+
+.navdark a {
+  color: white;
+}
+
+/* light pages */
+
+.navlight {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.navlight a {
+  color: #082c40;
+}
