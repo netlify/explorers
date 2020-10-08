@@ -82,3 +82,76 @@ section {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+
+/* -- Buttons -- */
+
+.btn {
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 500;
+  -ms-flex-item-align: center;
+  align-self: center;
+  background-color: #e9ebeb;
+  border: 0;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #0e1e24;
+  display: inline-block;
+  line-height: 20px;
+  min-width: 36px;
+  outline: 0;
+  padding: 8px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  width: auto;
+}
+
+.btn.primary {
+  background-color: #009387;
+  color: #fff;
+}
+
+/* -- Avatars -- */
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 1000px;
+  margin-left: 7px;
+}
+
+.avatarrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* -- Utility -- */
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.row {
+  margin: 10px 0 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 250px);
+  grid-column-gap: 30px;
+  grid-row-gap: 80px;
+}
+
+@media screen and (max-width: 900px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
