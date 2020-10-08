@@ -18,9 +18,11 @@
  * pull requests, so really you’re doing yourself a favor.
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap');
+
 :root {
   /* colors */
-  --color-gray: #555;
+  --color-gray: #444;
   --color-black: #111;
   --color-primary: teal;
   --color-white: #fff;
@@ -28,10 +30,11 @@
   /* typography */
   --color-text-base: var(--color-gray);
   --color-text-heading: var(--color-black);
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  --font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol';
   --font-size-base: 18px;
+  --font-weight-base: 400;
   --line-height-base: 1.45;
   --line-height-heading: 1.1;
 }
@@ -47,7 +50,20 @@ body {
   color: var(--color-text-base);
   font-family: var(--font-family);
   font-size: var(--font-size-base);
+  font-weight: var(--font-weight-base);
   line-height: var(--line-height-base);
+  margin: 0;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
 }
 
@@ -59,9 +75,690 @@ h5,
 h6 {
   color: var(--color-black);
   line-height: var(--line-height-heading);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #7ecece;
 }
 
 section {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 2rem 0;
+  padding: 3rem 0;
+}
+
+.sectioncontain {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* -- Buttons -- */
+
+.btn {
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 500;
+  -ms-flex-item-align: center;
+  align-self: center;
+  background-color: #e9ebeb;
+  border: 0;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #0e1e24;
+  display: inline-block;
+  line-height: 20px;
+  min-width: 36px;
+  outline: 0;
+  padding: 8px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  width: auto;
+}
+
+.btn.btnprimary {
+  background-color: #009387;
+  color: #fff;
+}
+
+.btn.btndark {
+  background-color: #0E3D46;
+  color: #fff;
+}
+
+/* -- Avatars -- */
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 1000px;
+  margin-left: 7px;
+}
+
+.avatarrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* -- Utility -- */
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.row {
+  margin: 10px auto 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 250px);
+  grid-column-gap: 30px;
+  grid-row-gap: 80px;
+}
+
+@media screen and (max-width: 900px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* ---- SVG STYLES ----- */
+
+/* Astronaut */
+
+.astronaut .cls-1 {
+  mask: url(#mask)
+}
+
+.astronaut .cls-2,
+.astronaut .cls-4 {
+  mix-blend-mode: multiply
+}
+
+.astronaut .cls-2 {
+  fill: url(#linear-gradient)
+}
+
+.astronaut .cls-3 {
+  mask: url(#mask-2)
+}
+
+.astronaut .cls-4 {
+  fill: url(#linear-gradient-2)
+}
+
+.astronaut .cls-5 {
+  fill: #d9cdcc
+}
+
+.astronaut .cls-6 {
+  fill: #e9dedc
+}
+
+.astronaut .cls-7 {
+  fill: #c7bebd
+}
+
+.astronaut .cls-8 {
+  fill: #f1f4f6
+}
+
+.astronaut .cls-9 {
+  fill: #a8a8a8
+}
+
+.astronaut .cls-10 {
+  fill: #cecece
+}
+
+.astronaut .cls-11,
+.astronaut .cls-67 {
+  fill: #6d6d6d
+}
+
+.astronaut .cls-12 {
+  fill: #cecdc8
+}
+
+.astronaut .cls-13 {
+  fill: #9c9b99
+}
+
+.astronaut .cls-14 {
+  fill: #bbb8b3
+}
+
+.astronaut .cls-15 {
+  fill: #eae6e7
+}
+
+.astronaut .cls-16 {
+  fill: url(#GradientFill_50)
+}
+
+.astronaut .cls-17 {
+  fill: #797979
+}
+
+.astronaut .cls-18,
+.astronaut .cls-79 {
+  fill: #fff
+}
+
+.astronaut .cls-19 {
+  fill: #f3f4ed
+}
+
+.astronaut .cls-20 {
+  fill: #d2d4c8
+}
+
+.astronaut .cls-21 {
+  fill: url(#GradientFill_49)
+}
+
+.astronaut .cls-22 {
+  fill: #f0f0f6
+}
+
+.astronaut .cls-23 {
+  fill: #b5a3a2
+}
+
+.astronaut .cls-24 {
+  fill: #d3cecf
+}
+
+.astronaut .cls-25 {
+  fill: #bfaea4
+}
+
+.astronaut .cls-26 {
+  fill: #a9948c
+}
+
+.astronaut .cls-27 {
+  fill: #7a6163
+}
+
+.astronaut .cls-28 {
+  fill: #f4f3ee
+}
+
+.astronaut .cls-29 {
+  fill: url(#GradientFill_48)
+}
+
+.astronaut .cls-30 {
+  fill: #b9aca3
+}
+
+.astronaut .cls-31 {
+  fill: #c0b0ae
+}
+
+.astronaut .cls-32 {
+  fill: #806866
+}
+
+.astronaut .cls-33 {
+  fill: url(#GradientFill_47)
+}
+
+.astronaut .cls-34 {
+  fill: #f6efec
+}
+
+.astronaut .cls-35 {
+  fill: #f5efee
+}
+
+.astronaut .cls-36 {
+  fill: #ded7d4
+}
+
+.astronaut .cls-37 {
+  fill: #f6f6f1
+}
+
+.astronaut .cls-38 {
+  fill: #5d3c47
+}
+
+.astronaut .cls-39 {
+  fill: #b9a198
+}
+
+.astronaut .cls-40 {
+  fill: #0b0505
+}
+
+.astronaut .cls-41 {
+  fill: #e1dad0
+}
+
+.astronaut .cls-42,
+.astronaut .cls-58 {
+  fill: #c8bcb3
+}
+
+.astronaut .cls-43 {
+  fill: #ae9999
+}
+
+.astronaut .cls-44 {
+  fill: #eae2dd
+}
+
+.astronaut .cls-45 {
+  fill: #c7b4ad
+}
+
+.astronaut .cls-46 {
+  fill: #a38889
+}
+
+.astronaut .cls-47 {
+  fill: #706467
+}
+
+.astronaut .cls-48 {
+  fill: #cec1b7
+}
+
+.astronaut .cls-49 {
+  fill: #1b1114
+}
+
+.astronaut .cls-50 {
+  fill: #e6cfc2
+}
+
+.astronaut .cls-51 {
+  fill: #f3e3d7
+}
+
+.astronaut .cls-52 {
+  fill: #d2b8a6
+}
+
+.astronaut .cls-53 {
+  fill: url(#GradientFill_32)
+}
+
+.astronaut .cls-54 {
+  fill: #9b9088
+}
+
+.astronaut .cls-55 {
+  fill: #9f9f9f
+}
+
+.astronaut .cls-56 {
+  fill: #e0e0e0
+}
+
+.astronaut .cls-57 {
+  fill: url(#linear-gradient-3)
+}
+
+.astronaut .cls-59 {
+  fill: #050505
+}
+
+.astronaut .cls-60 {
+  fill: #886a69
+}
+
+.astronaut .cls-61 {
+  fill: #cee6e7
+}
+
+.astronaut .cls-62 {
+  fill: #fdffff
+}
+
+.astronaut .cls-63 {
+  fill: url(#GradientFill_17)
+}
+
+.astronaut .cls-64 {
+  fill: #110505
+}
+
+.astronaut .cls-65 {
+  fill: #866871
+}
+
+.astronaut .cls-66 {
+  fill: #70463f
+}
+
+.astronaut .cls-68 {
+  fill: #ac9593
+}
+
+.astronaut .cls-69 {
+  fill: #686668
+}
+
+.astronaut .cls-70 {
+  fill: #9b827f
+}
+
+.astronaut .cls-71 {
+  fill: #cbbebd
+}
+
+.astronaut .cls-72 {
+  fill: url(#GradientFill_45)
+}
+
+.astronaut .cls-73 {
+  fill: #907e6e
+}
+
+.astronaut .cls-74 {
+  fill: #7a6b5d
+}
+
+.astronaut .cls-75 {
+  fill: #796658
+}
+
+.astronaut .cls-76 {
+  fill: #a1917f
+}
+
+.astronaut .cls-77 {
+  fill: #e2d6cc
+}
+
+.astronaut .cls-78 {
+  fill: #af9883
+}
+
+.astronaut .cls-80 {
+  fill: #645555
+}
+
+.astronaut .cls-81 {
+  fill: #898989
+}
+
+.astronaut .cls-82 {
+  fill: #8a7868
+}
+
+.astronaut .cls-83 {
+  fill: #897972
+}
+
+.astronaut .cls-84 {
+  fill: #7d6467
+}
+
+.astronaut .cls-85 {
+  fill: #2d3244
+}
+
+.astronaut .cls-86 {
+  fill: #3f5889
+}
+
+.astronaut .cls-87 {
+  fill: url(#GradientFill_9)
+}
+
+.astronaut .cls-88 {
+  fill: url(#GradientFill_4)
+}
+
+.astronaut .cls-89 {
+  fill: url(#GradientFill_4-2)
+}
+
+.astronaut .cls-90 {
+  fill: url(#GradientFill_4-3)
+}
+
+.astronaut .cls-91 {
+  fill: url(#linear-gradient-4)
+}
+
+.astronaut .cls-92 {
+  fill: url(#GradientFill_4-4)
+}
+
+.astronaut .cls-93 {
+  fill: #7e7ef6
+}
+
+.astronaut .cls-94 {
+  fill: url(#GradientFill_5)
+}
+
+.astronaut .cls-95 {
+  fill: #f5afc9
+}
+
+.astronaut .cls-96 {
+  fill: #49d3d1
+}
+
+.astronaut .cls-97 {
+  fill: url(#GradientFill_12)
+}
+
+.astronaut .cls-98 {
+  fill: #f6cbd4
+}
+
+.astronaut .cls-99 {
+  fill: #f65069
+}
+
+.astronaut .cls-100 {
+  fill: #9a8989
+}
+
+.astronaut .cls-101 {
+  fill: #b4a5a5
+}
+
+.astronaut .cls-102 {
+  fill: #e2e2e2
+}
+
+.astronaut .cls-103 {
+  fill: #bdaeae
+}
+
+.astronaut .cls-104 {
+  fill: #80696a
+}
+
+.astronaut .cls-105 {
+  fill: #5d5b59
+}
+
+.astronaut .cls-106 {
+  fill: #705e5e
+}
+
+.astronaut .cls-107 {
+  fill: url(#GradientFill_5-2)
+}
+
+.astronaut .cls-108 {
+  fill: #f36552
+}
+
+.astronaut .cls-109 {
+  fill: url(#GradientFill_11)
+}
+
+.astronaut .cls-110 {
+  fill: url(#linear-gradient-5)
+}
+
+.astronaut .cls-111 {
+  fill: url(#GradientFill_5-3)
+}
+
+.astronaut .cls-112 {
+  fill: url(#GradientFill_10)
+}
+
+.astronaut .cls-113 {
+  fill: #6a0808
+}
+
+.astronaut .cls-114 {
+  fill: #ec0505
+}
+
+.astronaut .cls-115 {
+  fill: #a64240
+}
+
+.astronaut .cls-116 {
+  fill: #f69d41
+}
+
+.astronaut .cls-117 {
+  fill: #ba281b
+}
+
+.astronaut .cls-118 {
+  fill: #ee5c26
+}
+
+.astronaut .cls-119 {
+  fill: #f62105
+}
+
+.astronaut .cls-120,
+.astronaut .cls-123 {
+  fill: #ea3b2a
+}
+
+.astronaut .cls-121 {
+  fill: #f6ec8f
+}
+
+.astronaut .cls-122 {
+  fill: #f69b64
+}
+
+.astronaut .cls-124 {
+  fill: #f65938
+}
+
+.astronaut .cls-125 {
+  fill: #f6dcc4
+}
+
+.astronaut .cls-126 {
+  fill: #ea2936
+}
+
+.astronaut .cls-127 {
+  fill: url(#GradientFill_9-2)
+}
+
+.astronaut .cls-128 {
+  fill: url(#GradientFill_4-5)
+}
+
+.astronaut .cls-129 {
+  fill: #212121
+}
+
+.astronaut .cls-130 {
+  fill: #564448
+}
+
+.astronaut .cls-131 {
+  fill: #f6f6f6
+}
+
+.astronaut .cls-132 {
+  fill: url(#GradientFill_8)
+}
+
+.astronaut .cls-133 {
+  fill: #d5c8c8
+}
+
+.astronaut .cls-134 {
+  fill: #957c7c;
+  stroke: #705e5e;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: .57px
+}
+
+.astronaut .cls-135 {
+  mask: url(#mask-3)
+}
+
+.astronaut .cls-136 {
+  opacity: .85;
+  fill: url(#linear-gradient-6)
+}
+
+.astronaut .cls-137 {
+  mask: url(#mask-4)
+}
+
+.astronaut .cls-138 {
+  mask: url(#mask-5)
+}
+
+.astronaut .cls-139 {
+  opacity: .7;
+  fill: url(#linear-gradient-7)
+}
+
+.astronaut .cls-140 {
+  filter: url(#luminosity-noclip-5)
+}
+
+.astronaut .cls-141 {
+  filter: url(#luminosity-noclip-4)
+}
+
+.astronaut .cls-142 {
+  filter: url(#luminosity-noclip-3)
+}
+
+.astronaut .cls-143 {
+  filter: url(#luminosity-noclip-2)
+}
+
+.astronaut .cls-144 {
+  filter: url(#luminosity-noclip)
 }

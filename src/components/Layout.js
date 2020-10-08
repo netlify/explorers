@@ -1,12 +1,12 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import SEO from '@components/SEO';
+import Navigation from '@components/Navigation';
 
 import styles from './Layout.module.css';
 
 export default function Layout({ children }) {
   return (
-    <>
+    <div className={styles.container}>
       <Head>
         <title key="title">Jamstack Explorers · Presented by Netlify</title>
       </Head>
@@ -16,11 +16,7 @@ export default function Layout({ children }) {
         url="https://explorers.netlify.com/"
         image="https://images.unsplash.com/photo-1536697246787-1f7ae568d89a?q=85&fm=jpg&fit=crop&w=1600&h=800"
       />
-      <header className={styles.header}>
-        <Link href="/" passHref>
-          <a className={styles.homeLink}>Jamstack Explorers</a>
-        </Link>
-      </header>
+      <Navigation theme={'light'} />
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
         created with{' '}
@@ -35,6 +31,6 @@ export default function Layout({ children }) {
         </a>{' '}
         team
       </footer>
-    </>
+    </div>
   );
 }

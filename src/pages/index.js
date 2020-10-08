@@ -1,59 +1,55 @@
 import Layout from '@components/Layout';
+import HomeHero from '@components/HomeHero';
 import Link from 'next/link';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
+import VideoCard from '@components/VideoCard';
 
 export default function Home({ missions }) {
+  const videoplaceholder = new Array(6).fill(1).map((e, i) => ({
+    id: i,
+    title: `Video Title ${i}`,
+    coverImage: `https://via.placeholder.com/450x200?text=Woo+Jamstack+Explorers`,
+    body: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.`,
+    instructor: `Tara Manicsic`,
+    slug: `learn-things`,
+    avatar: `https://via.placeholder.com/30`,
+  }));
+
   return (
     <Layout>
       <div>
-        <h1>Jamstack Explorers: Mission Control</h1>
-        <section>
-          <p>
-            Greetings, fellow explorer! Welcome to your mission control — a
-            place to learn about building for the web with modern tools and
-            techniques. As a Jamstack Explorer, you can chart a course through
-            new frameworks, through bright new tools and APIs, through{' '}
-            <a href="https://netlify.com">Netlify</a>'s features and workflows,
-            and through the very fabric of HTML, CSS, and JavaScript itself.
-          </p>
-          <p>
-            Choose your mission. Track your progress. Earn rewards. And join us
-            as we explore the Jamstack together!
-          </p>
-        </section>
+        <HomeHero />
 
         <section>
-          <h2>Missions</h2>
-          <p>
-            Here in Mission Control, you'll find missions covering all sorts of
-            web development and Jamstack topics.
-          </p>
-          {missions.map((mission, index) => (
-            <div key={index}>
-              <h3>
-                <Link
-                  href="/learn/[slug]"
-                  as={`/learn/${mission.slug.current}`}
-                >
-                  <a>{mission.title}</a>
-                </Link>
-              </h3>
-              <div className="mission-description">
-                {hydrate(mission.renderedDescription, { components: {} })}
+          <div className="sectioncontain">
+            <h2>Missions</h2>
+            <p>
+              Here in Mission Control, you'll find missions covering all sorts
+              of web development and Jamstack topics.
+            </p>
+            {missions.map((mission, index) => (
+              <div key={index}>
+                <h3>
+                  <Link
+                    href="/learn/[slug]"
+                    as={`/learn/${mission.slug.current}`}
+                  >
+                    <a>{mission.title}</a>
+                  </Link>
+                </h3>
+                <div className="mission-description">
+                  {hydrate(mission.renderedDescription, { components: {} })}
+                </div>
               </div>
-            </div>
-          ))}
-        </section>
+            ))}
+          </div>
 
-        <section>
-          <h2>Your progress</h2>
-          <p>
-            Track your progress through missions, stages, and certifications.
-          </p>
-          <p>
-            <a href="#">Log in</a> to track your progress and earn rewards.
-          </p>
+          <div className="row sectioncontain">
+            {videoplaceholder.map((video) => (
+              <VideoCard key={video.id} video={video} />
+            ))}
+          </div>
         </section>
       </div>
     </Layout>
