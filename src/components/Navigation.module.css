@@ -31,7 +31,7 @@
 .navdark {
   background: rgba(0, 0, 0, 0.8);
   color: white;
-  border-bottom: #000;
+  border-bottom: 1px solid #000;
 }
 
 .navdark a {
@@ -42,7 +42,8 @@
 
 .navlight {
   background: rgba(255, 255, 255, 0.8);
-  color: #fff;
+  color: #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .navlight a {
