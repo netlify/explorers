@@ -53,12 +53,14 @@ function Navigation({ theme }) {
           </Link>
         </li>
         <li>
-          <Link href="" as="">
+          <Link href="">
             <a>Progress</a>
           </Link>
         </li>
       </ul>
-      Username
+      <Link href="/profile">
+        <a>Username</a>
+      </Link>
     </nav>
   );
 }
