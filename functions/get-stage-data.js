@@ -11,9 +11,9 @@ exports.handler = async () => {
       body: JSON.stringify({
         query: `
           {
-            allStages {
+            allStage {
+              _id
               title
-              checkpoint
             }
           }
         `,
@@ -24,6 +24,6 @@ exports.handler = async () => {
 
   return {
     statusCode: 200,
-    body: JSON.stringify(data.allStages),
+    body: JSON.stringify(data.allStage),
   };
 };
