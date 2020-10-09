@@ -5,16 +5,6 @@ import hydrate from 'next-mdx-remote/hydrate';
 import VideoCard from '@components/VideoCard';
 
 export default function MissionsPage({ missions }) {
-  const videoplaceholder = new Array(6).fill(1).map((e, i) => ({
-    id: i,
-    title: `Video Title ${i}`,
-    coverImage: `https://via.placeholder.com/450x200?text=Woo+Jamstack+Explorers`,
-    body: `Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.`,
-    instructor: `Tara Manicsic`,
-    slug: `learn-things`,
-    avatar: `https://via.placeholder.com/30`,
-  }));
-
   return (
     <Layout navtheme="dark">
       <div>
@@ -30,27 +20,9 @@ export default function MissionsPage({ missions }) {
         </section>
 
         <section>
-          <div className="sectioncontain">
-            {missions.map((mission, index) => (
-              <div key={index}>
-                <h3>
-                  <Link
-                    href="/learn/[slug]"
-                    as={`/learn/${mission.slug.current}`}
-                  >
-                    <a>{mission.title}</a>
-                  </Link>
-                </h3>
-                <div className="mission-description">
-                  {hydrate(mission.renderedDescription, { components: {} })}
-                </div>
-              </div>
-            ))}
-          </div>
-
           <div className="row sectioncontain">
-            {videoplaceholder.map((video) => (
-              <VideoCard key={video.id} video={video} />
+            {missions.map((mission, index) => (
+              <VideoCard key={index} video={mission} />
             ))}
           </div>
         </section>
@@ -58,7 +30,6 @@ export default function MissionsPage({ missions }) {
     </Layout>
   );
 }
-
 export const getStaticProps = async () => {
   const data = await fetch(
     'https://q8efilev.api.sanity.io/v1/graphql/production/default',
@@ -75,6 +46,19 @@ export const getStaticProps = async () => {
               description
               slug {
                 current
+              }
+              coverImage {
+                asset {
+                  url
+                }
+              }
+              instructor {
+                name
+                avatar {
+                  asset {
+                    url
+                  }
+                }
               }
             }
           }
