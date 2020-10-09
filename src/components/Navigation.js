@@ -48,7 +48,7 @@ function Navigation({ theme }) {
           </Link>
         </li>
         <li>
-          <Link href="" as="">
+          <Link href="/missions" as="/missions">
             <a>Missions</a>
           </Link>
         </li>

@@ -5,7 +5,7 @@ import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 import VideoCard from '@components/VideoCard';
 
-export default function Home({ missions, renderedDescription }) {
+export default function Home({ missions }) {
   const videoplaceholder = new Array(6).fill(1).map((e, i) => ({
     id: i,
     title: `Video Title ${i}`,
@@ -17,9 +17,9 @@ export default function Home({ missions, renderedDescription }) {
   }));
 
   return (
-    <Layout>
+    <Layout navtheme="light">
       <div>
-        <HomeHero textcontent={renderedDescription} />
+        <HomeHero />
 
         <section>
           <div className="sectioncontain">

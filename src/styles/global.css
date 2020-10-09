@@ -159,6 +159,10 @@ section {
 
 /* -- Utility -- */
 
+.intro {
+  padding-top: 150px;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
