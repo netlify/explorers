@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import SEO from '@components/SEO';
 import Navigation from '@components/Navigation';
+import Footer from '@components/Footer';
 
 import styles from './Layout.module.css';
 
@@ -18,19 +19,7 @@ export default function Layout({ children }) {
       />
       <Navigation theme={'light'} />
       <main className={styles.main}>{children}</main>
-      <footer className={styles.footer}>
-        created with{' '}
-        <img
-          className={styles.netliheart}
-          src="https://res.cloudinary.com/jlengstorf/image/upload/f_auto,q_auto,w_50/v1596146333/netlify/netliheart.png"
-          alt="love"
-        />{' '}
-        by the{' '}
-        <a href="https://www.netlify.com/?utm_source=jamstack-explorers&utm_medium=footer-link&utm_campaign=devex">
-          Netlify
-        </a>{' '}
-        team
-      </footer>
+      <Footer />
     </div>
   );
 }
