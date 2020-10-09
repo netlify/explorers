@@ -168,12 +168,16 @@ section {
 }
 
 .row {
-  margin: 10px auto 30px;
+  margin: 60px auto 200px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, 250px);
   grid-column-gap: 30px;
   grid-row-gap: 80px;
+}
+
+.margintop-lg {
+  margin-top: 100px;
 }
 
 @media screen and (max-width: 900px) {
