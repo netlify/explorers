@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "next build && next export",
+    "build": "next build",
+    "postbuild": "next-on-netlify",
     "dev": "next dev",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "prestart": "npm run build",
@@ -15,7 +16,7 @@
     "netlify-plugin-cache-nextjs": "^1.5.0",
     "next": "^9.5.2",
     "next-mdx-remote": "^1.0.0",
-    "node-fetch": "^2.6.1",
+    "next-on-netlify": "^2.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
