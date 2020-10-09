@@ -6,7 +6,7 @@ const VideoCard = ({
   video
 }) => {
   const bkStyle = {
-    background: `url(${video.coverImage.asset.url}) center center no-repeat`,
+    background: `url(${video.coverImage.asset.url}) no-repeat center center; background-size: cover !important`,
   };
 
   return (
