@@ -340,7 +340,7 @@ function Astronaut({ width }) {
           id="luminosity-noclip-4"
           x="8832"
           y="-8704"
-          width="-32766"
+          width="32766"
           height="32766"
           filterUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB"
