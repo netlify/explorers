@@ -1,26 +1,29 @@
 import styles from './VideoCard.module.css';
 import Link from 'next/link';
+import hydrate from 'next-mdx-remote/hydrate';
 
 const VideoCard = ({
-  video: { coverImage, title, instructor, avatar, body, slug },
+  video
 }) => {
   const bkStyle = {
-    background: `url(${coverImage}) center top no-repeat`,
+    background: `url(${video.coverImage.asset.url}) center center no-repeat`,
   };
 
   return (
     <div className={styles.card} style={bkStyle}>
       <div className={styles.cardinfo}>
         <div className={styles.carddescription}>
-          <h3>{title}</h3>
+          <h3>{video.title}</h3>
           <div className="avatarrow">
-            <p className="uppercase">{instructor}</p>
-            <img src={avatar} className="avatar" />
+            <p className="uppercase">{video.instructor.name}</p>
+            <img src={video.instructor.avatar.asset.url} className="avatar" />
           </div>
         </div>
-        <div>{body}</div>
+        <div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet nulla blanditiis laboriosam quia doloremque distinctio dolorum, velit.</p>
+        </div>
         <div className={styles.cardbutton}>
-          <Link href="/learn/[slug]" as={`/learn/${slug}`}>
+          <Link href="/learn/[slug]" as={`/learn/${video.slug.current}`}>
             <a className="btn btndark">Watch Course</a>
           </Link>
         </div>
