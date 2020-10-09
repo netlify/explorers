@@ -26,23 +26,6 @@
   color: white;
 }
 
-.footer {
-  font-size: 0.75rem;
-  margin: 4rem auto 0;
-  max-width: 90vw;
-  text-align: center;
-  vertical-align: top;
-}
-
-.footer a {
-  color: inherit;
-}
-
-.netliheart {
-  vertical-align: middle;
-  width: 25px;
-}
-
 .main {
   margin: 0 auto;
 }
