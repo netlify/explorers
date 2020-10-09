@@ -6,7 +6,7 @@ export default function Profile() {
     <Layout>
       <Hero>
         <h1>Explorer Sarah</h1>
-        <img src="http://placekitten.com/250/250" alt={`explorer's pic`} />
+        <img src="https://placekitten.com/250/250" alt={`explorer's pic`} />
       </Hero>
       <section>blah blah make edits here</section>
     </Layout>
