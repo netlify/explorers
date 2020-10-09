@@ -5,7 +5,7 @@ export function MissionsProvider({ children }) {
   const [missions, setMissions] = React.useState([]);
 
   React.useEffect(() => {
-    fetch('/.netlify/functions/get-mission-data')
+    fetch('/api/get-mission-data')
       .then((response) => response.json())
       .then((missions) => {
         setMissions(missions);
