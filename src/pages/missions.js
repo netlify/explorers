@@ -1,11 +1,10 @@
 import Layout from '@components/Layout';
-import HomeHero from '@components/HomeHero';
 import Link from 'next/link';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 import VideoCard from '@components/VideoCard';
 
-export default function Home({ missions }) {
+export default function MissionsPage({ missions }) {
   const videoplaceholder = new Array(6).fill(1).map((e, i) => ({
     id: i,
     title: `Video Title ${i}`,
@@ -17,17 +16,21 @@ export default function Home({ missions }) {
   }));
 
   return (
-    <Layout navtheme="light">
+    <Layout navtheme="dark">
       <div>
-        <HomeHero />
-
-        <section>
+        <section className="intro">
           <div className="sectioncontain">
-            <h2>Missions</h2>
+            <h1>Your Missions</h1>
+            <h2>Should you choose to accept them...</h2>
             <p>
               Here in Mission Control, you'll find missions covering all sorts
               of web development and Jamstack topics.
             </p>
+          </div>
+        </section>
+
+        <section>
+          <div className="sectioncontain">
             {missions.map((mission, index) => (
               <div key={index}>
                 <h3>
