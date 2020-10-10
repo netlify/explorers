@@ -11,7 +11,8 @@
   width: 100%;
   padding: 10px 15px 15px;
   position: absolute;
-  z-index: 200px;
+  z-index: 200;
+  height: 150px;
   bottom: 0;
 }
 
@@ -26,6 +27,7 @@
 }
 
 .cardbutton {
-  float: right;
-  margin-top: 10px;
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
 }
