@@ -23,6 +23,7 @@
     "next-on-netlify": "^2.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-svg-radar-chart": "^1.2.0",
     "simple-oauth2": "^4.1.0",
     "uuid": "^8.3.1"
   },

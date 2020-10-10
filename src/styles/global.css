@@ -199,6 +199,29 @@ section {
 
 /* ---- SVG STYLES ----- */
 
+/* Radar */
+
+.radar {
+  margin: 30px 0;
+}
+
+.radar text {
+  fill: #ccc;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.radar circle,
+.radar polyline {
+  fill: none;
+  stroke: rgb(53, 53, 53);
+  stroke-width: 1px;
+}
+
+.radar .shape {
+  mask: url(#Mask);
+}
+
 /* Astronaut */
 
 .astronaut .cls-1 {
