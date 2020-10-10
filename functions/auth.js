@@ -1,11 +1,11 @@
-const oauth = require("./util/oauth");
+const oauth = require('./util/oauth');
 
 exports.handler = async (event) => {
   if (!event.queryStringParameters) {
     return {
       statusCode: 401,
       body: JSON.stringify({
-        error: "Missing required parameters `url` and `csrf`",
+        error: 'Missing required parameters `url` and `csrf`',
       }),
     };
   }
@@ -18,15 +18,15 @@ exports.handler = async (event) => {
 
     // for now, this is always blank. in the future, specific scopes will be
     // required to perform actions on the user’s behalf
-    scope: "",
+    scope: '',
   });
 
   return {
     statusCode: 302,
     headers: {
       Location: authorizationURI,
-      "Cache-Control": "no-cache",
+      'Cache-Control': 'no-cache',
     },
-    body: "redirecting to authorization...",
+    body: 'redirecting to authorization...',
   };
 };
