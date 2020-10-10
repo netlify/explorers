@@ -9,12 +9,13 @@ export function StagesProvider({ children }) {
       .then((response) => response.json())
       .then((stages) => {
         setStages(stages);
-      })
+      });
   }, []);
 
   const state = {
     stages,
-    getStageByMission: (mission) => stages.find((stage) => stage.mission === mission),
+    getStageByMission: (mission) =>
+      stages.find((stage) => stage.mission === mission),
   };
 
   const updateFns = {
@@ -36,7 +37,7 @@ export function useStagesState() {
   if (state === undefined) {
     throw new Error('useStagesState must be used within StatesProvider');
   }
-  
+
   return state;
 }
 

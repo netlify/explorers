@@ -17,7 +17,7 @@ exports.handler = async () => {
           }
         }
       `,
-      variables: {},
+        variables: {},
       }),
     }
   ).then((response) => response.json());
@@ -25,5 +25,5 @@ exports.handler = async () => {
   return {
     statusCode: 200,
     body: JSON.stringify(data.allStage),
-  }
-}
+  };
+};
