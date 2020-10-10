@@ -1,4 +1,4 @@
-exports.handler = async () => {
+export default async function handler(_req, res) {
   const { data } = await fetch(
     'https://q8efilev.api.sanity.io/v1/graphql/production/default',
     {
@@ -20,8 +20,5 @@ exports.handler = async () => {
     }
   ).then((response) => response.json());
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(data.allStage),
-  };
-};
+  res.status(200).json(data.allStage);
+}
