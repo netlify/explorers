@@ -4,9 +4,22 @@
   background: #1f2125;
   padding: 80px 40px;
   font-size: 15px;
+  text-align: center;
 }
 
 .section {
   max-width: 400px;
   float: right;
+}
+
+.username {
+  letter-spacing: 0.06rem;
+  margin-bottom: 0.5rem;
+}
+
+h4.usertitle {
+  text-transform: uppercase;
+  letter-spacing: 0.04rem;
+  color: #888;
+  margin-top: 0;
 }

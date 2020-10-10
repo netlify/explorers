@@ -1,5 +1,7 @@
 .svg {
-  width: 100%;
+  width: 50%;
+  margin: 0 auto;
+  display: table;
 }
 
 .offset1 {
@@ -12,10 +14,21 @@
   stop-opacity: 1;
 }
 
+.offset3 {
+  stop-color: var(--color-pink);
+  stop-opacity: 1;
+}
+
+.offset4 {
+  stop-color: var(--color-purple);
+  stop-opacity: 1;
+}
+
 .stroke {
   fill: none;
   stroke-width: 5px;
-  stroke: white;
   stroke-dasharray: 200;
   stroke-linecap: round;
+  transform-origin: 50% 50%;
+  transform: rotate(-90deg);
 }

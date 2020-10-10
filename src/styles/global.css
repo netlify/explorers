@@ -26,6 +26,10 @@
   --color-black: #111;
   --color-primary: teal;
   --color-white: #fff;
+  --color-pink: #e94e93;
+  --color-deeppink: #d04ce4;
+  --color-purple: #9f44df;
+  --color-deeppurple: #7b3bea;
 
   /* typography */
   --color-text-base: var(--color-gray);
@@ -76,16 +80,15 @@ h6 {
   color: var(--color-black);
   line-height: var(--line-height-heading);
   font-weight: 600;
+  margin: 1rem 0;
 }
 
 h1 {
   font-size: 2.5rem;
-  margin: 1rem 0;
 }
 
 h2 {
   font-size: 2rem;
-  margin: 1rem 0;
   font-weight: 400;
 }
 
