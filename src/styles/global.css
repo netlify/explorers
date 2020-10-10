@@ -130,6 +130,7 @@ section {
   text-decoration: none;
   vertical-align: middle;
   width: auto;
+  cursor: pointer;
 }
 
 .btn.btnprimary {

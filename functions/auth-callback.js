@@ -1,11 +1,11 @@
-const qs = require("querystring");
-const oauth = require("./util/oauth");
+const qs = require('querystring');
+const oauth = require('./util/oauth');
 
 exports.handler = async (event) => {
   if (!event.queryStringParameters) {
     return {
       statusCode: 401,
-      body: JSON.stringify({ error: "Not authorized" }),
+      body: JSON.stringify({ error: 'Not authorized' }),
     };
   }
 
@@ -24,12 +24,12 @@ exports.handler = async (event) => {
       statusCode: 302,
       headers: {
         Location: `${url}#csrf=${csrf}&token=${token.access_token}`,
-        "Cache-Control": "no-cache",
+        'Cache-Control': 'no-cache',
       },
-      body: "redirecting to application...",
+      body: 'redirecting to application...',
     };
   } catch (err) {
-    console.error("Access token error", err.message);
+    console.error('Access token error', err.message);
     console.error(err);
 
     return {

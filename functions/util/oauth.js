@@ -1,9 +1,9 @@
-const { AuthorizationCode } = require("simple-oauth2");
+const { AuthorizationCode } = require('simple-oauth2');
 
 function createAuthClient(credentials) {
   if (!credentials.client.id || !credentials.client.secret) {
     throw new Error(
-      "Missing a valid Netlify OAuth client ID and secret. Get these at https://app.netlify.com/user/applications"
+      'Missing a valid Netlify OAuth client ID and secret. Get these at https://app.netlify.com/user/applications'
     );
   }
 
@@ -17,8 +17,8 @@ module.exports = createAuthClient({
     secret: process.env.NETLIFY_OAUTH_CLIENT_SECRET,
   },
   auth: {
-    tokenHost: "https://api.netlify.com",
-    tokenPath: "https://api.netlify.com/oauth/token",
-    authorizePath: "https://app.netlify.com/authorize",
+    tokenHost: 'https://api.netlify.com',
+    tokenPath: 'https://api.netlify.com/oauth/token',
+    authorizePath: 'https://app.netlify.com/authorize',
   },
 });
