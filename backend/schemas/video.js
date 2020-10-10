@@ -29,20 +29,7 @@ export default {
       name: 'cloudinaryVideo',
       title: 'Video',
       type: 'cloudinary.video',
-    },
-    {
-      name: 'coverImage',
-      title: 'Cover Image',
-      type: 'image'
-    },
-    {
-      name: 'instructor',
-      title: 'Instructor',
-      type: 'reference',
-      to: [{
-        type: 'instructor'
-      }]
-    },
+    }
   ],
 
   preview: {
