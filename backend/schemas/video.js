@@ -33,15 +33,17 @@ export default {
     {
       name: 'coverImage',
       title: 'Cover Image',
-      type: 'image'
+      type: 'image',
     },
     {
       name: 'instructor',
       title: 'Instructor',
       type: 'reference',
-      to: [{
-        type: 'instructor'
-      }]
+      to: [
+        {
+          type: 'instructor',
+        },
+      ],
     },
   ],
 

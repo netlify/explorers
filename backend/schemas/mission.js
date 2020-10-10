@@ -7,13 +7,13 @@ export default {
       name: 'title',
       title: 'Mission Title',
       type: 'string',
-      validation: Rule => Rule.required().min(2).max(70)
+      validation: (Rule) => Rule.required().min(2).max(70),
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
       options: {
         source: 'title',
         maxLength: 96,
@@ -30,15 +30,17 @@ export default {
     {
       name: 'coverImage',
       title: 'Cover Image',
-      type: 'image'
+      type: 'image',
     },
     {
       name: 'instructor',
       title: 'Instructor',
       type: 'reference',
-      to: [{
-        type: 'instructor'
-      }]
+      to: [
+        {
+          type: 'instructor',
+        },
+      ],
     },
     {
       name: 'stages',
