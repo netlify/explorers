@@ -2,9 +2,7 @@ import styles from './VideoCard.module.css';
 import Link from 'next/link';
 import hydrate from 'next-mdx-remote/hydrate';
 
-const VideoCard = ({
-  video
-}) => {
+const VideoCard = ({ video }) => {
   const bkStyle = {
     background: `url(${video.coverImage.asset.url}) no-repeat center center; background-size: cover !important`,
   };
@@ -20,7 +18,10 @@ const VideoCard = ({
           </div>
         </div>
         <div>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet nulla blanditiis laboriosam quia doloremque distinctio dolorum, velit.</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet nulla
+            blanditiis laboriosam quia doloremque distinctio dolorum, velit.
+          </p>
         </div>
         <div className={styles.cardbutton}>
           <Link href="/learn/[slug]" as={`/learn/${video.slug.current}`}>
