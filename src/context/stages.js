@@ -5,7 +5,7 @@ export function StagesProvider({ children }) {
   const [stages, setStages] = React.useState([]);
 
   React.useEffect(() => {
-    fetch('/api/get-stages-data')
+    fetch('/api/get-stage-data')
       .then((response) => response.json())
       .then((stages) => {
         setStages(stages);
