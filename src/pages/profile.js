@@ -1,42 +1,47 @@
-import { useEffect, useState } from 'react';
 import Layout from '@components/Layout';
 import Hero from '@components/Hero';
-import { redirectToOAuth, getTokenFromHash } from '../util/oauth';
+import { useUserState } from 'src/context/user';
 
 export default function Profile() {
-  const [token, setToken] = useState();
+  const { token, user, status, redirectToOAuth } = useUserState();
 
-  useEffect(() => {
-    const storedToken = window.localStorage.getItem('nf-session');
-    const accessToken = storedToken
-      ? JSON.parse(storedToken)?.access_token
-      : false;
+  if (!token) {
+    return (
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: 500,
+        }}
+      >
+        <button onClick={() => redirectToOAuth()}>Log In With Netlify</button>
+      </div>
+    );
+  }
 
-    setToken(accessToken || getTokenFromHash());
-  }, []);
+  if (status === 'loading') {
+    return (
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: 500,
+        }}
+      >
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <Layout>
-      {token ? (
-        <>
-          <Hero>
-            <h1>Explorer Sarah</h1>
-            <img src="https://placekitten.com/250/250" alt={`explorer's pic`} />
-          </Hero>
-          <section>blah blah make edits here</section>
-        </>
-      ) : (
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: 500,
-          }}
-        >
-          <button onClick={() => redirectToOAuth()}>Log In With Netlify</button>
-        </div>
-      )}
+      <Hero>
+        <h1>Explorer: {user.full_name}</h1>
+        <img src={user.avatar_url} alt={`${user.full_name}’s avatar`} />
+      </Hero>
+      <section>blah blah make edits here</section>
     </Layout>
   );
 }

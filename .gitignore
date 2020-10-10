@@ -73,3 +73,6 @@ yarn-error.log
 
 # Local Netlify folder
 .netlify
+
+out_functions
+out_publish
