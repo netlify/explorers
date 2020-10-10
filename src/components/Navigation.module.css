@@ -54,3 +54,14 @@
 .navlight a {
   color: #082c40;
 }
+
+.profile {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 40px;
+}

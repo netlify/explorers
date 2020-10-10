@@ -1,7 +1,10 @@
 import styles from './Navigation.module.css';
 import Link from 'next/link';
+import { useUserState } from 'src/context/user';
 
 function Navigation({ theme }) {
+  const { status, user } = useUserState();
+
   return (
     <nav
       className={`${styles.nav} ${
@@ -58,9 +61,20 @@ function Navigation({ theme }) {
           </Link>
         </li>
       </ul>
-      <Link href="/profile">
-        <a>Username</a>
-      </Link>
+      {status === 'loaded' && (
+        <>
+          <Link href="/profile">
+            <a className={styles.profile}>
+              <span className={styles.username}>{user.full_name}</span>
+              <img
+                className={styles.avatar}
+                src={user.avatar_url}
+                alt={`${user.full_name}’s avatar`}
+              />
+            </a>
+          </Link>
+        </>
+      )}
     </nav>
   );
 }
