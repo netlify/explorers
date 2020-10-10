@@ -7,8 +7,8 @@ function HomeHero({ textcontent }) {
   return (
     <Hero>
       <div>
-        <h1>Jamstack Explorers</h1>
-        <h2>Learning Platform</h2>
+        <h1 className={styles.heroh1}>Jamstack Explorers</h1>
+        <h2 className={styles.heroh2}>Learning Platform</h2>
         <p>
           Greetings, fellow explorer! Welcome to your mission control — a place
           to learn about building for the web with modern tools and techniques.
