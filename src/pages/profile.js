@@ -2,6 +2,7 @@ import Layout from '@components/Layout';
 import Hero from '@components/Hero';
 import UserSidebar from '@components/UserSidebar';
 import { useUserState } from 'src/context/user';
+import UserMaincontent from '@components/UserMaincontent';
 
 export default function Profile() {
   const { token, user, status, redirectToOAuth } = useUserState();
@@ -54,6 +55,7 @@ export default function Profile() {
           background: `white`
         }}></div>
         <UserSidebar user={user} />
+        <UserMaincontent user={user} />
       </div>
     </Layout>
   );
