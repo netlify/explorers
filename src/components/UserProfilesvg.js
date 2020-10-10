@@ -1,4 +1,3 @@
-import UserMaincontent from './UserMaincontent';
 import styles from './UserProfilesvg.module.css';
 
 function UserProfilesvg({ user }) {
@@ -9,9 +8,15 @@ function UserProfilesvg({ user }) {
         <clipPath id="userclip" clipPathUnits="userSpaceOnUse">
           <circle cx="50" cy="50" r="35"/>
         </clipPath>
+
+        <linearGradient id="grad1" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" className={styles.offset1} />
+          <stop offset="100%" className={styles.offset2} />
+        </linearGradient>
       </defs>  
 
-      <circle r="50" cx="50" cy="50" />
+      <circle r="50" cx="50" cy="50" fill="url(#grad1)" />
+      <circle r="46" cx="50" cy="50" className={styles.stroke}/>
       <image href={user.avatar_url} x="15" y="15" height="70" width="70" clipPath="url(#userclip)" />
     </svg>
   );

@@ -1,3 +1,21 @@
 .svg {
   width: 100%;
 }
+
+.offset1 {
+  stop-color:#252629;
+  stop-opacity: 1;
+}
+
+.offset1 {
+  stop-color: #2b2c2e;
+  stop-opacity: 1;
+}
+
+.stroke {
+  fill: none;
+  stroke-width: 5px;
+  stroke: white;
+  stroke-dasharray: 200;
+  stroke-linecap: round;
+}
