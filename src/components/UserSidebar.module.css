@@ -2,4 +2,11 @@
   width: 100%;
   min-height: calc(100vh - 62px);
   background: #1f2125;
+  padding: 80px 40px;
+  font-size: 15px;
+}
+
+.section {
+  max-width: 400px;
+  float: right;
 }
