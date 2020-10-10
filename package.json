@@ -16,6 +16,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "cloudinary-react": "^1.6.7",
     "fs-extra": "^9.0.1",
     "netlify-plugin-cache-nextjs": "^1.5.2",
     "next": "^9.5.4",

@@ -4,11 +4,13 @@
 
 import { Main } from 'next/document';
 import MissionTracker from '@components/MissionTracker';
+import VideoPlayer from '@components/VideoPlayer';
 
 const Lesson = ({ missionSlug }) => {
   return (
     <section>
       <h1>Lesson: {missionSlug}</h1>
+      <VideoPlayer />
       <MissionTracker />
     </section>
   );
