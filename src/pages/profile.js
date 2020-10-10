@@ -1,9 +1,14 @@
 import Layout from '@components/Layout';
 import Hero from '@components/Hero';
+import UserSidebar from '@components/UserSidebar';
 import { useUserState } from 'src/context/user';
 
 export default function Profile() {
   const { token, user, status, redirectToOAuth } = useUserState();
+  const placeholderdata = {
+    minutes: 540,
+    accredidation: 36
+  }
 
   if (!token) {
     return (
@@ -37,11 +42,19 @@ export default function Profile() {
 
   return (
     <Layout>
-      <Hero>
-        <h1>Explorer: {user.full_name}</h1>
-        <img src={user.avatar_url} alt={`${user.full_name}’s avatar`} />
-      </Hero>
-      <section>blah blah make edits here</section>
+      <div style={{
+          display: `grid`,
+          gridTemplateColumns: `1fr 2fr`,
+          gridTemplateRows: `62px 1fr`,
+          width: `100vw`,
+          minHeight: `100vh`
+      }}>
+        <div style={{
+          gridArea: `1 / 1 / 2 / 3`,
+          background: `white`
+        }}></div>
+        <UserSidebar user={user} />
+      </div>
     </Layout>
   );
 }
