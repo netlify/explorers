@@ -770,3 +770,154 @@ section {
 .astronaut .cls-144 {
   filter: url(#luminosity-noclip);
 }
+
+/* -- floating astronaut -- */
+
+.fclass1 {
+  fill: #000f36;
+}
+
+.fclass1,
+.fclass10,
+.fclass11,
+.fclass12,
+.fclass13,
+.fclass14,
+.fclass15,
+.fclass16,
+.fclass17,
+.fclass18,
+.fclass19,
+.fclass2,
+.fclass20,
+.fclass21,
+.fclass22,
+.fclass23,
+.fclass24,
+.fclass25,
+.fclass26,
+.fclass27,
+.fclass28,
+.fclass29,
+.fclass3,
+.fclass4,
+.fclass5,
+.fclass6,
+.fclass7,
+.fclass8,
+.fclass9 {
+  fill-rule: evenodd;
+}
+
+.fclass2 {
+  fill: #1e4769;
+}
+
+.fclass3 {
+  fill: #000528;
+}
+
+.fclass4 {
+  fill: #5684a0;
+}
+
+.fclass5 {
+  fill: #f2f9fd;
+}
+
+.fclass6 {
+  fill: #b4d3e2;
+}
+
+.fclass7 {
+  fill: #002c51;
+}
+
+.fclass8 {
+  fill: #002d49;
+}
+
+.fclass9 {
+  fill: #000b2f;
+}
+
+.fclass10 {
+  fill: #001535;
+}
+
+.fclass11 {
+  fill: #385a7e;
+}
+
+.fclass13 {
+  fill: #5e80a9;
+}
+
+.fclass14 {
+  fill: #568299;
+}
+
+.fclass15 {
+  fill: #32577e;
+}
+
+.fclass16 {
+  fill: #002646;
+}
+
+.fclass17 {
+  fill: #5380a0;
+}
+
+.fclass18 {
+  fill: #b7d9ea;
+}
+
+.fclass19 {
+  fill: #c9ebf3;
+}
+
+.fclass20 {
+  fill: #fff;
+}
+
+.fclass21 {
+  fill: #51619b;
+}
+
+.fclass22 {
+  fill: #224a5c;
+}
+
+.fclass23 {
+  fill: #365c7d;
+}
+
+.fclass24 {
+  fill: #00002e;
+}
+
+.fclass25 {
+  fill: #3d5f80;
+}
+
+.fclass26 {
+  fill: #00304c;
+}
+
+.fclass27 {
+  fill: #001b4a;
+}
+
+.fclass28,
+.fclass30 {
+  fill: #001641;
+}
+
+.fclass29 {
+  fill: #5881a7;
+}
+
+.fclass31 {
+  fill: #b2d1e5;
+}
