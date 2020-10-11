@@ -1,4 +1,4 @@
-import StageSummary from '../../components/StageSummary';
+import StageSummary from '@components/StageSummary';
 import { useStagesState } from '../../context/stages';
 
 export default function Stages() {
