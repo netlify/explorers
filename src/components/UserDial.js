@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react';
 import styles from './UserDial.module.css';
+import { useUserState } from 'src/context/user';
 import gsap from 'gsap';
 
-function UserDial({ progress = 0.44 }) {
+function UserDial() {
+  const { userdata } = useUserState();
+  const progress = userdata.accredidationProgress;
+
   useEffect(() => {
     gsap.set('.dial', {
       rotation: 180 * progress,
@@ -17,7 +21,7 @@ function UserDial({ progress = 0.44 }) {
 
   return (
     <svg
-      viewBox="100 100 800 400"
+      viewBox="100 150 800 350"
       xmlns="http://www.w3.org/2000/svg"
       aria-labelledby="knob"
       role="presentation"

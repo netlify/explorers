@@ -2,7 +2,7 @@
   width: 100%;
   min-height: calc(100vh - 62px);
   background: #1f2125;
-  padding: 80px 40px;
+  padding: 60px 40px;
   font-size: 15px;
   text-align: center;
 }
@@ -19,6 +19,10 @@
 
 h4.usertitle {
   margin-top: 0;
+}
+
+h4.accredidation {
+  margin-bottom: 10px;
 }
 
 .hr {
