@@ -72,7 +72,7 @@ sanity graphql deploy
 
 ## To Format Correctly
 
-We have a prettier post-commit hook. To run formatting on the command line:
+We have a prettier pre-commit hook. To run formatting on the command line:
 
 ```bash
 npm run format
