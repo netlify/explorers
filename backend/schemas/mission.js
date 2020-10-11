@@ -20,9 +20,16 @@ export default {
       },
     },
     {
+      name: 'blurb',
+      title: 'Small Blurb about Mission that Shows in Card',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'markdown',
+      validation: (Rule) => Rule.required(),
       options: {
         minRows: 15,
       },
@@ -31,11 +38,13 @@ export default {
       name: 'coverImage',
       title: 'Cover Image',
       type: 'image',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'instructor',
       title: 'Instructor',
       type: 'reference',
+      validation: (Rule) => Rule.required(),
       to: [
         {
           type: 'instructor',

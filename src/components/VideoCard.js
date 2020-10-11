@@ -1,6 +1,5 @@
 import styles from './VideoCard.module.css';
 import Link from 'next/link';
-import hydrate from 'next-mdx-remote/hydrate';
 
 const VideoCard = ({ video }) => {
   const bkStyle = {
@@ -18,10 +17,7 @@ const VideoCard = ({ video }) => {
           </div>
         </div>
         <div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet nulla
-            blanditiis laboriosam quia doloremque distinctio dolorum, velit.
-          </p>
+          <p>{video.blurb}</p>
         </div>
         <div className={styles.cardbutton}>
           <Link href="/learn/[slug]" as={`/learn/${video.slug.current}`}>
