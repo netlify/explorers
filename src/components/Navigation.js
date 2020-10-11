@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useUserState } from 'src/context/user';
 
 function Navigation({ theme }) {
-  const { status, user } = useUserState();
+  const { token, user, status, redirectToOAuth } = useUserState();
 
   return (
     <nav
@@ -61,7 +61,7 @@ function Navigation({ theme }) {
           </Link>
         </li>
       </ul>
-      {status === 'loaded' && (
+      {status === 'loaded' ? (
         <>
           <Link href="/profile">
             <a className={styles.profile}>
@@ -74,6 +74,10 @@ function Navigation({ theme }) {
             </a>
           </Link>
         </>
+      ) : (
+        <button onClick={() => redirectToOAuth()} className="btn">
+          Log In with Netlify
+        </button>
       )}
     </nav>
   );

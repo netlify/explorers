@@ -1,9 +1,7 @@
 import styles from './VideoCard.module.css';
 import Link from 'next/link';
 
-const VideoCard = ({
-  video
-}) => {
+const VideoCard = ({ video }) => {
   const bkStyle = {
     background: `url(${video.coverImage.asset.url}) no-repeat center center; background-size: cover !important`,
   };
