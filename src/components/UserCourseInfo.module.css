@@ -1,0 +1,25 @@
+.coursecontainer {
+  display: grid;
+  grid-template-columns: 40px 1fr 3fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 3px;
+  margin-bottom: 30px;
+}
+
+.coverimage {
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+.title {
+  grid-area: 1 / 2 / 2 / 3;
+  text-transform: uppercase;
+}
+
+.instructor {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.tracker {
+  grid-area: 1 / 3 / 3 / 4;
+}
