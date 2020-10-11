@@ -3,12 +3,18 @@
 // /learn/{stage-name}
 
 import { Main } from 'next/document';
+import dynamic from 'next/dynamic';
 import MissionTracker from '@components/MissionTracker';
+const VideoPlayer = dynamic(() => import('@components/VideoPlayer'), {
+  ssr: false,
+  loading: () => <p>some skeleton sarah will make all pretty</p>,
+});
 
 const Lesson = ({ missionSlug }) => {
   return (
     <section>
       <h1>Lesson: {missionSlug}</h1>
+      <VideoPlayer />
       <MissionTracker />
     </section>
   );
