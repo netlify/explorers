@@ -70,6 +70,14 @@ sanity deploy
 sanity graphql deploy
 ```
 
+## To Format Correctly
+
+We have a prettier post-deploy hook. To run formatting on the command line:
+
+```bash
+npm run format
+```
+
 ## How to commit to this repo!
 
 - We use the following branch convention:

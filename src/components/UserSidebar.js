@@ -1,9 +1,12 @@
 import styles from './UserSidebar.module.css';
-import UserProfilesvg from '@components/UserProfilesvg';
-import UserRadar from '@components/UserRadar';
-import UserDial from '@components/UserDial';
+import UserProfilesvg from './UserProfilesvg';
+import UserRadar from './UserRadar';
+import UserDial from './UserDial';
+import { useUserState } from 'src/context/user';
 
-function UserSidebar({ user }) {
+function UserSidebar() {
+  const { user } = useUserState();
+
   return (
     <div className={styles.sidebar}>
       <div className={styles.section}>

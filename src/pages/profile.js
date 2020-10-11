@@ -4,7 +4,7 @@ import UserMaincontent from '@components/UserMaincontent';
 import { useUserState } from 'src/context/user';
 
 export default function Profile() {
-  const { token, user, status, redirectToOAuth } = useUserState();
+  const { token, status, redirectToOAuth } = useUserState();
 
   if (!token) {
     return (
@@ -53,8 +53,8 @@ export default function Profile() {
             background: `white`,
           }}
         ></div>
-        <UserSidebar user={user} />
-        <UserMaincontent user={user} />
+        <UserSidebar />
+        <UserMaincontent />
       </div>
     </Layout>
   );
