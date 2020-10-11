@@ -42,6 +42,7 @@ export const getStaticProps = async () => {
           {
             allMission {
               title
+              blurb
               description
               slug {
                 current
