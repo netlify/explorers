@@ -75,7 +75,9 @@ function Navigation({ theme }) {
           </Link>
         </>
       ) : (
-        <button onClick={() => redirectToOAuth()} className="btn">Log In with Netlify</button>
+        <button onClick={() => redirectToOAuth()} className="btn">
+          Log In with Netlify
+        </button>
       )}
     </nav>
   );

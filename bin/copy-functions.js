@@ -9,4 +9,4 @@ const destPath = path.resolve(process.cwd(), 'out_functions');
 fs.ensureDirSync(destPath);
 fs.copySync(srcPath, destPath);
 
-console.log('copied functions to `out_functions`')
+console.log('copied functions to `out_functions`');
