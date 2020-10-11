@@ -1,13 +1,11 @@
-import Link from 'next/link';
+import Layout from '@components/Layout';
+import Header404 from '@components/Header404';
 
 const FourOhFour = () => {
   return (
-    <div>
-      <h1>404</h1>
-      <Link href="/">
-        <a>Go back home</a>
-      </Link>
-    </div>
+    <Layout navtheme="dark">
+      <Header404 />
+    </Layout>
   );
 };
 

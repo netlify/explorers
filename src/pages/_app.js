@@ -1,6 +1,7 @@
 import React from 'react';
 import { MissionsProvider } from '../context/missions';
 import { UserProvider } from '../context/user';
+import { StagesProvider } from '../context/stages';
 
 // global styles
 import '../styles/global.css';
@@ -9,7 +10,9 @@ export default function Explorers({ Component, pageProps }) {
   return (
     <MissionsProvider>
       <UserProvider>
-        <Component {...pageProps} />
+        <StagesProvider>
+          <Component {...pageProps} />
+        </StagesProvider>
       </UserProvider>
     </MissionsProvider>
   );
