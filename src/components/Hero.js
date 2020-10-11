@@ -1,5 +1,4 @@
 import styles from './Hero.module.css';
-import Astronaut from '@components/Astronaut';
 
 function Hero({ children }) {
   return (

@@ -1,0 +1,28 @@
+.svg {
+  width: 100%;
+}
+
+.linefront,
+.lineback {
+  fill: none;
+  stroke-width: 8px;
+  stroke-linecap: round;
+}
+
+.lineback {
+  stroke: #dddddd;
+}
+
+.offset1 {
+  stop-color: var(--color-pink);
+  stop-opacity: 1;
+}
+
+.offset2 {
+  stop-color: var(--color-purple);
+  stop-opacity: 1;
+}
+
+.circle {
+  fill: white;
+}
