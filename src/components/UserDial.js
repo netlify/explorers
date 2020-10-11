@@ -17,7 +17,7 @@ function UserDial({ progress = 0.44 }) {
 
   return (
     <svg
-      viewBox="100 100 800 400"
+      viewBox="100 150 800 350"
       xmlns="http://www.w3.org/2000/svg"
       aria-labelledby="knob"
       role="presentation"

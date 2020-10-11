@@ -34,7 +34,7 @@
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "husky": "^4.3.0",
     "netlify-cli": "^2.65.1",
-    "prettier": "2.1.2"
+    "prettier": "^2.1.2"
   },
   "husky": {
     "hooks": {

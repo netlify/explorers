@@ -1,7 +1,7 @@
 .activity {
-  padding: 50px 50px 150px;
+  padding: 20px;
   background: #eee;
-  height: 400px;
+  height: 250px;
   width: 600px;
   position: relative;
 }
@@ -9,6 +9,7 @@
 .activitychart {
   position: absolute;
   width: 100%;
+  opacity: 0.8;
   object-fit: cover;
   -webkit-mask-image: linear-gradient(
     to top,

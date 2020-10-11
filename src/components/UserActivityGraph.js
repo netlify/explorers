@@ -3,20 +3,24 @@ import { AreaChart } from 'react-chartkick';
 import 'chart.js';
 
 function UserActivityGraph() {
+  const placeholderdata = {
+    '2017-05-13': 2,
+    '2017-05-14': 5,
+    '2017-05-15': 2,
+    '2017-05-16': 6,
+    '2017-05-17': 1,
+    '2017-05-18': 4,
+  };
+
   return (
     <div className={styles.activity}>
       <div className={styles.activitychart}>
         <AreaChart
-          data={{
-            '2017-05-13': 2,
-            '2017-05-14': 5,
-            '2017-05-15': 6,
-            '2017-05-16': 0,
-          }}
+          data={placeholderdata}
           colors={['magenta', '#333']}
           ytitle="Minutes Watched"
-          width="500px"
-          height="300px"
+          width="600px"
+          height="200px"
           id={1}
           points={false}
         />
@@ -24,16 +28,11 @@ function UserActivityGraph() {
 
       <div>
         <AreaChart
-          data={{
-            '2017-05-13': 2,
-            '2017-05-14': 5,
-            '2017-05-15': 6,
-            '2017-05-16': 0,
-          }}
+          data={placeholderdata}
           colors={['purple', '#333']}
           ytitle="Minutes Watched"
-          width="500px"
-          height="300px"
+          width="600px"
+          height="200px"
           id={2}
           points={false}
         />
