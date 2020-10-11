@@ -92,6 +92,13 @@ h2 {
   font-weight: 400;
 }
 
+h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.04rem;
+  color: #888;
+  font-weight: 400;
+}
+
 a,
 a:visited,
 a:active {

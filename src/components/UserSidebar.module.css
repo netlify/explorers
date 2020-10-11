@@ -18,11 +18,7 @@
 }
 
 h4.usertitle {
-  text-transform: uppercase;
-  letter-spacing: 0.04rem;
-  color: #888;
   margin-top: 0;
-  font-weight: 400;
 }
 
 .hr {

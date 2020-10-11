@@ -21,7 +21,7 @@ function UserMaincontent({ user }) {
     <aside className={styles.main}>
       <div className={styles.section}>
         <div className={styles.profilecard}>
-          <h3>Courses</h3>
+          <h4>Your Courses</h4>
           {courses.map((course, index) => (
             <UserCourseInfo key={index} course={course} />
           ))}
