@@ -4,6 +4,7 @@ import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 import VideoCard from '@components/VideoCard';
 import UserDial from '@components/UserDial';
+import UserActivityGraph from '@components/UserActivityGraph';
 
 export default function MissionsPage({ missions }) {
   return (
@@ -31,6 +32,7 @@ export default function MissionsPage({ missions }) {
         <section>
           <div className="row">
             <UserDial />
+            <UserActivityGraph />
           </div>
         </section>
       </div>
