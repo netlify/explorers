@@ -2,7 +2,7 @@
 // /learn/{mission-name}
 // /learn/{stage-name}
 
-import { Main } from "next/document";
+import { Main } from 'next/document';
 import MissionTracker from '@components/MissionTracker';
 
 const Lesson = ({ missionSlug }) => {
