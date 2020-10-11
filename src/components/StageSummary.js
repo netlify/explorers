@@ -1,5 +1,3 @@
-import styles from './StageSummary.module.css';
-
 function StageSummary({ title }) {
   return (
     <div className={styles.stageSummary}>
