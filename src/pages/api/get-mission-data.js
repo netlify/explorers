@@ -14,6 +14,7 @@ export default async function handler(_req, res) {
               title
               description
               stages {
+                _id
                 title
               }
             }
