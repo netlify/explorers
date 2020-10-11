@@ -1,6 +1,9 @@
 import styles from './UserProfilesvg.module.css';
+import { useUserState } from 'src/context/user';
 
-function UserProfilesvg({ user }) {
+function UserProfilesvg() {
+  const { user } = useUserState();
+
   return (
     <svg
       className={styles.svg}

@@ -1,16 +1,10 @@
 import styles from './UserActivityGraph.module.css';
 import { AreaChart } from 'react-chartkick';
+import { useUserState } from 'src/context/user';
 import 'chart.js';
 
 function UserActivityGraph() {
-  const placeholderdata = {
-    '2017-05-13': 2,
-    '2017-05-14': 5,
-    '2017-05-15': 4,
-    '2017-05-16': 6,
-    '2017-05-17': 1,
-    '2017-05-18': 4,
-  };
+  const { userdata } = useUserState();
 
   const opts = {
     title: 'Minutes Watched',
@@ -23,7 +17,7 @@ function UserActivityGraph() {
     <div className={styles.activity}>
       <div className={styles.activitychart}>
         <AreaChart
-          data={placeholderdata}
+          data={userdata.activeDates}
           colors={['magenta', '#333']}
           ytitle={opts.title}
           width={opts.width}
@@ -35,7 +29,7 @@ function UserActivityGraph() {
 
       <div>
         <AreaChart
-          data={placeholderdata}
+          data={userdata.activeDates}
           colors={['purple', '#333']}
           ytitle={opts.title}
           width={opts.width}
