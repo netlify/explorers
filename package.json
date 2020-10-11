@@ -16,6 +16,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "chart.js": "^2.9.3",
     "fs-extra": "^9.0.1",
     "gsap": "^3.5.1",
     "netlify-plugin-cache-nextjs": "^1.5.2",
@@ -23,6 +24,7 @@
     "next-mdx-remote": "^1.0.0",
     "next-on-netlify": "^2.5.1",
     "react": "^16.13.1",
+    "react-chartkick": "^0.4.1",
     "react-dom": "^16.13.1",
     "react-svg-radar-chart": "^1.2.0",
     "simple-oauth2": "^4.1.0",

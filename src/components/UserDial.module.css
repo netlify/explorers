@@ -1,0 +1,59 @@
+/* top */
+
+.stroke1,
+.line1 {
+  fill: none;
+  stroke: salmon;
+  stroke-width: 1px;
+  transform-origin: 50% 100%;
+}
+
+.stroke2 {
+  fill: none;
+  stroke: teal;
+  stroke-width: 5px;
+  stroke-dasharray: 5px;
+}
+
+.stroke3 {
+  fill: none;
+  stroke: purple;
+  stroke-width: 25px;
+  stroke-dasharray: 2px 5px;
+}
+
+/* base */
+
+.stroke1b {
+  fill: none;
+  stroke: pink;
+  stroke-width: 1px;
+  transform-origin: 50% 100%;
+}
+
+.stroke2b {
+  fill: none;
+  stroke: #0eb2b2;
+  stroke-width: 5px;
+  stroke-dasharray: 5px;
+}
+
+.stroke3b {
+  fill: none;
+  stroke: magenta;
+  stroke-width: 25px;
+  stroke-dasharray: 2px 5px;
+}
+
+/* indicator */
+
+.line1 {
+  fill: none;
+  stroke: #555;
+  stroke-width: 1px;
+  transform-origin: 50% 100%;
+}
+
+.knob {
+  fill: #555;
+}
