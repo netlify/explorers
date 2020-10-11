@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react';
 import styles from './UserDial.module.css';
+import { useUserState } from 'src/context/user';
 import gsap from 'gsap';
 
-function UserDial({ progress = 0.44 }) {
+function UserDial() {
+  const { userdata } = useUserState();
+  const progress = userdata.accredidationProgress;
+
   useEffect(() => {
     gsap.set('.dial', {
       rotation: 180 * progress,

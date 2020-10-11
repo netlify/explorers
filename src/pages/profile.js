@@ -38,17 +38,21 @@ export default function Profile() {
 
   return (
     <Layout>
-      <div style={{
-        display: `grid`,
-        gridTemplateColumns: `1fr 2fr`,
-        gridTemplateRows: `62px 1fr`,
-        width: `100vw`,
-        minHeight: `100vh`
-      }}>
-        <div style={{
-          gridArea: `1 / 1 / 2 / 3`,
-          background: `white`
-        }}></div>
+      <div
+        style={{
+          display: `grid`,
+          gridTemplateColumns: `1fr 2fr`,
+          gridTemplateRows: `62px 1fr`,
+          width: `100vw`,
+          minHeight: `100vh`,
+        }}
+      >
+        <div
+          style={{
+            gridArea: `1 / 1 / 2 / 3`,
+            background: `white`,
+          }}
+        ></div>
         <UserSidebar user={user} />
         <UserMaincontent user={user} />
       </div>
