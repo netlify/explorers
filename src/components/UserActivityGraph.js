@@ -12,17 +12,24 @@ function UserActivityGraph() {
     '2017-05-18': 4,
   };
 
+  const opts = {
+    title: 'Minutes Watched',
+    width: '600px',
+    height: '200px',
+    points: false,
+  };
+
   return (
     <div className={styles.activity}>
       <div className={styles.activitychart}>
         <AreaChart
           data={placeholderdata}
           colors={['magenta', '#333']}
-          ytitle="Minutes Watched"
-          width="600px"
-          height="200px"
+          ytitle={opts.title}
+          width={opts.width}
+          height={opts.height}
+          points={opts.points}
           id={1}
-          points={false}
         />
       </div>
 
@@ -30,11 +37,11 @@ function UserActivityGraph() {
         <AreaChart
           data={placeholderdata}
           colors={['purple', '#333']}
-          ytitle="Minutes Watched"
-          width="600px"
-          height="200px"
+          ytitle={opts.title}
+          width={opts.width}
+          height={opts.height}
+          points={opts.points}
           id={2}
-          points={false}
         />
       </div>
     </div>
