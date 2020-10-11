@@ -3,6 +3,7 @@ import Link from 'next/link';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 import VideoCard from '@components/VideoCard';
+import UserDial from '@components/UserDial';
 
 export default function MissionsPage({ missions }) {
   return (
@@ -24,6 +25,12 @@ export default function MissionsPage({ missions }) {
             {missions.map((mission, index) => (
               <VideoCard key={index} video={mission} />
             ))}
+          </div>
+        </section>
+
+        <section>
+          <div className="row">
+            <UserDial />
           </div>
         </section>
       </div>
