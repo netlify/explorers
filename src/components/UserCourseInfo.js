@@ -1,4 +1,5 @@
 import styles from './UserCourseInfo.module.css';
+import Tracker from './Tracker';
 
 function UserCourseInfo({ course }) {
   return (
@@ -13,6 +14,7 @@ function UserCourseInfo({ course }) {
         <p>{course.instructor}</p>
       </div>
       <div className={styles.tracker}>
+        <Tracker progress={course.progress} />
       </div>
     </div>
   );

@@ -7,13 +7,13 @@ function UserMaincontent({ user }) {
       title: 'Vue and Nuxt',
       instructor: 'Sarah Drasner',
       coverImage: 'https://cdn.sanity.io/images/q8efilev/production/e4313495f322e448fec7f41b833b0dabb3799178-800x714.jpg',
-      percentCompletion: 0.6
+      progress: 0.6
     },
     {
       title: 'Next and React',
       instructor: 'Cassidy Williams',
       coverImage: 'https://cdn.sanity.io/images/q8efilev/production/e4313495f322e448fec7f41b833b0dabb3799178-800x714.jpg',
-      percentCompletion: 0.3
+      progress: 0.3
     }
   ]
 
