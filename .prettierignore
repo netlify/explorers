@@ -4,3 +4,4 @@ package-lock.json
 public
 .next
 backend/dist/static/js/app.bundle.js
+out_publish
