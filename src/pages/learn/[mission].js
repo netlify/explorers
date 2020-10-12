@@ -10,25 +10,28 @@ const VideoPlayer = dynamic(() => import('@components/VideoPlayer'), {
   loading: () => <p>some skeleton sarah will make all pretty</p>,
 });
 
-const Lesson = ({ missionSlug }) => {
+const Mission = ({ missionSlug }) => {
   return (
     <section>
-      <h1>Lesson: {missionSlug}</h1>
+      <h1>Mission: {missionSlug}</h1>
+      <p>test</p>
       <VideoPlayer />
       <MissionTracker />
     </section>
   );
 };
 
+// /learn/nextjs/
+
 export const getStaticProps = async ({ ...ctx }) => {
   // In here, we will do the logic to differentiate between
-  // missions and lessons, and send props to the Lesson
+  // missions and Missions, and send props to the Mission
   // component based on the route, and then render different
   // page types based on that!
 
   return {
     props: {
-      missionSlug: ctx.params.lesson,
+      missionSlug: ctx.params.mission,
     },
   };
 };
@@ -67,4 +70,4 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default Lesson;
+export default Mission;
