@@ -1,5 +1,5 @@
 export default async function handler(_req, res) {
-  const { data } = await fetch(process.env.SANITY_GRAPHQL_URL, {
+  const { data } = await fetch(process.env.NEXT_PUBLIC_SANITY_GRAPHQL_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
