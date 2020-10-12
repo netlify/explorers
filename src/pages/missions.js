@@ -1,10 +1,10 @@
 import Layout from '@components/Layout';
-import Link from 'next/link';
-import renderToString from 'next-mdx-remote/render-to-string';
-import hydrate from 'next-mdx-remote/hydrate';
 import VideoCard from '@components/VideoCard';
+import { useMissionsState } from '@context/missions';
 
-export default function MissionsPage({ missions }) {
+export default function MissionsPage() {
+  const { missions } = useMissionsState();
+
   return (
     <Layout navtheme="dark">
       <div>
@@ -30,56 +30,3 @@ export default function MissionsPage({ missions }) {
     </Layout>
   );
 }
-export const getStaticProps = async () => {
-  const data = await fetch(
-    'https://q8efilev.api.sanity.io/v1/graphql/production/default',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: `
-          {
-            allMission {
-              title
-              blurb
-              description
-              slug {
-                current
-              }
-              coverImage {
-                asset {
-                  url
-                }
-              }
-              instructor {
-                name
-                avatar {
-                  asset {
-                    url
-                  }
-                }
-              }
-            }
-          }
-        `,
-        variables: {},
-      }),
-    }
-  ).then((response) => response.json());
-
-  let promises = data.data.allMission.map(async (mission) => {
-    let renderedDescription = await renderToString(mission.description, {
-      components: {},
-    });
-
-    return { ...mission, renderedDescription };
-  });
-
-  let missions = await Promise.all(promises);
-
-  return {
-    props: { missions },
-  };
-};

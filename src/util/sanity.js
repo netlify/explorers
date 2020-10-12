@@ -1,21 +1,14 @@
-export default async function handler(_req, res) {
+export const sanityQuery = async ({ query, variables = {} }) => {
   const { data } = await fetch(process.env.SANITY_GRAPHQL_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      query: `
-        {
-          allStage {
-            _id
-            title
-          }
-        }
-      `,
-      variables: {},
+      query,
+      variables,
     }),
   }).then((response) => response.json());
 
-  res.status(200).json(data.allStage);
-}
+  return data;
+};
