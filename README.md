@@ -31,6 +31,12 @@ And there’s nothing I can do
 
 The frontend is a Next site. Env vars are in Netlify, so work with Netlify Dev for easier local development.
 
+#### Prerequisite
+
+- [Netlify CLI](https://docs.netlify.com/cli/get-started/#installation)
+
+#### Instructions
+
 ```bash
 # clone the repo
 git clone git@github.com:netlify/explorers.git
@@ -81,8 +87,15 @@ npm run format
 ## How to commit to this repo!
 
 - We use the following branch convention:
-  tzm/13/fixesThing
+
+  ```
+  // Structure
   <initials>/<issue #>/<title of issue camelcase>
+
+  // Example
+  sd/coolFeature
+  tzm/13/fixesThing
+  ```
 
 - Everything needs to be a pull request — no direct commits to `main`
 - PRs are merged with squash merges only and use [conventional commits](https://github.com/commitizen/cz-cli#if-your-repo-is-commitizen-friendly) for easier changelog generation
