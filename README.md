@@ -46,9 +46,6 @@ cd explorers/
 
 # install dependencies
 npm install
-
-# if you don’t already have it, install netlify-cli
-npm i -g netlify-cli
 ```
 
 Add the following env vars to `.env` at the project root:
