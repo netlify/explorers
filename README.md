@@ -31,6 +31,12 @@ And there’s nothing I can do
 
 The frontend is a Next site. Env vars are in Netlify, so work with Netlify Dev for easier local development.
 
+#### Prerequisite
+
+- [Netlify CLI](https://docs.netlify.com/cli/get-started/#installation)
+
+#### Instructions
+
 ```bash
 # clone the repo
 git clone git@github.com:netlify/explorers.git
