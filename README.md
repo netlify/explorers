@@ -87,8 +87,15 @@ npm run format
 ## How to commit to this repo!
 
 - We use the following branch convention:
-  tzm/13/fixesThing
+
+  ```
+  // Structure
   <initials>/<issue #>/<title of issue camelcase>
+
+  // Example
+  sd/coolFeature
+  tzm/13/fixesThing
+  ```
 
 - Everything needs to be a pull request — no direct commits to `main`
 - PRs are merged with squash merges only and use [conventional commits](https://github.com/commitizen/cz-cli#if-your-repo-is-commitizen-friendly) for easier changelog generation
