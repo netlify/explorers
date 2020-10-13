@@ -1,33 +1,46 @@
-import dynamic from 'next/dynamic';
 import MissionTracker from '@components/MissionTracker';
+import VideoPlayer from '@components/VideoPlayer';
+import { loadMissions } from '@context/missions';
+import Link from 'next/link';
 
-const VideoPlayer = dynamic(() => import('@components/VideoPlayer'), {
-  ssr: false,
-  loading: () => <p>some skeleton sarah will make all pretty</p>,
-});
-
-export default function Stage(props) {
+export default function Stage({ mission, stage }) {
   return (
     <>
-      <p>stage: {JSON.stringify(props)}</p>
+      <p>stage: {stage}</p>
+      <Link href={`/learn/${mission}`}>
+        <a>{mission}</a>
+      </Link>
       <VideoPlayer />
       <MissionTracker />
     </>
   );
 }
 
-export function getStaticProps({ ...ctx }) {
+export function getStaticProps({ params }) {
   return {
     props: {
-      ctx,
+      mission: params.mission,
+      stage: params.stage,
     },
   };
 }
 
-export function getStaticPaths() {
+export const getStaticPaths = async () => {
+  const missions = await loadMissions();
+
+  const stagePaths = missions
+    .map((mission) => {
+      const missionSlug = mission.slug.current;
+      return mission.stages?.map(
+        (stage) => `/learn/${missionSlug}/${stage.slug.current}`
+      );
+    })
+    .filter(Boolean)
+    .flat();
+
   // TODO build this array of paths
   return {
-    paths: ['/learn/gatsby/one'],
+    paths: stagePaths,
     fallback: false,
   };
-}
+};
