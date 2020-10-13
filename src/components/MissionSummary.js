@@ -1,7 +1,6 @@
 import styles from './MissionSummary.module.css';
 
 function MissionSummary({ title, description, stages }) {
-
   return (
     <div className={styles.missionSummary}>
       <div className={styles.missionTitle}>
@@ -10,9 +9,7 @@ function MissionSummary({ title, description, stages }) {
       <div className={styles.missionDescription}>
         <p>{description}</p>
       </div>
-      <div className={styles.missionStages}>
-        {stages}
-      </div>
+      <div className={styles.missionStages}>{stages}</div>
     </div>
   );
 }
