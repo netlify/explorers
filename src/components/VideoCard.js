@@ -2,12 +2,13 @@ import styles from './VideoCard.module.css';
 import Link from 'next/link';
 
 const VideoCard = ({ video }) => {
-  const bkStyle = {
-    background: `url(${video.coverImage.asset.url}) no-repeat center center; background-size: cover !important`,
-  };
-
   return (
-    <div className={styles.card} style={bkStyle}>
+    <div
+      className={styles.card}
+      style={{
+        backgroundImage: `url(${video.coverImage.asset.url})`,
+      }}
+    >
       <div className={styles.cardinfo}>
         <div className={styles.carddescription}>
           <h3>{video.title}</h3>

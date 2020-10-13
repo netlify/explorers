@@ -1,7 +1,7 @@
 import Layout from '@components/Layout';
 import UserSidebar from '@components/UserSidebar';
 import UserMaincontent from '@components/UserMaincontent';
-import { useUserState } from 'src/context/user';
+import { useUserState } from '@context/user';
 
 export default function Profile() {
   const { token, status, redirectToOAuth } = useUserState();

@@ -1,25 +1,7 @@
-export default async function handler(_req, res) {
-  const { data } = await fetch(
-    'https://q8efilev.api.sanity.io/v1/graphql/production/default',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: `
-          {
-            allMission {
-              _id
-              title
-              description
-            }
-          }
-        `,
-        variables: {},
-      }),
-    }
-  ).then((response) => response.json());
+import { loadMissions } from '@context/missions';
 
-  res.status(200).json(data.allMission);
+export default async function handler(_req, res) {
+  const missions = await loadMissions();
+
+  res.status(200).json(missions);
 }

@@ -1,9 +1,11 @@
 import Layout from '@components/Layout';
 import HomeHero from '@components/HomeHero';
-import renderToString from 'next-mdx-remote/render-to-string';
 import VideoCard from '@components/VideoCard';
+import { useMissionsState } from '@context/missions';
 
-export default function Home({ missions }) {
+export default function Home() {
+  const { missions } = useMissionsState();
+
   return (
     <Layout navtheme="light">
       <div>
@@ -28,57 +30,3 @@ export default function Home({ missions }) {
     </Layout>
   );
 }
-
-export const getStaticProps = async () => {
-  const data = await fetch(
-    'https://q8efilev.api.sanity.io/v1/graphql/production/default',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: `
-          {
-            allMission {
-              title
-              blurb
-              description
-              slug {
-                current
-              }
-              coverImage {
-                asset {
-                  url
-                }
-              }
-              instructor {
-                name
-                avatar {
-                  asset {
-                    url
-                  }
-                }
-              }
-            }
-          }
-        `,
-        variables: {},
-      }),
-    }
-  ).then((response) => response.json());
-
-  let promises = data.data.allMission.map(async (mission) => {
-    let renderedDescription = await renderToString(mission.description, {
-      components: {},
-    });
-
-    return { ...mission, renderedDescription };
-  });
-
-  let missions = await Promise.all(promises);
-
-  return {
-    props: { missions },
-  };
-};
