@@ -46,12 +46,34 @@ cd explorers/
 
 # install dependencies
 npm install
+```
 
+Add the following env vars to `.env` at the project root:
+
+```
+NEXT_PUBLIC_SANITY_GRAPHQL_URL=https://q8efilev.api.sanity.io/v1/graphql/production/default
+```
+
+Start the site locally:
+
+```sh
 # start the site with Netlify Dev
 ntl dev
 ```
 
+The site will open at `http://localhost:8888`.
+
+### OAuth
+
+Right now the OAuth is set up to run through the production site, so you _do not_ need to set up local OAuth.
+
+If you want to try it out, you can [create a new OAuth app](https://app.netlify.com/user/applications) with a redirect URL of `http://localhost:8888/.netlify/functions/auth-callback` to allow local OAuth flows and testing.
+
+See `.env.EXAMPLE` for the required env vars.
+
 ### Sanity
+
+**NOTE:** You _only_ need to get Sanity running locally if you need to make changes to the Sanity schema. Otherwise you can ignore this section for local development.
 
 ```bash
 # install the Sanity CLI if you don’t have it already
@@ -71,7 +93,7 @@ sanity start
 
 After making changes, you need to deploy both the studio and the GraphQL API.
 
-```bash
+```sh
 sanity deploy
 sanity graphql deploy
 ```
@@ -80,7 +102,7 @@ sanity graphql deploy
 
 We have a prettier pre-commit hook. To run formatting on the command line:
 
-```bash
+```sh
 npm run format
 ```
 
