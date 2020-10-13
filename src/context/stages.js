@@ -33,9 +33,6 @@ export const loadStageBySlug = async (slug) => {
 export function StagesProvider({ children }) {
   const [stages, setStages] = React.useState([]);
 
-  /*
-   */
-
   React.useEffect(() => {
     fetch('/api/get-stage-data')
       .then((response) => response.json())
