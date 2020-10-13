@@ -28,15 +28,15 @@ export function getStaticProps({ params }) {
 export const getStaticPaths = async () => {
   const missions = await loadMissions();
 
-  const stagePaths = missions
-    .map((mission) => {
-      const missionSlug = mission.slug.current;
-      return mission.stages?.map(
-        (stage) => `/learn/${missionSlug}/${stage.slug.current}`
-      );
-    })
-    .filter(Boolean)
-    .flat();
+  const stagePaths = missions.reduce((paths, mission) => {
+    const missionStagePaths = mission.stages
+      ? mission.stages.map(
+          (stage) => `/learn/${mission.slug.current}/${stage.slug.current}`
+        )
+      : [];
+
+    return paths.concat(missionStagePaths);
+  }, []);
 
   // TODO build this array of paths
   return {
