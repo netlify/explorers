@@ -1,4 +1,4 @@
-import { sanityQuery } from '../util/sanity';
+import { sanityQuery } from '@util/sanity';
 
 const MissionsStateContext = React.createContext();
 const MissionsUpdateContext = React.createContext();
