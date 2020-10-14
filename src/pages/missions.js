@@ -1,5 +1,5 @@
 import Layout from '@components/Layout';
-import VideoCard from '@components/VideoCard';
+import MissionCard from '@components/MissionCard';
 import { useMissionsState } from '@context/missions';
 
 export default function MissionsPage() {
@@ -22,7 +22,7 @@ export default function MissionsPage() {
         <section>
           <div className="row sectioncontain">
             {missions.map((mission, index) => (
-              <VideoCard key={index} video={mission} />
+              <MissionCard key={index} mission={mission} />
             ))}
           </div>
         </section>
