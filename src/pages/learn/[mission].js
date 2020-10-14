@@ -1,7 +1,9 @@
 import hydrate from 'next-mdx-remote/hydrate';
-import renderToString from 'next-mdx-remote/render-to-string';
 import Link from 'next/link';
+import renderToString from 'next-mdx-remote/render-to-string';
 import { loadMissions, loadMissionBySlug } from '@context/missions';
+import Layout from '@components/Layout';
+import styles from './Mission.module.css';
 
 // Example: if we want to use React components in Sanity descriptions, here’s how
 import Aside from '@components/mdx/Aside';
@@ -15,20 +17,39 @@ const Mission = ({ mission }) => {
   });
 
   return (
-    <section>
-      <h1>Mission: {mission.title}</h1>
-      <div>{description}</div>
-      <h2>This mission has {mission.stages?.length} stages to explore:</h2>
-      <ul>
-        {mission.stages?.map((stage) => (
-          <li key={stage._id}>
-            <Link href={`/learn/${mission.slug.current}/${stage.slug.current}`}>
-              <a>{stage.title}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <Layout navtheme="dark">
+      <section className="intro">
+        <div className="sectioncontain">
+          <h1>This mission: {mission.title}</h1>
+          <h2>with {mission.instructor.name}</h2>
+          <div className={styles.missiontout}>
+            <div
+              className={styles.card}
+              style={{
+                backgroundImage: `url(${mission.coverImage.asset.url})`,
+              }}
+            ></div>
+            <div className={styles.missionblurb}>{mission.blurb}</div>
+          </div>
+          <h2>This mission has {mission.stages?.length} stages to explore:</h2>
+          <p>
+            (...and we should mark your progress through the list below if you
+            are logged in. 👋)
+          </p>
+          <ul>
+            {mission.stages?.map((stage) => (
+              <li key={stage._id}>
+                <Link
+                  href={`/learn/${mission.slug.current}/${stage.slug.current}`}
+                >
+                  <a>{stage.title}</a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </Layout>
   );
 };
 

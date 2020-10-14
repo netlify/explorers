@@ -49,9 +49,23 @@ export const loadMissionBySlug = async (slug) => {
         allMission(where: { slug: { current: { eq: $slug }}}) {
           _id
           title
+          blurb
           description
           slug {
             current
+          }
+          instructor {
+            name
+            avatar {
+              asset {
+                url
+              }
+            }
+          }
+          coverImage {
+            asset {
+              url
+            }
           }
           stages{
             _id
