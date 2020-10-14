@@ -4,12 +4,11 @@ import { loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import Link from 'next/link';
 
-export default function Stage({ mission, stage, stageSlug }) {
-  console.log(stage);
+export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo.public_id;
   return (
     <>
-      <p>stage: {stageSlug}</p>
+      <p>stage: {stage.slug.current}</p>
       <Link href={`/learn/${mission}`}>
         <a>{mission}</a>
       </Link>
@@ -24,7 +23,6 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       mission: params.mission,
-      stageSlug: params.stage,
       stage,
     },
   };
