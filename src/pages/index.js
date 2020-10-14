@@ -7,7 +7,7 @@ import HomeHero from '@components/HomeHero';
 import MissionCard from '@components/MissionCard';
 import { useMissionsState } from '@context/missions';
 
-export default function Home({ title, content }) {
+export default function Home({ content }) {
   const { missions } = useMissionsState();
   const pageContent = hydrate(content, {});
 
@@ -17,10 +17,7 @@ export default function Home({ title, content }) {
         <HomeHero />
 
         <section className="margintop-lg">
-          <div className="sectioncontain">
-            <h2>{title}</h2>
-            {pageContent}
-          </div>
+          <div className="sectioncontain">{pageContent}</div>
 
           <div className="row sectioncontain">
             {missions.map((mission, index) => (
@@ -36,16 +33,14 @@ export default function Home({ title, content }) {
 export async function getStaticProps() {
   const data = await sanityQuery({
     query: `
-      {
-        allMarketingCopy(where: { pagePath: { eq: "/" } }) {
-          title
+      query($contentId: String!) {
+        allMarketingCopy(where: { id: { eq: $contentId } }) {
           content
-          pagePath
         }
       }
     `,
     variables: {
-      path: '/',
+      contentId: 'jamstack-mission-control',
     },
   });
 
@@ -55,7 +50,6 @@ export async function getStaticProps() {
 
   return {
     props: {
-      title: pageData.title,
       content: renderedContent,
     },
   };
