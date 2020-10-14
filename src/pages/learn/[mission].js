@@ -21,29 +21,27 @@ const Mission = ({ mission }) => {
       <section className="intro">
         <div className="sectioncontain">
           <h1>This mission: {mission.title}</h1>
-          <h2>
-            with {mission.instructor.name}
-          </h2>
+          <h2>with {mission.instructor.name}</h2>
           <div className={styles.missiontout}>
             <div
               className={styles.card}
               style={{
                 backgroundImage: `url(${mission.coverImage.asset.url})`,
               }}
-              >
-            </div>
-            <div className={styles.missionblurb}>
-              {mission.blurb}
-            </div>
+            ></div>
+            <div className={styles.missionblurb}>{mission.blurb}</div>
           </div>
           <h2>This mission has {mission.stages?.length} stages to explore:</h2>
           <p>
-            (...and we should mark your progress through the list below if you are logged in. 👋)
+            (...and we should mark your progress through the list below if you
+            are logged in. 👋)
           </p>
           <ul>
             {mission.stages?.map((stage) => (
               <li key={stage._id}>
-                <Link href={`/learn/${mission.slug.current}/${stage.slug.current}`}>
+                <Link
+                  href={`/learn/${mission.slug.current}/${stage.slug.current}`}
+                >
                   <a>{stage.title}</a>
                 </Link>
               </li>
@@ -52,8 +50,6 @@ const Mission = ({ mission }) => {
         </div>
       </section>
     </Layout>
-
-
   );
 };
 
