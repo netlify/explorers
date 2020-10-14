@@ -1,5 +1,4 @@
-import { sanityQuery } from '@util/sanity';
-import renderToString from 'next-mdx-remote/render-to-string';
+import { loadMdxContent } from '@util/mdx';
 import hydrate from 'next-mdx-remote/hydrate';
 
 import Layout from '@components/Layout';
@@ -31,22 +30,7 @@ export default function Home({ content }) {
 }
 
 export async function getStaticProps() {
-  const data = await sanityQuery({
-    query: `
-      query($contentId: String!) {
-        allMarketingCopy(where: { id: { eq: $contentId } }) {
-          content
-        }
-      }
-    `,
-    variables: {
-      contentId: 'jamstack-mission-control',
-    },
-  });
-
-  const [pageData] = data.allMarketingCopy;
-
-  const renderedContent = await renderToString(pageData.content, {});
+  const renderedContent = await loadMdxContent('jamstack-mission-control');
 
   return {
     props: {
