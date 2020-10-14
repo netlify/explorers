@@ -1,10 +1,15 @@
+import { loadMdxContent } from '@util/mdxServer';
+import { renderMdxContent } from '@util/mdxClient';
+
 import Layout from '@components/Layout';
 import HomeHero from '@components/HomeHero';
 import MissionCard from '@components/MissionCard';
 import { useMissionsState } from '@context/missions';
 
-export default function Home() {
+export default function Home({ content }) {
   const { missions } = useMissionsState();
+
+  const pageContent = renderMdxContent(content);
 
   return (
     <Layout navtheme="light">
@@ -12,13 +17,7 @@ export default function Home() {
         <HomeHero />
 
         <section className="margintop-lg">
-          <div className="sectioncontain">
-            <h2>Missions</h2>
-            <p>
-              Here in Mission Control, you'll find missions covering all sorts
-              of web development and Jamstack topics.
-            </p>
-          </div>
+          <div className="sectioncontain">{pageContent}</div>
 
           <div className="row sectioncontain">
             {missions.map((mission, index) => (
@@ -29,4 +28,14 @@ export default function Home() {
       </div>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const renderedContent = await loadMdxContent('jamstack-mission-control');
+
+  return {
+    props: {
+      content: renderedContent,
+    },
+  };
 }
