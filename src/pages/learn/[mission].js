@@ -18,6 +18,7 @@ const Mission = ({ mission }) => {
     <section>
       <h1>Mission: {mission.title}</h1>
       <div>{description}</div>
+      <h2>This mission has {mission.stages?.length} stages to explore:</h2>
       <ul>
         {mission.stages?.map((stage) => (
           <li key={stage._id}>
