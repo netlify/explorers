@@ -1,5 +1,34 @@
+import { sanityQuery } from '@util/sanity';
+
 const StagesStateContext = React.createContext();
 const StagesUpdateContext = React.createContext();
+
+export const loadStageBySlug = async (slug) => {
+  const data = await sanityQuery({
+    query: `
+      query ($slug: String!) {
+        allStage(where: { slug: { current: { eq: $slug }}}) {
+          title
+          slug {
+            current
+          }
+          content {
+            ... on Video {
+              cloudinaryVideo {
+                public_id
+              }
+            }
+          }
+        }
+      }
+    `,
+    variables: { slug },
+  });
+
+  const [stage] = data.allStage;
+
+  return stage;
+};
 
 export function StagesProvider({ children }) {
   const [stages, setStages] = React.useState([]);

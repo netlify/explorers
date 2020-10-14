@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const VideoPlayer = ({ source }) => {
+const VideoPlayer = ({ publicId }) => {
   const ref = React.useRef();
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const VideoPlayer = ({ source }) => {
       width="600"
     >
       <source
-        src="https://res.cloudinary.com/demo/video/upload/ac_none/dog.mp4"
+        src={`https://res.cloudinary.com/netlify/video/upload/ac_none/${publicId}.mp4`}
         type="video/mp4"
       />
     </video>

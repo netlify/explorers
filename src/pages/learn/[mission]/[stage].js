@@ -1,26 +1,29 @@
 import MissionTracker from '@components/MissionTracker';
 import VideoPlayer from '@components/VideoPlayer';
 import { loadMissions } from '@context/missions';
+import { loadStageBySlug } from '@context/stages';
 import Link from 'next/link';
 
 export default function Stage({ mission, stage }) {
+  const publicId = stage.content?.[0].cloudinaryVideo.public_id;
   return (
     <>
-      <p>stage: {stage}</p>
+      <p>stage: {stage.slug.current}</p>
       <Link href={`/learn/${mission}`}>
         <a>{mission}</a>
       </Link>
-      <VideoPlayer />
+      {publicId && <VideoPlayer publicId={publicId} />}
       <MissionTracker />
     </>
   );
 }
 
-export function getStaticProps({ params }) {
+export async function getStaticProps({ params }) {
+  const stage = await loadStageBySlug(params.stage);
   return {
     props: {
       mission: params.mission,
-      stage: params.stage,
+      stage,
     },
   };
 }

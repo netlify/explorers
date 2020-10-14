@@ -3,6 +3,6 @@ package.json
 package-lock.json
 public
 .next
-backend/dist/static/js/app.bundle.js
+backend/dist/
 out_functions
 out_publish

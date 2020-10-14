@@ -20,10 +20,13 @@ export default {
       },
     },
     {
-      name: 'checkpoint',
-      title: 'Checkpoint',
-      type: 'reference',
-      to: { type: 'checkpoint' },
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [
+        { name: 'checkpoint', type: 'reference', to: { type: 'checkpoint' } },
+        { name: 'video', type: 'reference', to: { type: 'video' } },
+      ],
     },
   ],
 };
