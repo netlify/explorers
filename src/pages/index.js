@@ -1,5 +1,5 @@
-import { loadMdxContent } from '@util/mdx';
-import hydrate from 'next-mdx-remote/hydrate';
+import { loadMdxContent } from '@util/mdxServer';
+import { renderMdxContent } from '@util/mdxClient';
 
 import Layout from '@components/Layout';
 import HomeHero from '@components/HomeHero';
@@ -8,7 +8,8 @@ import { useMissionsState } from '@context/missions';
 
 export default function Home({ content }) {
   const { missions } = useMissionsState();
-  const pageContent = hydrate(content, {});
+
+  const pageContent = renderMdxContent(content);
 
   return (
     <Layout navtheme="light">
