@@ -3,7 +3,7 @@ import Link from 'next/link';
 import renderToString from 'next-mdx-remote/render-to-string';
 import { loadMissions, loadMissionBySlug } from '@context/missions';
 import Layout from '@components/Layout';
-import styles from '../../components/MissionPage.module.css';
+import styles from './Mission.module.css';
 
 // Example: if we want to use React components in Sanity descriptions, here’s how
 import Aside from '@components/mdx/Aside';
