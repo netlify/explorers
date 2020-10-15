@@ -6,18 +6,18 @@ import HomeHero from '@components/HomeHero';
 import MissionCard from '@components/MissionCard';
 import { useMissionsState } from '@context/missions';
 
-export default function Home({ content }) {
+export default function Home({ rawMissionControlContent, rawHomeHeroContent }) {
   const { missions } = useMissionsState();
 
-  const pageContent = renderMdxContent(content);
+  const missionControlContent = renderMdxContent(rawMissionControlContent);
 
   return (
     <Layout navtheme="light">
       <div>
-        <HomeHero />
+        <HomeHero rawcontent={rawHomeHeroContent} />
 
         <section className="margintop-lg">
-          <div className="sectioncontain">{pageContent}</div>
+          <div className="sectioncontain">{missionControlContent}</div>
 
           <div className="row sectioncontain">
             {missions.map((mission, index) => (
@@ -31,11 +31,13 @@ export default function Home({ content }) {
 }
 
 export async function getStaticProps() {
-  const renderedContent = await loadMdxContent('jamstack-mission-control');
+  const rawMissionControlContent = await loadMdxContent('mission-control');
+  const rawHomeHeroContent = await loadMdxContent('home-hero');
 
   return {
     props: {
-      content: renderedContent,
+      rawMissionControlContent,
+      rawHomeHeroContent,
     },
   };
 }
