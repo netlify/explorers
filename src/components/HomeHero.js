@@ -5,8 +5,8 @@ import styles from './HomeHero.module.css';
 import Hero from '@components/Hero';
 import Astronaut from '@components/Astronaut';
 
-function HomeHero({ content }) {
-  const homeHeroContent = renderMdxContent(content);
+function HomeHero({ rawcontent }) {
+  const homeHeroContent = renderMdxContent(rawcontent);
 
   return (
     <Hero>
