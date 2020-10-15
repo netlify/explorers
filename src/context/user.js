@@ -1,6 +1,29 @@
+import netlifyActivity from '@netlify/activity-hub';
+
 const UserStateContext = React.createContext();
 
 const cache = {};
+
+const throttle = (fn, delay) => {
+  let timeout = null;
+  let called = false;
+
+  return (...args) => {
+    if (!called) {
+      called = true;
+
+      fn(...args);
+      return;
+    }
+
+    if (!timeout) {
+      timeout = setTimeout(() => {
+        fn(...args);
+        timeout = null;
+      }, delay);
+    }
+  };
+};
 
 import { v4 as uuid } from 'uuid';
 
@@ -62,6 +85,8 @@ export function UserProvider({ children }) {
   const [status, setStatus] = React.useState('loading');
   const [token, setToken] = React.useState();
   const [user, setUser] = React.useState();
+  const [activity, setActivity] = React.useState({ send: () => {} });
+
   //TODO: placeholder while we build this
   const userdata = {
     accredidationProgress: 0.34,
@@ -155,12 +180,29 @@ export function UserProvider({ children }) {
     getUser();
   }, [token]);
 
+  React.useEffect(() => {
+    if (!user?.id) {
+      return;
+    }
+
+    const sendActivity = throttle(
+      netlifyActivity({
+        userId: user.id,
+        app: 'jamstack-explorers',
+      }),
+      2000
+    );
+
+    setActivity({ send: sendActivity });
+  }, [user]);
+
   const state = {
     user,
     token,
     status,
     redirectToOAuth,
     userdata,
+    activity,
   };
 
   return (

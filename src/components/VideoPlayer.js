@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
+import { useUserState } from '@context/user';
 
 const VideoPlayer = ({ publicId }) => {
+  const { activity } = useUserState();
   const ref = React.useRef();
 
   useEffect(() => {
@@ -9,13 +11,12 @@ const VideoPlayer = ({ publicId }) => {
     if (!video) return;
 
     const handleProgress = (event) => {
-      // TODO handle storing percentages for user progress
-      console.log({
-        currentTime: event.target.currentTime,
-        duration: event.target.duration,
-        percentage: Math.round(
-          (event.target.currentTime / event.target.duration) * 100
-        ),
+      const percentage = Math.round(
+        (event.target.currentTime / event.target.duration) * 100
+      );
+      activity.send('video-progress', {
+        videoId: publicId,
+        percentage,
       });
     };
 
