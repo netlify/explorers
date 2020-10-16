@@ -57,8 +57,8 @@ NEXT_PUBLIC_SANITY_GRAPHQL_URL=https://q8efilev.api.sanity.io/v1/graphql/product
 Start the site locally:
 
 ```sh
-# start the site with Netlify Dev
-ntl dev
+# start the site for local development
+npm run dev
 ```
 
 The site will open at `http://localhost:8888`.
