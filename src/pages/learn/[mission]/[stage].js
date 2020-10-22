@@ -20,7 +20,7 @@ export default function Stage({
       <div>
         <section>
           <div className="sectioncontain margintop-md">
-            <div className={styles.stagecontent}>
+            <div className={styles.stageContent}>
               <div>
                 <h2 className={styles.stageTitle}>
                   {missionTitle}{' '}
