@@ -2,7 +2,7 @@ import styles from './Footer.module.css';
 
 function Footer() {
   return (
-    <footer className={`${styles.footer} sectioncontain`}>
+    <footer className={`${styles.footer} section-contain`}>
       <div className={styles.links}>
         <ul>
           <li>About</li>

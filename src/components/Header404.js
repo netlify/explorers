@@ -20,7 +20,7 @@ function Header404() {
 
   return (
     <section className={styles.container}>
-      <div className="sectioncontain margintop-lg">
+      <div className="section-contain margintop-lg">
         <h1 className={styles.h1}>404</h1>
         <h2 className={styles.h2}>Lost in space?</h2>
         <Link href="/">
