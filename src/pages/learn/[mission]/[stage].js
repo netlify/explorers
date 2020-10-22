@@ -9,6 +9,7 @@ import styles from './Stage.module.css';
 export default function Stage({
   missionInstructor,
   missionSlug,
+  missionStages,
   missionTitle,
   stage,
 }) {
@@ -30,7 +31,7 @@ export default function Stage({
                 {publicId && <VideoPlayer publicId={publicId} />}
               </div>
               <div>
-                <MissionTracker />
+                <MissionTracker stages={missionStages} />
                 <Link href={`/learn/${missionSlug}`}>
                   <a>{missionSlug}</a>
                 </Link>

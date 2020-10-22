@@ -1,7 +1,6 @@
 .container {
-  margin: 60px 120px;
   display: grid;
-  grid-template-columns: 30px 1fr;
+  grid-template-columns: 1fr 30px;
   grid-template-rows: 1fr;
   height: 400px;
   width: 400px;
@@ -16,4 +15,9 @@
 
 .trackerselect {
   cursor: pointer;
+}
+
+.missionTrackerText {
+  text-align: right;
+  padding-right: 0.5rem;
 }
