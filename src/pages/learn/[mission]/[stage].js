@@ -1,20 +1,34 @@
+import Layout from '@components/Layout';
 import MissionTracker from '@components/MissionTracker';
 import VideoPlayer from '@components/VideoPlayer';
 import { loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import Link from 'next/link';
+import styles from './Stage.module.css';
 
 export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo.public_id;
   return (
-    <>
-      <p>stage: {stage.slug.current}</p>
-      <Link href={`/learn/${mission}`}>
-        <a>{mission}</a>
-      </Link>
-      {publicId && <VideoPlayer publicId={publicId} />}
-      <MissionTracker />
-    </>
+    <Layout navtheme="dark">
+      <div>
+        <section>
+          <div className="sectioncontain margintop-lg">
+            <div className={styles.stagecontent}>
+              <div>
+                <p>stage: {stage.slug.current}</p>
+                <Link href={`/learn/${mission}`}>
+                  <a>{mission}</a>
+                </Link>
+                {publicId && <VideoPlayer publicId={publicId} />}
+              </div>
+              <div>
+                <MissionTracker />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </Layout>
   );
 }
 
