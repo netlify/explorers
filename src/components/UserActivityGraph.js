@@ -4,10 +4,10 @@ import { useUserState } from 'src/context/user';
 import 'chart.js';
 
 function UserActivityGraph() {
-  const { userdata } = useUserState();
+  const { user } = useUserState();
 
   const opts = {
-    title: 'Minutes Watched',
+    title: 'Videos Watched',
     width: '600px',
     height: '200px',
     points: false,
@@ -17,7 +17,7 @@ function UserActivityGraph() {
     <div className={styles.activity}>
       <div className={styles.activitychart}>
         <AreaChart
-          data={userdata.activeDates}
+          data={user.activity.activeDates}
           colors={['magenta', '#333']}
           ytitle={opts.title}
           width={opts.width}
@@ -29,7 +29,7 @@ function UserActivityGraph() {
 
       <div>
         <AreaChart
-          data={userdata.activeDates}
+          data={user.activity.activeDates}
           colors={['purple', '#333']}
           ytitle={opts.title}
           width={opts.width}

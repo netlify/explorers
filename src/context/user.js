@@ -185,15 +185,20 @@ export function UserProvider({ children }) {
       return;
     }
 
-    const sendActivity = throttle(
-      netlifyActivity({
-        userId: user.id,
-        app: 'jamstack-explorers',
-      }),
-      2000
-    );
+    async function createActivityObject() {
+      // TODO maybe debounce?
+      const send = throttle(
+        netlifyActivity({
+          userId: user.id,
+          app: 'jamstack-explorers',
+        }),
+        2000
+      );
 
-    setActivity({ send: sendActivity });
+      setActivity({ send });
+    }
+
+    createActivityObject();
   }, [user]);
 
   const state = {
