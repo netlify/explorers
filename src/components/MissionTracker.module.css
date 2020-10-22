@@ -10,28 +10,28 @@
   text-align: left;
 }
 
-.trackersvg {
+.tracker-svg {
   margin-top: 3px;
 }
 
-.trackerselect {
+.tracker-select {
   cursor: pointer;
 }
 
-.taskLabel {
+.task-label {
   text-align: right;
   padding-right: 0.5rem;
   display: block;
 }
 
-.taskLabel a {
+.task-label a {
   color: white;
 }
 
-.taskLabel a:hover {
+.task-label a:hover {
   text-decoration: underline;
 }
 
-.isCurrentTask {
+.is-current-task {
   font-weight: 600;
 }

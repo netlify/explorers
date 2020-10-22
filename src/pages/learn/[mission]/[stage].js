@@ -20,11 +20,11 @@ export default function Stage({
       <div>
         <section>
           <div className="sectioncontain margintop-md">
-            <div className={styles.stageContent}>
+            <div className={styles['stage-content']}>
               <div>
-                <h2 className={styles.stageTitle}>
+                <h2 className={styles['stage-title']}>
                   {missionTitle}{' '}
-                  <span className={styles.stageTitleAddendum}>
+                  <span className={styles['stage-title-addendum']}>
                     with {missionInstructor.name}
                   </span>
                 </h2>

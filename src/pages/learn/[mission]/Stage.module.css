@@ -1,4 +1,4 @@
-.stageContent {
+.stage-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr;
@@ -6,13 +6,13 @@
   grid-row-gap: 0px;
 }
 
-.stageTitle {
+.stage-title {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 2.5rem;
 }
 
-.stageTitle .stageTitleAddendum {
+.stage-title .stage-title-addendum {
   color: rgb(188, 188, 188);
   font-size: 1.5rem;
   font-weight: 500;

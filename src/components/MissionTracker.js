@@ -14,10 +14,10 @@ function MissionTracker({ currentMission, currentStage, stages }) {
   };
 
   const taskTextStyles = (task) => {
-    const baseStyles = `${styles.trackerselect} ${styles.taskLabel}`;
+    const baseStyles = `${styles['tracker-select']} ${styles['task-label']}`;
 
     if (currentStage === task.slug.current) {
-      return baseStyles + ` ${styles.isCurrentTask}`;
+      return baseStyles + ` ${styles['is-current-task']}`;
     } else {
       return baseStyles;
     }
@@ -38,7 +38,7 @@ function MissionTracker({ currentMission, currentStage, stages }) {
       <section>
         <svg
           viewBox={`0 0 30 ${tasks.length * 50}`}
-          className={styles.trackersvg}
+          className={styles['tracker-svg']}
           xmlns="http://www.w3.org/2000/svg"
           width="30"
           stroke="#35464D"
@@ -57,7 +57,7 @@ function MissionTracker({ currentMission, currentStage, stages }) {
               r="4"
               cy={index * +num1 + +num2}
               fill={task.done ? 'white' : 'black'}
-              className={styles.trackerselect}
+              className={styles['tracker-select']}
             />
           ))}
         </svg>
