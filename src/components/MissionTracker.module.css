@@ -21,6 +21,15 @@
 .taskLabel {
   text-align: right;
   padding-right: 0.5rem;
+  display: block;
+}
+
+.taskLabel a {
+  color: white;
+}
+
+.taskLabel a:hover {
+  text-decoration: underline;
 }
 
 .isCurrentTask {

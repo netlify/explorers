@@ -1,7 +1,8 @@
 import styles from './MissionTracker.module.css';
 import React, { useState } from 'react';
+import Link from 'next/link';
 
-function MissionTracker({ currentStage, stages }) {
+function MissionTracker({ currentMission, currentStage, stages }) {
   const [tasks, setTasks] = useState([...stages]);
   const num1 = [32];
   const num2 = [15];
@@ -26,12 +27,10 @@ function MissionTracker({ currentStage, stages }) {
     <div className={styles.container}>
       <section>
         {tasks.map((task, index) => (
-          <div
-            key={index}
-            onClick={updateDoneTasks(index)}
-            className={taskTextStyles(task)}
-          >
-            {task.title}
+          <div key={index} className={taskTextStyles(task)}>
+            <Link href={`/learn/${currentMission}/${task.slug.current}`}>
+              {task.title}
+            </Link>
           </div>
         ))}
       </section>

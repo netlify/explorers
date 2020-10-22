@@ -33,6 +33,7 @@ export default function Stage({
               <div>
                 <MissionTracker
                   stages={missionStages}
+                  currentMission={missionSlug}
                   currentStage={stage.slug.current}
                 />
               </div>
