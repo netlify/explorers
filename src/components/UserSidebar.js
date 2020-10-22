@@ -15,9 +15,12 @@ function UserSidebar() {
         <h4 className={styles.usertitle}>Captain</h4>
 
         <hr className={styles.hr} />
-        <UserRadar />
+        {/*
+          // TODO: when we have categories + more data, we want this back!
+          <UserRadar />
+        */}
 
-        <h4 className={styles.accredidation}>Accredidation</h4>
+        <h4 className={styles.accredidation}>Accreditation</h4>
         <UserDial />
       </div>
     </div>

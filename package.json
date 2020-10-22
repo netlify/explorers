@@ -16,7 +16,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "@netlify/activity-hub": "^1.0.1",
+    "@netlify/activity-hub": "^1.1.2",
     "chart.js": "^2.9.3",
     "fs-extra": "^9.0.1",
     "gsap": "^3.5.1",
