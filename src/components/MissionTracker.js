@@ -1,7 +1,7 @@
 import styles from './MissionTracker.module.css';
 import React, { useState } from 'react';
 
-function MissionTracker({ stages }) {
+function MissionTracker({ currentStage, stages }) {
   const [tasks, setTasks] = useState([...stages]);
   const num1 = [32];
   const num2 = [15];
@@ -12,6 +12,16 @@ function MissionTracker({ stages }) {
     setTasks(tasksCopy);
   };
 
+  const stageTextStyles = (task) => {
+    const baseStyles = `${styles.trackerselect} ${styles.missionTrackerText}`;
+
+    if (currentStage === task.slug.current) {
+      return baseStyles + ` ${styles.isCurrentStage}`;
+    } else {
+      return baseStyles;
+    }
+  };
+
   return (
     <div className={styles.container}>
       <section>
@@ -19,7 +29,7 @@ function MissionTracker({ stages }) {
           <div
             key={index}
             onClick={updateDoneTasks(index)}
-            className={`${styles.trackerselect} ${styles.missionTrackerText}`}
+            className={stageTextStyles(task)}
           >
             {task.title}
           </div>

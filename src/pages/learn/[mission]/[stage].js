@@ -31,7 +31,10 @@ export default function Stage({
                 {publicId && <VideoPlayer publicId={publicId} />}
               </div>
               <div>
-                <MissionTracker stages={missionStages} />
+                <MissionTracker
+                  stages={missionStages}
+                  currentStage={stage.slug.current}
+                />
                 <Link href={`/learn/${missionSlug}`}>
                   <a>{missionSlug}</a>
                 </Link>
