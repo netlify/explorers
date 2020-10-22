@@ -17,11 +17,11 @@
   cursor: pointer;
 }
 
-.missionTrackerText {
+.taskLabel {
   text-align: right;
   padding-right: 0.5rem;
 }
 
-.isCurrentStage {
+.isCurrentTask {
   font-weight: 600;
 }

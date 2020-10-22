@@ -12,11 +12,11 @@ function MissionTracker({ currentStage, stages }) {
     setTasks(tasksCopy);
   };
 
-  const stageTextStyles = (task) => {
-    const baseStyles = `${styles.trackerselect} ${styles.missionTrackerText}`;
+  const taskTextStyles = (task) => {
+    const baseStyles = `${styles.trackerselect} ${styles.taskLabel}`;
 
     if (currentStage === task.slug.current) {
-      return baseStyles + ` ${styles.isCurrentStage}`;
+      return baseStyles + ` ${styles.isCurrentTask}`;
     } else {
       return baseStyles;
     }
@@ -29,7 +29,7 @@ function MissionTracker({ currentStage, stages }) {
           <div
             key={index}
             onClick={updateDoneTasks(index)}
-            className={stageTextStyles(task)}
+            className={taskTextStyles(task)}
           >
             {task.title}
           </div>
