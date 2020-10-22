@@ -51,6 +51,7 @@ export async function getStaticProps({ params }) {
     props: {
       missionInstructor: mission.instructor,
       missionSlug: params.mission,
+      missionStages: mission.stages,
       missionTitle: mission.title,
       stage,
     },

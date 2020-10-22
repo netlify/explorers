@@ -1,33 +1,8 @@
 import styles from './MissionTracker.module.css';
 import React, { useState } from 'react';
 
-function MissionTracker() {
-  const [tasks, setTasks] = useState([
-    {
-      name: 'thing',
-      done: false,
-    },
-    {
-      name: 'other thing',
-      done: false,
-    },
-    {
-      name: 'tacos',
-      done: false,
-    },
-    {
-      name: 'yaya',
-      done: false,
-    },
-    {
-      name: 'more things',
-      done: false,
-    },
-    {
-      name: 'tada',
-      done: false,
-    },
-  ]);
+function MissionTracker({ stages }) {
+  const [tasks, setTasks] = useState([...stages]);
   const num1 = [32];
   const num2 = [15];
 
@@ -40,12 +15,24 @@ function MissionTracker() {
   return (
     <div className={styles.container}>
       <section>
+        {tasks.map((task, index) => (
+          <div
+            key={index}
+            onClick={updateDoneTasks(index)}
+            className={`${styles.trackerselect} ${styles.missionTrackerText}`}
+          >
+            {task.title}
+          </div>
+        ))}
+      </section>
+
+      <section>
         <svg
           viewBox={`0 0 30 ${tasks.length * 50}`}
           className={styles.trackersvg}
           xmlns="http://www.w3.org/2000/svg"
           width="30"
-          stroke="currentColor"
+          stroke="#35464D"
           fill="white"
           aria-labelledby="timeline"
           role="presentation"
@@ -60,23 +47,11 @@ function MissionTracker() {
               cx="10"
               r="4"
               cy={index * +num1 + +num2}
-              fill={task.done ? 'currentColor' : 'white'}
+              fill={task.done ? 'white' : 'black'}
               className={styles.trackerselect}
             />
           ))}
         </svg>
-      </section>
-
-      <section>
-        {tasks.map((task, index) => (
-          <div
-            key={index}
-            onClick={updateDoneTasks(index)}
-            className={styles.trackerselect}
-          >
-            {task.name}
-          </div>
-        ))}
       </section>
     </div>
   );
