@@ -1,24 +1,16 @@
 .hero {
-  padding-top: 150px;
+  padding: 150px 3rem;
   background: url(@public/homepage-bk.jpg) center center no-repeat;
   background-size: cover;
   position: relative;
-  color: black;
-}
-
-.herocontain {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 30px;
-  min-height: 50vh;
-  max-height: 400px;
+  color: #000000;
 }
 
 .hero h1 {
   font-size: 60px;
   font-weight: bold;
   color: black;
+  margin-bottom: 2rem;
 }
 
 .hero h2 {
@@ -27,9 +19,20 @@
   color: black;
 }
 
-.astronautcontain {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  max-width: 900px;
+.hero-contain {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-column-gap: 30px;
+  min-height: 50vh;
+}
+
+@media (min-width: 1000px) {
+  .hero-contain {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 30px;
+    min-height: 50vh;
+    max-height: 500px;
+  }
 }

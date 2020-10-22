@@ -1,6 +1,40 @@
-.astronautcontain {
+.astronaut-contain {
   position: relative;
   height: 100%;
   width: 100%;
   max-width: 900px;
+  margin-top: 38%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 540px) {
+  .astronaut-contain {
+    width: 80%;
+    margin-top: 28%;
+  }
+}
+
+@media (min-width: 540px) {
+  .astronaut-contain {
+    width: 60%;
+    margin-top: 22%;
+  }
+}
+
+@media (min-width: 768px) {
+  .astronaut-contain {
+    width: 55%;
+    margin-top: 20%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .astronaut-contain {
+    width: 100%;
+  }
+}
+
+.home-hero-content p {
+  margin-bottom: 1rem;
 }
