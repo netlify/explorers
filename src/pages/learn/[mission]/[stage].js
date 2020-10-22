@@ -1,13 +1,19 @@
 import Layout from '@components/Layout';
 import MissionTracker from '@components/MissionTracker';
 import VideoPlayer from '@components/VideoPlayer';
-import { loadMissions } from '@context/missions';
+import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import Link from 'next/link';
 import styles from './Stage.module.css';
 
-export default function Stage({ mission, stage }) {
+export default function Stage({
+  mission,
+  missionInstructor,
+  missionTitle,
+  stage,
+}) {
   const publicId = stage.content?.[0].cloudinaryVideo.public_id;
+
   return (
     <Layout navtheme="dark">
       <div>
@@ -15,14 +21,19 @@ export default function Stage({ mission, stage }) {
           <div className="sectioncontain margintop-lg">
             <div className={styles.stagecontent}>
               <div>
-                <p>stage: {stage.slug.current}</p>
-                <Link href={`/learn/${mission}`}>
-                  <a>{mission}</a>
-                </Link>
+                <h2 className={styles.stageTitle}>
+                  {missionTitle}{' '}
+                  <span className={styles.stageTitleAddendum}>
+                    with {missionInstructor.name}
+                  </span>
+                </h2>
                 {publicId && <VideoPlayer publicId={publicId} />}
               </div>
               <div>
                 <MissionTracker />
+                <Link href={`/learn/${mission}`}>
+                  <a>{mission} 123</a>
+                </Link>
               </div>
             </div>
           </div>
@@ -33,10 +44,14 @@ export default function Stage({ mission, stage }) {
 }
 
 export async function getStaticProps({ params }) {
+  const mission = await loadMissionBySlug(params.mission);
   const stage = await loadStageBySlug(params.stage);
+
   return {
     props: {
       mission: params.mission,
+      missionTitle: mission.title,
+      missionInstructor: mission.instructor,
       stage,
     },
   };

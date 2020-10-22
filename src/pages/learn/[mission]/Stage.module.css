@@ -5,3 +5,13 @@
   grid-column-gap: 30px;
   grid-row-gap: 0px;
 }
+
+.stageTitle {
+  font-size: 2rem;
+  color: red;
+}
+
+.stageTitle .stageTitleAddendum {
+  color: rgb(188, 188, 188);
+  font-size: 1.5rem;
+}
