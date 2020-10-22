@@ -35,9 +35,6 @@ export default function Stage({
                   stages={missionStages}
                   currentStage={stage.slug.current}
                 />
-                <Link href={`/learn/${missionSlug}`}>
-                  <a>{missionSlug}</a>
-                </Link>
               </div>
             </div>
           </div>
