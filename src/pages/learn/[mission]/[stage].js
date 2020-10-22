@@ -19,7 +19,7 @@ export default function Stage({
     <Layout navtheme="dark">
       <div>
         <section>
-          <div className="sectioncontain margintop-lg">
+          <div className="sectioncontain margintop-md">
             <div className={styles.stagecontent}>
               <div>
                 <h2 className={styles.stageTitle}>
