@@ -7,8 +7,8 @@ import Link from 'next/link';
 import styles from './Stage.module.css';
 
 export default function Stage({
-  mission,
   missionInstructor,
+  missionSlug,
   missionTitle,
   stage,
 }) {
@@ -31,8 +31,8 @@ export default function Stage({
               </div>
               <div>
                 <MissionTracker />
-                <Link href={`/learn/${mission}`}>
-                  <a>{mission} 123</a>
+                <Link href={`/learn/${missionSlug}`}>
+                  <a>{missionSlug}</a>
                 </Link>
               </div>
             </div>
@@ -49,9 +49,9 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      mission: params.mission,
-      missionTitle: mission.title,
       missionInstructor: mission.instructor,
+      missionSlug: params.mission,
+      missionTitle: mission.title,
       stage,
     },
   };
