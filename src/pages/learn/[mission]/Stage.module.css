@@ -8,10 +8,11 @@
 
 .stageTitle {
   font-size: 2rem;
-  color: red;
+  font-weight: 600;
 }
 
 .stageTitle .stageTitleAddendum {
   color: rgb(188, 188, 188);
   font-size: 1.5rem;
+  font-weight: 500;
 }
