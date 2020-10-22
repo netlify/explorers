@@ -4,27 +4,6 @@ const UserStateContext = React.createContext();
 
 const cache = {};
 
-const throttle = (fn, delay) => {
-  let timeout = null;
-  let called = false;
-
-  return (...args) => {
-    if (!called) {
-      called = true;
-
-      fn(...args);
-      return;
-    }
-
-    if (!timeout) {
-      timeout = setTimeout(() => {
-        fn(...args);
-        timeout = null;
-      }, delay);
-    }
-  };
-};
-
 import { v4 as uuid } from 'uuid';
 
 export function redirectToOAuth(returnURL) {
@@ -186,14 +165,10 @@ export function UserProvider({ children }) {
     }
 
     async function createActivityObject() {
-      // TODO maybe debounce?
-      const send = throttle(
-        netlifyActivity({
-          userId: user.id,
-          app: 'jamstack-explorers',
-        }),
-        2000
-      );
+      const send = netlifyActivity({
+        userId: user.id,
+        app: 'jamstack-explorers',
+      });
 
       setActivity({ send });
     }
