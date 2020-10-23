@@ -3,7 +3,6 @@ import MissionTracker from '@components/MissionTracker';
 import VideoPlayer from '@components/VideoPlayer';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
-import Link from 'next/link';
 import styles from './Stage.module.css';
 
 export default function Stage({ mission, stage }) {
