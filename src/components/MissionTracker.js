@@ -41,7 +41,7 @@ function MissionTracker({ currentMission, currentStage, stages }) {
           className={styles['tracker-svg']}
           xmlns="http://www.w3.org/2000/svg"
           width="30"
-          stroke="#35464D"
+          stroke="currentColor"
           fill="white"
           aria-labelledby="timeline"
           role="presentation"
@@ -56,7 +56,7 @@ function MissionTracker({ currentMission, currentStage, stages }) {
               cx="10"
               r="4"
               cy={index * +num1 + +num2}
-              fill={task.done ? 'white' : 'black'}
+              fill={task.done ? 'currentColor' : 'black'}
               className={styles['tracker-select']}
             />
           ))}
