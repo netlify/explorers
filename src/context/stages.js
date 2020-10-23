@@ -17,6 +17,11 @@ export const loadStageBySlug = async (slug) => {
               cloudinaryVideo {
                 public_id
               }
+              coverImage {
+                asset {
+                  url
+                }
+              }
             }
           }
         }
