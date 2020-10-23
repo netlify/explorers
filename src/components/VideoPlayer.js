@@ -28,8 +28,8 @@ const VideoPlayer = ({ publicId }) => {
 
     const handleCompleted = (event) => {
       // if they’ve watched more than 95% of the video, call it done
-      const isComplete =
-        event.target.currentTime / event.target.duration > 0.95;
+      const percentage = event.target.currentTime / event.target.duration;
+      const isComplete = percentage > 0.95;
 
       if (!isComplete) {
         return;
