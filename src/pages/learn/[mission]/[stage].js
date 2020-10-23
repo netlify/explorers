@@ -1,28 +1,48 @@
+import Layout from '@components/Layout';
 import MissionTracker from '@components/MissionTracker';
 import VideoPlayer from '@components/VideoPlayer';
-import { loadMissions } from '@context/missions';
+import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
-import Link from 'next/link';
+import styles from './Stage.module.css';
 
 export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo.public_id;
+
   return (
-    <>
-      <p>stage: {stage.slug.current}</p>
-      <Link href={`/learn/${mission}`}>
-        <a>{mission}</a>
-      </Link>
-      {publicId && <VideoPlayer publicId={publicId} />}
-      <MissionTracker />
-    </>
+    <Layout navtheme="dark">
+      <article>
+        <div className="sectioncontain margintop-md">
+          <div className={styles['stage-content']}>
+            <section>
+              <h2 className={styles['stage-title']}>
+                {mission.title}{' '}
+                <span className={styles['stage-title-addendum']}>
+                  with {mission.instructor.name}
+                </span>
+              </h2>
+              {publicId && <VideoPlayer publicId={publicId} />}
+            </section>
+            <aside>
+              <MissionTracker
+                stages={mission.stages}
+                currentMission={mission.slug.current}
+                currentStage={stage.slug.current}
+              />
+            </aside>
+          </div>
+        </div>
+      </article>
+    </Layout>
   );
 }
 
 export async function getStaticProps({ params }) {
+  const mission = await loadMissionBySlug(params.mission);
   const stage = await loadStageBySlug(params.stage);
+
   return {
     props: {
-      mission: params.mission,
+      mission,
       stage,
     },
   };
