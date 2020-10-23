@@ -1,19 +1,37 @@
 .container {
-  margin: 60px 120px;
   display: grid;
-  grid-template-columns: 30px 1fr;
+  grid-template-columns: 1fr 30px;
   grid-template-rows: 1fr;
   height: 400px;
   width: 400px;
+  margin-top: 2.5rem;
   line-height: 2;
   font-size: 16px;
   text-align: left;
 }
 
-.trackersvg {
+.tracker-svg {
   margin-top: 3px;
 }
 
-.trackerselect {
+.tracker-select {
   cursor: pointer;
+}
+
+.task-label {
+  text-align: right;
+  padding-right: 0.5rem;
+  display: block;
+}
+
+.task-label a {
+  color: white;
+}
+
+.task-label a:hover {
+  text-decoration: underline;
+}
+
+.is-current-task {
+  font-weight: 600;
 }

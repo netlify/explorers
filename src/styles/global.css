@@ -187,6 +187,10 @@ section {
   grid-row-gap: 80px;
 }
 
+.margintop-md {
+  margin-top: 50px;
+}
+
 .margintop-lg {
   margin-top: 100px;
 }
