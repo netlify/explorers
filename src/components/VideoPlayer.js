@@ -15,15 +15,17 @@ const VideoPlayer = ({ publicId }) => {
     const sendProgressDebounced = debounce(activity.send, 500);
     const sendCompleteDebounced = debounce(activity.send, 500);
 
+    const activityData = {
+      videoId: publicId,
+      path: window.location.pathname,
+    };
+
     const handleProgress = (event) => {
       const percentage = Math.round(
         (event.target.currentTime / event.target.duration) * 100
       );
 
-      sendProgressDebounced('video-progress', {
-        videoId: publicId,
-        percentage,
-      });
+      sendProgressDebounced('video-progress', { ...activityData, percentage });
     };
 
     const handleCompleted = (event) => {
@@ -35,18 +37,15 @@ const VideoPlayer = ({ publicId }) => {
         return;
       }
 
-      sendCompleteDebounced('video-complete', { videoId: publicId });
+      sendCompleteDebounced('video-complete', activityData);
     };
 
     const handleWindowClose = () => {
       const percentage = Math.round((video.currentTime / video.duration) * 100);
-      activity.send('video-progress', {
-        videoId: publicId,
-        percentage,
-      });
+      activity.send('video-progress', { ...activityData, percentage });
 
       if (percentage > 95) {
-        activity.send('video-complete', { videoId: publicId });
+        activity.send('video-complete', activityData);
       }
     };
 
