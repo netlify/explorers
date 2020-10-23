@@ -64,7 +64,7 @@ export function UserProvider({ children }) {
   const [status, setStatus] = React.useState('loading');
   const [token, setToken] = React.useState();
   const [user, setUser] = React.useState();
-  const [activity, setActivity] = React.useState({ send: () => {} });
+  const [activity, setActivity] = React.useState();
 
   //TODO: placeholder while we build this
   const userdata = {
