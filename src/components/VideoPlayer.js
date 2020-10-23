@@ -27,7 +27,7 @@ const VideoPlayer = ({ publicId }) => {
 
   // TODO let's add support for smaller formats as well
   return (
-    <video ref={ref} controls id="lesson-video" className="cld-video-player">
+    <video controls id="lesson-video">
       <source
         src={`https://res.cloudinary.com/netlify/video/upload/ac_none/${publicId}.mp4`}
         type="video/mp4"
