@@ -6,13 +6,7 @@ import { loadStageBySlug } from '@context/stages';
 import Link from 'next/link';
 import styles from './Stage.module.css';
 
-export default function Stage({
-  missionInstructor,
-  missionSlug,
-  missionStages,
-  missionTitle,
-  stage,
-}) {
+export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo.public_id;
 
   return (
@@ -22,17 +16,17 @@ export default function Stage({
           <div className={styles['stage-content']}>
             <section>
               <h2 className={styles['stage-title']}>
-                {missionTitle}{' '}
+                {mission.title}{' '}
                 <span className={styles['stage-title-addendum']}>
-                  with {missionInstructor.name}
+                  with {mission.instructor.name}
                 </span>
               </h2>
               {publicId && <VideoPlayer publicId={publicId} />}
             </section>
             <aside>
               <MissionTracker
-                stages={missionStages}
-                currentMission={missionSlug}
+                stages={mission.stages}
+                currentMission={mission.slug.current}
                 currentStage={stage.slug.current}
               />
             </aside>
@@ -49,10 +43,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      missionInstructor: mission.instructor,
-      missionSlug: params.mission,
-      missionStages: mission.stages,
-      missionTitle: mission.title,
+      mission,
       stage,
     },
   };
