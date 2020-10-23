@@ -54,7 +54,7 @@ function MissionTracker({ currentMission, currentStage, stages }) {
           <line x1="10" x2="10" y1={num2} y2={tasks.length * num1 - num2} />
           {tasks.map((task, index) => (
             <circle
-              key={task.name}
+              key={`mt-circle-${task.name}-${index}`}
               onClick={updateDoneTasks(index)}
               cx="10"
               r="4"
