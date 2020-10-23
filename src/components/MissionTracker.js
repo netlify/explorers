@@ -27,7 +27,10 @@ function MissionTracker({ currentMission, currentStage, stages }) {
     <div className={styles.container}>
       <section>
         {tasks.map((task, index) => (
-          <div key={index} className={taskTextStyles(task)}>
+          <div
+            key={`mt-${task.slug}-${index}`}
+            className={taskTextStyles(task)}
+          >
             <Link href={`/learn/${currentMission}/${task.slug.current}`}>
               {task.title}
             </Link>
