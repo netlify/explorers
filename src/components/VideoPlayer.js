@@ -20,8 +20,6 @@ const VideoPlayer = ({ publicId }) => {
         (event.target.currentTime / event.target.duration) * 100
       );
 
-      console.log('progress');
-
       sendProgressDebounced('video-progress', {
         videoId: publicId,
         percentage,
@@ -37,12 +35,10 @@ const VideoPlayer = ({ publicId }) => {
         return;
       }
 
-      console.log('completed');
       sendCompleteDebounced('video-complete', { videoId: publicId });
     };
 
     const handleWindowClose = () => {
-      console.log('window-close');
       const percentage = Math.round((video.currentTime / video.duration) * 100);
       activity.send('video-progress', {
         videoId: publicId,
