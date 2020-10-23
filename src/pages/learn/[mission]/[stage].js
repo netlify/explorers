@@ -17,30 +17,28 @@ export default function Stage({
 
   return (
     <Layout navtheme="dark">
-      <div>
-        <section>
-          <div className="sectioncontain margintop-md">
-            <div className={styles['stage-content']}>
-              <div>
-                <h2 className={styles['stage-title']}>
-                  {missionTitle}{' '}
-                  <span className={styles['stage-title-addendum']}>
-                    with {missionInstructor.name}
-                  </span>
-                </h2>
-                {publicId && <VideoPlayer publicId={publicId} />}
-              </div>
-              <div>
-                <MissionTracker
-                  stages={missionStages}
-                  currentMission={missionSlug}
-                  currentStage={stage.slug.current}
-                />
-              </div>
-            </div>
+      <article>
+        <div className="sectioncontain margintop-md">
+          <div className={styles['stage-content']}>
+            <section>
+              <h2 className={styles['stage-title']}>
+                {missionTitle}{' '}
+                <span className={styles['stage-title-addendum']}>
+                  with {missionInstructor.name}
+                </span>
+              </h2>
+              {publicId && <VideoPlayer publicId={publicId} />}
+            </section>
+            <aside>
+              <MissionTracker
+                stages={missionStages}
+                currentMission={missionSlug}
+                currentStage={stage.slug.current}
+              />
+            </aside>
           </div>
-        </section>
-      </div>
+        </div>
+      </article>
     </Layout>
   );
 }
