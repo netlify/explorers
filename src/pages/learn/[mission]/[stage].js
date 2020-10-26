@@ -6,8 +6,8 @@ import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
 
 export default function Stage({ mission, stage }) {
-  const publicId = stage.content?.[0].cloudinaryVideo.public_id;
-  const poster = stage.content?.[0].coverImage.asset.url;
+  const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
+  const poster = stage.content?.[0].coverImage?.asset.url;
 
   return (
     <Layout navtheme="dark">
