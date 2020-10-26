@@ -69,14 +69,7 @@ export function UserProvider({ children }) {
   //TODO: placeholder while we build this
   const userdata = {
     accredidationProgress: 0.34,
-    activeDates: {
-      '2017-05-13': 2,
-      '2017-05-14': 5,
-      '2017-05-15': 4,
-      '2017-05-16': 6,
-      '2017-05-17': 1,
-      '2017-05-18': 4,
-    },
+    // TODO we don’t have categories right now, so we can’t determine this data
     skills: [
       {
         data: {

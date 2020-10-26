@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useUserState } from '@context/user';
 import debounce from 'lodash/debounce';
+import styles from './VideoPlayer.module.css';
 
-const VideoPlayer = ({ publicId }) => {
+const VideoPlayer = ({ publicId, poster }) => {
   const { activity } = useUserState();
   const ref = React.useRef();
 
@@ -64,7 +65,14 @@ const VideoPlayer = ({ publicId }) => {
 
   // TODO let's add support for smaller formats as well
   return (
-    <video controls id="lesson-video" ref={ref}>
+    <video
+      controls
+      key={publicId}
+      id="lesson-video"
+      ref={ref}
+      className={styles.video}
+      poster={poster}
+    >
       <source
         src={`https://res.cloudinary.com/netlify/video/upload/ac_none/${publicId}.mp4`}
         type="video/mp4"
