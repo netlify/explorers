@@ -12,7 +12,7 @@ function HomeHero({ rawcontent }) {
     <Hero>
       <div className="prose">{homeHeroContent}</div>
 
-      <div className={styles['astronaut-contain']}>
+      <div className={styles['homehero-astronaut-contain']}>
         <Astronaut />
       </div>
     </Hero>

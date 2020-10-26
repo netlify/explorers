@@ -1,4 +1,4 @@
-.astronaut-contain {
+.homehero-astronaut-contain {
   height: 100%;
   width: 100%;
   max-width: 525px;
@@ -6,10 +6,16 @@
 }
 
 @media screen and (min-width: 1000px) {
-  .astronaut-contain {
+  .homehero-astronaut-contain {
     position: absolute;
     bottom: 0;
-    right: 20%;
+    right: 5%;
     justify-self: end;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .astronaut-contain {
+    right: 15%;
   }
 }
