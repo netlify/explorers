@@ -7,6 +7,7 @@ import styles from './Stage.module.css';
 
 export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo.public_id;
+  const poster = stage.content?.[0].coverImage.asset.url;
 
   return (
     <Layout navtheme="dark">
@@ -20,7 +21,7 @@ export default function Stage({ mission, stage }) {
                   with {mission.instructor.name}
                 </span>
               </h2>
-              {publicId && <VideoPlayer publicId={publicId} />}
+              {publicId && <VideoPlayer publicId={publicId} poster={poster} />}
             </section>
             <aside>
               <MissionTracker
