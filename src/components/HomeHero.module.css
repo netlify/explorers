@@ -1,21 +1,32 @@
 .homehero-astronaut-contain {
   height: 100%;
   width: 100%;
-  max-width: 525px;
+  max-width: 535px;
   justify-self: center;
+  transition: 0.8s transform;
+  transform: translateY(6px);
+  position: relative;
 }
 
 @media screen and (min-width: 1000px) {
   .homehero-astronaut-contain {
     position: absolute;
     bottom: 0;
-    right: 5%;
+    right: 20%;
     justify-self: end;
+    transform: translateY(0);
+    transform: translateX(35%);
   }
 }
 
+/* @media screen and (min-width: 1100px) {
+  .homehero-astronaut-contain {
+    transform: translateX(20%);
+  }
+} */
+
 @media screen and (min-width: 1280px) {
-  .astronaut-contain {
-    right: 15%;
+  .homehero-astronaut-contain {
+    transform: translateX(15%);
   }
 }

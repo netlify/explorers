@@ -28,7 +28,7 @@
 
 @media (min-width: 1000px) {
   .hero {
-    padding: 150px 3rem;
+    padding-bottom: 60px;
   }
 
   .hero-contain {
@@ -37,6 +37,5 @@
     grid-template-rows: 1fr;
     grid-column-gap: 30px;
     min-height: 50vh;
-    max-height: 500px;
   }
 }
