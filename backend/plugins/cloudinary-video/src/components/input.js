@@ -61,7 +61,7 @@ export function Input({ value, onChange, type, level }) {
           {isDragActive ? (
             <>num num num videos!</>
           ) : (
-            <button onClick={open}>upload an image, ya jabroni</button>
+            <button onClick={open}>upload a video, ya jabroni</button>
           )}
         </p>
       </div>
