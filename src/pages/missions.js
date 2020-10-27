@@ -14,11 +14,11 @@ export default function MissionsPage({ rawContent }) {
     <Layout navtheme="dark">
       <div>
         <section className="intro">
-          <div className="sectioncontain">{missionIntroContent}</div>
+          <div className="section-contain">{missionIntroContent}</div>
         </section>
 
         <section>
-          <div className="row sectioncontain">
+          <div className="row section-contain">
             {missions.map((mission, index) => (
               <MissionCard key={index} mission={mission} />
             ))}
