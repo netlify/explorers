@@ -53,9 +53,10 @@ export default {
       slug: 'slug',
     },
     prepare(selection) {
-      const { slug } = selection;
+      const { title, slug } = selection;
       return {
-        subtitle: `cool video at ${slug.current}!`,
+        title: `${title}`,
+        subtitle: `video slug: ${slug.current}`,
       };
     },
   },
