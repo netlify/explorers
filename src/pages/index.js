@@ -16,10 +16,10 @@ export default function Home({ rawMissionControlContent, rawHomeHeroContent }) {
       <div>
         <HomeHero rawcontent={rawHomeHeroContent} />
 
-        <section className="margintop-lg">
-          <div className="sectioncontain">{missionControlContent}</div>
+        <section className="margintop-lg px3">
+          <div className="section-contain prose">{missionControlContent}</div>
 
-          <div className="row sectioncontain">
+          <div className="row section-contain">
             {missions.map((mission, index) => (
               <MissionCard key={index} mission={mission} />
             ))}

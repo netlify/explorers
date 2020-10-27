@@ -1,5 +1,10 @@
-.svg {
-  position: absolute;
-  bottom: -3em;
+.astronaut-svg {
   width: 100%;
+}
+
+@media screen and (min-width: 1000px) {
+  .astronaut-svg {
+    position: absolute;
+    bottom: 0;
+  }
 }

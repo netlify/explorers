@@ -10,9 +10,9 @@ function HomeHero({ rawcontent }) {
 
   return (
     <Hero>
-      <div>{homeHeroContent}</div>
+      <div className="prose">{homeHeroContent}</div>
 
-      <div className={styles.astronautcontain}>
+      <div className={styles['homehero-astronaut-contain']}>
         <Astronaut />
       </div>
     </Hero>
