@@ -1,4 +1,5 @@
 import loadActivityByUser from '@netlify/activity-hub/load';
+import { loadMissionBySlug } from '@context/missions';
 
 export default async function handler(req, res) {
   const authorization = req.headers.authorization;
@@ -37,20 +38,41 @@ export default async function handler(req, res) {
     return [date, [...videoIdSet].length];
   });
 
-  const userData = {
-    activeDates: Object.fromEntries(updates),
-  };
+  const completedVideoPaths = activity
+    .filter((a) => a.type === 'video-complete')
+    .map((video) => video.event_data.path);
 
-  // const userdata = {
-  //   accredidationProgress: 0.34,
-  //   activeDates: {
-  //     '2017-05-13': 2,
-  //     '2017-05-14': 5,
-  //     '2017-05-15': 4,
-  //     '2017-05-16': 6,
-  //     '2017-05-17': 1,
-  //     '2017-05-18': 4,
-  //   },
+  const activeMissionsPromises = completedVideoPaths.map((video) => {
+    const [, , missionSlug] = video.split('/');
+    return loadMissionBySlug(missionSlug);
+  });
+
+  // load missions in parallel by awaiting promises here instead of in the map
+  const activeMissions = await Promise.all(activeMissionsPromises);
+
+  // figure out how much of each mission is completed
+  const userMissions = activeMissions
+    .filter((m) => m?._id) // only keep valid missions
+    .map((mission) => {
+      const missionSlug = mission.slug.current;
+      const totalStages = mission.stages.length;
+      const completedStages = completedVideoPaths.filter((v) =>
+        v.match(missionSlug)
+      ).length;
+
+      return {
+        title: mission.title,
+        instructor: mission.instructor.name,
+        coverImage: mission.coverImage.asset.url,
+        progress: completedStages / totalStages,
+      };
+    });
+
+  // for now we’re hard-coding that ANY 3 completed missions earn a certificate
+  const completedMissions = userMissions.filter((m) => m.progress === 1).length;
+  const certificateProgress = (completedMissions / 3).toFixed(2);
+
+  // TODO radar chart data once we have tags
   //   skills: [
   //     {
   //       data: {
@@ -73,26 +95,13 @@ export default async function handler(req, res) {
   //       meta: { color: 'rgba(170, 77, 232, 0.7)' },
   //     },
   //   ],
-  //   userCourses: [
-  //     {
-  //       title: 'Vue and Nuxt',
-  //       instructor: 'Sarah Drasner',
-  //       coverImage:
-  //         'https://cdn.sanity.io/images/q8efilev/production/e4313495f322e448fec7f41b833b0dabb3799178-800x714.jpg',
-  //       progress: 0.6,
-  //     },
-  //     {
-  //       title: 'Next and React',
-  //       instructor: 'Cassidy Williams',
-  //       coverImage:
-  //         'https://cdn.sanity.io/images/q8efilev/production/e4313495f322e448fec7f41b833b0dabb3799178-800x714.jpg',
-  //       progress: 0.3,
-  //     },
-  //   ],
-  // };
 
   res.status(200).json({
     ...data,
-    activity: userData,
+    activity: {
+      activeDates: Object.fromEntries(updates),
+      userMissions,
+      certificateProgress,
+    },
   });
 }

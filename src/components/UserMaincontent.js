@@ -1,10 +1,14 @@
 import styles from './UserMaincontent.module.css';
 import UserActivityGraph from './UserActivityGraph';
-import UserCourseInfo from './UserCourseInfo';
+import UserMissionInfo from './UserMissionInfo';
 import { useUserState } from 'src/context/user';
 
 function UserMaincontent() {
-  const { userdata } = useUserState();
+  const { user } = useUserState();
+
+  if (!user.activity) {
+    return <p>loading...</p>;
+  }
 
   return (
     <aside className={styles.main}>
@@ -16,8 +20,8 @@ function UserMaincontent() {
 
         <div className={styles.profilecard}>
           <h4 className={styles.profileh4}>Your Courses</h4>
-          {userdata.userCourses.map((course, index) => (
-            <UserCourseInfo key={index} course={course} />
+          {user.activity.userMissions.map((mission, index) => (
+            <UserMissionInfo key={index} mission={mission} />
           ))}
         </div>
       </div>

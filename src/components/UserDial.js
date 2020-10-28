@@ -4,8 +4,8 @@ import { useUserState } from 'src/context/user';
 import gsap from 'gsap';
 
 function UserDial() {
-  const { userdata } = useUserState();
-  const progress = userdata.accredidationProgress;
+  const { user } = useUserState();
+  const progress = user.activity.certificateProgress;
 
   useEffect(() => {
     gsap.set('.dial', {
