@@ -7,15 +7,15 @@ export function Input({ value, onChange, type, level }) {
   const reader = new FileReader();
 
   reader.addEventListener('load', async function () {
-    console.log('yay!');
     const dataURL = this.result;
 
     const asset = await fetch(
-      'https://explorers-video-upload.azurewebsites.net/api/upload-cloudinary-video',
+      'https://netlifyvideofunction.azurewebsites.net/api/upload-cloudinary-video',
       {
         method: 'POST',
         headers: {
           'Content-Type': 'text/plain',
+          'x-functions-key': process.env.SANITY_STUDIO_AZURE_FUNCTIONS_KEY,
         },
         body: dataURL,
       }
