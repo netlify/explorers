@@ -38,12 +38,14 @@ export default async function handler(req, res) {
     return [date, [...videoIdSet].length];
   });
 
-  const activeMissionsPromises = activity
+  const completedVideoPaths = activity
     .filter((a) => a.type === 'video-complete')
-    .map((video) => {
-      const [, , missionSlug] = video.event_data.path.split('/');
-      return loadMissionBySlug(missionSlug);
-    });
+    .map((video) => video.event_data.path);
+
+  const activeMissionsPromises = completedVideoPaths.map((video) => {
+    const [, , missionSlug] = video.split('/');
+    return loadMissionBySlug(missionSlug);
+  });
 
   // load missions in parallel by awaiting promises here instead of in the map
   const activeMissions = await Promise.all(activeMissionsPromises);
