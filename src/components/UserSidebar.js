@@ -20,7 +20,7 @@ function UserSidebar() {
           <UserRadar />
         */}
 
-        <h4 className={styles.accredidation}>Accreditation</h4>
+        <h4 className={styles.accreditation}>Accreditation</h4>
         <UserDial />
       </div>
     </div>
