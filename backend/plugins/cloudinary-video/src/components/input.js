@@ -17,7 +17,7 @@ export function Input({ value, onChange, type, level }) {
           'Content-Type': 'text/plain',
           'x-functions-key': process.env.SANITY_STUDIO_AZURE_FUNCTIONS_KEY,
         },
-        body: dataURL,
+        video: dataURL,
       }
     ).then((response) => response.json());
 
