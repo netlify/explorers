@@ -182,6 +182,19 @@ section {
   display: grid;
   grid-template-rows: repeat(1, 1fr);
   grid-row-gap: 30px;
+  grid-column-gap: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .row {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .margintop-md {
@@ -199,24 +212,6 @@ section {
 
 .prose p {
   margin-bottom: 1rem;
-}
-
-@media screen and (min-width: 768px) {
-  .row {
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 30px;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .row {
-    margin: 60px auto 200px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, 250px);
-    grid-column-gap: 30px;
-    grid-row-gap: 80px;
-  }
 }
 
 /* ---- SVG STYLES ----- */
