@@ -1,7 +1,8 @@
-import hydrate from 'next-mdx-remote/hydrate';
 import Link from 'next/link';
+import hydrate from 'next-mdx-remote/hydrate';
 import renderToString from 'next-mdx-remote/render-to-string';
 import { loadMissions, loadMissionBySlug } from '@context/missions';
+import ChonkyFooter from '@components/ChonkyFooter';
 import Layout from '@components/Layout';
 import styles from './Mission.module.css';
 
@@ -49,6 +50,8 @@ const Mission = ({ mission }) => {
           </div>
         </div>
       </section>
+
+      <ChonkyFooter mission={mission} />
     </Layout>
   );
 };
