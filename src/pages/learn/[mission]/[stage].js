@@ -36,7 +36,7 @@ export default function Stage({ mission, stage }) {
         </div>
       </section>
 
-      <ChonkyFooter />
+      <ChonkyFooter mission={mission} />
     </Layout>
   );
 }
