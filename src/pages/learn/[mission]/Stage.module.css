@@ -1,9 +1,16 @@
 .stage-content {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr;
-  grid-column-gap: 30px;
-  grid-row-gap: 0px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr;
+  grid-column-gap: 0px;
+}
+
+@media screen and (min-width: 900px) {
+  .stage-content {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 30px;
+  }
 }
 
 .stage-title {
