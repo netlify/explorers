@@ -1,7 +1,8 @@
-import hydrate from 'next-mdx-remote/hydrate';
 import Link from 'next/link';
+import hydrate from 'next-mdx-remote/hydrate';
 import renderToString from 'next-mdx-remote/render-to-string';
 import { loadMissions, loadMissionBySlug } from '@context/missions';
+import ChonkyFooter from '@components/ChonkyFooter';
 import Layout from '@components/Layout';
 import styles from './Mission.module.css';
 
@@ -21,7 +22,7 @@ const Mission = ({ mission }) => {
       <section className="intro">
         <div className="section-contain">
           <h1>This mission: {mission.title}</h1>
-          <h2>with {mission.instructor.name}</h2>
+          <h3>with {mission.instructor.name}</h3>
           <div className={styles.missiontout}>
             <div
               className={styles.card}
@@ -29,26 +30,28 @@ const Mission = ({ mission }) => {
                 backgroundImage: `url(${mission.coverImage.asset.url})`,
               }}
             ></div>
-            <div className={styles.missionblurb}>{mission.blurb}</div>
+            <div className={styles.missionblurb}>
+              <p>{mission.blurb}</p>
+              <h4>
+                This mission has {mission.stages?.length} stages to explore:
+              </h4>
+              <ul>
+                {mission.stages?.map((stage) => (
+                  <li key={stage._id}>
+                    <Link
+                      href={`/learn/${mission.slug.current}/${stage.slug.current}`}
+                    >
+                      <a>{stage.title}</a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <h2>This mission has {mission.stages?.length} stages to explore:</h2>
-          <p>
-            (...and we should mark your progress through the list below if you
-            are logged in. 👋)
-          </p>
-          <ul>
-            {mission.stages?.map((stage) => (
-              <li key={stage._id}>
-                <Link
-                  href={`/learn/${mission.slug.current}/${stage.slug.current}`}
-                >
-                  <a>{stage.title}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
+
+      <ChonkyFooter mission={mission} />
     </Layout>
   );
 };

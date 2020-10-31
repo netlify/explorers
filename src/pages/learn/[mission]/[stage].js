@@ -1,6 +1,7 @@
 import Layout from '@components/Layout';
-import MissionTracker from '@components/MissionTracker';
 import VideoPlayer from '@components/VideoPlayer';
+import ChonkyFooter from '@components/ChonkyFooter';
+import MissionTracker from '@components/MissionTracker';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
@@ -11,28 +12,31 @@ export default function Stage({ mission, stage }) {
 
   return (
     <Layout navtheme="dark">
-      <article>
-        <div className="sectioncontain margintop-md">
-          <div className={styles['stage-content']}>
-            <section>
-              <h2 className={styles['stage-title']}>
-                {mission.title}{' '}
-                <span className={styles['stage-title-addendum']}>
-                  with {mission.instructor.name}
-                </span>
-              </h2>
-              {publicId && <VideoPlayer publicId={publicId} poster={poster} />}
-            </section>
-            <aside>
-              <MissionTracker
-                stages={mission.stages}
-                currentMission={mission.slug.current}
-                currentStage={stage.slug.current}
-              />
-            </aside>
+      <section>
+        <div
+          className={`${styles['stage-content']} section-contain margintop-lg`}
+        >
+          <div>
+            <h2 className={styles['stage-title']}>
+              {mission.title}{' '}
+              <span className={styles['stage-title-addendum']}>
+                with {mission.instructor.name}
+              </span>
+            </h2>
+            {publicId && <VideoPlayer publicId={publicId} poster={poster} />}
           </div>
+
+          <aside>
+            <MissionTracker
+              stages={mission.stages}
+              currentMission={mission.slug.current}
+              currentStage={stage.slug.current}
+            />
+          </aside>
         </div>
-      </article>
+      </section>
+
+      <ChonkyFooter mission={mission} />
     </Layout>
   );
 }
