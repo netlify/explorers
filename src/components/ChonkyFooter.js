@@ -2,6 +2,9 @@ import styles from './ChonkyFooter.module.css';
 import FloatingAstronaut from '@components/FloatingAstronaut';
 
 export default function Layout({ mission }) {
+  const missionTotal =
+    mission.stages && mission.stages.length ? mission.stages.length : 1;
+
   return (
     <section>
       <div className={`${styles.chonky} section-contain`}>
@@ -40,7 +43,7 @@ export default function Layout({ mission }) {
                 strokeWidth="1"
               />
               <text x="90" y="70" fontSize="30px">
-                {mission.stages.length}
+                {missionTotal}
               </text>
             </g>
           </svg>
