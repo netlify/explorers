@@ -1,0 +1,27 @@
+.chonky {
+  position: relative;
+}
+
+.explorers {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.astronaut {
+  margin-left: 100px;
+}
+
+.progress {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 280px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.progress svg {
+  margin-left: 10px;
+}

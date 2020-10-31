@@ -1,6 +1,7 @@
 import Layout from '@components/Layout';
-import MissionTracker from '@components/MissionTracker';
 import VideoPlayer from '@components/VideoPlayer';
+import ChonkyFooter from '@components/ChonkyFooter';
+import MissionTracker from '@components/MissionTracker';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
@@ -34,6 +35,8 @@ export default function Stage({ mission, stage }) {
           </aside>
         </div>
       </section>
+
+      <ChonkyFooter />
     </Layout>
   );
 }
