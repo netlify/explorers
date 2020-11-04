@@ -35,6 +35,14 @@ export function Input({ value, onChange, type, level }) {
     );
   });
 
+  const removeVideo = React.useCallback(() => {
+    onChange(
+      PatchEvent.from([
+        unset(),
+      ])
+    )
+  })
+
   const onDropAccepted = React.useCallback((files) => {
     console.log(files);
     const [video] = files;
@@ -67,10 +75,15 @@ export function Input({ value, onChange, type, level }) {
           )}
         </p>
       </div>
-      {value && (
-        <video controls width="250">
-          <source src={value.url} type="video/mp4" />
-        </video>
+      {value?.url && (
+        <div className="uploaded-video-content">
+          <div className="video-ui">
+            <button onClick={removeVideo}>Remove</button>
+          </div>
+          <video controls width="250">
+            <source src={value.url} type="video/mp4" />
+          </video>
+        </div>
       )}
     </Fieldset>
   );
