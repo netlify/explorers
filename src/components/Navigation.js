@@ -56,8 +56,8 @@ function Navigation({ theme }) {
           </Link>
         </li>
         <li>
-          <Link href="">
-            <a>Progress</a>
+          <Link href="/about" as="/about">
+            <a>About</a>
           </Link>
         </li>
       </ul>
@@ -75,7 +75,7 @@ function Navigation({ theme }) {
           </Link>
         </>
       ) : (
-        <button onClick={() => redirectToOAuth()} className="btn">
+        <button onClick={() => redirectToOAuth()} className="btn btn-primary">
           Log In with Netlify
         </button>
       )}

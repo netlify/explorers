@@ -115,6 +115,10 @@ section {
   margin: 0 auto;
 }
 
+p {
+  padding-bottom: 1rem;
+}
+
 /* -- Buttons -- */
 
 .btn {

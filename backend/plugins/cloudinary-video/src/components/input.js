@@ -36,12 +36,8 @@ export function Input({ value, onChange, type, level }) {
   });
 
   const removeVideo = React.useCallback(() => {
-    onChange(
-      PatchEvent.from([
-        unset(),
-      ])
-    )
-  })
+    onChange(PatchEvent.from([unset()]));
+  });
 
   const onDropAccepted = React.useCallback((files) => {
     console.log(files);
