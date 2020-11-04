@@ -20,17 +20,22 @@
 }
 
 .carddescription {
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
   text-align: left;
 }
 
-.carddescription h3 {
-  margin-top: 8px;
+.cardinfo h3 {
+  margin: 8px 0 8px;
+}
+
+.blurb {
+  height: 50px;
 }
 
 .cardbutton {
   position: absolute;
   right: 10px;
-  bottom: 20px;
+  bottom: 15px;
 }
