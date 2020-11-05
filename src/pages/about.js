@@ -18,9 +18,15 @@ export default function AboutPage() {
               button on the top right, and we'll use your Netlify account to
               show how far you've come in learning a particular topic.
             </p>
+            <img
+              src="/user-profile.jpg"
+              alt="user profile page on jamstack explorers"
+              className={styles.aboutimg}
+            />
             <p>
-              Once you've completed 3 missions (courses), we will give you a
-              certificate of completion for your astounding efforts.
+              Once you've completed 3 missions (courses), we will give you a {}
+              <strong>Certificate of Completion</strong> for your astounding
+              efforts.
             </p>
           </div>
         </section>

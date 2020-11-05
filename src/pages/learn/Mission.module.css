@@ -1,11 +1,19 @@
-.missiontout {
-  display:flex;
-  justify-content: space-between;
-  margin-bottom: 2rem;
+@media screen and (min-width: 900px) {
+  .missiontout {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
 }
 
 .missionblurb {
   padding-left: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+  .missionblurb {
+    margin: 2.5rem 0 3.5rem;
+  }
 }
 
 .card {
