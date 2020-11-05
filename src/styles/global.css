@@ -115,6 +115,10 @@ section {
   margin: 0 auto;
 }
 
+p {
+  padding-bottom: 1.5rem;
+}
+
 /* -- Buttons -- */
 
 .btn {
@@ -170,7 +174,13 @@ section {
 /* -- Utility -- */
 
 .intro {
-  padding-top: 150px;
+  padding: 150px 0;
+}
+
+@media screen and (min-width: 900px) {
+  .intro {
+    padding: 150px 0 0 0;
+  }
 }
 
 .uppercase {

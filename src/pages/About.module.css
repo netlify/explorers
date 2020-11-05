@@ -1,0 +1,10 @@
+.about {
+  max-width: 800px;
+  margin: 150px auto 100px;
+}
+
+.aboutimg {
+  width: 100%;
+  border: 1px solid white;
+  margin-bottom: 2rem;
+}
