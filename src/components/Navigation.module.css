@@ -31,6 +31,22 @@
   margin-top: 5px;
 }
 
+.drawer {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 100vw;
+}
+
+.drawer ul {
+  flex-direction: column;
+  padding: 10px;
+}
+
+.drawer li {
+  padding: 10px 0;
+}
+
 /* dark pages */
 
 .navdark {
@@ -43,6 +59,12 @@
   color: white;
 }
 
+.navdark .drawer {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-bottom: 1px solid rgba(28, 135, 177, 0.349);
+}
+
 /* light pages */
 
 .navlight {
@@ -53,6 +75,12 @@
 
 .navlight a {
   color: #082c40;
+}
+
+.navlight .drawer {
+  background: rgba(255, 255, 255, 0.5);
+  color: #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .profile {
