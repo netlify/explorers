@@ -1,6 +1,6 @@
 ---
 name: Fix
-about: Something needs fixed: styling, typos, UX
+about: Something needs fixed styling, typos, UX
 title: '[broken thing] needs fixed'
 labels: 'mscw: must, type: chore'
 assignees: ''
