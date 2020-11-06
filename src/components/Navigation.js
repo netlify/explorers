@@ -9,33 +9,8 @@ import Hamburger from './Hamburger';
 import { useUserState } from 'src/context/user';
 import { useMediaQuery } from '@hooks/useMediaQuery';
 
-function renderUser({ status }) {
-  if (status === 'loaded') {
-    return (
-      <>
-        <Link href="/profile">
-          <a className={styles.profile}>
-            <span className={styles.username}>{user.full_name}</span>
-            <img
-              className={styles.avatar}
-              src={user.avatar_url}
-              alt={`${user.full_name}’s avatar`}
-            />
-          </a>
-        </Link>
-      </>
-    );
-  } else {
-    return (
-      <button onClick={() => redirectToOAuth()} className="btn btn-primary">
-        Log In with Netlify
-      </button>
-    );
-  }
-}
-
 function Navigation({ theme }) {
-  const { token, user, status, redirectToOAuth } = useUserState();
+  const { status } = useUserState();
 
   let isMobile = useMediaQuery('(max-width: 1100px)');
 
@@ -70,7 +45,7 @@ function Navigation({ theme }) {
           </>
         )}
       </ul>
-      {!isMobile && renderUser('status')}
+      {!isMobile && renderUser(status)}
       {isMobile && (
         <>
           <Hamburger
@@ -92,7 +67,7 @@ function Navigation({ theme }) {
                     <a>About</a>
                   </Link>
                 </li>
-                <li>{renderUser('status')}</li>
+                <li>{renderUser(status)}</li>
               </ul>
             </div>
           )}
@@ -100,6 +75,32 @@ function Navigation({ theme }) {
       )}
     </nav>
   );
+}
+
+function renderUser({ status }) {
+  const { token, user, redirectToOAuth } = useUserState();
+  if (status === 'loaded') {
+    return (
+      <>
+        <Link href="/profile">
+          <a className={styles.profile}>
+            <span className={styles.username}>{user.full_name}</span>
+            <img
+              className={styles.avatar}
+              src={user.avatar_url}
+              alt={`${user.full_name}’s avatar`}
+            />
+          </a>
+        </Link>
+      </>
+    );
+  } else {
+    return (
+      <button onClick={() => redirectToOAuth()} className="btn btn-primary">
+        Log In with Netlify
+      </button>
+    );
+  }
 }
 
 export default Navigation;

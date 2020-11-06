@@ -17,6 +17,7 @@
 
 .hamburger.isActive {
   transform: rotate(90deg);
+  transition: transform 0.2s;
 }
 
 .hamburger.isActive .line:nth-child(2) {
