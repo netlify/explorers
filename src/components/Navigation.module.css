@@ -31,6 +31,17 @@
   margin-top: 5px;
 }
 
+.drawer {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 100vw;
+}
+
+.drawer ul {
+  flex-direction: column;
+}
+
 /* dark pages */
 
 .navdark {

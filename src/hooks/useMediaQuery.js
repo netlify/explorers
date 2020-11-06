@@ -1,9 +1,11 @@
+import { useState, useEffect } from 'react';
+
 // Hook for using media queries for conditional rendering
 // Usage example:
-// let isPageWide = useMedia('(min-width: 800px)')
+// let isPageWide = useMediaQuery('(min-width: 800px)')
 
-function useMedia(query) {
-  const [matches, setMatches] = useState(window.matchMedia(query).matches);
+export function useMediaQuery(query) {
+  const [matches, setMatches] = useState(false);
 
   useEffect(() => {
     const media = window.matchMedia(query);
