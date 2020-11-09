@@ -106,6 +106,11 @@ We have a prettier pre-commit hook. To run formatting on the command line:
 npm run format
 ```
 
+## To Get a Certificate
+
+Go to this repo: [https://github.com/sdras/az-certificate](https://github.com/sdras/az-certificate)
+You will find instructions for usage there.
+
 ## How to commit to this repo!
 
 - We use the following branch convention:
