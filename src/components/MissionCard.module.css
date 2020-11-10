@@ -1,5 +1,5 @@
 .card {
-  height: 350px;
+  min-height: 360px;
   position: relative;
   background-position: center center;
   background-repeat: no-repeat;
@@ -9,33 +9,31 @@
   font-size: 13px;
 }
 
-.cardinfo {
+.card-info {
   background: #000;
   width: 100%;
-  padding: 10px 15px 15px;
+  padding: 10px 15px;
   position: absolute;
   z-index: 200;
-  height: 150px;
   bottom: 0;
 }
 
-.carddescription {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  text-align: left;
-}
-
-.cardinfo h3 {
+.card-info h3 {
   margin: 8px 0 8px;
 }
 
-.blurb {
-  height: 50px;
+.card-footer {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-auto-flow: row;
+  justify-content: space-between;
 }
 
-.cardbutton {
-  position: absolute;
-  right: 10px;
-  bottom: 15px;
+.card-description {
+  height: 70px;
+}
+
+.card-button {
+  flex: 0 0 auto;
 }

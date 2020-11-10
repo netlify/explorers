@@ -1,0 +1,11 @@
+/* -- Avatar Row -- */
+.avatar-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.avatar-row .avatar-label {
+  padding-bottom: 0;
+  text-transform: uppercase;
+}
