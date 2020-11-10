@@ -1,3 +1,4 @@
+import AvatarRow from './AvatarRow';
 import styles from './MissionCard.module.css';
 import Link from 'next/link';
 
@@ -16,13 +17,10 @@ const MissionCard = ({ mission }) => {
         </div>
 
         <div className={styles['card-footer']}>
-          <div className={styles['avatar-row']}>
-            <img
-              src={mission.instructor.avatar.asset.url}
-              className={styles.avatar}
-            />
-            <p className={styles['avatar-name']}>{mission.instructor.name}</p>
-          </div>
+          <AvatarRow
+            src={mission.instructor.avatar.asset.url}
+            label={mission.instructor.name}
+          />
           <div className={styles['card-button']}>
             <Link href="/learn/[slug]" as={`/learn/${mission.slug.current}`}>
               <a className="btn btndark">Launch Mission</a>

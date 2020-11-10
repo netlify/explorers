@@ -24,14 +24,10 @@
 
 .card-footer {
   margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-auto-flow: row;
   justify-content: space-between;
-  text-align: left;
-}
-
-.card-footer .avatar-row {
-  margin-bottom: 5px;
 }
 
 .card-description {
@@ -39,26 +35,5 @@
 }
 
 .card-button {
-  flex: 0 0 auto;
-}
-
-/* -- Avatars -- */
-
-.avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 1000px;
-  margin-right: 7px;
-}
-
-.avatar-name {
-  padding-bottom: 0;
-  text-transform: uppercase;
-}
-
-.avatar-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   flex: 0 0 auto;
 }
