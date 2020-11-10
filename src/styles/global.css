@@ -156,6 +156,14 @@ p {
   color: #fff;
 }
 
+/* -- Avatar -- */
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 1000px;
+  margin-right: 7px;
+}
+
 /* -- Utility -- */
 
 .intro {
