@@ -156,21 +156,6 @@ p {
   color: #fff;
 }
 
-/* -- Avatars -- */
-
-.avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 1000px;
-  margin-right: 7px;
-}
-
-.avatarrow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 /* -- Utility -- */
 
 .intro {

@@ -9,18 +9,21 @@ const MissionCard = ({ mission }) => {
         backgroundImage: `url(${mission.coverImage.asset.url})`,
       }}
     >
-      <div className={styles.cardinfo}>
+      <div className={styles['card-info']}>
         <h3>{mission.title}</h3>
-        <div className={styles.blurb}>
+        <div className={styles['card-description']}>
           <p>{mission.blurb}</p>
         </div>
 
-        <div className={styles.carddescription}>
-          <div className="avatarrow">
-            <img src={mission.instructor.avatar.asset.url} className="avatar" />
-            <p className="uppercase">{mission.instructor.name}</p>
+        <div className={styles['card-footer']}>
+          <div className={styles['avatar-row']}>
+            <img
+              src={mission.instructor.avatar.asset.url}
+              className={styles.avatar}
+            />
+            <p className={styles['avatar-name']}>{mission.instructor.name}</p>
           </div>
-          <div className={styles.cardbutton}>
+          <div className={styles['card-button']}>
             <Link href="/learn/[slug]" as={`/learn/${mission.slug.current}`}>
               <a className="btn btndark">Launch Mission</a>
             </Link>
