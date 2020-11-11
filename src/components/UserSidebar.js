@@ -10,9 +10,11 @@ function UserSidebar() {
   return (
     <div className={styles.sidebar}>
       <div className={styles.section}>
-        <UserProfilesvg className={styles.usersvg} />
-        <h3 className={styles.username}>{user.full_name}</h3>
-        <h4 className={styles.usertitle}>Captain</h4>
+        <section className={styles['section-item']}>
+          <UserProfilesvg className={styles.usersvg} />
+          <h3 className={styles.username}>{user.full_name}</h3>
+          <h4 className={styles.usertitle}>Captain</h4>
+        </section>
 
         <hr className={styles.hr} />
         {/*
@@ -20,8 +22,10 @@ function UserSidebar() {
           <UserRadar />
         */}
 
-        <h4 className={styles.accreditation}>Certificate Progress</h4>
-        <UserDial />
+        <section className={styles['section-item']}>
+          <h4 className={styles.accreditation}>Certificate Progress</h4>
+          <UserDial />
+        </section>
       </div>
     </div>
   );

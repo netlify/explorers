@@ -1,15 +1,42 @@
 .sidebar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
   width: 100%;
-  min-height: calc(100vh - 62px);
   background: #1f2125;
-  padding: 60px 40px;
   font-size: 15px;
   text-align: center;
 }
 
 .section {
-  max-width: 400px;
-  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: none;
+}
+
+.section-item {
+  flex: 1;
+  padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    display: block;
+    width: 100%;
+    background: #1f2125;
+    padding: 60px 40px;
+    font-size: 15px;
+    text-align: center;
+    min-height: 100vh;
+  }
+
+  .section {
+    flex-direction: column;
+    max-width: 400px;
+    float: right;
+  }
 }
 
 .username {
@@ -22,6 +49,7 @@ h4.usertitle {
 }
 
 h4.accreditation {
+  margin-top: 0;
   margin-bottom: 10px;
 }
 

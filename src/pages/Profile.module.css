@@ -1,8 +1,15 @@
 .profile-page {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 300px 3fr;
   width: 100vw;
   min-height: 100vh;
   background-color: white;
   margin-top: 62px;
+}
+
+@media screen and (min-width: 768px) {
+  .profile-page {
+    grid-template-columns: 1fr 3fr;
+  }
 }
