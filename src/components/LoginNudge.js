@@ -19,7 +19,7 @@ export default function LoginNudge() {
       </a>{' '}
       to track progress through the mission. Once you've completed 3 missions,
       you'll receive a <strong>Certificate of Completion</strong> for your
-      astounding efforts.
+      astounding efforts!
     </aside>
   );
 }
