@@ -10,8 +10,6 @@ import { useUserState } from 'src/context/user';
 import { useMediaQuery } from '@hooks/useMediaQuery';
 
 function Navigation({ theme }) {
-  const { status } = useUserState();
-
   let isMobile = useMediaQuery('(max-width: 1100px)');
 
   let [mobileMenuExpanded, setMobileMenuExpanded] = useState(false);
@@ -45,7 +43,7 @@ function Navigation({ theme }) {
           </>
         )}
       </ul>
-      {!isMobile && renderUser(status)}
+      {!isMobile && renderUser()}
       {isMobile && (
         <>
           <Hamburger
@@ -67,7 +65,7 @@ function Navigation({ theme }) {
                     <a>About</a>
                   </Link>
                 </li>
-                <li>{renderUser(status)}</li>
+                <li>{renderUser()}</li>
               </ul>
             </div>
           )}
@@ -77,9 +75,10 @@ function Navigation({ theme }) {
   );
 }
 
-function renderUser({ status }) {
-  const { token, user, redirectToOAuth } = useUserState();
-  if (status === 'loaded') {
+function renderUser() {
+  const { user, redirectToOAuth } = useUserState();
+
+  if (user && user.full_name) {
     return (
       <>
         <Link href="/profile">
