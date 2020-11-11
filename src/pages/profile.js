@@ -2,6 +2,7 @@ import Layout from '@components/Layout';
 import UserSidebar from '@components/UserSidebar';
 import UserMaincontent from '@components/UserMaincontent';
 import { useUserState } from '@context/user';
+import style from './Profile.module.css';
 
 export default function Profile() {
   const { token, status, redirectToOAuth } = useUserState();
@@ -38,21 +39,7 @@ export default function Profile() {
 
   return (
     <Layout>
-      <div
-        style={{
-          display: `grid`,
-          gridTemplateColumns: `1fr 2fr`,
-          gridTemplateRows: `62px 1fr`,
-          width: `100vw`,
-          minHeight: `100vh`,
-        }}
-      >
-        <div
-          style={{
-            gridArea: `1 / 1 / 2 / 3`,
-            background: `white`,
-          }}
-        ></div>
+      <div className={style['profile-page']}>
         <UserSidebar />
         <UserMaincontent />
       </div>
