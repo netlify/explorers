@@ -1,6 +1,7 @@
 import styles from './UserMaincontent.module.css';
 import UserActivityGraph from './UserActivityGraph';
 import UserMissionInfo from './UserMissionInfo';
+import Sun from './Sun';
 import { useUserState } from 'src/context/user';
 import Link from 'next/link';
 
@@ -17,11 +18,20 @@ function UserMaincontent() {
       <aside className={styles.main}>
         <div className={styles.section}>
           <div className={styles.profilecard}>
-            <p>The sun is about 27 million degrees.</p>
-            <p>If you watch 3 of our missions, you get a degree too!</p>
-            <Link href="/" as="/">
-              <a className="btn btnprimary">Get started!</a>
-            </Link>
+            <div
+              style={{
+                textAlign: 'center',
+                fontSize: '120%',
+                padding: '40px 0',
+              }}
+            >
+              <p>The sun is 27 million degrees.</p>
+              <Sun />
+              <p>If you watch 3 of our missions, you get a degree too!</p>
+              <Link href="/" as="/">
+                <a className="btn btnprimary">Get started!</a>
+              </Link>
+            </div>
           </div>
         </div>
       </aside>
