@@ -230,6 +230,12 @@ p {
   padding-bottom: 0;
 }
 
+.prose.theme-light a {
+  color: #690d7a;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  text-decoration: underline;
+}
+
 /* ---- SVG STYLES ----- */
 
 /* Radar */

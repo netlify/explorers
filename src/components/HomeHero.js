@@ -10,7 +10,7 @@ function HomeHero({ rawcontent }) {
 
   return (
     <Hero>
-      <div className="prose">{homeHeroContent}</div>
+      <div className="prose theme-light">{homeHeroContent}</div>
 
       <div className={styles['homehero-astronaut-contain']}>
         <Astronaut />
