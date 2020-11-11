@@ -216,6 +216,11 @@ p {
   margin-bottom: 1rem;
 }
 
+.prose.theme-light a {
+  color: #111;
+  text-decoration: underline;
+}
+
 /* ---- SVG STYLES ----- */
 
 /* Radar */
