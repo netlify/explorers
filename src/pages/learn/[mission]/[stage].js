@@ -10,6 +10,7 @@ import styles from './Stage.module.css';
 export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
   const poster = stage.content?.[0].coverImage?.asset.url;
+  const description = stage.content?.[0].body;
 
   return (
     <Layout navtheme="dark">

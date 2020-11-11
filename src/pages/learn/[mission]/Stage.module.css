@@ -24,3 +24,10 @@
   font-size: 1.5rem;
   font-weight: 500;
 }
+
+.description {
+  background: rgb(0 0 0 / 0.4);
+  border: 1px solid rgb(0 0 0 / 0.4);
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
