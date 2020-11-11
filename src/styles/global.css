@@ -216,6 +216,10 @@ p {
   margin-bottom: 30px;
 }
 
+.marginleft-sm {
+  margin-left: 30px;
+}
+
 .px3 {
   padding-left: 3rem;
   padding-right: 3rem;

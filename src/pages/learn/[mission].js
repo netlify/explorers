@@ -30,7 +30,10 @@ const Mission = ({ mission }) => {
                 backgroundImage: `url(${mission.coverImage.asset.url})`,
               }}
             ></div>
-            <div className={styles.missionblurb}>
+            <div
+              className={styles.missionblurb}
+              class="section-contain is-dark marginleft-sm"
+            >
               <p>{mission.blurb}</p>
               <h4>
                 This mission has {mission.stages?.length} stages to explore:
