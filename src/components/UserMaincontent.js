@@ -2,6 +2,7 @@ import styles from './UserMaincontent.module.css';
 import UserActivityGraph from './UserActivityGraph';
 import UserMissionInfo from './UserMissionInfo';
 import { useUserState } from 'src/context/user';
+import Link from 'next/link';
 
 function UserMaincontent() {
   const { user } = useUserState();
@@ -16,7 +17,11 @@ function UserMaincontent() {
       <aside className={styles.main}>
         <div className={styles.section}>
           <div className={styles.profilecard}>
-            <h2>Watch</h2>
+            <p>The sun is about 27 million degrees.</p>
+            <p>If you watch 3 of our missions, you get a degree too!</p>
+            <Link href="/" as="/">
+              <a className="btn btnprimary">Get started!</a>
+            </Link>
           </div>
         </div>
       </aside>

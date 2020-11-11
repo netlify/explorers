@@ -95,7 +95,7 @@ function renderUser() {
     );
   } else {
     return (
-      <button onClick={() => redirectToOAuth()} className="btn btn-primary">
+      <button onClick={() => redirectToOAuth()} className="btn btnprimary">
         Log In with Netlify
       </button>
     );
