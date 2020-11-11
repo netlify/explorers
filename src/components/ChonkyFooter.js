@@ -1,9 +1,14 @@
 import styles from './ChonkyFooter.module.css';
 import FloatingAstronaut from '@components/FloatingAstronaut';
+import { useUserState } from 'src/context/user';
 
 export default function Layout({ mission }) {
+  const { user } = useUserState();
+
   const missionTotal =
     mission.stages && mission.stages.length ? mission.stages.length : 1;
+
+  const userProgress = Math.floor(user?.activity.certificateProgress);
 
   return (
     <section>
@@ -32,7 +37,7 @@ export default function Layout({ mission }) {
                 strokeWidth="2"
               />
               <text x="50" y="40" fontSize="50px">
-                1{/* TODO: update based on current progress */}
+                {userProgress}
               </text>
               <line
                 x1="110"
