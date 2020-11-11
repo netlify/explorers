@@ -26,7 +26,7 @@ export function redirectToOAuth(returnURL) {
 export function getTokenFromHash() {
   // if there’s no hash, do nothing
   if (!window.location.hash) {
-    return;
+    return false;
   }
 
   // if there’s a hash, remove the # and parse the rest as a query string
@@ -116,7 +116,7 @@ export function UserProvider({ children }) {
       ? JSON.parse(storedToken)?.access_token
       : false;
 
-    setToken(accessToken || getTokenFromHash());
+    setToken(getTokenFromHash() || accessToken);
   }, []);
 
   React.useEffect(() => {
