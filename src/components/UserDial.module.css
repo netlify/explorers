@@ -1,5 +1,28 @@
 /* top */
 
+.complete {
+  position: relative;
+}
+
+/* double selector for higher specificity */
+.completeHeading.completeHeading {
+  color: black;
+  font-family: impact;
+  font-size: 25px;
+  text-align: center;
+  text-shadow: 1px 1px 0 white, -1px 1px 0 white, -1px -1px 0 white,
+    1px -1px 0 white;
+  width: 100%;
+}
+
+.completeImage {
+  border-radius: 50%;
+  display: block;
+  height: 100px;
+  margin: 0 auto 1rem;
+  width: 100px;
+}
+
 .stroke1,
 .line1 {
   fill: none;
