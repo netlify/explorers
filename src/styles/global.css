@@ -217,7 +217,8 @@ p {
 }
 
 .prose.theme-light a {
-  color: #111;
+  color: #690d7a;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   text-decoration: underline;
 }
 
