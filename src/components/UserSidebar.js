@@ -6,6 +6,7 @@ import { useUserState } from 'src/context/user';
 
 function UserSidebar() {
   const { user } = useUserState();
+  const hasUserActivity = user.activity.userMissions.length;
 
   return (
     <div className={styles.sidebar}>
