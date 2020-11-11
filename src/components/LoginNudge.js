@@ -9,7 +9,7 @@ export default function LoginNudge() {
   }
 
   return (
-    <div className={styles.banner}>
+    <aside className={styles.banner}>
       <a
         href="#login"
         onClick={() => redirectToOAuth()}
@@ -17,7 +17,9 @@ export default function LoginNudge() {
       >
         Log in
       </a>{' '}
-      to track your progress, ya jabroni
-    </div>
+      to track progress through the mission. Once you've completed 3 missions,
+      you'll receive a <strong>Certificate of Completion</strong> for your
+      astounding efforts!
+    </aside>
   );
 }
