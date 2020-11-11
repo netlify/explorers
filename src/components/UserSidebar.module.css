@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
+  padding: 60px 0;
   width: 100%;
   background: #1f2125;
   font-size: 15px;
@@ -11,6 +11,8 @@
 
 .section {
   display: flex;
+  flex-direction: column;
+
   justify-content: center;
   align-items: center;
   float: none;
