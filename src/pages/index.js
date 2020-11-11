@@ -17,7 +17,9 @@ export default function Home({ rawMissionControlContent, rawHomeHeroContent }) {
         <HomeHero rawcontent={rawHomeHeroContent} />
 
         <section className="margintop-lg px3">
-          <div className="section-contain prose">{missionControlContent}</div>
+          <div className="section-contain is-dark prose marginbottom-sm">
+            {missionControlContent}
+          </div>
 
           <div className="row section-contain">
             {missions.map((mission, index) => (
