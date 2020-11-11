@@ -2,6 +2,7 @@ import Layout from '@components/Layout';
 import VideoPlayer from '@components/VideoPlayer';
 import ChonkyFooter from '@components/ChonkyFooter';
 import MissionTracker from '@components/MissionTracker';
+import LoginNudge from '@components/LoginNudge';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
@@ -25,7 +26,7 @@ export default function Stage({ mission, stage }) {
               </span>
             </h2>
             {publicId && <VideoPlayer publicId={publicId} poster={poster} />}
-            {description && <p className={styles.description}>{description}</p>}
+            <LoginNudge />
           </div>
 
           <aside>
@@ -68,7 +69,6 @@ export const getStaticPaths = async () => {
     return paths.concat(missionStagePaths);
   }, []);
 
-  // TODO build this array of paths
   return {
     paths: stagePaths,
     fallback: false,

@@ -1,0 +1,13 @@
+.banner {
+  background: red;
+  color: white;
+  margin: 1rem 0;
+  padding: 0.5rem 5vw;
+  text-align: center;
+}
+
+.link {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: underline;
+}
