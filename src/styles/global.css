@@ -117,7 +117,7 @@ section {
 
 .section-contain.is-dark {
   padding: 30px;
-  background-color: rgba(25, 25, 25, 0.8);
+  background-color: rgba(0, 0, 0, .5);
 }
 
 p {
