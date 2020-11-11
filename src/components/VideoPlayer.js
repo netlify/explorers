@@ -61,7 +61,7 @@ const VideoPlayer = ({ publicId, poster }) => {
       video.removeEventListener('pause', handleCompleted);
       video.removeEventListener('ended', handleCompleted);
     };
-  }, [activity]);
+  }, [activity, publicId]);
 
   // TODO let's add support for smaller formats as well
   return (
