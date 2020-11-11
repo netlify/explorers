@@ -29,7 +29,7 @@ export default {
       name: 'description',
       title: 'Description',
       type: 'markdown',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().max(150),
       options: {
         minRows: 15,
       },
