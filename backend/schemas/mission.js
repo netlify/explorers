@@ -23,13 +23,13 @@ export default {
       name: 'blurb',
       title: 'Small Blurb about Mission that Shows in Card',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().max(150),
     },
     {
       name: 'description',
       title: 'Description',
       type: 'markdown',
-      validation: (Rule) => Rule.required().max(150),
+      validation: (Rule) => Rule.required(),
       options: {
         minRows: 15,
       },
