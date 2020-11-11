@@ -8,7 +8,7 @@ function UserActivityGraph() {
 
   const opts = {
     title: 'Videos Watched',
-    width: '600px',
+    width: '550px',
     height: '200px',
     points: false,
   };
