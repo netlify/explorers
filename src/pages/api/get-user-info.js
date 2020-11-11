@@ -40,7 +40,9 @@ export default async function handler(req, res) {
 
   const completedVideoPaths = activity
     .filter((a) => a.type === 'video-complete')
-    .map((video) => video.event_data.path);
+    .map((video) => video.event_data.path)
+    // filter for unique array entries
+    .filter((path, i, paths) => paths.findIndex((p) => p === path) === i);
 
   const activeMissionsPromises = completedVideoPaths.map((video) => {
     const [, , missionSlug] = video.split('/');
@@ -53,6 +55,10 @@ export default async function handler(req, res) {
   // figure out how much of each mission is completed
   const userMissions = activeMissions
     .filter((m) => m?._id) // only keep valid missions
+    // filter for unique array entries
+    .filter((mission, i, missions) => {
+      return missions.findIndex((m) => m._id === mission._id) === i;
+    })
     .map((mission) => {
       const missionSlug = mission.slug.current;
       const totalStages = mission.stages.length;
