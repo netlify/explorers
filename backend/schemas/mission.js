@@ -23,7 +23,7 @@ export default {
       name: 'blurb',
       title: 'Small Blurb about Mission that Shows in Card',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().max(150),
     },
     {
       name: 'description',
