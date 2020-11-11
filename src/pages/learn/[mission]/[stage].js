@@ -9,6 +9,7 @@ import styles from './Stage.module.css';
 export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
   const poster = stage.content?.[0].coverImage?.asset.url;
+  const description = stage.content?.[0].body;
 
   return (
     <Layout navtheme="dark">
@@ -24,6 +25,7 @@ export default function Stage({ mission, stage }) {
               </span>
             </h2>
             {publicId && <VideoPlayer publicId={publicId} poster={poster} />}
+            {description && <p className={styles.description}>{description}</p>}
           </div>
 
           <aside>
