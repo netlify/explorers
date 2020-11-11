@@ -28,7 +28,7 @@ function UserMaincontent() {
               <p>The sun is 27 million degrees.</p>
               <Sun />
               <p>If you watch 3 of our missions, you get a degree too!</p>
-              <Link href="/" as="/">
+              <Link href="/missions" as="/missions">
                 <a className="btn btnprimary">Get started!</a>
               </Link>
             </div>
