@@ -7,20 +7,28 @@ import LoginNudge from '@components/LoginNudge';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useUserState } from '@context/user';
 
 export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
   const poster = stage.content?.[0].coverImage?.asset.url;
   const description = stage.content?.[0].body;
-  const [missionComplete, setMissionComplete] = useState(true);
+  const [missionComplete, setMissionComplete] = useState(false);
+  const { fetchUser } = useUserState();
 
   const closeModal = () => {
     setMissionComplete(false);
   };
 
-  const emitMissionComplete = (mission) => {
-    console.log(mission);
+  const emitStageComplete = () => {
+    const currentMission = user.activity.userMissions.find(
+      (userMission) => userMission.title === mission.title
+    );
+
+    if (currentMission.progress === 1) {
+      setMissionComplete(true);
+    }
   };
 
   return (
@@ -40,7 +48,7 @@ export default function Stage({ mission, stage }) {
               <VideoPlayer
                 publicId={publicId}
                 poster={poster}
-                emitMissionComplete={emitMissionComplete}
+                emitStageComplete={emitStageComplete}
               />
             )}
             <LoginNudge />
