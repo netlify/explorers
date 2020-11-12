@@ -14,7 +14,7 @@ export default function MissionsPage({ rawContent }) {
     <Layout navtheme="dark">
       <div>
         <section className="intro">
-          <div className="section-contain">{missionIntroContent}</div>
+          <div className="section-contain is-dark">{missionIntroContent}</div>
         </section>
 
         <section>

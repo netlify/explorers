@@ -121,6 +121,11 @@ section {
   margin: 0 auto;
 }
 
+.section-contain.is-dark {
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 p {
   padding-bottom: 1rem;
 }
