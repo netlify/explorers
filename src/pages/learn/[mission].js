@@ -53,6 +53,16 @@ const Mission = ({ mission }) => {
               </div>
             </div>
           </div>
+          <div>
+            <div className={styles.missiondescriptioninstructor}>
+              <img
+                src={mission.instructor.avatar?.asset?.url}
+                className="avatar"
+              />
+              <span>Instructor: {mission.instructor.name}</span>
+            </div>
+            {description}
+          </div>
         </div>
       </section>
 
