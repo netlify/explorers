@@ -1,12 +1,19 @@
 import { useEffect } from 'react';
-import { launchSchoolPrideConfetti } from '../util/confetti';
+import {
+  launchFireworkConfetti,
+  launchSchoolPrideConfetti,
+} from '../util/confetti';
 import styles from './Modal.module.css';
 import IconClose from './IconClose';
 import Link from 'next/link';
 
 function Modal({ mission, closeModal }) {
   useEffect(() => {
-    launchSchoolPrideConfetti();
+    if (mission) {
+      launchSchoolPrideConfetti();
+    } else {
+      launchFireworkConfetti();
+    }
 
     window.addEventListener('keyup', (event) => {
       if (event.key === 'Escape') {
@@ -21,18 +28,22 @@ function Modal({ mission, closeModal }) {
         <button className={styles['modal-close']} onClick={closeModal}>
           <IconClose />
         </button>
-        <p className={styles['icon-award']}>🏅</p>
+        <p className={styles['icon-award']}>{mission ? '🏅' : '🏆'}</p>
         <p className={styles['modal-heading']}>Congratulations!</p>
-        <p>
-          You just completed <br />
-          {mission.title}!
-        </p>
+        {mission ? (
+          <p>
+            You just completed <br />
+            {mission.title}!
+          </p>
+        ) : (
+          <p>Awesome work!</p>
+        )}
         <Link href="/missions" as="/missions">
           <a className="btn btnprimary">Embark on a new mission!</a>
         </Link>
         <button
           className={styles['replay-button']}
-          onClick={launchSchoolPrideConfetti}
+          onClick={mission ? launchSchoolPrideConfetti : launchFireworkConfetti}
         >
           Replay confetti animation
         </button>

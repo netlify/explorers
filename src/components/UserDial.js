@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './UserDial.module.css';
 import { useUserState } from 'src/context/user';
 import gsap from 'gsap';
+import Modal from '@components/Modal';
 
 function UserDial() {
   const { user } = useUserState();
@@ -37,7 +38,7 @@ function UserDial() {
 
   return (
     <div className={isComplete ? styles.complete : ''}>
-      {isComplete ? (
+      {!isComplete ? (
         <>
           <h4 className={styles.completeHeading}>You did it!</h4>
           <img
@@ -48,6 +49,7 @@ function UserDial() {
           <a href="#certificate" onClick={getCertificate}>
             View and Download Your Certificate
           </a>
+          <Modal />
         </>
       ) : (
         <svg
