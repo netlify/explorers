@@ -51,6 +51,7 @@ function Navigation({ theme }) {
             onClick={() => {
               setMobileMenuExpanded(!mobileMenuExpanded);
             }}
+            theme={theme}
           />
           {mobileMenuExpanded && (
             <div className={styles.drawer}>
