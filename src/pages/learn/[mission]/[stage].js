@@ -15,7 +15,7 @@ export default function Stage({ mission, stage }) {
   const poster = stage.content?.[0].coverImage?.asset.url;
   const description = stage.content?.[0].body;
   const [missionComplete, setMissionComplete] = useState(false);
-  const { fetchUser } = useUserState();
+  const { user, getUser } = useUserState();
 
   const closeModal = () => {
     setMissionComplete(false);
@@ -25,6 +25,8 @@ export default function Stage({ mission, stage }) {
     const currentMission = user.activity.userMissions.find(
       (userMission) => userMission.title === mission.title
     );
+
+    getUser();
 
     if (currentMission.progress === 1) {
       setMissionComplete(true);
