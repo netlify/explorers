@@ -4,6 +4,12 @@
   position: relative;
 }
 
+@media screen and (min-width: 768px) {
+  .dial {
+    width: 300px;
+  }
+}
+
 /* double selector for higher specificity */
 .completeHeading.completeHeading {
   color: black;

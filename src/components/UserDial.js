@@ -55,6 +55,7 @@ function UserDial() {
           xmlns="http://www.w3.org/2000/svg"
           aria-labelledby="knob"
           role="presentation"
+          className={styles.dial}
         >
           <title id="knob">User Profile Dial</title>
           <defs>
