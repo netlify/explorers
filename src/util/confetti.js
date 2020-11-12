@@ -36,7 +36,7 @@ export const launchFireworkConfetti = () => {
 };
 
 export const launchSchoolPrideConfetti = () => {
-  const end = Date.now() + 15 * 1000;
+  const end = Date.now() + 3 * 1000;
 
   // Go Netlify!
   const colors = ['#00c7b7', '#ffffff'];

@@ -2,6 +2,7 @@ import Head from 'next/head';
 import SEO from '@components/SEO';
 import Navigation from '@components/Navigation';
 import Footer from '@components/Footer';
+import Modal from '@components/Modal';
 
 import styles from './Layout.module.css';
 
@@ -20,6 +21,7 @@ export default function Layout({ children, navtheme }) {
       <Navigation theme={navtheme} />
       <main className={styles.main}>{children}</main>
       <Footer />
+      <Modal />
     </div>
   );
 }
