@@ -32,7 +32,7 @@ const Mission = ({ mission }) => {
             ></div>
             <div
               className={styles.missionblurb}
-              class="section-contain is-dark marginleft-sm"
+              className="section-contain is-dark marginleft-sm"
             >
               <div>
                 <p>{mission.blurb}</p>
