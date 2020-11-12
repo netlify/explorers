@@ -73,6 +73,12 @@ See `.env.EXAMPLE` for the required env vars.
 
 ### Sanity
 
+## Updating Content in Sanity's CMS
+
+Please use the remote version of Sanity to update content: https://jamstackexplorers.sanity.studio/desk, we use Sanity locally just for development
+
+## Developing with Sanity
+
 **NOTE:** You _only_ need to get Sanity running locally if you need to make changes to the Sanity schema. Otherwise you can ignore this section for local development.
 
 ```bash
