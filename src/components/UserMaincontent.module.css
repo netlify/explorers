@@ -4,7 +4,9 @@
   background: #eee;
   padding: 60px;
   color: black;
-  font-size: 15px;
+  font-size: 14px;
+  height: 100%;
+  min-height: 100vh;
 }
 
 .section {
@@ -19,7 +21,8 @@
 }
 
 .profilecard p {
-  margin: 15px auto;
+  margin: 0 auto;
+  padding: 0;
 }
 
 h4.profileh4 {

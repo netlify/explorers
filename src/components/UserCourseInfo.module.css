@@ -1,12 +1,17 @@
 .coursecontainer {
   display: grid;
-  grid-template-columns: 40px 1fr 3fr;
+  grid-template-columns: 50px 1fr 3fr;
   grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 30px;
+  grid-column-gap: 10px;
   grid-row-gap: 3px;
   margin-bottom: 20px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
+}
+
+.coursecontainer:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
 }
 
 .coverimage {
