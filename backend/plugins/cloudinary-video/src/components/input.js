@@ -3,6 +3,8 @@ import PatchEvent, { set, unset } from 'part:@sanity/form-builder/patch-event';
 import { useDropzone } from 'react-dropzone';
 import Fieldset from 'part:@sanity/components/fieldsets/default';
 
+/* NOTE: this is currently not in use — video uploading is hard */
+
 export function Input({ value, onChange, type, level }) {
   const reader = new FileReader();
 

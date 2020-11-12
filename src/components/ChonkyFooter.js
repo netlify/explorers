@@ -8,7 +8,11 @@ export default function Layout({ mission }) {
   const missionTotal =
     mission.stages && mission.stages.length ? mission.stages.length : 1;
 
-  const userProgress = Math.floor(user?.activity.certificateProgress);
+  const userProgress = user?.activity.userMissions?.find(
+    (userMission) => userMission.title === mission.title
+  );
+
+  const completedStages = userProgress?.completedStages || 0;
 
   return (
     <section>
@@ -37,7 +41,7 @@ export default function Layout({ mission }) {
                 strokeWidth="2"
               />
               <text x="50" y="40" fontSize="50px">
-                {userProgress}
+                {completedStages}
               </text>
               <line
                 x1="110"

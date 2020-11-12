@@ -71,6 +71,7 @@ export default async function handler(req, res) {
         instructor: mission.instructor.name,
         coverImage: mission.coverImage.asset.url,
         progress: completedStages / totalStages,
+        completedStages,
       };
     });
 
