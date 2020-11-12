@@ -1,7 +1,7 @@
+// Docs: https://www.kirilv.com/canvas-confetti/
 import confetti from 'canvas-confetti';
 
 // Firework Animation
-// Docs: https://www.kirilv.com/canvas-confetti/
 export const launchFireworkConfetti = () => {
   const duration = 15 * 1000;
   const animationEnd = Date.now() + duration;
@@ -33,4 +33,32 @@ export const launchFireworkConfetti = () => {
       })
     );
   }, 250);
+};
+
+export const launchSchoolPrideConfetti = () => {
+  const end = Date.now() + 15 * 1000;
+
+  // Go Netlify!
+  const colors = ['#00c7b7', '#ffffff'];
+
+  (function frame() {
+    confetti({
+      particleCount: 2,
+      angle: 60,
+      spread: 55,
+      origin: { x: 0 },
+      colors: colors,
+    });
+    confetti({
+      particleCount: 2,
+      angle: 120,
+      spread: 55,
+      origin: { x: 1 },
+      colors: colors,
+    });
+
+    if (Date.now() < end) {
+      requestAnimationFrame(frame);
+    }
+  })();
 };
