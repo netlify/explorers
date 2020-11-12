@@ -2,7 +2,7 @@
   width: 100%;
   min-height: calc(100vh - 62px);
   background: #eee;
-  padding: 60px 0 60px 7vw;
+  padding: 60px;
   color: black;
   font-size: 15px;
 }
