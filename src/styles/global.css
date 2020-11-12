@@ -210,6 +210,10 @@ p {
   }
 }
 
+.marginbottom-sm {
+  margin-bottom: 20px;
+}
+
 .margintop-md {
   margin-top: 50px;
 }
