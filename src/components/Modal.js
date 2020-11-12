@@ -7,6 +7,12 @@ import Link from 'next/link';
 function Modal({ mission, closeModal }) {
   useEffect(() => {
     launchSchoolPrideConfetti();
+
+    window.addEventListener('keyup', (event) => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
   });
 
   return (
