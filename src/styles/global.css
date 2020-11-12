@@ -121,8 +121,8 @@ section {
   margin: 0 auto;
 }
 
-.section-contain.is-dark {
-  padding: 30px;
+.section-contain.is-dark p {
+  padding: 10px 0;
   background-color: rgba(0, 0, 0, 0.5);
 }
 

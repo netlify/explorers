@@ -16,6 +16,10 @@ function Footer() {
               Netlify Careers
             </a>
           </li>
+          <li>
+            Video transformations courtesy of{' '}
+            <a href="https://cloudinary.com/">Cloudinary</a>
+          </li>
         </ul>
       </div>
       <div className={styles.newsletter}>
