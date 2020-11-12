@@ -34,21 +34,23 @@ const Mission = ({ mission }) => {
               className={styles.missionblurb}
               class="section-contain is-dark marginleft-sm"
             >
-              <p>{mission.blurb}</p>
-              <h4>
-                This mission has {mission.stages?.length} stages to explore:
-              </h4>
-              <ul>
-                {mission.stages?.map((stage) => (
-                  <li key={stage._id}>
-                    <Link
-                      href={`/learn/${mission.slug.current}/${stage.slug.current}`}
-                    >
-                      <a>{stage.title}</a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div>
+                <p>{mission.blurb}</p>
+                <h4>
+                  This mission has {mission.stages?.length} stages to explore:
+                </h4>
+                <ul>
+                  {mission.stages?.map((stage) => (
+                    <li key={stage._id}>
+                      <Link
+                        href={`/learn/${mission.slug.current}/${stage.slug.current}`}
+                      >
+                        <a>{stage.title}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
