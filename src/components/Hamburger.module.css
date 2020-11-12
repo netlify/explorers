@@ -7,7 +7,7 @@
   transition: all 0.2s ease-in-out;
 }
 
-.hamburger.navdark {
+.hamburger.navdark .line {
   background-color: white;
 }
 
