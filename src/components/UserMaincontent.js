@@ -40,7 +40,7 @@ function UserMaincontent() {
     return (
       <aside className={styles.main}>
         <div className={styles.section}>
-          <div className={styles.profilecard}>
+          <div className={styles.profilecard} id="user-activity-card">
             <h4 className={styles.profileh4}>Your Activity</h4>
             <UserActivityGraph />
           </div>
