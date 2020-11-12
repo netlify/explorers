@@ -4,7 +4,11 @@
 
 @media screen and (max-width: 900px) {
   .chonky {
-    margin-top: -200px;
+    margin-top: -50px;
+  }
+
+  .explorers {
+    display: none;
   }
 }
 
