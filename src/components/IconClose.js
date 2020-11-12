@@ -7,8 +7,8 @@ function IconClose({ width = '25px', height = '25px' }) {
       viewBox="0 0 847 847"
       x="0px"
       y="0px"
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
     >
       <g>
         <path
