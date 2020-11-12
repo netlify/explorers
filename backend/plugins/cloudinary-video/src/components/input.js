@@ -14,12 +14,12 @@ export function Input({ value, onChange, type, level }) {
       {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'text/plain',
           'x-functions-key': process.env.SANITY_STUDIO_AZURE_FUNCTIONS_KEY,
         },
-        body: JSON.stringify({
+        body: {
           video: dataURL,
-        }),
+        },
       }
     ).then((response) => response.json());
 
