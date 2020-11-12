@@ -110,9 +110,9 @@ section {
   padding: 3rem 0;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1100px) {
   section {
-    padding: 2rem;
+    padding: 2rem 1.5rem;
   }
 }
 
@@ -121,8 +121,9 @@ section {
   margin: 0 auto;
 }
 
-.section-contain.is-dark {
-  padding: 30px;
+.section-contain.is-dark p,
+.section-contain.is-dark div {
+  padding: 10px 0;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -178,7 +179,7 @@ p {
 /* -- Utility -- */
 
 .intro {
-  padding: 150px 2rem 60px;
+  padding: 150px 1.5rem 60px;
 }
 
 @media screen and (min-width: 900px) {
@@ -208,6 +209,14 @@ p {
   .row {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.marginbottom-sm {
+  margin-bottom: 20px;
+}
+
+.marginleft-sm {
+  margin-left: 20px;
 }
 
 .margintop-md {
