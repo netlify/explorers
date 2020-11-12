@@ -18,6 +18,10 @@
   margin-bottom: 30px;
 }
 
+.profilecard p {
+  margin: 15px auto;
+}
+
 h4.profileh4 {
   color: #888;
 }
