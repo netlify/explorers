@@ -110,7 +110,7 @@ section {
   padding: 3rem 0;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1100px) {
   section {
     padding: 2rem 1.5rem;
   }
