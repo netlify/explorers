@@ -110,6 +110,12 @@ section {
   padding: 3rem 0;
 }
 
+@media screen and (max-width: 600px) {
+  section {
+    padding: 2rem;
+  }
+}
+
 .section-contain {
   max-width: 1100px;
   margin: 0 auto;
@@ -167,7 +173,7 @@ p {
 /* -- Utility -- */
 
 .intro {
-  padding: 150px 0;
+  padding: 150px 2rem 60px;
 }
 
 @media screen and (min-width: 900px) {
@@ -207,13 +213,11 @@ p {
   margin-top: 100px;
 }
 
-.px3 {
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
-.prose p {
-  margin-bottom: 1rem;
+@media screen and (min-width: 900px) {
+  .px3 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
 .prose.theme-light a {
