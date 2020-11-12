@@ -11,6 +11,12 @@
   justify-content: space-between;
 }
 
+@media screen and (min-width: 900px) {
+  .nav {
+    padding: 5px 4rem;
+  }
+}
+
 .nav a {
   text-decoration: none;
 }
