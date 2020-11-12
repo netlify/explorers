@@ -115,6 +115,11 @@ section {
   margin: 0 auto;
 }
 
+.section-contain.is-dark {
+  padding: 30px;
+  background-color: rgba(0, 0, 0, .5);
+}
+
 p {
   padding-bottom: 1rem;
 }
@@ -207,13 +212,22 @@ p {
   margin-top: 100px;
 }
 
+.marginbottom-sm {
+  margin-bottom: 30px;
+}
+
+.marginleft-sm {
+  margin-left: 30px;
+}
+
 .px3 {
   padding-left: 3rem;
   padding-right: 3rem;
 }
 
 .prose p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0;
 }
 
 .prose.theme-light a {
