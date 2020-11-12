@@ -1,5 +1,5 @@
 .hero {
-  padding: 120px 2rem 0;
+  padding: 120px 1.5rem 0;
   background: url(@public/homepage-bk.jpg) center center no-repeat;
   background-size: cover;
   position: relative;

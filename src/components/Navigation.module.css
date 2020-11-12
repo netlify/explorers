@@ -1,5 +1,5 @@
 .nav {
-  padding: 5px 2rem;
+  padding: 5px 1.5rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -60,9 +60,9 @@
 }
 
 .navdark .drawer {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   color: white;
-  border-bottom: 1px solid rgba(28, 135, 177, 0.349);
+  border-bottom: 1px solid rgba(28, 135, 177, 0.4);
 }
 
 /* light pages */
@@ -78,9 +78,9 @@
 }
 
 .navlight .drawer {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.95);
   color: #000;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.7);
 }
 
 .profile {

@@ -112,7 +112,7 @@ section {
 
 @media screen and (max-width: 600px) {
   section {
-    padding: 2rem;
+    padding: 2rem 1.5rem;
   }
 }
 
@@ -178,7 +178,7 @@ p {
 /* -- Utility -- */
 
 .intro {
-  padding: 150px 2rem 60px;
+  padding: 150px 1.5rem 60px;
 }
 
 @media screen and (min-width: 900px) {
