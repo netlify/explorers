@@ -21,12 +21,14 @@ function UserDial() {
 
   useEffect(() => {
     gsap.set('.dial', {
-      rotation: 180 * progress,
+      rotation: 180 * progress + 1,
       svgOrigin: '500 500',
     });
 
     gsap.set('.texttransform', {
       rotation: -90,
+      y: progress == 0 ? -15 : 0,
+      fontSize: progress == 0 ? '30px' : '20px',
       transformOrigin: '50% 50%',
     });
   });
@@ -86,13 +88,7 @@ function UserDial() {
               y2="500"
             />
             <circle className={styles.knob} r="6" cx="200" cy="500" />
-            <text
-              className="texttransform"
-              fontSize="20px"
-              fill="#ccc"
-              x="160"
-              y="510"
-            >
+            <text className="texttransform" fill="#ccc" x="160" y="510">
               {progress * 100}%
             </text>
           </g>

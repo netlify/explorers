@@ -110,6 +110,12 @@ section {
   padding: 3rem 0;
 }
 
+@media screen and (max-width: 600px) {
+  section {
+    padding: 2rem;
+  }
+}
+
 .section-contain {
   max-width: 1100px;
   margin: 0 auto;
@@ -117,11 +123,11 @@ section {
 
 .section-contain.is-dark {
   padding: 30px;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 p {
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 /* -- Buttons -- */
@@ -172,7 +178,7 @@ p {
 /* -- Utility -- */
 
 .intro {
-  padding: 150px 0;
+  padding: 150px 2rem 60px;
 }
 
 @media screen and (min-width: 900px) {
@@ -212,22 +218,11 @@ p {
   margin-top: 100px;
 }
 
-.marginbottom-sm {
-  margin-bottom: 30px;
-}
-
-.marginleft-sm {
-  margin-left: 30px;
-}
-
-.px3 {
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
-.prose p {
-  margin-bottom: 1.5rem;
-  padding-bottom: 0;
+@media screen and (min-width: 900px) {
+  .px3 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
 .prose.theme-light a {
