@@ -4,7 +4,7 @@ import styles from './Modal.module.css';
 import IconClose from './IconClose';
 import Link from 'next/link';
 
-function Modal({ mission }) {
+function Modal({ mission, closeModal }) {
   useEffect(() => {
     launchSchoolPrideConfetti();
   });
@@ -12,7 +12,7 @@ function Modal({ mission }) {
   return (
     <aside className={styles.modal}>
       <div className={styles['modal-content']}>
-        <button className={styles['modal-close']}>
+        <button className={styles['modal-close']} onClick={closeModal}>
           <IconClose />
         </button>
         <p className={styles['icon-award']}>🏅</p>
