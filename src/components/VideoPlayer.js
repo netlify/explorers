@@ -3,12 +3,14 @@ import { useUserState } from '@context/user';
 import debounce from 'lodash/debounce';
 import styles from './VideoPlayer.module.css';
 
-const VideoPlayer = ({ publicId, poster }) => {
+const VideoPlayer = ({ emitMissionComplete, publicId, poster }) => {
   const { activity } = useUserState();
   const ref = React.useRef();
 
   useEffect(() => {
     const video = ref.current;
+
+    emitMissionComplete();
 
     if (!video || !activity?.send) return;
 

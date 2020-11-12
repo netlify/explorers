@@ -2,6 +2,7 @@ import Layout from '@components/Layout';
 import VideoPlayer from '@components/VideoPlayer';
 import ChonkyFooter from '@components/ChonkyFooter';
 import MissionTracker from '@components/MissionTracker';
+import Modal from '@components/Modal';
 import LoginNudge from '@components/LoginNudge';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
@@ -11,6 +12,11 @@ export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
   const poster = stage.content?.[0].coverImage?.asset.url;
   const description = stage.content?.[0].body;
+  const missionComplete = true;
+
+  const emitMissionComplete = (mission) => {
+    console.log(mission);
+  };
 
   return (
     <Layout navtheme="dark">
@@ -25,7 +31,13 @@ export default function Stage({ mission, stage }) {
                 with {mission.instructor.name}
               </span>
             </h2>
-            {publicId && <VideoPlayer publicId={publicId} poster={poster} />}
+            {publicId && (
+              <VideoPlayer
+                publicId={publicId}
+                poster={poster}
+                emitMissionComplete={emitMissionComplete}
+              />
+            )}
             <LoginNudge />
           </div>
 
@@ -40,6 +52,7 @@ export default function Stage({ mission, stage }) {
       </section>
 
       <ChonkyFooter mission={mission} />
+      {missionComplete ? <Modal mission={mission} /> : ''}
     </Layout>
   );
 }
