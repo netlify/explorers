@@ -47,7 +47,11 @@ function UserDial() {
       {isComplete ? (
         <>
           <h4 className={styles.completeHeading}>You did it!</h4>
-          <p>Great job! You've earned it:</p>
+          <img
+            className={styles.completeImage}
+            src="https://res.cloudinary.com/netlify/image/upload/q_auto,f_auto,w_200/v1605058349/explorers/boppin-pug.gif"
+            alt="a pug dancing happily"
+          />
           <a
             className="btn btnprimary"
             href="#certificate"
