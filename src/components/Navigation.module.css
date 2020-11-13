@@ -72,17 +72,23 @@
 }
 
 /* light pages */
-
+.navwhite,
 .navlight {
   background: rgba(255, 255, 255, 0.25);
   color: #000;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.navwhite {
+  background: white;
+}
+
+.navwhite a,
 .navlight a {
   color: #082c40;
 }
 
+.navwhite .drawer,
 .navlight .drawer {
   background: rgba(255, 255, 255, 0.98);
   color: #000;
