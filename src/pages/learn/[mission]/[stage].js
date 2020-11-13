@@ -54,6 +54,7 @@ export default function Stage({ mission, stage }) {
               />
             )}
             <LoginNudge />
+            {description && <p className={styles.description}>{description}</p>}
           </div>
 
           <aside>

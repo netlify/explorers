@@ -19,6 +19,15 @@
   background-size: cover;
   padding-bottom: 4rem;
   color: white;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'main'
+    'footer';
+}
+
+.footer {
+  grid-area: 'footer';
 }
 
 .container h1,
@@ -26,10 +35,6 @@
 .container h3,
 .container h4 {
   color: white;
-}
-
-.main {
-  margin: 0 auto;
 }
 
 @media screen and (max-width: 1100px) {
