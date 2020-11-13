@@ -44,7 +44,7 @@ function UserDial() {
 
   return (
     <div className={isComplete ? styles.complete : ''}>
-      {!isComplete ? (
+      {isComplete ? (
         <>
           <h4 className={styles.completeHeading}>You did it!</h4>
           <p>Great job! You've earned it:</p>
