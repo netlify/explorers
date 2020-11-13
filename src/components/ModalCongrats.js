@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { launchSchoolPrideConfetti } from '../util/confetti';
-import styles from './Modal.module.css';
+import styles from './ModalCongrats.module.css';
 import IconClose from './IconClose';
 import Link from 'next/link';
 

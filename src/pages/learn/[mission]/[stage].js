@@ -2,7 +2,7 @@ import Layout from '@components/Layout';
 import VideoPlayer from '@components/VideoPlayer';
 import ChonkyFooter from '@components/ChonkyFooter';
 import MissionTracker from '@components/MissionTracker';
-import Modal from '@components/Modal';
+import ModalCongrats from '@components/ModalCongrats';
 import LoginNudge from '@components/LoginNudge';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
@@ -68,7 +68,7 @@ export default function Stage({ mission, stage }) {
 
       <ChonkyFooter mission={mission} />
       {missionComplete ? (
-        <Modal mission={mission} closeModal={closeModal} />
+        <ModalCongrats mission={mission} closeModal={closeModal} />
       ) : (
         ''
       )}
