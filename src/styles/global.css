@@ -106,6 +106,10 @@ a:active {
   color: #7ecece;
 }
 
+.p0 {
+  padding: 0;
+}
+
 section {
   padding: 3rem 0;
 }
@@ -168,6 +172,10 @@ p {
   color: #fff;
 }
 
+.intro-video {
+  max-width: 100%;
+}
+
 /* -- Avatar -- */
 .avatar {
   width: 30px;
@@ -213,6 +221,10 @@ p {
 
 .marginbottom-sm {
   margin-bottom: 20px;
+}
+
+.marginbottom-md {
+  margin-bottom: 50px;
 }
 
 .marginleft-sm {

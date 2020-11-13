@@ -17,7 +17,17 @@ export default function Home({ rawMissionControlContent, rawHomeHeroContent }) {
       <div>
         <HomeHero rawcontent={rawHomeHeroContent} />
 
-        <section className="margintop-lg px3">
+        <section className="px3">
+          <section className="section-contain marginbottom-md p0">
+            <video controls className="intro-video">
+              <source
+                src="https://res.cloudinary.com/netlify/video/upload/v1605216108/explorers/explorers-intro.mp4"
+                type="video/mp4"
+              />
+              Sorry. Your browser does not support embedded videos.
+            </video>
+          </section>
+
           <div className="section-contain is-dark prose marginbottom-sm">
             {missionControlContent}
           </div>
