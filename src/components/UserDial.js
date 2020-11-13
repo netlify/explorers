@@ -10,7 +10,6 @@ function UserDial() {
 
   function getCertificate(event) {
     event.preventDefault();
-    launchFireworkConfetti();
 
     const certURL = new URL(
       'https://azcertificate.azurewebsites.net/api/Certificate'
@@ -20,6 +19,8 @@ function UserDial() {
 
     window.location = certURL;
   }
+
+  const isComplete = parseInt(progress) === 1;
 
   useEffect(() => {
     gsap.set('.dial', {
@@ -34,13 +35,11 @@ function UserDial() {
       transformOrigin: '50% 50%',
     });
 
-    if (!window.localStorage.getItem('finalConfetti')) {
+    if (isComplete && !window.localStorage.getItem('finalConfetti')) {
       launchFireworkConfetti();
       window.localStorage.setItem('finalConfetti', 'true');
     }
   });
-
-  const isComplete = parseInt(progress) === 1;
 
   return (
     <div className={isComplete ? styles.complete : ''}>
