@@ -74,7 +74,7 @@ const VideoPlayer = ({ publicId, poster }) => {
       poster={poster}
     >
       <source
-        src={`https://res.cloudinary.com/netlify/video/upload/ac_none/${publicId}.mp4`}
+        src={`https://res.cloudinary.com/netlify/video/upload/${publicId}.mp4`}
         type="video/mp4"
       />
     </video>
