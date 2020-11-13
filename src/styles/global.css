@@ -106,6 +106,10 @@ a:active {
   color: #7ecece;
 }
 
+.p0 {
+  padding: 0;
+}
+
 section {
   padding: 3rem 0;
 }
@@ -168,6 +172,26 @@ p {
   color: #fff;
 }
 
+.intro-video {
+  max-width: 100%;
+}
+
+.intro-video-wrapper {
+  padding: 30px 0;
+}
+
+@media screen and (min-width: 540px) {
+  .intro-video-wrapper {
+    padding: 60px 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .intro-video-wrapper {
+    padding: 90px 0;
+  }
+}
+
 /* -- Avatar -- */
 .avatar {
   width: 30px;
@@ -215,6 +239,10 @@ p {
   margin-bottom: 20px;
 }
 
+.marginbottom-md {
+  margin-bottom: 50px;
+}
+
 .marginleft-sm {
   margin-left: 20px;
 }
@@ -225,13 +253,6 @@ p {
 
 .margintop-lg {
   margin-top: 100px;
-}
-
-@media screen and (min-width: 900px) {
-  .px3 {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
 }
 
 .prose.theme-light a {
