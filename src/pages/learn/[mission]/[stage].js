@@ -27,6 +27,7 @@ export default function Stage({ mission, stage }) {
             </h2>
             {publicId && <VideoPlayer publicId={publicId} poster={poster} />}
             <LoginNudge />
+            {description && <p className={styles.description}>{description}</p>}
           </div>
 
           <aside>
