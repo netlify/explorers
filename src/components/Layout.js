@@ -18,8 +18,8 @@ export default function Layout({ children, navtheme }) {
         image="https://images.unsplash.com/photo-1536697246787-1f7ae568d89a?q=85&fm=jpg&fit=crop&w=1600&h=800"
       />
       <Navigation theme={navtheme} />
-      <main className={styles.main}>{children}</main>
-      <Footer />
+      <main>{children}</main>
+      <Footer className={styles.footer} />
     </div>
   );
 }

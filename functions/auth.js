@@ -24,7 +24,7 @@ exports.handler = async (event) => {
   return {
     statusCode: 302,
     headers: {
-      Location: authorizationURI,
+      Location: `${authorizationURI}&utm_source=explorers&utm_medium=login&utm_campaign=devex`,
       'Cache-Control': 'no-cache',
     },
     body: 'redirecting to authorization...',

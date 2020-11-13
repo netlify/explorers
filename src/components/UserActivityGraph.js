@@ -1,34 +1,37 @@
-import styles from './UserActivityGraph.module.css';
+import { useEffect, useState } from 'react';
+import debounce from 'lodash/debounce';
 import { AreaChart } from 'react-chartkick';
-import { useUserState } from 'src/context/user';
 import 'chart.js';
-import { useMediaQuery } from '../hooks/useMediaQuery';
+import { useUserState } from 'src/context/user';
+import styles from './UserActivityGraph.module.css';
 
 function UserActivityGraph() {
   const { user } = useUserState();
 
-  const isLargeMobile = useMediaQuery('(min-width: 500px');
-  const isTablet = useMediaQuery('(min-width: 768px)');
-  const isDesktop = useMediaQuery('(min-width: 1000px');
-
-  const chartSize = () => {
-    if (isDesktop) {
-      return '600px';
-    } else if (isTablet) {
-      return '550px';
-    } else if (isLargeMobile) {
-      return '450px';
-    } else {
-      return '250px';
-    }
-  };
-
-  const opts = {
+  const [opts, setOpts] = useState({
     title: 'Videos Watched',
-    width: chartSize(),
+    width: 'inherit',
     height: '200px',
     points: false,
+  });
+
+  const onResize = (activityCard) => {
+    setOpts({
+      ...opts,
+      width: `${activityCard.clientWidth - 100}px`,
+    });
   };
+
+  useEffect(() => {
+    const activityCard = document.querySelector('#user-activity-card');
+    const handleResize = debounce(() => onResize(activityCard), 250);
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <div className={styles.activity}>
