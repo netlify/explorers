@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './UserDial.module.css';
 import { useUserState } from 'src/context/user';
 import gsap from 'gsap';
-import Modal from '@components/Modal';
+import { launchFireworkConfetti } from '../util/confetti';
 
 function UserDial() {
   const { user } = useUserState();
@@ -10,6 +10,7 @@ function UserDial() {
 
   function getCertificate(event) {
     event.preventDefault();
+    launchFireworkConfetti();
 
     const certURL = new URL(
       'https://azcertificate.azurewebsites.net/api/Certificate'
@@ -32,6 +33,11 @@ function UserDial() {
       fontSize: progress == 0 ? '30px' : '20px',
       transformOrigin: '50% 50%',
     });
+
+    if (!window.localStorage.getItem('finalConfetti')) {
+      launchFireworkConfetti();
+      window.localStorage.setItem('finalConfetti', 'true');
+    }
   });
 
   const isComplete = parseInt(progress) === 1;
@@ -41,15 +47,20 @@ function UserDial() {
       {!isComplete ? (
         <>
           <h4 className={styles.completeHeading}>You did it!</h4>
-          <img
-            className={styles.completeImage}
-            src="https://res.cloudinary.com/netlify/image/upload/q_auto,f_auto,w_200/v1605058349/explorers/boppin-pug.gif"
-            alt="a pug dancing happily"
-          />
-          <a href="#certificate" onClick={getCertificate}>
+          <p>Great job! You've earned it:</p>
+          <a
+            className="btn btnprimary"
+            href="#certificate"
+            onClick={getCertificate}
+          >
             View and Download Your Certificate
           </a>
-          <Modal />
+          <button
+            className={styles['replay-button']}
+            onClick={launchFireworkConfetti}
+          >
+            Replay confetti animation
+          </button>
         </>
       ) : (
         <svg

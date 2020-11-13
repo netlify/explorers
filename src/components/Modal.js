@@ -31,16 +31,18 @@ function Modal({ mission, closeModal }) {
         <p className={styles['icon-award']}>{mission ? '🏅' : '🏆'}</p>
         <p className={styles['modal-heading']}>Congratulations!</p>
         {mission ? (
-          <p>
-            You just completed <br />
-            {mission.title}!
-          </p>
+          <>
+            <p>
+              You just completed <br />
+              {mission.title}!
+            </p>
+            <Link href="/missions" as="/missions">
+              <a className="btn btnprimary">Embark on a new mission!</a>
+            </Link>
+          </>
         ) : (
           <p>Awesome work!</p>
         )}
-        <Link href="/missions" as="/missions">
-          <a className="btn btnprimary">Embark on a new mission!</a>
-        </Link>
         <button
           className={styles['replay-button']}
           onClick={mission ? launchSchoolPrideConfetti : launchFireworkConfetti}
