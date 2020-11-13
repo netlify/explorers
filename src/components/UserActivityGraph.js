@@ -1,21 +1,21 @@
-import styles from './UserActivityGraph.module.css';
-import { AreaChart } from 'react-chartkick';
-import { useUserState } from 'src/context/user';
-import 'chart.js';
 import { useEffect, useState } from 'react';
+import debounce from 'lodash/debounce';
+import { AreaChart } from 'react-chartkick';
+import 'chart.js';
+import { useUserState } from 'src/context/user';
+import styles from './UserActivityGraph.module.css';
 
 function UserActivityGraph() {
   const { user } = useUserState();
 
   const [opts, setOpts] = useState({
     title: 'Videos Watched',
-    width: '600px',
+    width: 'inherit',
     height: '200px',
     points: false,
   });
 
-  const onResize = () => {
-    const activityCard = document.querySelector('#user-activity-card');
+  const onResize = (activityCard) => {
     setOpts({
       ...opts,
       width: `${activityCard.clientWidth - 100}px`,
@@ -23,11 +23,13 @@ function UserActivityGraph() {
   };
 
   useEffect(() => {
-    onResize();
-    window.addEventListener('resize', onResize);
+    const activityCard = document.querySelector('#user-activity-card');
+    const handleResize = debounce(() => onResize(activityCard), 250);
+
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('resize', onResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
