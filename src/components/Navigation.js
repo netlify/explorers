@@ -14,12 +14,17 @@ function Navigation({ theme }) {
 
   let [mobileMenuExpanded, setMobileMenuExpanded] = useState(false);
 
+  const navClassName = () => {
+    if (theme) {
+      console.log(`nav${theme}`);
+      return styles[`nav${theme}`];
+    } else {
+      return styles.navlight;
+    }
+  };
+
   return (
-    <nav
-      className={`${styles.nav} ${
-        theme === 'dark' ? styles.navdark : styles.navlight
-      }`}
-    >
+    <nav className={`${styles.nav} ${navClassName()}`}>
       <ul>
         <li>
           <Link href="/" as="/">

@@ -38,7 +38,7 @@ export default function Profile() {
   }
 
   return (
-    <Layout>
+    <Layout navtheme="white">
       <div className={style['profile-page']}>
         <UserSidebar />
         <UserMaincontent />
