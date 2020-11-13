@@ -17,7 +17,7 @@ export default function Home({ rawMissionControlContent, rawHomeHeroContent }) {
       <div>
         <HomeHero rawcontent={rawHomeHeroContent} />
 
-        <section className="px3">
+        <section>
           <section className="section-contain marginbottom-md p0">
             <video controls className="intro-video">
               <source

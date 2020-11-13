@@ -239,13 +239,6 @@ p {
   margin-top: 100px;
 }
 
-@media screen and (min-width: 900px) {
-  .px3 {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-}
-
 .prose.theme-light a {
   color: #690d7a;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
