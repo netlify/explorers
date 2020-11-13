@@ -63,6 +63,16 @@ const VideoPlayer = ({ publicId, poster }) => {
     };
   }, [activity, publicId]);
 
+  // /w_320,h_180,c_fill,du_3/l_video:explorers:a8tyb3b0xkrcs32xdqn4,w_320,h_180/l_video:explorers:test-transition,e_transition/fl_layer_apply/fl_layer_apply/l_video:explorers:lbiaq31v9d3uv9ndxfqb,w_320,h_180/l_video:explorers:test-transition,e_transition/fl_layer_apply/fl_layer_apply/explorers/temp-intro.mp4
+  const urlBase = 'https://res.cloudinary.com/netlify/video/upload';
+  const dims = 'w_640,h_360,c_fill';
+  const transition =
+    'l_video:explorers:test-transition,e_transition/fl_layer_apply';
+  const videoIntro = 'explorers/temp-intro';
+  const titleCard = `l_explorers:temp-title-card,fl_splice,du_5,${dims}/fl_layer_apply`;
+  const videoId = publicId.replace('explorers/', '');
+  const url = `${urlBase}/${dims}/du_2/${titleCard}/l_video:explorers:${videoId},${dims}/${transition}/fl_layer_apply/${videoIntro}`;
+
   // TODO let's add support for smaller formats as well
   return (
     <video
@@ -73,12 +83,17 @@ const VideoPlayer = ({ publicId, poster }) => {
       className={styles.video}
       poster={poster}
     >
-      <source
-        src={`https://res.cloudinary.com/netlify/video/upload/${publicId}.mp4`}
-        type="video/mp4"
-      />
+      <source src={`${url}.webm`} type="video/webm" />
+      <source src={`${url}.mp4`} type="video/mp4" />
     </video>
   );
 };
 
 export default VideoPlayer;
+
+/* 
+  https://res.cloudinary.com/netlify/video/upload/w_1280,h_720,c_fill/l_video:explorers:lbiaq31v9d3uv9ndxfqb,w_1280,h_720,c_fill/l_video:explorers:test-transition,e_transition/fl_layer_apply/fl_layer_apply/explorers/temp-intro.mp4
+
+  https://res.cloudinary.com/netlify/video/upload/w_1280,h_720,c_fill/l_video:explorers:lbiaq31v9d3uv9ndxfqb,w_1280,h_720,c_fill,du_4/l_video:explorers:test-transition,e_transition/fl_layer_apply/fl_layer_apply/l_explorers:temp-title-card,du_2,so_2,w_1280,h_720,c_fill/l_video:explorers:test-transition,e_transition,du_2/fl_layer_apply/fl_layer_apply/explorers/temp-intro.mp4
+  https://res.cloudinary.com/netlify/video/upload/w_320,h_180,c_fill,du_3/l_video:explorers:a8tyb3b0xkrcs32xdqn4,w_320,h_180/so_3,du_5/l_video:explorers:test-transition,e_transition/fl_layer_apply/fl_layer_apply/l_video:explorers:lbiaq31v9d3uv9ndxfqb,w_320,h_180/l_video:explorers:test-transition,e_transition/fl_layer_apply/fl_layer_apply/explorers/temp-intro.mp4
+ */
