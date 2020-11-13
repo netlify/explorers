@@ -176,6 +176,10 @@ p {
   max-width: 100%;
 }
 
+.intro-video-wrapper {
+  padding: 120px 0;
+}
+
 /* -- Avatar -- */
 .avatar {
   width: 30px;

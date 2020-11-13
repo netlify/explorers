@@ -18,7 +18,7 @@ export default function Home({ rawMissionControlContent, rawHomeHeroContent }) {
         <HomeHero rawcontent={rawHomeHeroContent} />
 
         <section>
-          <section className="section-contain marginbottom-md p0">
+          <section className="section-contain intro-video-wrapper">
             <video controls className="intro-video">
               <source
                 src="https://res.cloudinary.com/netlify/video/upload/v1605216108/explorers/explorers-intro.mp4"
