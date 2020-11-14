@@ -3,7 +3,10 @@ import styles from './About.module.css';
 
 export default function AboutPage() {
   const pageMeta = {
-    title: 'Jamstack Mission - About',
+    title: 'Jamstack Explorers - About',
+    description:
+      "Learn about what Jamstack Explorers is and why you'll want to bookmark it!",
+    url: 'https://explorers.netlify.com/about',
   };
 
   return (

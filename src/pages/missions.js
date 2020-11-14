@@ -12,6 +12,9 @@ export default function MissionsPage({ rawContent }) {
 
   const pageMeta = {
     title: 'Jamstack Explorers - Mission',
+    description:
+      'See all of the missions you can embark on in Jamstack Explorers!',
+    url: 'https://explorers.netlify.com/missions',
   };
 
   return (

@@ -8,6 +8,8 @@ export default function Profile() {
   const { token, status, redirectToOAuth } = useUserState();
   const pageMeta = {
     title: 'Jamstack Explorers - Profile',
+    description: 'Track your progress in your user profile!',
+    url: 'https://explorers.netlify.com/profile',
   };
 
   if (!token) {

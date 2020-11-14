@@ -27,6 +27,7 @@ export default function Stage({ mission, stage }) {
     title: `Jamstack Explorers - ${mission.title} - ${stage.title}`,
     description: removeMarkdown(description),
     image: mission.coverImage.asset.url,
+    url: `https://explorers.netlify.com/learn/${mission.slug.current}/${stage.slug.current}`,
     creator: `@${instructorTwitterHandle}` || '@netlify',
   };
 

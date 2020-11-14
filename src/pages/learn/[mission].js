@@ -26,6 +26,7 @@ const Mission = ({ mission }) => {
     title: `Jamstack Explorers - ${mission.title}`,
     description: mission.blub,
     image: mission.coverImage.asset.url,
+    url: `https://explorers.netlify.com/learn/${mission.slug.current}`,
     creator: `@${instructorTwitterHandle}` || '@netlify',
   };
 
