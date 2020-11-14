@@ -18,10 +18,15 @@ export default function Stage({ mission, stage }) {
   const [missionComplete, setMissionComplete] = useState(false);
   const { user, getUser } = useUserState();
 
+  const instructorTwitterHandle = parseTwitterHandle(
+    findTwitterUrl(mission.instructor.social)
+  );
+
   const pageMeta = {
     title: `Jamstack Explorers - ${mission.title} - ${stage.title}`,
     description: removeMarkdown(description),
     image: mission.coverImage.asset.url,
+    creator: `@${instructorTwitterHandle}` || '@netlify',
   };
 
   const closeModal = () => {

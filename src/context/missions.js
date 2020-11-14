@@ -61,6 +61,7 @@ export const loadMissionBySlug = async (slug) => {
                 url
               }
             }
+            social
           }
           coverImage {
             asset {

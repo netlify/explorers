@@ -12,6 +12,7 @@ export default function Layout({ children, navtheme, pageMeta }) {
         description={pageMeta.description}
         url={pageMeta.url}
         image={pageMeta.image}
+        creator={pageMeta.creator}
       />
       <Navigation theme={navtheme} />
       <main>{children}</main>
