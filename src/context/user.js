@@ -110,6 +110,24 @@ export function UserProvider({ children }) {
     ],
   };
 
+  async function getUser() {
+    // TODO add SWR
+    const result = await fetch('/api/get-user-info', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) => response.json());
+
+    const userWithAvatarFallback = {
+      ...result,
+      avatar_url: result.avatar_url ?? 'https://via.placeholder.com/150',
+    };
+
+    setUser(userWithAvatarFallback);
+    setStatus('loaded');
+    cache[token] = userWithAvatarFallback;
+  }
+
   React.useEffect(() => {
     const storedToken = window.localStorage.getItem('nf-session');
     const accessToken = storedToken
@@ -122,24 +140,6 @@ export function UserProvider({ children }) {
   React.useEffect(() => {
     if (!token) {
       return;
-    }
-
-    async function getUser() {
-      // TODO add SWR
-      const result = await fetch('/api/get-user-info', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }).then((response) => response.json());
-
-      const userWithAvatarFallback = {
-        ...result,
-        avatar_url: result.avatar_url ?? 'https://via.placeholder.com/150',
-      };
-
-      setUser(userWithAvatarFallback);
-      setStatus('loaded');
-      cache[token] = userWithAvatarFallback;
     }
 
     // use cached user data if we’ve already hit the API with this token
@@ -176,6 +176,7 @@ export function UserProvider({ children }) {
     redirectToOAuth,
     userdata,
     activity,
+    getUser,
   };
 
   return (
