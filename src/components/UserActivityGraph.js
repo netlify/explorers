@@ -38,7 +38,7 @@ function UserActivityGraph() {
       <div>
         <AreaChart
           data={user.activity.activeDates}
-          colors={['mediumorchid', '#333']}
+          colors={['MediumVioletRed', '#333']}
           ytitle={opts.title}
           width={opts.width}
           height={opts.height}
