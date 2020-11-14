@@ -1,3 +1,4 @@
+import hydrate from 'next-mdx-remote/hydrate';
 import Layout from '@components/Layout';
 import VideoPlayer from '@components/VideoPlayer';
 import ChonkyFooter from '@components/ChonkyFooter';
@@ -9,6 +10,7 @@ import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
 import { useState } from 'react';
 import { useUserState } from '@context/user';
+import renderToString from 'next-mdx-remote/render-to-string';
 import removeMarkdown from 'remove-markdown';
 import { findTwitterUrl, parseTwitterHandle } from '@util/twitter';
 import { SITE_DOMAIN } from '@util/constants';
@@ -16,7 +18,8 @@ import { SITE_DOMAIN } from '@util/constants';
 export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
   const poster = stage.content?.[0].coverImage?.asset.url;
-  const description = stage.content?.[0].body;
+  const description = hydrate(stage.renderedStageDescription);
+  const descriptionMarkdown = stage.content?.[0].body;
   const [missionComplete, setMissionComplete] = useState(false);
   const { user, getUser } = useUserState();
 
@@ -26,7 +29,7 @@ export default function Stage({ mission, stage }) {
 
   const pageMeta = {
     title: `Jamstack Explorers - ${mission.title} - ${stage.title}`,
-    description: removeMarkdown(description),
+    description: removeMarkdown(descriptionMarkdown),
     image: mission.coverImage.asset.url,
     url: `${SITE_DOMAIN}/learn/${mission.slug.current}/${stage.slug.current}`,
     creator: `@${instructorTwitterHandle}` || '@netlify',
@@ -69,7 +72,10 @@ export default function Stage({ mission, stage }) {
               />
             )}
             <LoginNudge />
-            {description && <p className={styles.description}>{description}</p>}
+
+            {description && (
+              <div className={styles['stage-wrapper']}>{description}</div>
+            )}
           </div>
 
           <aside>
@@ -96,10 +102,18 @@ export async function getStaticProps({ params }) {
   const mission = await loadMissionBySlug(params.mission);
   const stage = await loadStageBySlug(params.stage);
 
+  const renderedStageDescription = await renderToString(
+    stage.content?.[0].body,
+    {}
+  );
+
   return {
     props: {
       mission,
-      stage,
+      stage: {
+        ...stage,
+        renderedStageDescription,
+      },
     },
   };
 }
