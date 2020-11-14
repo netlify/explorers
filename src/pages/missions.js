@@ -3,15 +3,22 @@ import MissionCard from '@components/MissionCard';
 import { useMissionsState } from '@context/missions';
 import { renderMdxContent } from '@util/mdxClient';
 import { loadMdxContent } from '@util/mdxServer';
-import mission from 'backend/schemas/mission';
+import { SITE_DOMAIN } from '@util/constants';
 
 export default function MissionsPage({ rawContent }) {
   const { missions } = useMissionsState();
 
   const missionIntroContent = renderMdxContent(rawContent);
 
+  const pageMeta = {
+    title: 'Jamstack Explorers - Mission',
+    description:
+      'See all of the missions you can embark on in Jamstack Explorers!',
+    url: `${SITE_DOMAIN}/missions`,
+  };
+
   return (
-    <Layout navtheme="dark">
+    <Layout navtheme="dark" pageMeta={pageMeta}>
       <div>
         <section className="intro">
           <div className="section-contain is-dark">{missionIntroContent}</div>

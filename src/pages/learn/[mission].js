@@ -5,6 +5,8 @@ import { loadMissions, loadMissionBySlug } from '@context/missions';
 import ChonkyFooter from '@components/ChonkyFooter';
 import Layout from '@components/Layout';
 import styles from './Mission.module.css';
+import { findTwitterUrl, parseTwitterHandle } from '@util/twitter';
+import { SITE_DOMAIN } from '@util/constants';
 
 // Example: if we want to use React components in Sanity descriptions, here’s how
 import Aside from '@components/mdx/Aside';
@@ -17,8 +19,20 @@ const Mission = ({ mission }) => {
     },
   });
 
+  const instructorTwitterHandle = parseTwitterHandle(
+    findTwitterUrl(mission.instructor.social)
+  );
+
+  const pageMeta = {
+    title: `Jamstack Explorers - ${mission.title}`,
+    description: mission.blub,
+    image: mission.coverImage.asset.url,
+    url: `${SITE_DOMAIN}/learn/${mission.slug.current}`,
+    creator: `@${instructorTwitterHandle}` || '@netlify',
+  };
+
   return (
-    <Layout navtheme="dark">
+    <Layout navtheme="dark" pageMeta={pageMeta}>
       <section className="intro">
         <div className="section-contain">
           <h1>This Mission: {mission.title}</h1>
