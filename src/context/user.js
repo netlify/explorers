@@ -110,6 +110,12 @@ export function UserProvider({ children }) {
     ],
   };
 
+  const logoutUser = () => {
+    setActivity(undefined);
+    window.localStorage.removeItem('nf-session');
+    window.location.reload();
+  };
+
   async function getUser() {
     // TODO add SWR
     const result = await fetch('/api/get-user-info', {
@@ -176,6 +182,7 @@ export function UserProvider({ children }) {
     redirectToOAuth,
     userdata,
     activity,
+    logoutUser,
     getUser,
   };
 
