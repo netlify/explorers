@@ -6,7 +6,7 @@ export default function Layout({ mission, currentStage }) {
     mission.stages && mission.stages.length ? mission.stages.length : 1;
 
   const currentMission = mission.stages.findIndex((el) => {
-    return el.slug.current == currentStage;
+    return el.slug.current === currentStage;
   });
 
   const progressIndicator = () => {
