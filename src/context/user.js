@@ -111,7 +111,6 @@ export function UserProvider({ children }) {
   };
 
   const logoutUser = () => {
-    console.log('User logged out');
     setActivity(undefined);
     window.localStorage.removeItem('nf-session');
     window.location.reload();
