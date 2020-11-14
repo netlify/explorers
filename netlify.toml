@@ -14,4 +14,4 @@ package = "@netlify/plugin-sitemap"
 
   [plugins.inputs]
   buildDir = "out_publish"
-  exclude = ['./output_publish/404']
+  exclude = ['./output_publish/404.html']
