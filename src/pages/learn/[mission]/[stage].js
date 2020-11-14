@@ -67,7 +67,7 @@ export default function Stage({ mission, stage }) {
         </div>
       </section>
 
-      <ChonkyFooter mission={mission} />
+      <ChonkyFooter mission={mission} currentStage={stage.slug.current} />
       {missionComplete ? (
         <ModalCongrats mission={mission} closeModal={closeModal} />
       ) : (
