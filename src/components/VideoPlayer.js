@@ -124,6 +124,11 @@ const VideoPlayer = ({ emitStageComplete, publicId, poster, title }) => {
   // leave off the format so we can use both webm and mp4 below
   const url = `${urlBase}/${dims}/${video}/${titleCard}/explorers/bumper`;
 
+  // use some of the same techniques to create a poster image with the title
+  const videoPoster =
+    poster ??
+    `${urlBase}/${dims},q_auto,f_auto,so_0/${titleText}/explorers/explorers-intro.jpg`;
+
   return (
     <video
       controls
@@ -131,7 +136,7 @@ const VideoPlayer = ({ emitStageComplete, publicId, poster, title }) => {
       id="lesson-video"
       ref={ref}
       className={styles.video}
-      poster={poster}
+      poster={videoPoster}
     >
       <source src={`${url}.webm`} type="video/webm" />
       <source src={`${url}.mp4`} type="video/mp4" />
