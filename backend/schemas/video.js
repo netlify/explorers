@@ -33,6 +33,8 @@ export default {
     {
       name: 'coverImage',
       title: 'Cover Image',
+      description:
+        'Leave this blank to have a poster auto-generated. In most cases you SHOULD let this auto-generate.',
       type: 'image',
     },
     {
