@@ -3,9 +3,15 @@ import UserSidebar from '@components/UserSidebar';
 import UserMaincontent from '@components/UserMaincontent';
 import { useUserState } from '@context/user';
 import style from './Profile.module.css';
+import { SITE_DOMAIN } from '@util/constants';
 
 export default function Profile() {
   const { token, status, redirectToOAuth } = useUserState();
+  const pageMeta = {
+    title: 'Jamstack Explorers - Profile',
+    description: 'Track your progress in your user profile!',
+    url: `${SITE_DOMAIN}/profile`,
+  };
 
   if (!token) {
     return (
@@ -38,7 +44,7 @@ export default function Profile() {
   }
 
   return (
-    <Layout navtheme="white">
+    <Layout navtheme="white" pageMeta={pageMeta}>
       <div className={style['profile-page']}>
         <UserSidebar />
         <UserMaincontent />

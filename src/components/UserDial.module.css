@@ -86,3 +86,17 @@
 .knob {
   fill: #555;
 }
+
+.replay-button {
+  display: block;
+  background-color: #1f2125;
+  color: white;
+  font-size: 0.6rem;
+  border: 0;
+  margin: 1rem auto 0;
+}
+
+.replay-button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

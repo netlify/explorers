@@ -59,7 +59,9 @@ function MissionTracker({ currentMission, currentStage, stages }) {
               cx="10"
               r="4"
               cy={index * +num1 + +num2}
-              fill={task.done ? 'currentColor' : 'black'}
+              fill={
+                task.slug.current === currentStage ? 'currentColor' : 'black'
+              }
               className={styles['tracker-select']}
             />
           ))}

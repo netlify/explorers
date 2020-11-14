@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './UserDial.module.css';
 import { useUserState } from 'src/context/user';
 import gsap from 'gsap';
+import { launchFireworkConfetti } from '../util/confetti';
 
 function UserDial() {
   const { user } = useUserState();
@@ -19,6 +20,8 @@ function UserDial() {
     window.location = certURL;
   }
 
+  const isComplete = parseInt(progress) === 1;
+
   useEffect(() => {
     gsap.set('.dial', {
       rotation: 180 * progress + 1,
@@ -31,9 +34,12 @@ function UserDial() {
       fontSize: progress == 0 ? '30px' : '20px',
       transformOrigin: '50% 50%',
     });
-  });
 
-  const isComplete = parseInt(progress) === 1;
+    if (isComplete && !window.localStorage.getItem('finalConfetti')) {
+      launchFireworkConfetti();
+      window.localStorage.setItem('finalConfetti', 'true');
+    }
+  });
 
   return (
     <div className={isComplete ? styles.complete : ''}>
@@ -45,9 +51,19 @@ function UserDial() {
             src="https://res.cloudinary.com/netlify/image/upload/q_auto,f_auto,w_200/v1605058349/explorers/boppin-pug.gif"
             alt="a pug dancing happily"
           />
-          <a href="#certificate" onClick={getCertificate}>
+          <a
+            className="btn btnprimary"
+            href="#certificate"
+            onClick={getCertificate}
+          >
             View and Download Your Certificate
           </a>
+          <button
+            className={styles['replay-button']}
+            onClick={launchFireworkConfetti}
+          >
+            Replay confetti animation
+          </button>
         </>
       ) : (
         <svg
