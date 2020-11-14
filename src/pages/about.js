@@ -1,12 +1,13 @@
 import Layout from '@components/Layout';
 import styles from './About.module.css';
+import { SITE_DOMAIN } from '@util/constants';
 
 export default function AboutPage() {
   const pageMeta = {
     title: 'Jamstack Explorers - About',
     description:
       "Learn about what Jamstack Explorers is and why you'll want to bookmark it!",
-    url: 'https://explorers.netlify.com/about',
+    url: `${SITE_DOMAIN}/about`,
   };
 
   return (

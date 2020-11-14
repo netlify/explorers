@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react';
 import { useUserState } from '@context/user';
 import removeMarkdown from 'remove-markdown';
 import { findTwitterUrl, parseTwitterHandle } from '@util/twitter';
+import { SITE_DOMAIN } from '@util/constants';
 
 export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
@@ -27,7 +28,7 @@ export default function Stage({ mission, stage }) {
     title: `Jamstack Explorers - ${mission.title} - ${stage.title}`,
     description: removeMarkdown(description),
     image: mission.coverImage.asset.url,
-    url: `https://explorers.netlify.com/learn/${mission.slug.current}/${stage.slug.current}`,
+    url: `${SITE_DOMAIN}/learn/${mission.slug.current}/${stage.slug.current}`,
     creator: `@${instructorTwitterHandle}` || '@netlify',
   };
 

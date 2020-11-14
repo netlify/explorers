@@ -6,6 +6,7 @@ import ChonkyFooter from '@components/ChonkyFooter';
 import Layout from '@components/Layout';
 import styles from './Mission.module.css';
 import { findTwitterUrl, parseTwitterHandle } from '@util/twitter';
+import { SITE_DOMAIN } from '@util/constants';
 
 // Example: if we want to use React components in Sanity descriptions, here’s how
 import Aside from '@components/mdx/Aside';
@@ -26,7 +27,7 @@ const Mission = ({ mission }) => {
     title: `Jamstack Explorers - ${mission.title}`,
     description: mission.blub,
     image: mission.coverImage.asset.url,
-    url: `https://explorers.netlify.com/learn/${mission.slug.current}`,
+    url: `${SITE_DOMAIN}/learn/${mission.slug.current}`,
     creator: `@${instructorTwitterHandle}` || '@netlify',
   };
 

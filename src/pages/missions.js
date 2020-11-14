@@ -4,6 +4,7 @@ import { useMissionsState } from '@context/missions';
 import { renderMdxContent } from '@util/mdxClient';
 import { loadMdxContent } from '@util/mdxServer';
 import mission from 'backend/schemas/mission';
+import { SITE_DOMAIN } from '@util/constants';
 
 export default function MissionsPage({ rawContent }) {
   const { missions } = useMissionsState();
@@ -14,7 +15,7 @@ export default function MissionsPage({ rawContent }) {
     title: 'Jamstack Explorers - Mission',
     description:
       'See all of the missions you can embark on in Jamstack Explorers!',
-    url: 'https://explorers.netlify.com/missions',
+    url: `${SITE_DOMAIN}/missions`,
   };
 
   return (

@@ -3,13 +3,14 @@ import UserSidebar from '@components/UserSidebar';
 import UserMaincontent from '@components/UserMaincontent';
 import { useUserState } from '@context/user';
 import style from './Profile.module.css';
+import { SITE_DOMAIN } from '@util/constants';
 
 export default function Profile() {
   const { token, status, redirectToOAuth } = useUserState();
   const pageMeta = {
     title: 'Jamstack Explorers - Profile',
     description: 'Track your progress in your user profile!',
-    url: 'https://explorers.netlify.com/profile',
+    url: `${SITE_DOMAIN}/profile`,
   };
 
   if (!token) {
