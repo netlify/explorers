@@ -25,7 +25,13 @@ export default function Stage({ mission, stage }) {
                 with {mission.instructor.name}
               </span>
             </h2>
-            {publicId && <VideoPlayer publicId={publicId} poster={poster} />}
+            {publicId && (
+              <VideoPlayer
+                publicId={publicId}
+                poster={poster}
+                title={stage.title}
+              />
+            )}
             <LoginNudge />
             {description && <p className={styles.description}>{description}</p>}
           </div>
