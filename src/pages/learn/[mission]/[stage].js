@@ -19,6 +19,7 @@ export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
   const poster = stage.content?.[0].coverImage?.asset.url;
   const description = hydrate(stage.renderedStageDescription);
+  const descriptionMarkdown = stage.content?.[0].body;
   const [missionComplete, setMissionComplete] = useState(false);
   const { user, getUser } = useUserState();
 
@@ -28,7 +29,7 @@ export default function Stage({ mission, stage }) {
 
   const pageMeta = {
     title: `Jamstack Explorers - ${mission.title} - ${stage.title}`,
-    description: removeMarkdown(description),
+    description: removeMarkdown(descriptionMarkdown),
     image: mission.coverImage.asset.url,
     url: `${SITE_DOMAIN}/learn/${mission.slug.current}/${stage.slug.current}`,
     creator: `@${instructorTwitterHandle}` || '@netlify',
