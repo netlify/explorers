@@ -5,9 +5,12 @@ export default function Layout({ mission, currentStage }) {
   const missionTotal =
     mission.stages && mission.stages.length ? mission.stages.length : 1;
 
-  const currentMission = mission.stages.findIndex((el) => {
-    return el.slug.current == currentStage;
-  });
+  const currentMission = () => {
+    if (!mission.stages) return 0;
+    return mission.stages.findIndex((el) => {
+      return el.slug.current === currentStage;
+    });
+  };
 
   const progressIndicator = () => {
     if (currentStage) {
@@ -31,7 +34,7 @@ export default function Layout({ mission, currentStage }) {
                 strokeWidth="2"
               />
               <text x="50" y="40" fontSize="50px">
-                {currentMission}
+                {currentMission() + 1}
               </text>
               <line
                 x1="110"
