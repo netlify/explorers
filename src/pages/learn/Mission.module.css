@@ -1,23 +1,14 @@
-@media screen and (min-width: 900px) {
-  .missiontout {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-  }
-}
-
-.missionblurb {
-  padding-left: 1rem;
-}
-
-@media screen and (max-width: 900px) {
-  .missionblurb {
-    margin: 2.5rem 0 3.5rem;
-  }
+.missiontout {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: 350px 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
 }
 
 .card {
-  height: 15rem;
+  grid-area: 1 / 1 / 2 / 2;
+  height: 100%;
   width: 100%;
   background-position: center center;
   background-repeat: no-repeat;
@@ -26,9 +17,10 @@
   border: 1px solid teal;
 }
 
-.missiondescriptioninstructor {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  margin: 1rem 0rem;
+.missionblurb {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.missiondescription {
+  grid-area: 2 / 1 / 3 / 3;
 }

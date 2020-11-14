@@ -52,16 +52,16 @@ const Mission = ({ mission }) => {
                 </ul>
               </div>
             </div>
-          </div>
-          <div>
-            <div className={styles.missiondescriptioninstructor}>
-              <img
-                src={mission.instructor.avatar?.asset?.url}
-                className="avatar"
-              />
-              <span>Instructor: {mission.instructor.name}</span>
+            <div className={styles.missiondescription}>
+              <div className={styles.missiondescriptioninstructor}>
+                <img
+                  src={mission.instructor.avatar?.asset?.url}
+                  className="avatar"
+                />
+                <span>Instructor: {mission.instructor.name}</span>
+              </div>
+              {description}
             </div>
-            {description}
           </div>
         </div>
       </section>
