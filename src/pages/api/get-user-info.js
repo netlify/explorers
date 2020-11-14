@@ -72,6 +72,7 @@ export default async function handler(req, res) {
         coverImage: mission.coverImage.asset.url,
         progress: completedStages / totalStages,
         completedStages,
+        missionSlug,
       };
     });
 
