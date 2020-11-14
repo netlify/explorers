@@ -1,3 +1,4 @@
+import hydrate from 'next-mdx-remote/hydrate';
 import Layout from '@components/Layout';
 import VideoPlayer from '@components/VideoPlayer';
 import ChonkyFooter from '@components/ChonkyFooter';
@@ -7,15 +8,14 @@ import LoginNudge from '@components/LoginNudge';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
-import marked from 'marked';
-import parser from 'html-react-parser';
 import { useState, useEffect } from 'react';
 import { useUserState } from '@context/user';
+import renderToString from 'next-mdx-remote/render-to-string';
 
 export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
   const poster = stage.content?.[0].coverImage?.asset.url;
-  const description = stage.content?.[0].body;
+  const description = hydrate(stage.renderedStageDescription);
   const [missionComplete, setMissionComplete] = useState(false);
   const { user, getUser } = useUserState();
 
@@ -34,9 +34,6 @@ export default function Stage({ mission, stage }) {
       setMissionComplete(true);
     }
   };
-
-  const descriptionHtmlString = marked(description);
-  const descriptionParsed = parser(descriptionHtmlString);
 
   return (
     <Layout navtheme="dark">
@@ -61,9 +58,7 @@ export default function Stage({ mission, stage }) {
             <LoginNudge />
 
             {description && (
-              <div className={styles['description-wrapper']}>
-                {descriptionParsed}
-              </div>
+              <div className={styles['stage-wrapper']}>{description}</div>
             )}
           </div>
 
@@ -91,10 +86,18 @@ export async function getStaticProps({ params }) {
   const mission = await loadMissionBySlug(params.mission);
   const stage = await loadStageBySlug(params.stage);
 
+  const renderedStageDescription = await renderToString(
+    stage.content?.[0].body,
+    {}
+  );
+
   return {
     props: {
       mission,
-      stage,
+      stage: {
+        ...stage,
+        renderedStageDescription,
+      },
     },
   };
 }
