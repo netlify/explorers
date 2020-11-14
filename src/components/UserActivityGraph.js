@@ -35,22 +35,10 @@ function UserActivityGraph() {
 
   return (
     <div className={styles.activity}>
-      <div className={styles.activitychart}>
-        <AreaChart
-          data={user.activity.activeDates}
-          colors={['magenta', '#333']}
-          ytitle={opts.title}
-          width={opts.width}
-          height={opts.height}
-          points={opts.points}
-          id={1}
-        />
-      </div>
-
       <div>
         <AreaChart
           data={user.activity.activeDates}
-          colors={['purple', '#333']}
+          colors={['mediumorchid', '#333']}
           ytitle={opts.title}
           width={opts.width}
           height={opts.height}
