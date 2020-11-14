@@ -7,7 +7,7 @@ import LoginNudge from '@components/LoginNudge';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useUserState } from '@context/user';
 import removeMarkdown from 'remove-markdown';
 import { findTwitterUrl, parseTwitterHandle } from '@util/twitter';

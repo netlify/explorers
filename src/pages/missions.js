@@ -3,7 +3,6 @@ import MissionCard from '@components/MissionCard';
 import { useMissionsState } from '@context/missions';
 import { renderMdxContent } from '@util/mdxClient';
 import { loadMdxContent } from '@util/mdxServer';
-import mission from 'backend/schemas/mission';
 import { SITE_DOMAIN } from '@util/constants';
 
 export default function MissionsPage({ rawContent }) {
