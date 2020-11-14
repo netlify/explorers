@@ -16,7 +16,6 @@ function Navigation({ theme }) {
 
   const navClassName = () => {
     if (theme) {
-      console.log(`nav${theme}`);
       return styles[`nav${theme}`];
     } else {
       return styles.navlight;
