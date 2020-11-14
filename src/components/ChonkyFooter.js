@@ -1,27 +1,19 @@
 import styles from './ChonkyFooter.module.css';
 import FloatingAstronaut from '@components/FloatingAstronaut';
-import { useUserState } from 'src/context/user';
 
-export default function Layout({ mission }) {
-  const { user } = useUserState();
+export default function Layout({ mission, currentStage }) {
+  console.log(mission);
 
   const missionTotal =
     mission.stages && mission.stages.length ? mission.stages.length : 1;
 
-  const userProgress = user?.activity.userMissions?.find(
-    (userMission) => userMission.title === mission.title
-  );
+  const currentMission = mission.stages.findIndex((el) => {
+    return el.slug.current == currentStage;
+  });
 
-  const completedStages = userProgress?.completedStages || 0;
-
-  return (
-    <section>
-      <div className={`${styles.chonky} section-contain`}>
-        <p className={styles.explorers}>Explorers</p>
-        <div className={styles.astronaut}>
-          <FloatingAstronaut />
-        </div>
-
+  const progressIndicator = () => {
+    if (currentStage) {
+      return (
         <div className={styles.progress}>
           <h3>your progress</h3>
 
@@ -41,7 +33,7 @@ export default function Layout({ mission }) {
                 strokeWidth="2"
               />
               <text x="50" y="40" fontSize="50px">
-                {completedStages}
+                {currentMission}
               </text>
               <line
                 x1="110"
@@ -57,6 +49,18 @@ export default function Layout({ mission }) {
             </g>
           </svg>
         </div>
+      );
+    }
+  };
+
+  return (
+    <section>
+      <div className={`${styles.chonky} section-contain`}>
+        <p className={styles.explorers}>Explorers</p>
+        <div className={styles.astronaut}>
+          <FloatingAstronaut />
+        </div>
+        {progressIndicator()}
       </div>
     </section>
   );
