@@ -74,7 +74,7 @@ const VideoPlayer = ({ publicId, poster, title }) => {
   const videoId = publicId.replace('/', ':');
   const video = `l_video:${videoId},${dims}/${transition}/fl_layer_apply`;
   const titleText = `l_text:Roboto_80_center:${title},co_white,w_1000,c_fit`;
-  const titleCard = `l_video:explorers:explorers-intro,fl_splice,${dims}/eo_3,ac_none,e_accelerate:-50/${titleText}/fl_layer_apply/so_0,fl_layer_apply`;
+  const titleCard = `l_video:explorers:explorers-intro,fl_splice,${dims}/eo_3,ac_none,e_accelerate:-25/${titleText}/fl_layer_apply/so_0,fl_layer_apply`;
 
   const url = `${urlBase}/${dims}/${video}/${titleCard}/explorers/bumper`;
 
