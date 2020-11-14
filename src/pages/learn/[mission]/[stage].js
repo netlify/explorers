@@ -7,8 +7,11 @@ import LoginNudge from '@components/LoginNudge';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useUserState } from '@context/user';
+import removeMarkdown from 'remove-markdown';
+import { findTwitterUrl, parseTwitterHandle } from '@util/twitter';
+import { SITE_DOMAIN } from '@util/constants';
 
 export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
@@ -16,6 +19,18 @@ export default function Stage({ mission, stage }) {
   const description = stage.content?.[0].body;
   const [missionComplete, setMissionComplete] = useState(false);
   const { user, getUser } = useUserState();
+
+  const instructorTwitterHandle = parseTwitterHandle(
+    findTwitterUrl(mission.instructor.social)
+  );
+
+  const pageMeta = {
+    title: `Jamstack Explorers - ${mission.title} - ${stage.title}`,
+    description: removeMarkdown(description),
+    image: mission.coverImage.asset.url,
+    url: `${SITE_DOMAIN}/learn/${mission.slug.current}/${stage.slug.current}`,
+    creator: `@${instructorTwitterHandle}` || '@netlify',
+  };
 
   const closeModal = () => {
     setMissionComplete(false);
@@ -34,7 +49,7 @@ export default function Stage({ mission, stage }) {
   };
 
   return (
-    <Layout navtheme="dark">
+    <Layout navtheme="dark" pageMeta={pageMeta}>
       <section>
         <div
           className={`${styles['stage-content']} section-contain margintop-lg`}
