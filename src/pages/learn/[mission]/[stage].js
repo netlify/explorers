@@ -68,6 +68,7 @@ export default function Stage({ mission, stage }) {
               <VideoPlayer
                 publicId={publicId}
                 poster={poster}
+                title={stage.title}
                 emitStageComplete={emitStageComplete}
               />
             )}
