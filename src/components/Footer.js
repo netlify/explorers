@@ -23,8 +23,8 @@ function Footer() {
             </li>
           </ul>
         </div>
+        {/* TODO: Add this back in and make this form subscribe people to the newsletter (the div below will be styles.love)
         <div className={styles.newsletter}>
-          {/* TODO: Make this form subscribe people to the newsletter */}
           Stay up to date with Netlify news
           <form
             name="resource-newsletter"
@@ -41,8 +41,8 @@ function Footer() {
               Submit
             </button>
           </form>
-        </div>
-        <div className={styles.love}>
+        </div> */}
+        <div className={styles.newsletter}>
           created with{' '}
           <img
             className={styles.netliheart}
