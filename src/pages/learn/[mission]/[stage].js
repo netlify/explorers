@@ -6,11 +6,16 @@ import LoginNudge from '@components/LoginNudge';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
+import marked from 'marked';
+import parser from 'html-react-parser';
 
 export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
   const poster = stage.content?.[0].coverImage?.asset.url;
   const description = stage.content?.[0].body;
+
+  const descriptionHtmlString = marked(description);
+  const descriptionParsed = parser(descriptionHtmlString);
 
   return (
     <Layout navtheme="dark">
@@ -27,7 +32,12 @@ export default function Stage({ mission, stage }) {
             </h2>
             {publicId && <VideoPlayer publicId={publicId} poster={poster} />}
             <LoginNudge />
-            {description && <p className={styles.description}>{description}</p>}
+
+            {description && (
+              <div className={styles['description-wrapper']}>
+                {descriptionParsed}
+              </div>
+            )}
           </div>
 
           <aside>
