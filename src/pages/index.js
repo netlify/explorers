@@ -14,7 +14,7 @@ export default function Home({ rawMissionControlContent, rawHomeHeroContent }) {
 
   const pageMeta = {
     title: 'Jamstack Explorers',
-    description: "It's not flying; it's FTP with style!",
+    description: "Take free courses and complete missions about React, Angular, Netlify and more!",
     url: 'https://explorers.netlify.com/',
     image:
       'https://images.unsplash.com/photo-1536697246787-1f7ae568d89a?q=85&fm=jpg&fit=crop&w=1600&h=800',
