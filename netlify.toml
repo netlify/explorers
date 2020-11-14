@@ -8,3 +8,9 @@
 
 [[plugins]]
   package = "netlify-plugin-cache-nextjs"
+
+[[plugins]]
+package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+  buildDir = "out_publish"
