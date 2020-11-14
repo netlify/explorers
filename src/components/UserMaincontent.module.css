@@ -25,6 +25,12 @@
   padding: 0;
 }
 
+.profilecard a,
+.profilecard a:visited,
+.profilecard a:active {
+  color: teal;
+}
+
 h4.profileh4 {
   color: #888;
 }
