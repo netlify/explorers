@@ -2,15 +2,36 @@ import Layout from '@components/Layout';
 import VideoPlayer from '@components/VideoPlayer';
 import ChonkyFooter from '@components/ChonkyFooter';
 import MissionTracker from '@components/MissionTracker';
+import ModalCongrats from '@components/ModalCongrats';
 import LoginNudge from '@components/LoginNudge';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
+import { useState, useEffect } from 'react';
+import { useUserState } from '@context/user';
 
 export default function Stage({ mission, stage }) {
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
   const poster = stage.content?.[0].coverImage?.asset.url;
   const description = stage.content?.[0].body;
+  const [missionComplete, setMissionComplete] = useState(false);
+  const { user, getUser } = useUserState();
+
+  const closeModal = () => {
+    setMissionComplete(false);
+  };
+
+  const emitStageComplete = () => {
+    const currentMission = user.activity.userMissions.find(
+      (userMission) => userMission.title === mission.title
+    );
+
+    getUser();
+
+    if (currentMission.progress === 1) {
+      setMissionComplete(true);
+    }
+  };
 
   return (
     <Layout navtheme="dark">
@@ -25,7 +46,13 @@ export default function Stage({ mission, stage }) {
                 with {mission.instructor.name}
               </span>
             </h2>
-            {publicId && <VideoPlayer publicId={publicId} poster={poster} />}
+            {publicId && (
+              <VideoPlayer
+                publicId={publicId}
+                poster={poster}
+                emitStageComplete={emitStageComplete}
+              />
+            )}
             <LoginNudge />
             {description && <p className={styles.description}>{description}</p>}
           </div>
@@ -41,6 +68,11 @@ export default function Stage({ mission, stage }) {
       </section>
 
       <ChonkyFooter mission={mission} />
+      {missionComplete ? (
+        <ModalCongrats mission={mission} closeModal={closeModal} />
+      ) : (
+        ''
+      )}
     </Layout>
   );
 }
