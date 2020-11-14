@@ -110,6 +110,13 @@ export function UserProvider({ children }) {
     ],
   };
 
+  const logoutUser = () => {
+    console.log('User logged out');
+    setActivity(undefined);
+    window.localStorage.removeItem('nf-session');
+    window.location.reload();
+  };
+
   React.useEffect(() => {
     const storedToken = window.localStorage.getItem('nf-session');
     const accessToken = storedToken
@@ -176,6 +183,7 @@ export function UserProvider({ children }) {
     redirectToOAuth,
     userdata,
     activity,
+    logoutUser,
   };
 
   return (
