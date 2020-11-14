@@ -17,8 +17,14 @@ const Mission = ({ mission }) => {
     },
   });
 
+  const pageMeta = {
+    title: `Jamstack Explorers - ${mission.title}`,
+    description: mission.blub,
+    image: mission.coverImage.asset.url,
+  };
+
   return (
-    <Layout navtheme="dark">
+    <Layout navtheme="dark" pageMeta={pageMeta}>
       <section className="intro">
         <div className="section-contain">
           <h1>This mission: {mission.title}</h1>
