@@ -3,7 +3,7 @@ import { useUserState } from '@context/user';
 import debounce from 'lodash/debounce';
 import styles from './VideoPlayer.module.css';
 
-const VideoPlayer = ({ publicId, poster }) => {
+const VideoPlayer = ({ emitStageComplete, publicId, poster }) => {
   const { activity } = useUserState();
   const ref = React.useRef();
 
@@ -15,6 +15,7 @@ const VideoPlayer = ({ publicId, poster }) => {
     // 2 debounced functions to make sure both fire at least once
     const sendProgressDebounced = debounce(activity.send, 500);
     const sendCompleteDebounced = debounce(activity.send, 500);
+    const emitStageCompleteDebounced = debounce(emitStageComplete, 250);
 
     const activityData = {
       videoId: publicId,
@@ -38,6 +39,7 @@ const VideoPlayer = ({ publicId, poster }) => {
         return;
       }
 
+      emitStageCompleteDebounced();
       sendCompleteDebounced('video-complete', activityData);
     };
 
