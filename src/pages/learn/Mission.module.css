@@ -23,6 +23,17 @@
   height: auto;
 }
 
+.missionblurb ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.missionblurb li:before {
+  content: '\2605';
+  margin-right: 10px;
+  color: #a75c47;
+}
+
 .missiondescription {
   grid-area: 2 / 1 / 3 / 3;
 }
@@ -33,4 +44,9 @@
 
 .instructor {
   font-size: 22px;
+}
+
+.learn {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }

@@ -41,9 +41,7 @@ const Mission = ({ mission }) => {
             <div className={`${styles.missionblurb} is-dark`}>
               <p>{mission.blurb}</p>
               <div>
-                <h4>
-                  This mission has {mission.stages?.length} stages to explore:
-                </h4>
+                <h3 className={styles.learn}>What you'll learn</h3>
                 <ul>
                   {mission.stages?.map((stage) => (
                     <li key={stage._id}>
