@@ -48,7 +48,7 @@ function Navigation({ theme }) {
           </>
         )}
       </ul>
-      {!isMobile && renderUser()}
+      {!isMobile && <ul>{renderUser()}</ul>}
       {isMobile && (
         <>
           <Hamburger
