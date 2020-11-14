@@ -10,8 +10,12 @@ export default function MissionsPage({ rawContent }) {
 
   const missionIntroContent = renderMdxContent(rawContent);
 
+  const pageMeta = {
+    title: 'Jamstack Explorers - Mission',
+  };
+
   return (
-    <Layout navtheme="dark">
+    <Layout navtheme="dark" pageMeta={pageMeta}>
       <div>
         <section className="intro">
           <div className="section-contain is-dark">{missionIntroContent}</div>

@@ -6,6 +6,9 @@ import style from './Profile.module.css';
 
 export default function Profile() {
   const { token, status, redirectToOAuth } = useUserState();
+  const pageMeta = {
+    title: 'Jamstack Explorers - Profile',
+  };
 
   if (!token) {
     return (
@@ -38,7 +41,7 @@ export default function Profile() {
   }
 
   return (
-    <Layout navtheme="white">
+    <Layout navtheme="white" pageMeta={pageMeta}>
       <div className={style['profile-page']}>
         <UserSidebar />
         <UserMaincontent />

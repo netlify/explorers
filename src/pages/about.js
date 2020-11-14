@@ -2,8 +2,12 @@ import Layout from '@components/Layout';
 import styles from './About.module.css';
 
 export default function AboutPage() {
+  const pageMeta = {
+    title: 'Jamstack Mission - About',
+  };
+
   return (
-    <Layout navtheme="dark">
+    <Layout navtheme="dark" pageMeta={pageMeta}>
       <div>
         <section>
           <div className={styles.about}>
