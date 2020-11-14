@@ -21,8 +21,16 @@ const Mission = ({ mission }) => {
     <Layout navtheme="dark">
       <section className="intro">
         <div className="section-contain">
-          <h1>This mission: {mission.title}</h1>
-          <h3>with {mission.instructor.name}</h3>
+          <h1>This Mission: {mission.title}</h1>
+          <div className={styles.missiondescriptioninstructor}>
+            <img
+              src={mission.instructor.avatar?.asset?.url}
+              className="avatar-lg"
+            />
+            <span className={styles.instructor}>
+              Instructor: <strong>{mission.instructor.name}</strong>
+            </span>
+          </div>
           <div className={styles.missiontout}>
             <div
               className={styles.card}
@@ -30,12 +38,9 @@ const Mission = ({ mission }) => {
                 backgroundImage: `url(${mission.coverImage.asset.url})`,
               }}
             ></div>
-            <div
-              className={styles.missionblurb}
-              className="section-contain is-dark marginleft-sm"
-            >
+            <div className={`${styles.missionblurb} is-dark`}>
+              <p>{mission.blurb}</p>
               <div>
-                <p>{mission.blurb}</p>
                 <h4>
                   This mission has {mission.stages?.length} stages to explore:
                 </h4>
@@ -52,16 +57,7 @@ const Mission = ({ mission }) => {
                 </ul>
               </div>
             </div>
-            <div className={styles.missiondescription}>
-              <div className={styles.missiondescriptioninstructor}>
-                <img
-                  src={mission.instructor.avatar?.asset?.url}
-                  className="avatar"
-                />
-                <span>Instructor: {mission.instructor.name}</span>
-              </div>
-              {description}
-            </div>
+            <div className={styles.missiondescription}>{description}</div>
           </div>
         </div>
       </section>

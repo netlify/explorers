@@ -200,6 +200,14 @@ p {
   margin-right: 7px;
 }
 
+.avatar-lg {
+  width: 60px;
+  height: 60px;
+  border-radius: 1000px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
 /* -- Utility -- */
 
 .intro {
