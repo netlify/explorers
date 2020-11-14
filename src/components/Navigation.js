@@ -88,6 +88,13 @@ function renderUser() {
     return (
       <>
         <li>
+          <Link href="/">
+            <a className={styles.profile} onClick={logoutUser}>
+              Logout
+            </a>
+          </Link>
+        </li>
+        <li>
           <Link href="/profile">
             <a className={styles.profile}>
               <span className={styles.username}>{user.full_name}</span>
@@ -96,13 +103,6 @@ function renderUser() {
                 src={user.avatar_url}
                 alt={`${user.full_name}’s avatar`}
               />
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
-            <a className={styles.profile} onClick={logoutUser}>
-              Logout
             </a>
           </Link>
         </li>
