@@ -1,9 +1,11 @@
-.missiontout {
-  display: grid;
-  grid-template-columns: 0.5fr 1fr;
-  grid-template-rows: 350px 1fr;
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
+@media screen and (min-width: 600px) {
+  .missiontout {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 350px 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
 }
 
 .card {
@@ -17,6 +19,13 @@
   border: 1px solid #b98941;
 }
 
+@media screen and (max-width: 600px) {
+  .card {
+    height: 250px;
+    margin-bottom: 10px;
+  }
+}
+
 .missionblurb {
   grid-area: 1 / 2 / 2 / 3;
   width: 100%;
@@ -26,6 +35,12 @@
 .missionblurb ul {
   list-style: none;
   padding-left: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .missionblurb ul {
+    margin-bottom: 30px;
+  }
 }
 
 .missionblurb li:before {
@@ -44,6 +59,7 @@
 
 .instructor {
   font-size: 22px;
+  color: #f6dbb2;
 }
 
 .learn {

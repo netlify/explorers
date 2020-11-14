@@ -92,6 +92,16 @@ h2 {
   font-weight: 400;
 }
 
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+}
+
 h4 {
   text-transform: uppercase;
   letter-spacing: 0.04rem;
@@ -211,7 +221,7 @@ p {
 /* -- Utility -- */
 
 .intro {
-  padding: 150px 1.5rem 60px;
+  padding: 100px 1.5rem 60px;
 }
 
 @media screen and (min-width: 900px) {
