@@ -2,8 +2,6 @@ import styles from './ChonkyFooter.module.css';
 import FloatingAstronaut from '@components/FloatingAstronaut';
 
 export default function Layout({ mission, currentStage }) {
-  console.log(mission);
-
   const missionTotal =
     mission.stages && mission.stages.length ? mission.stages.length : 1;
 
