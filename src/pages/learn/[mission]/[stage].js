@@ -5,10 +5,12 @@ import ChonkyFooter from '@components/ChonkyFooter';
 import MissionTracker from '@components/MissionTracker';
 import ModalCongrats from '@components/ModalCongrats';
 import LoginNudge from '@components/LoginNudge';
+import Countdown from '@components/Countdown';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { useUserState } from '@context/user';
 import renderToString from 'next-mdx-remote/render-to-string';
 import removeMarkdown from 'remove-markdown';
@@ -16,12 +18,14 @@ import { findTwitterUrl, parseTwitterHandle } from '@util/twitter';
 import { SITE_DOMAIN } from '@util/constants';
 
 export default function Stage({ mission, stage }) {
+  const router = useRouter();
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
   const poster = stage.content?.[0].coverImage?.asset.url;
   const description = hydrate(stage.renderedStageDescription);
   const descriptionMarkdown = stage.content?.[0].body;
   const [missionComplete, setMissionComplete] = useState(false);
   const { user, getUser } = useUserState();
+  const [moveToNextVideo, setMoveToNextVideo] = useState(null);
 
   const instructorTwitterHandle = parseTwitterHandle(
     findTwitterUrl(mission.instructor.social)
@@ -32,13 +36,16 @@ export default function Stage({ mission, stage }) {
     description: removeMarkdown(descriptionMarkdown),
     image: mission.coverImage.asset.url,
     url: `${SITE_DOMAIN}/learn/${mission.slug.current}/${stage.slug.current}`,
-    creator: `@${instructorTwitterHandle}` || '@netlify',
+    creator: instructorTwitterHandle
+      ? `@${instructorTwitterHandle}`
+      : '@netlify',
   };
 
   const closeModal = () => {
     setMissionComplete(false);
   };
 
+  const NEXT_STEP_COUNTDOWN_TIME = 5000;
   const emitStageComplete = () => {
     const currentMission = user.activity.userMissions.find(
       (userMission) => userMission.title === mission.title
@@ -46,8 +53,29 @@ export default function Stage({ mission, stage }) {
 
     getUser();
 
-    if (currentMission.progress === 1) {
+    // Note: user.activity.userMissions will not include the current mission
+    // until at least one lesson is completed, so currentMission will be undefined
+    // in this function when the first lesson is watched/being finished
+    if (currentMission && currentMission.progress === 1) {
       setMissionComplete(true);
+    }
+
+    if (!moveToNextVideo) {
+      const currentStageIndex = mission.stages.findIndex(
+        (s) => s.title === stage.title
+      );
+      const isFinalStage = currentStageIndex === mission.stages.length - 1;
+
+      if (!isFinalStage) {
+        setMoveToNextVideo(true);
+        setTimeout(() => {
+          const nextStage = mission.stages[currentStageIndex + 1];
+          router.replace(
+            `/learn/${mission.slug.current}/${nextStage.slug.current}`
+          );
+          setMoveToNextVideo(null);
+        }, NEXT_STEP_COUNTDOWN_TIME);
+      }
     }
   };
 
@@ -73,6 +101,14 @@ export default function Stage({ mission, stage }) {
               />
             )}
             <LoginNudge />
+
+            {moveToNextVideo && (
+              <div className={styles['move-to-next-video']}>
+                Moving to next lesson in&nbsp;
+                <Countdown number={NEXT_STEP_COUNTDOWN_TIME / 1000} />
+                &nbsp;seconds..
+              </div>
+            )}
 
             {description && (
               <div className={styles['stage-wrapper']}>{description}</div>

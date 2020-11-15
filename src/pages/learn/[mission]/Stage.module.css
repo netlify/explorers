@@ -31,3 +31,12 @@
   border-radius: 0.25rem;
   padding: 1rem;
 }
+
+.move-to-next-video {
+  display: flex;
+  align-items: center;
+  padding: 10px 0px;
+  border-bottom: 1px solid white;
+  margin-bottom: 10px;
+  font-style: italic;
+}
