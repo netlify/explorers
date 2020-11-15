@@ -132,6 +132,8 @@ const VideoPlayer = ({ emitStageComplete, publicId, poster, title }) => {
   return (
     <video
       controls
+      controlsList="nodownload"
+      onContextMenu={(e) => e.preventDefault()}
       key={publicId}
       id="lesson-video"
       ref={ref}
