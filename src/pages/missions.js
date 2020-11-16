@@ -11,7 +11,7 @@ export default function MissionsPage({ rawContent }) {
   const missionIntroContent = renderMdxContent(rawContent);
 
   const pageMeta = {
-    title: 'Jamstack Explorers - Mission',
+    title: 'Missions - Jamstack Explorers',
     description:
       'See all of the missions you can learn from on Jamstack Explorers!',
     url: `${SITE_DOMAIN}/missions`,
