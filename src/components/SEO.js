@@ -3,7 +3,7 @@ import { SITE_DOMAIN } from '@util/constants';
 
 export default function SEO({
   title = 'Jamstack Explorers',
-  description = 'It’s not flying; it’s FTP with style!',
+  description = 'Take free courses and complete missions about React, Vue, Angular, Netlify and more!',
   url = SITE_DOMAIN,
   image = 'https://images.unsplash.com/photo-1536697246787-1f7ae568d89a?q=85&fm=jpg&fit=crop&w=1600&h=800',
   creator = '@netlify',
