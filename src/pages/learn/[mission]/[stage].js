@@ -111,7 +111,9 @@ export default function Stage({ mission, stage }) {
             )}
 
             {description && (
-              <div className={styles['stage-wrapper']}>{description}</div>
+              <section className={styles['description-wrapper']}>
+                {description}
+              </section>
             )}
           </div>
 
