@@ -23,7 +23,7 @@ export default function Stage({ mission, stage }) {
   const poster = stage.content?.[0].coverImage?.asset.url;
   const description = hydrate(stage.renderedStageDescription);
   const descriptionMarkdown = stage.content?.[0].body;
-  const descriptionMeta = removeMarkdown(descriptionMarkdown.split('\n')[0]);
+  const descriptionMeta = removeMarkdown(descriptionMarkdown?.split('\n')?.[0] ?? '');
   const [missionComplete, setMissionComplete] = useState(false);
   const { user, getUser } = useUserState();
   const [moveToNextVideo, setMoveToNextVideo] = useState(null);
