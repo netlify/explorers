@@ -1,4 +1,5 @@
 .video {
+  width: 100%;
   max-width: 100%;
   border: 1px solid teal;
   box-shadow: 6px 6px 15px rgb(0, 0, 0);

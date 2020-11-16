@@ -9,12 +9,6 @@
   text-align: left;
 }
 
-@media screen and (min-width: 900px) {
-  .container {
-    margin-top: 2.5rem;
-  }
-}
-
 .tracker-svg {
   margin-top: 3px;
 }
