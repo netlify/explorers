@@ -23,7 +23,9 @@ export default function Stage({ mission, stage }) {
   const poster = stage.content?.[0].coverImage?.asset.url;
   const description = hydrate(stage.renderedStageDescription);
   const descriptionMarkdown = stage.content?.[0].body;
-  const descriptionMeta = removeMarkdown(descriptionMarkdown?.split('\n')?.[0] ?? '');
+  const descriptionMeta = removeMarkdown(
+    descriptionMarkdown?.split('\n')?.[0] ?? ''
+  );
   const [missionComplete, setMissionComplete] = useState(false);
   const { user, getUser } = useUserState();
   const [moveToNextVideo, setMoveToNextVideo] = useState(null);
@@ -35,7 +37,6 @@ export default function Stage({ mission, stage }) {
   const pageMeta = {
     title: `Jamstack Explorers - ${mission.title} - ${stage.title}`,
     description: descriptionMeta,
-    image: mission.coverImage.asset.url,
     url: `${SITE_DOMAIN}/learn/${mission.slug.current}/${stage.slug.current}`,
     creator: instructorTwitterHandle
       ? `@${instructorTwitterHandle}`
