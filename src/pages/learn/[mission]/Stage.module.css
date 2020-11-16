@@ -9,6 +9,7 @@
   .stage-content {
     display: grid;
     grid-template-columns: 2fr auto;
+    grid-column-gap: 30px;
   }
 
   .stage-content-wrapper {
