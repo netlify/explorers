@@ -20,7 +20,7 @@ function Header404() {
 
   return (
     <section className={styles.container}>
-      <div className="section-contain margintop-lg">
+      <div className={`section-contain margintop-lg ${styles.content}`}>
         <h1 className={styles.h1}>404</h1>
         <h2 className={styles.h2}>Lost in space?</h2>
         <Link href="/">
@@ -29,9 +29,9 @@ function Header404() {
           </a>
         </Link>
         <br />
-        <div className={`hover ${styles.floating}`}>
-          <FloatingAstronaut />
-        </div>
+      </div>
+      <div className={`hover ${styles.floating}`}>
+        <FloatingAstronaut />
       </div>
     </section>
   );
