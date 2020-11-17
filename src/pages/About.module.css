@@ -1,6 +1,12 @@
 .about {
   max-width: 800px;
-  margin: 150px auto 100px;
+  margin: 100px auto 0;
+}
+
+@media screen and (min-width: 768px) {
+  .about {
+    margin: 150px auto 100px;
+  }
 }
 
 .aboutimg {
