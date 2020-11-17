@@ -101,14 +101,6 @@ export default function Stage({ mission, stage }) {
               )}
               <LoginNudge />
 
-              {moveToNextVideo && (
-                <div className={styles['move-to-next-video']}>
-                  Moving to next lesson in&nbsp;
-                  <Countdown number={NEXT_STEP_COUNTDOWN_TIME / 1000} />
-                  &nbsp;seconds..
-                </div>
-              )}
-
               {description && (
                 <section className={styles['description-wrapper']}>
                   {description}
