@@ -1,5 +1,18 @@
+.aspectRatioContainer {
+  height: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 56.25%;
+  position: relative;
+  width: 100%;
+}
+
 .video {
-  max-width: 100%;
   border: 1px solid teal;
   box-shadow: 6px 6px 15px rgb(0, 0, 0);
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
