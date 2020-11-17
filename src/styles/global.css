@@ -224,7 +224,7 @@ p {
 
 @media screen and (min-width: 900px) {
   .intro {
-    padding: 150px 0 0 0;
+    padding: 150px 2rem 0;
   }
 }
 
