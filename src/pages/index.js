@@ -15,7 +15,7 @@ export default function Home({ rawMissionControlContent, rawHomeHeroContent }) {
   const pageMeta = {
     title: 'Jamstack Explorers — Free Jamstack Courses',
     description:
-      'Take free Jamstack courses and complete missions about React, Vue, Angular, Next and more! See your progress and earn rewards as you go. Get started today!',
+      'Take free Jamstack courses and complete missions about React, Vue, Angular, Next.js and more! See your progress and earn rewards as you go. Get started today!',
     image:
       'https://images.unsplash.com/photo-1536697246787-1f7ae568d89a?q=85&fm=jpg&fit=crop&w=1600&h=800',
   };
