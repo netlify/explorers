@@ -77,7 +77,7 @@ export default function Stage({ mission, stage }) {
     <Layout navtheme="dark" pageMeta={pageMeta}>
       <section>
         <div
-          className={`${styles['stage-content']} section-contain margintop-lg`}
+          className={`${styles['stage-content-wrapper']} section-contain margintop-lg`}
         >
           <div>
             <h2 className={styles['stage-title']}>
@@ -86,31 +86,35 @@ export default function Stage({ mission, stage }) {
                 with {mission.instructor.name}
               </span>
             </h2>
-            {publicId && (
-              <VideoPlayer
-                publicId={publicId}
-                poster={poster}
-                title={stage.title}
-                emitStageComplete={emitStageComplete}
-                isFinalStage={isFinalStage}
-              />
-            )}
-            <LoginNudge />
-
-            {description && (
-              <section className={styles['description-wrapper']}>
-                {description}
-              </section>
-            )}
           </div>
 
-          <aside>
-            <MissionTracker
-              stages={mission.stages}
-              currentMission={mission.slug.current}
-              currentStage={stage.slug.current}
-            />
-          </aside>
+          <div className={styles['stage-content']}>
+            <div>
+              {publicId && (
+                <VideoPlayer
+                  publicId={publicId}
+                  poster={poster}
+                  title={stage.title}
+                  emitStageComplete={emitStageComplete}
+                  isFinalStage={isFinalStage}
+                />
+              )}
+              <LoginNudge />
+
+              {description && (
+                <section className={styles['description-wrapper']}>
+                  {description}
+                </section>
+              )}
+            </div>
+            <aside>
+              <MissionTracker
+                stages={mission.stages}
+                currentMission={mission.slug.current}
+                currentStage={stage.slug.current}
+              />
+            </aside>
+          </div>
         </div>
       </section>
 
