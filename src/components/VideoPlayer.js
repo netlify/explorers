@@ -28,18 +28,36 @@ const VideoPlayer = ({
       path: window.location.pathname,
     };
 
+    /*
+     * @lindsaylevine made a good point that we have different behaviors for
+     * different completion levels and different actions. to address that, this
+     * gives us three different measures of complete:
+     *
+     * 1. `isCompleteIsh` — if someone pauses or closes the tab after watching
+     *    all but the last 5 seconds of a video, we should consider the video
+     *    completed since the last 5 seconds is the bumper
+     * 2. `isComplete` — for displaying confetti and auto-forwarding to the next
+     *    video, we want the video to be all the way complete
+     * 3. `percentage` — for tracking, we need to know how much of the video has
+     *    been watched
+     */
+    function getCompletionData(vid) {
+      return {
+        isCompleteIsh: vid.currentTime >= vid.duration - 5,
+        isComplete: vid.currentTime === vid.duration,
+        percentage: Math.round((vid.currentTime / vid.duration) * 100),
+      };
+    }
+
     const handleProgress = (event) => {
-      const percentage = Math.round(
-        (event.target.currentTime / event.target.duration) * 100
-      );
+      const { percentage } = getCompletionData(event.target);
 
       sendProgressDebounced('video-progress', { ...activityData, percentage });
     };
 
     const handleCompleted = (event) => {
-      // if they’ve watched more than 97% of the video, call it done
-      const percentage = event.target.currentTime / event.target.duration;
-      const isComplete = percentage > 0.97;
+      // if they've watched all of the video except the last 2 seconds, it’s done
+      const { isComplete } = getCompletionData(event.target);
 
       if (!isComplete) {
         return;
@@ -49,24 +67,32 @@ const VideoPlayer = ({
       sendCompleteDebounced('video-complete', activityData);
     };
 
+    const handlePause = (event) => {
+      const { isCompleteIsh } = getCompletionData(event.target);
+
+      if (isCompleteIsh) {
+        sendCompleteDebounced('video-complete', activityData);
+      }
+    };
+
     const handleWindowClose = () => {
-      const percentage = Math.round((video.currentTime / video.duration) * 100);
+      const { percentage, isCompleteIsh } = getCompletionData(video);
       activity.send('video-progress', { ...activityData, percentage });
 
-      if (percentage > 95) {
+      if (isCompleteIsh) {
         activity.send('video-complete', activityData);
       }
     };
 
     window.addEventListener('beforeunload', handleWindowClose);
     video.addEventListener('timeupdate', handleProgress);
-    video.addEventListener('pause', handleCompleted);
+    video.addEventListener('pause', handlePause);
     video.addEventListener('ended', handleCompleted);
 
     return () => {
       window.removeEventListener('beforeunload', handleWindowClose);
       video.removeEventListener('timeupdate', handleProgress);
-      video.removeEventListener('pause', handleCompleted);
+      video.removeEventListener('pause', handlePause);
       video.removeEventListener('ended', handleCompleted);
     };
   }, [activity, publicId]);
