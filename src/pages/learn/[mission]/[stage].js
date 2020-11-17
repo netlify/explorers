@@ -41,7 +41,6 @@ export default function Stage({ mission, stage }) {
   const pageMeta = {
     title: `${stage.title} - ${mission.title} - Jamstack Explorers`,
     description: descriptionMeta,
-    image: mission.coverImage.asset.url,
     url: `${SITE_DOMAIN}/learn/${mission.slug.current}/${stage.slug.current}`,
     creator: instructorTwitterHandle
       ? `@${instructorTwitterHandle}`
