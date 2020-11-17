@@ -155,7 +155,7 @@ const VideoPlayer = ({
    * easy peasy light and breezy lemon squeezy, right 🙃
    */
   const urlBase = 'https://res.cloudinary.com/netlify/video/upload';
-  const dims = 'q_auto,w_1280,h_720,c_fill';
+  const dims = 'q_auto,f_auto,w_1280,h_720,c_fill';
   const transition = 'l_video:explorers:transition,e_transition/fl_layer_apply';
   const videoId = publicId.replace('/', ':');
   const video = `l_video:${videoId},${dims}/${transition}/fl_layer_apply`;
@@ -185,6 +185,8 @@ const VideoPlayer = ({
       >
         <source src={`${url}.webm`} type="video/webm" />
         <source src={`${url}.mp4`} type="video/mp4" />
+        <source src={`${url}.ogv`} type="video/ogg" />
+        <p>Your browser does not support video.</p>
       </video>
     </div>
   );
