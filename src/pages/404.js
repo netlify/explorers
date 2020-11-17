@@ -4,7 +4,7 @@ import { SITE_DOMAIN } from '@util/constants';
 
 const FourOhFour = () => {
   const pageMeta = {
-    title: "Jamstack Explorers - Oops! It's a 404!",
+    title: 'Oops! You found a missing page! - Jamstack Explorers',
     description: 'Oops! It looks like this page is lost in space somewhere!',
     url: `${SITE_DOMAIN}/404`,
   };

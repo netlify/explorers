@@ -28,14 +28,18 @@ export default function Stage({ mission, stage }) {
   );
   const [missionComplete, setMissionComplete] = useState(false);
   const { user, getUser } = useUserState();
-  const [moveToNextVideo, setMoveToNextVideo] = useState(null);
+
+  const currentStageIndex = mission.stages.findIndex(
+    (s) => s.title === stage.title
+  );
+  const isFinalStage = currentStageIndex === mission.stages.length - 1;
 
   const instructorTwitterHandle = parseTwitterHandle(
     findTwitterUrl(mission.instructor.social)
   );
 
   const pageMeta = {
-    title: `Jamstack Explorers - ${mission.title} - ${stage.title}`,
+    title: `${stage.title} - ${mission.title} - Jamstack Explorers`,
     description: descriptionMeta,
     url: `${SITE_DOMAIN}/learn/${mission.slug.current}/${stage.slug.current}`,
     creator: instructorTwitterHandle
@@ -47,7 +51,6 @@ export default function Stage({ mission, stage }) {
     setMissionComplete(false);
   };
 
-  const NEXT_STEP_COUNTDOWN_TIME = 5000;
   const emitStageComplete = () => {
     const currentMission = user.activity.userMissions.find(
       (userMission) => userMission.title === mission.title
@@ -62,22 +65,11 @@ export default function Stage({ mission, stage }) {
       setMissionComplete(true);
     }
 
-    if (!moveToNextVideo) {
-      const currentStageIndex = mission.stages.findIndex(
-        (s) => s.title === stage.title
+    if (!isFinalStage) {
+      const nextStage = mission.stages[currentStageIndex + 1];
+      router.replace(
+        `/learn/${mission.slug.current}/${nextStage.slug.current}`
       );
-      const isFinalStage = currentStageIndex === mission.stages.length - 1;
-
-      if (!isFinalStage) {
-        setMoveToNextVideo(true);
-        setTimeout(() => {
-          const nextStage = mission.stages[currentStageIndex + 1];
-          router.replace(
-            `/learn/${mission.slug.current}/${nextStage.slug.current}`
-          );
-          setMoveToNextVideo(null);
-        }, NEXT_STEP_COUNTDOWN_TIME);
-      }
     }
   };
 
@@ -100,17 +92,10 @@ export default function Stage({ mission, stage }) {
                 poster={poster}
                 title={stage.title}
                 emitStageComplete={emitStageComplete}
+                isFinalStage={isFinalStage}
               />
             )}
             <LoginNudge />
-
-            {moveToNextVideo && (
-              <div className={styles['move-to-next-video']}>
-                Moving to next lesson in&nbsp;
-                <Countdown number={NEXT_STEP_COUNTDOWN_TIME / 1000} />
-                &nbsp;seconds..
-              </div>
-            )}
 
             {description && (
               <section className={styles['description-wrapper']}>
