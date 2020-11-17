@@ -13,9 +13,9 @@ export default function Home({ rawMissionControlContent, rawHomeHeroContent }) {
   const missionControlContent = renderMdxContent(rawMissionControlContent);
 
   const pageMeta = {
-    title: 'Jamstack Explorers',
+    title: 'Jamstack Explorers — Free Jamstack Courses',
     description:
-      'Take free courses and complete missions about React, Vue, Angular, Netlify and more!',
+      'Take free Jamstack courses and complete missions about React, Vue, Angular, Next.js and more! See your progress and earn rewards as you go. Get started today!',
     image:
       'https://images.unsplash.com/photo-1536697246787-1f7ae568d89a?q=85&fm=jpg&fit=crop&w=1600&h=800',
   };
