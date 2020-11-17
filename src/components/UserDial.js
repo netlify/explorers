@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import styles from './UserDial.module.css';
 import { useUserState } from 'src/context/user';
 import gsap from 'gsap';

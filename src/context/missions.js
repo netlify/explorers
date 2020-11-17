@@ -1,7 +1,8 @@
+import { createContext, useContext, useEffect, useState } from 'react';
 import { sanityQuery } from '@util/sanity';
 
-const MissionsStateContext = React.createContext();
-const MissionsUpdateContext = React.createContext();
+const MissionsStateContext = createContext();
+const MissionsUpdateContext = createContext();
 
 export const loadMissions = async () => {
   const data = await sanityQuery({
@@ -87,9 +88,9 @@ export const loadMissionBySlug = async (slug) => {
 };
 
 export function MissionsProvider({ children }) {
-  const [missions, setMissions] = React.useState([]);
+  const [missions, setMissions] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     loadMissions().then((missions) => {
       setMissions(missions);
     });
@@ -115,7 +116,7 @@ export function MissionsProvider({ children }) {
 }
 
 export function useMissionsState() {
-  const state = React.useContext(MissionsStateContext);
+  const state = useContext(MissionsStateContext);
 
   if (state === undefined) {
     throw new Error('useMissionsState must be used within a MissionsProvider');
@@ -125,7 +126,7 @@ export function useMissionsState() {
 }
 
 export function useMissionsUpdate() {
-  const updateFns = React.useContext(MissionsUpdateContext);
+  const updateFns = useContext(MissionsUpdateContext);
 
   if (updateFns === undefined) {
     throw new Error('useMissionsUpdate must be used within a MissionsProvider');

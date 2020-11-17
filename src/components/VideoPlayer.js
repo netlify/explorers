@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useUserState } from '@context/user';
 import debounce from 'lodash/debounce';
 import styles from './VideoPlayer.module.css';
@@ -11,7 +11,7 @@ const VideoPlayer = ({
   isFinalStage,
 }) => {
   const { activity } = useUserState();
-  const ref = React.useRef();
+  const ref = useRef();
 
   useEffect(() => {
     const video = ref.current;

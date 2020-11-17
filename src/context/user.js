@@ -1,6 +1,7 @@
+import { createContext, useContext, useEffect, useState } from 'react';
 import netlifyActivity from '@netlify/activity-hub';
 
-const UserStateContext = React.createContext();
+const UserStateContext = createContext();
 
 const cache = {};
 
@@ -61,10 +62,10 @@ export function getTokenFromHash() {
 }
 
 export function UserProvider({ children }) {
-  const [status, setStatus] = React.useState('loading');
-  const [token, setToken] = React.useState();
-  const [user, setUser] = React.useState();
-  const [activity, setActivity] = React.useState();
+  const [status, setStatus] = useState('loading');
+  const [token, setToken] = useState();
+  const [user, setUser] = useState();
+  const [activity, setActivity] = useState();
 
   //TODO: placeholder while we build this
   const userdata = {
@@ -134,7 +135,7 @@ export function UserProvider({ children }) {
     cache[token] = userWithAvatarFallback;
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     const storedToken = window.localStorage.getItem('nf-session');
     const accessToken = storedToken
       ? JSON.parse(storedToken)?.access_token
@@ -143,7 +144,7 @@ export function UserProvider({ children }) {
     setToken(getTokenFromHash() || accessToken);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!token) {
       return;
     }
@@ -158,7 +159,7 @@ export function UserProvider({ children }) {
     getUser();
   }, [token]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!user?.id) {
       return;
     }
@@ -194,7 +195,7 @@ export function UserProvider({ children }) {
 }
 
 export function useUserState() {
-  const state = React.useContext(UserStateContext);
+  const state = useContext(UserStateContext);
 
   if (state === undefined) {
     throw new Error('useUserState must be used within a UserProvider');

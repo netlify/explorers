@@ -1,7 +1,8 @@
+import { createContext, useContext, useEffect, useState } from 'react';
 import { sanityQuery } from '@util/sanity';
 
-const StagesStateContext = React.createContext();
-const StagesUpdateContext = React.createContext();
+const StagesStateContext = createContext();
+const StagesUpdateContext = createContext();
 
 export const loadStageBySlug = async (slug) => {
   const data = await sanityQuery({
@@ -37,9 +38,9 @@ export const loadStageBySlug = async (slug) => {
 };
 
 export function StagesProvider({ children }) {
-  const [stages, setStages] = React.useState([]);
+  const [stages, setStages] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetch('/api/get-stage-data')
       .then((response) => response.json())
       .then((stages) => {
@@ -67,7 +68,7 @@ export function StagesProvider({ children }) {
 }
 
 export function useStagesState() {
-  const state = React.useContext(StagesStateContext);
+  const state = useContext(StagesStateContext);
 
   if (state === undefined) {
     throw new Error('useStagesState must be used within StatesProvider');
@@ -77,7 +78,7 @@ export function useStagesState() {
 }
 
 export function useStagesUpdate() {
-  const updateFns = React.useContext(StagesUpdateContext);
+  const updateFns = useContext(StagesUpdateContext);
 
   if (state === undefined) {
     throw new Error('usesStagesState must be used within StatesProvider');

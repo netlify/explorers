@@ -1,4 +1,3 @@
-import React from 'react';
 import { MissionsProvider } from '@context/missions';
 import { UserProvider } from '@context/user';
 import { StagesProvider } from '@context/stages';

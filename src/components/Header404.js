@@ -1,6 +1,6 @@
 import styles from './Header404.module.css';
 import FloatingAstronaut from './FloatingAstronaut';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import gsap from 'gsap';
 import Link from 'next/link';
 
