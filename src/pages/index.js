@@ -29,7 +29,11 @@ export default function Home({ rawMissionControlContent, rawHomeHeroContent }) {
           <section className="section-contain intro-video-wrapper">
             <video controls className="intro-video">
               <source
-                src="https://res.cloudinary.com/netlify/video/upload/v1605216108/explorers/explorers-intro.mp4"
+                src="https://res.cloudinary.com/netlify/video/upload/q_auto,w_1280,h_720,c_fill/v1605216108/explorers/intro.webm"
+                type="video/webm"
+              />
+              <source
+                src="https://res.cloudinary.com/netlify/video/upload/q_auto,w_1280,h_720,c_fill/v1605216108/explorers/intro.mp4"
                 type="video/mp4"
               />
               Sorry. Your browser does not support embedded videos.
