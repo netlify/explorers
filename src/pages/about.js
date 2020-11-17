@@ -1,3 +1,4 @@
+import DarkBox from '@components/DarkBox';
 import Layout from '@components/Layout';
 import styles from './About.module.css';
 import { SITE_DOMAIN } from '@util/constants';
@@ -13,7 +14,7 @@ export default function AboutPage() {
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
       <div>
-        <section>
+        <DarkBox>
           <div className={styles.about}>
             <h1>About</h1>
             <p>
@@ -37,7 +38,7 @@ export default function AboutPage() {
               efforts.
             </p>
           </div>
-        </section>
+        </DarkBox>
       </div>
     </Layout>
   );
