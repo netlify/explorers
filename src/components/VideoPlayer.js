@@ -182,10 +182,8 @@ const VideoPlayer = ({
         ref={ref}
         className={styles.video}
         poster={videoPoster}
+        src={`${url}.mp4`}
       >
-        <source src={`${url}.webm`} type="video/webm" />
-        <source src={`${url}.mp4`} type="video/mp4" />
-        <source src={`${url}.ogv`} type="video/ogg" />
         <p>Your browser does not support video.</p>
       </video>
     </div>
