@@ -20,7 +20,7 @@ export function redirectToOAuth(returnURL) {
   const successURL = returnURL || `${location.origin}${location.pathname}`;
 
   // redirect to start the OAuth flow
-  window.location.href = `https://jamstack-explorers.netlify.app/.netlify/functions/auth?url=${successURL}&csrf=${csrfToken}`;
+  window.location.href = `https://explorers.netlify.com/.netlify/functions/auth?url=${successURL}&csrf=${csrfToken}`;
 }
 
 export function getTokenFromHash() {

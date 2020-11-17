@@ -24,8 +24,8 @@ const Mission = ({ mission }) => {
   );
 
   const pageMeta = {
-    title: `Jamstack Explorers - ${mission.title}`,
-    description: mission.blub,
+    title: `${mission.title} - Jamstack Explorers`,
+    description: `Learn about ${mission.title}. ${mission.blurb}`,
     image: mission.coverImage.asset.url,
     url: `${SITE_DOMAIN}/learn/${mission.slug.current}`,
     creator: `@${instructorTwitterHandle}` || '@netlify',

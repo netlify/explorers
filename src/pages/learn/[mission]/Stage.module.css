@@ -1,4 +1,4 @@
-.stage-content {
+.stage-content-wrapper {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 2fr;
@@ -7,7 +7,13 @@
 
 @media screen and (min-width: 900px) {
   .stage-content {
-    grid-template-columns: 2fr 1fr;
+    display: grid;
+    grid-template-columns: 2fr auto;
+    grid-column-gap: 30px;
+  }
+
+  .stage-content-wrapper {
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: 30px;
   }
