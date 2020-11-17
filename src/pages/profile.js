@@ -8,7 +8,7 @@ import { SITE_DOMAIN } from '@util/constants';
 export default function Profile() {
   const { token, status, redirectToOAuth } = useUserState();
   const pageMeta = {
-    title: 'Jamstack Explorers - Profile',
+    title: 'Profile - Jamstack Explorers',
     description: 'Track your progress in your user profile!',
     url: `${SITE_DOMAIN}/profile`,
   };
