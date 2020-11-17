@@ -5,6 +5,7 @@ import { loadMissions, loadMissionBySlug } from '@context/missions';
 import ChonkyFooter from '@components/ChonkyFooter';
 import Layout from '@components/Layout';
 import styles from './Mission.module.css';
+import DarkBox from '@components/DarkBox';
 import { findTwitterUrl, parseTwitterHandle } from '@util/twitter';
 import { SITE_DOMAIN } from '@util/constants';
 
@@ -54,7 +55,7 @@ const Mission = ({ mission }) => {
                 backgroundImage: `url(${mission.coverImage.asset.url})`,
               }}
             ></div>
-            <div className={`${styles.missionblurb} is-dark`}>
+            <DarkBox className={styles.missionblurb}>
               <p>{mission.blurb}</p>
               <div>
                 <h3 className={styles.learn}>What you'll learn</h3>
@@ -70,7 +71,7 @@ const Mission = ({ mission }) => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </DarkBox>
             <div className={styles.missiondescription}>{description}</div>
           </div>
         </div>
