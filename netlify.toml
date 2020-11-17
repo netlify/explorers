@@ -15,3 +15,4 @@ package = "@netlify/plugin-sitemap"
   [plugins.inputs]
   buildDir = "out_publish"
   exclude = ['./out_publish/404.html']
+  baseUrl = "https://explorers.netlify.com"
