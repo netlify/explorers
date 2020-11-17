@@ -2,6 +2,7 @@ import { loadMdxContent } from '@util/mdxServer';
 import { renderMdxContent } from '@util/mdxClient';
 import { launchFireworkConfetti } from '@util/confetti';
 
+import DarkBox from '@components/DarkBox';
 import Layout from '@components/Layout';
 import HomeHero from '@components/HomeHero';
 import MissionCard from '@components/MissionCard';
@@ -40,9 +41,9 @@ export default function Home({ rawMissionControlContent, rawHomeHeroContent }) {
             </video>
           </section>
 
-          <div className="section-contain is-dark prose marginbottom-sm">
+          <DarkBox className="prose marginbottom-sm">
             {missionControlContent}
-          </div>
+          </DarkBox>
 
           <div className="row section-contain">
             {missions.map((mission, index) => (
