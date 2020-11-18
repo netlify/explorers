@@ -1,13 +1,10 @@
 function ExplorersLogo({ theme }) {
   return (
-
-
-
     <svg
       aria-labelledby="Jamstack Explorers"
       role="presentation"
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="150 0 470 40"
+      viewBox="150 0 350 40"
     >
       <title id="explorers">Jamstack Explorers</title>
       <defs>

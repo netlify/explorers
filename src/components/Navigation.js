@@ -28,11 +28,11 @@ function Navigation({ theme }) {
       <ul>
         <li>
           <Link href="https://netlify.com" as="https://netlify.com">
-            <a className={styles.netlifyLogo}>
+            <a className={styles.netlifyLogoContain}>
               <NetlifyLogo theme={theme} />
             </a>
           </Link>
-          <Link href="/" as="/" >
+          <Link href="/" as="/">
             <a className={styles.explorersLogo}>
               <ExplorersLogo theme={theme} />
             </a>

@@ -33,6 +33,10 @@
   padding-right: 40px;
 }
 
+.nav li:first-child {
+  padding-right: 15px;
+}
+
 .nav svg {
   margin-top: 7px;
 }
@@ -109,41 +113,18 @@
   width: 40px;
 }
 
-
-.netlifyLogo {
-  display: inline-block;
-}
-@media screen and (min-width: 440px) {
-  .netlifyLogo {
-    border-right: .1rem solid rgba(110, 112, 113, 0.154);
-  }
-}
-
-
-.netlifyLogo svg {
-
-}
-
 @media screen and (min-width: 440px) {
   .explorersLogo svg {
     margin-left: 0.8rem;
   }
 }
 
-@media screen and (min-width: 900px) {
-  .netlifyLogo svg {
-    width: 120px;
-  }
-}
-
 .explorersLogo svg {
-  width: 220px;
+  width: 210px;
 }
 
-@media screen and (min-width: 900px) {
-  .explorersLogo svg {
-    width: 270px;
+@media screen and (min-width: 440px) {
+  .netlifyLogoContain {
+    border-right: 0.1rem solid rgba(110, 112, 113, 0.154);
   }
 }
-
-

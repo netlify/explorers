@@ -2,16 +2,15 @@ import styles from './NetlifyLogo.module.css';
 
 function NetlifyLogo({ theme }) {
   return (
-
     <svg
       aria-labelledby="netlify"
       role="presentation"
       xmlns="http:ww.w3.org/2000/svg"
       viewBox="0 0 170 40"
+      className={styles.netlifyLogo}
     >
-
-   <title id="netlify">Netlify</title>
-    <defs>
+      <title id="netlify">Netlify</title>
+      <defs>
         <radialGradient
           id="a"
           cy="0%"
@@ -42,4 +41,3 @@ function NetlifyLogo({ theme }) {
 }
 
 export default NetlifyLogo;
-
