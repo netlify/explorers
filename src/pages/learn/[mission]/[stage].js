@@ -104,8 +104,8 @@ export default function Stage({
                 with {mission.instructor.name}
               </span>
             </h2>
+            <h2>{stage.title}</h2>
           </div>
-          <h2>{stage.title}</h2>
 
           <div className={styles['stage-content']}>
             <div>
