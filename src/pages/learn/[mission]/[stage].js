@@ -118,8 +118,8 @@ export default function Stage({
                     emitStageComplete={emitStageComplete}
                   />
                 )}
+                <LoginNudge />
               </div>
-              <LoginNudge />
 
               {description && (
                 <section className={`${styles['description-wrapper']} px2`}>
