@@ -66,6 +66,19 @@
   color: #f6dbb2;
 }
 
+@media screen and (max-width: 600px) {
+  .missiondescriptioninstructor {
+    display: flex;
+  }
+
+  .instructor {
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+  }
+}
+
 .learn {
   text-transform: uppercase;
   letter-spacing: 0.05em;
