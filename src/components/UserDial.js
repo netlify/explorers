@@ -1,12 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './UserDial.module.css';
 import { useUserState } from 'src/context/user';
 import gsap from 'gsap';
+import ModalCertLoading from '@components/ModalCertLoading';
 import { launchFireworkConfetti } from '../util/confetti';
 
 function UserDial() {
   const { user } = useUserState();
+  const [showModal, setShowModal] = useState(false);
   const progress = user.activity.certificateProgress;
+
+  function closeModal() {
+    setShowModal(false);
+  }
 
   function getCertificate(event) {
     event.preventDefault();
@@ -18,6 +24,7 @@ function UserDial() {
     certURL.searchParams.set('date', new Date().toLocaleDateString());
 
     window.location = certURL;
+    setShowModal(true);
   }
 
   const isComplete = parseInt(progress) === 1;
@@ -114,6 +121,7 @@ function UserDial() {
           <circle className={styles.knob} r="20" cx="500" cy="500" />
         </svg>
       )}
+      {showModal ? <ModalCertLoading closeModal={closeModal} /> : ''}
     </div>
   );
 }
