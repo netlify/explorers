@@ -52,6 +52,8 @@ const VideoPlayer = ({
     const handleProgress = (event) => {
       const { percentage } = getCompletionData(event.target);
 
+      console.log('progress');
+
       sendProgressDebounced('video-progress', { ...activityData, percentage });
     };
 
