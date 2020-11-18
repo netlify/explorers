@@ -1,6 +1,6 @@
 .stage-content-wrapper {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   grid-template-rows: 2fr;
   grid-column-gap: 0px;
 }
@@ -13,7 +13,7 @@
   }
 
   .stage-content-wrapper {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     grid-template-rows: 1fr;
     grid-column-gap: 30px;
   }
