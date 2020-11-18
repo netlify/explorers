@@ -19,19 +19,17 @@ export default function MissionsPage({ rawContent }) {
 
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
-      <div>
-        <section className="intro">
+      <section className="px2">
+        <div className="intro">
           <div className="section-contain is-dark">{missionIntroContent}</div>
-        </section>
+        </div>
 
-        <section>
-          <div className="row section-contain">
-            {missions.map((mission, index) => (
-              <MissionCard key={index} mission={mission} />
-            ))}
-          </div>
-        </section>
-      </div>
+        <div className="row section-contain">
+          {missions.map((mission, index) => (
+            <MissionCard key={index} mission={mission} />
+          ))}
+        </div>
+      </section>
     </Layout>
   );
 }

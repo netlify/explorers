@@ -47,7 +47,7 @@ function Navigation({ theme }) {
           </>
         )}
       </ul>
-      {!isMobile && renderUser()}
+      {!isMobile && <ul>{renderUser()}</ul>}
       {isMobile && (
         <>
           <Hamburger
@@ -85,7 +85,7 @@ function renderUser() {
 
   if (user && user.full_name) {
     return (
-      <ul>
+      <>
         <li>
           <Link href="/">
             <a className={styles.profile} onClick={logoutUser}>
@@ -105,7 +105,7 @@ function renderUser() {
             </a>
           </Link>
         </li>
-      </ul>
+      </>
     );
   } else {
     return (
