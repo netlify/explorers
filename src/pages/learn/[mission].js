@@ -44,7 +44,8 @@ const Mission = ({ mission }) => {
               className="avatar-lg"
             />
             <span className={styles.instructor}>
-              Instructor: <strong>{mission.instructor.name}</strong>
+              <span>Instructor: </span>
+              <strong>{mission.instructor.name}</strong>
             </span>
           </div>
           <div className={styles.missiontout}>
