@@ -105,7 +105,7 @@ export default function Stage({
               </span>
             </h2>
           </div>
-          <h2 className={styles['stage-title']}>{stage.title}</h2>
+          <h2>{stage.title}</h2>
 
           <div className={styles['stage-content']}>
             <div>
