@@ -4,6 +4,7 @@ import { useState } from 'react';
 import styles from './Navigation.module.css';
 
 import NetlifyLogo from './NetlifyLogo';
+import ExplorersLogo from './ExplorersLogo';
 import Hamburger from './Hamburger';
 
 import { useUserState } from 'src/context/user';
@@ -26,9 +27,14 @@ function Navigation({ theme }) {
     <nav className={`${styles.nav} ${navClassName()}`}>
       <ul>
         <li>
-          <Link href="/" as="/">
-            <a>
+          <Link href="https://netlify.com" as="https://netlify.com">
+            <a className={styles.netlifyLogo}>
               <NetlifyLogo theme={theme} />
+            </a>
+          </Link>
+          <Link href="/" as="/" >
+            <a className={styles.explorersLogo}>
+              <ExplorersLogo theme={theme} />
             </a>
           </Link>
         </li>

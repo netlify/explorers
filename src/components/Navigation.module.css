@@ -108,3 +108,45 @@
   border-radius: 50%;
   width: 40px;
 }
+
+
+.netlifyLogo {
+  display: inline-block;
+}
+@media screen and (min-width: 440px) {
+  .netlifyLogo {
+    border-right: .1rem solid rgba(110, 112, 113, 0.154);
+  }
+}
+
+
+.netlifyLogo svg {
+  width: 80px;
+}
+
+@media screen and (min-width: 440px) {
+  .explorersLogo svg {
+    margin-left: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .netlifyLogo svg {
+    width: 120px;
+  }
+}
+
+.explorersLogo svg {
+  width: 220px;
+}
+
+@media screen and (min-width: 900px) {
+  .explorersLogo svg {
+    width: 270px;
+  }
+}
+
+.wordmark {
+  display:none;
+}
+
