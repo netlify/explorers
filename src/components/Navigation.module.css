@@ -98,7 +98,10 @@
 .profile {
   align-items: center;
   display: flex;
-  gap: 0.5rem;
+}
+
+.profile span {
+  margin-right: 0.5rem;
 }
 
 .avatar {
