@@ -80,7 +80,7 @@
   }
 
   .footer-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
