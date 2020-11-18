@@ -93,11 +93,11 @@ export default function Stage({
 
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
-      <section className="px2">
+      <section>
         <div
           className={`${styles['stage-content-wrapper']} section-contain margintop-lg`}
         >
-          <div>
+          <div className="px2">
             <h2 className={styles['stage-title']}>
               {mission.title}{' '}
               <span className={styles['stage-title-addendum']}>
@@ -108,19 +108,21 @@ export default function Stage({
 
           <div className={styles['stage-content']}>
             <div>
-              {publicId && (
-                <VideoPlayer
-                  videoUrls={videoUrls}
-                  publicId={publicId}
-                  poster={poster}
-                  title={stage.title}
-                  emitStageComplete={emitStageComplete}
-                />
-              )}
+              <div className="px2">
+                {publicId && (
+                  <VideoPlayer
+                    videoUrls={videoUrls}
+                    publicId={publicId}
+                    poster={poster}
+                    title={stage.title}
+                    emitStageComplete={emitStageComplete}
+                  />
+                )}
+              </div>
               <LoginNudge />
 
               {description && (
-                <section className={styles['description-wrapper']}>
+                <section className={`${styles['description-wrapper']} px2`}>
                   {description}
                 </section>
               )}
