@@ -53,7 +53,8 @@
   padding: 10px;
 }
 
-.drawer li {
+.drawer li,
+.drawer li:first-child {
   padding: 10px 0;
 }
 
