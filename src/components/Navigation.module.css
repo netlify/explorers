@@ -33,6 +33,10 @@
   padding-right: 40px;
 }
 
+.nav li:first-child {
+  padding-right: 15px;
+}
+
 .nav svg {
   margin-top: 7px;
 }
@@ -107,4 +111,20 @@
 .avatar {
   border-radius: 50%;
   width: 40px;
+}
+
+@media screen and (min-width: 440px) {
+  .explorersLogo svg {
+    margin-left: 0.8rem;
+  }
+}
+
+.explorersLogo svg {
+  width: 210px;
+}
+
+@media screen and (min-width: 440px) {
+  .netlifyLogoContain {
+    border-right: 0.1rem solid rgba(110, 112, 113, 0.154);
+  }
 }

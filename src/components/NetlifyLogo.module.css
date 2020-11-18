@@ -1,0 +1,27 @@
+.gem {
+  fill: #000;
+  width: 40px;
+}
+.wordmark {
+  display: none;
+}
+
+@media screen and (min-width: 440px) {
+  .gem {
+    fill: url(#a);
+  }
+  .wordmark {
+    display: inline-block;
+  }
+}
+
+.netlifyLogo {
+  display: none;
+}
+
+@media screen and (min-width: 440px) {
+  .netlifyLogo {
+    display: inline-block;
+    width: 100px;
+  }
+}
