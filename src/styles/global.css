@@ -113,6 +113,7 @@ a,
 a:visited,
 a:active {
   color: #94dddd;
+  text-decoration: none;
 }
 
 .p0 {
@@ -138,8 +139,7 @@ section {
   margin: 0 auto;
 }
 
-.section-contain.is-dark p,
-.section-contain.is-dark div {
+.section-contain.is-dark p {
   padding: 10px 0;
   background-color: rgba(0, 0, 0, 0.5);
 }
