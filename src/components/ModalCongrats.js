@@ -27,7 +27,7 @@ function Modal({ mission, closeModal }) {
           You just completed <br />
           {mission.title}!
         </p>
-        <Link href="/missions" as="/missions">
+        <Link href="/missions" as="/missions" onClick={closeModal}>
           <a className="btn btnprimary">Embark on a new mission!</a>
         </Link>
         <button

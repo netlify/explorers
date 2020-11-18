@@ -62,11 +62,18 @@ export default function Stage({
 
     getUser();
 
+    const localCookieName = `finalMissionConfetti-${mission.title}`;
+
     // Note: user.activity.userMissions will not include the current mission
     // until at least one lesson is completed, so currentMission will be undefined
     // in this function when the first lesson is watched/being finished
-    if (currentMission && currentMission.progress === 1) {
+    if (
+      currentMission &&
+      currentMission.progress >= 1 &&
+      !window.localStorage.getItem(localCookieName)
+    ) {
       setMissionComplete(true);
+      window.localStorage.setItem(localCookieName, 'true');
     }
 
     if (!isFinalStage) {
