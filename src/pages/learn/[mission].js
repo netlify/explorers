@@ -23,17 +23,19 @@ const Mission = ({ mission }) => {
     findTwitterUrl(mission.instructor.social)
   );
 
+  const ogImage = `https://res.cloudinary.com/netlify/video/upload/q_auto,w_1280,h_720,c_fill,f_auto,so_2/l_text:Roboto_80_center:${mission.title},co_white,w_1000,c_fit/explorers/intro.jpg`;
+
   const pageMeta = {
     title: `${mission.title} - Jamstack Explorers`,
     description: `Learn about ${mission.title}. ${mission.blurb}`,
-    image: mission.coverImage.asset.url,
+    image: ogImage,
     url: `${SITE_DOMAIN}/learn/${mission.slug.current}`,
     creator: `@${instructorTwitterHandle}` || '@netlify',
   };
 
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
-      <section className="intro">
+      <section className="intro px2">
         <div className="section-contain">
           <h1>This Mission: {mission.title}</h1>
           <div className={styles.missiondescriptioninstructor}>
@@ -69,7 +71,15 @@ const Mission = ({ mission }) => {
                 </ul>
               </div>
             </div>
-            <div className={styles.missiondescription}>{description}</div>
+            <div className={styles.missiondescription}>
+              {description}
+              <a
+                href={`/learn/${mission.slug.current}/${mission.stages?.[0].slug.current}`}
+                className={styles.bigOlButton}
+              >
+                Start This Mission
+              </a>
+            </div>
           </div>
         </div>
       </section>

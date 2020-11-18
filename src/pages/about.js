@@ -13,7 +13,7 @@ export default function AboutPage() {
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
       <div>
-        <section>
+        <section className="section-contain is-dark px2">
           <div className={styles.about}>
             <h1>About</h1>
             <p>

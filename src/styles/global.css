@@ -112,7 +112,6 @@ h4 {
 a,
 a:visited,
 a:active {
-  text-decoration: none;
   color: #94dddd;
 }
 
@@ -130,7 +129,7 @@ section {
 
 @media screen and (max-width: 1100px) {
   section {
-    padding: 2rem 1.5rem;
+    padding: 2rem 0;
   }
 }
 
@@ -166,7 +165,6 @@ p {
   display: inline-block;
   line-height: 20px;
   min-width: 36px;
-  outline: 0;
   padding: 8px;
   position: relative;
   text-align: center;
@@ -177,7 +175,7 @@ p {
 }
 
 .btn.btnprimary {
-  background-color: #009387;
+  background-color: #15847d;
   color: #fff;
 }
 
@@ -225,12 +223,12 @@ p {
 /* -- Utility -- */
 
 .intro {
-  padding: 100px 1.5rem 60px;
+  padding: 100px 0 60px;
 }
 
 @media screen and (min-width: 900px) {
   .intro {
-    padding: 150px 0 0 0;
+    padding: 150px 0 0;
   }
 }
 
@@ -275,6 +273,12 @@ p {
 
 .margintop-lg {
   margin-top: 100px;
+}
+
+/* Padding X-Axis (Left Right) */
+.px2 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .prose.theme-light a {

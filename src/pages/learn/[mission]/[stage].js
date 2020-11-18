@@ -5,7 +5,6 @@ import ChonkyFooter from '@components/ChonkyFooter';
 import MissionTracker from '@components/MissionTracker';
 import ModalCongrats from '@components/ModalCongrats';
 import LoginNudge from '@components/LoginNudge';
-import Countdown from '@components/Countdown';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
@@ -16,8 +15,15 @@ import renderToString from 'next-mdx-remote/render-to-string';
 import removeMarkdown from 'remove-markdown';
 import { findTwitterUrl, parseTwitterHandle } from '@util/twitter';
 import { SITE_DOMAIN } from '@util/constants';
+import { getVideoUrls } from '@util/cloudinary';
 
-export default function Stage({ mission, stage }) {
+export default function Stage({
+  currentStageIndex,
+  mission,
+  stage,
+  isFinalStage,
+  videoUrls,
+}) {
   const router = useRouter();
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
   const poster = stage.content?.[0].coverImage?.asset.url;
@@ -29,19 +35,17 @@ export default function Stage({ mission, stage }) {
   const [missionComplete, setMissionComplete] = useState(false);
   const { user, getUser } = useUserState();
 
-  const currentStageIndex = mission.stages.findIndex(
-    (s) => s.title === stage.title
-  );
-  const isFinalStage = currentStageIndex === mission.stages.length - 1;
-
   const instructorTwitterHandle = parseTwitterHandle(
     findTwitterUrl(mission.instructor.social)
   );
+
+  const ogImage = `https://res.cloudinary.com/netlify/video/upload/q_auto,w_1280,h_720,c_fill,f_auto,so_2/l_text:Roboto_80_center:${stage.title},co_white,w_1000,c_fit/explorers/intro.jpg`;
 
   const pageMeta = {
     title: `${stage.title} - ${mission.title} - Jamstack Explorers`,
     description: descriptionMeta,
     url: `${SITE_DOMAIN}/learn/${mission.slug.current}/${stage.slug.current}`,
+    image: ogImage,
     creator: instructorTwitterHandle
       ? `@${instructorTwitterHandle}`
       : '@netlify',
@@ -75,7 +79,7 @@ export default function Stage({ mission, stage }) {
 
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
-      <section>
+      <section className="px2">
         <div
           className={`${styles['stage-content-wrapper']} section-contain margintop-lg`}
         >
@@ -92,11 +96,11 @@ export default function Stage({ mission, stage }) {
             <div>
               {publicId && (
                 <VideoPlayer
+                  videoUrls={videoUrls}
                   publicId={publicId}
                   poster={poster}
                   title={stage.title}
                   emitStageComplete={emitStageComplete}
-                  isFinalStage={isFinalStage}
                 />
               )}
               <LoginNudge />
@@ -132,10 +136,21 @@ export async function getStaticProps({ params }) {
   const mission = await loadMissionBySlug(params.mission);
   const stage = await loadStageBySlug(params.stage);
 
+  const currentStageIndex = mission.stages.findIndex(
+    (s) => s.title === stage.title
+  );
+  const isFinalStage = currentStageIndex === mission.stages.length - 1;
+
   const renderedStageDescription = await renderToString(
     stage.content?.[0].body,
     {}
   );
+
+  const videoUrls = await getVideoUrls({
+    title: stage.title,
+    publicId: stage.content?.[0].cloudinaryVideo?.public_id,
+    isFinalStage,
+  });
 
   return {
     props: {
@@ -144,6 +159,9 @@ export async function getStaticProps({ params }) {
         ...stage,
         renderedStageDescription,
       },
+      isFinalStage,
+      videoUrls,
+      currentStageIndex,
     },
   };
 }

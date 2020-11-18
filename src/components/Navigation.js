@@ -109,9 +109,11 @@ function renderUser() {
     );
   } else {
     return (
-      <button onClick={() => redirectToOAuth()} className="btn btnprimary">
-        Log In with Netlify
-      </button>
+      <div>
+        <button onClick={() => redirectToOAuth()} className="btn btnprimary">
+          Log In with Netlify
+        </button>
+      </div>
     );
   }
 }

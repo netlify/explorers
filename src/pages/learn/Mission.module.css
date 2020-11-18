@@ -70,3 +70,23 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
+a.bigOlButton {
+  background: var(--color-primary);
+  border-radius: 0.5rem;
+  color: var(--color-white);
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 2rem auto 0;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background 200ms linear;
+  width: 260px;
+}
+
+a.bigOlButton:active,
+a.bigOlButton:hover {
+  background: var(--color-pink);
+}

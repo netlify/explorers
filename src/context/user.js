@@ -126,7 +126,9 @@ export function UserProvider({ children }) {
 
     const userWithAvatarFallback = {
       ...result,
-      avatar_url: result.avatar_url ?? 'https://via.placeholder.com/150',
+      avatar_url:
+        result.avatar_url ??
+        'https://res.cloudinary.com/netlify/image/upload/q_auto,f_auto,w_210/v1605632851/explorers/avatar.jpg',
     };
 
     setUser(userWithAvatarFallback);
