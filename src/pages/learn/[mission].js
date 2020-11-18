@@ -71,7 +71,15 @@ const Mission = ({ mission }) => {
                 </ul>
               </div>
             </div>
-            <div className={styles.missiondescription}>{description}</div>
+            <div className={styles.missiondescription}>
+              {description}
+              <a
+                href={`/learn/${mission.slug.current}/${mission.stages?.[0].slug.current}`}
+                className={styles.bigOlButton}
+              >
+                Start This Mission
+              </a>
+            </div>
           </div>
         </div>
       </section>
