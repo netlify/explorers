@@ -78,9 +78,10 @@ export default function Stage({
 
     if (!isFinalStage) {
       const nextStage = mission.stages[currentStageIndex + 1];
-      router.replace(
-        `/learn/${mission.slug.current}/${nextStage.slug.current}`
-      );
+      router.push(`/learn/${mission.slug.current}/${nextStage.slug.current}`);
+      router.events.on('routeChangeComplete', () => {
+        document.querySelector('video').play();
+      });
     }
   };
 
