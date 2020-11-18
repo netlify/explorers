@@ -26,7 +26,11 @@ export default function Home({ rawMissionControlContent, rawHomeHeroContent }) {
 
         <section className="px2">
           <section className="section-contain intro-video-wrapper">
-            <video controls className="intro-video">
+            <video
+              controls
+              className="intro-video"
+              poster="https://res.cloudinary.com/netlify/video/upload/q_auto,f_auto,w_1280,h_720,c_fill/v1605216108/explorers/intro.jpg"
+            >
               <source
                 src="https://res.cloudinary.com/netlify/video/upload/q_auto,w_1280,h_720,c_fill/v1605216108/explorers/intro.webm"
                 type="video/webm"
