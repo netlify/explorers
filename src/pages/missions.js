@@ -21,8 +21,8 @@ export default function MissionsPage({ rawContent }) {
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
       <section className="px2">
-        <div className={styles.intro}>
-          <div className="section-contain is-dark">{missionIntroContent}</div>
+        <div className={`${styles.intro} section-contain is-dark`}>
+          <div>{missionIntroContent}</div>
         </div>
 
         <div className="row section-contain">
