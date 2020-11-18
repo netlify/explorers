@@ -6,5 +6,6 @@
 .aboutimg {
   width: 100%;
   border: 1px solid white;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
