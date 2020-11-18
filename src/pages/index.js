@@ -1,6 +1,5 @@
 import { loadMdxContent } from '@util/mdxServer';
 import { renderMdxContent } from '@util/mdxClient';
-import { launchFireworkConfetti } from '@util/confetti';
 
 import Layout from '@components/Layout';
 import HomeHero from '@components/HomeHero';
