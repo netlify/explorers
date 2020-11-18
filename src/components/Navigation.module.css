@@ -121,7 +121,7 @@
 
 
 .netlifyLogo svg {
-  width: 80px;
+
 }
 
 @media screen and (min-width: 440px) {
@@ -146,7 +146,4 @@
   }
 }
 
-.wordmark {
-  display:none;
-}
 
