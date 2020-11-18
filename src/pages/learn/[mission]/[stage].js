@@ -5,7 +5,6 @@ import ChonkyFooter from '@components/ChonkyFooter';
 import MissionTracker from '@components/MissionTracker';
 import ModalCongrats from '@components/ModalCongrats';
 import LoginNudge from '@components/LoginNudge';
-import Countdown from '@components/Countdown';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
