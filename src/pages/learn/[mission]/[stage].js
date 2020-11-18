@@ -5,7 +5,6 @@ import ChonkyFooter from '@components/ChonkyFooter';
 import MissionTracker from '@components/MissionTracker';
 import ModalCongrats from '@components/ModalCongrats';
 import LoginNudge from '@components/LoginNudge';
-import Countdown from '@components/Countdown';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
@@ -74,7 +73,7 @@ export default function Stage({ mission, stage, isFinalStage, videoUrls }) {
 
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
-      <section>
+      <section className="px2">
         <div
           className={`${styles['stage-content-wrapper']} section-contain margintop-lg`}
         >
