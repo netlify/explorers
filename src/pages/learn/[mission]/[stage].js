@@ -74,7 +74,7 @@ export default function Stage({ mission, stage, isFinalStage, videoUrls }) {
 
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
-      <section>
+      <section className="px2">
         <div
           className={`${styles['stage-content-wrapper']} section-contain margintop-lg`}
         >
