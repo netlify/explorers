@@ -19,16 +19,20 @@
   }
 }
 
-.stage-title {
+.stage-main-title {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 2.5rem;
 }
 
-.stage-title .stage-title-addendum {
+.stage-main-title .stage-title-addendum {
   color: rgb(188, 188, 188);
   font-size: 1.5rem;
   font-weight: 500;
+}
+
+.stage-title {
+  text-align: center;
 }
 
 .description-wrapper {
