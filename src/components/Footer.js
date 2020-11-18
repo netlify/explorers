@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './Footer.module.css';
 
 function Footer() {
@@ -6,7 +7,11 @@ function Footer() {
       <div className={`${styles['footer-content']} section-contain`}>
         <div className={styles.links}>
           <ul>
-            <li>About</li>
+            <li>
+              <Link href="/about" as="/about">
+                <a>About</a>
+              </Link>
+            </li>
             <li>
               <a href="https://www.netlify.com/blog/?utm_source=explorers&utm_medium=explorer-blog&utm_campaign=devex">
                 Netlify Blog
