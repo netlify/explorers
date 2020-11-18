@@ -35,7 +35,7 @@ const Mission = ({ mission }) => {
 
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
-      <section className="intro">
+      <section className="intro px2">
         <div className="section-contain">
           <h1>This Mission: {mission.title}</h1>
           <div className={styles.missiondescriptioninstructor}>

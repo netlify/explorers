@@ -1,7 +1,7 @@
 function NetlifyLogo({ theme }) {
   return (
     <svg
-      aria-label="Netlify"
+      aria-labelledby="Netlify"
       xmlns="http://www.w3.org/2000/svg"
       width="110"
       height="30"
