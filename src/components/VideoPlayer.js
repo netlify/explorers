@@ -3,6 +3,10 @@ import { useUserState } from '@context/user';
 import debounce from 'lodash/debounce';
 import styles from './VideoPlayer.module.css';
 
+const cleanText = (text) => {
+  return encodeURIComponent(text).replace(/%(23|2C|2F|3F|5C)/g, '%25$1');
+};
+
 const VideoPlayer = ({
   emitStageComplete,
   publicId,
@@ -104,7 +108,9 @@ const VideoPlayer = ({
    */
   const urlBase = 'https://res.cloudinary.com/netlify/video/upload';
   const dims = 'q_auto,f_auto,w_1280,h_720,c_fill';
-  const titleText = `l_text:Roboto_80_center:${title},co_white,w_1000,c_fit`;
+  const titleText = `l_text:Roboto_80_center:${cleanText(
+    title
+  )},co_white,w_1000,c_fit`;
   const videoPoster =
     poster ?? `${urlBase}/${dims},f_auto,so_2/${titleText}/explorers/intro.jpg`;
 
