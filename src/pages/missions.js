@@ -4,6 +4,7 @@ import { useMissionsState } from '@context/missions';
 import { renderMdxContent } from '@util/mdxClient';
 import { loadMdxContent } from '@util/mdxServer';
 import { SITE_DOMAIN } from '@util/constants';
+import styles from './Missions.module.css';
 
 export default function MissionsPage({ rawContent }) {
   const { missions } = useMissionsState();
@@ -20,7 +21,7 @@ export default function MissionsPage({ rawContent }) {
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
       <section className="px2">
-        <div className="intro">
+        <div className={styles.intro}>
           <div className="section-contain is-dark">{missionIntroContent}</div>
         </div>
 

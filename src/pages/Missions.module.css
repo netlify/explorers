@@ -1,0 +1,9 @@
+.intro {
+  padding: 100px 1.5rem 0px;
+}
+
+@media screen and (min-width: 900px) {
+  .intro {
+    padding: 150px 0 0 0;
+  }
+}
