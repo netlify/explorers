@@ -125,9 +125,9 @@ exports.getVideoUrls = async ({ title, publicId, isFinalStage }) => {
         font_size: 80,
         text_align: 'center',
         text: title, // <= display the stage title on top of the video
-        width: 1000,
-        crop: 'fit',
       },
+      width: 1000,
+      crop: 'fit',
       color: 'white',
     },
     { flags: 'layer_apply' }, // <= apply the text overlay
