@@ -17,7 +17,13 @@ import { findTwitterUrl, parseTwitterHandle } from '@util/twitter';
 import { SITE_DOMAIN } from '@util/constants';
 import { getVideoUrls } from '@util/cloudinary';
 
-export default function Stage({ mission, stage, isFinalStage, videoUrls }) {
+export default function Stage({
+  currentStageIndex,
+  mission,
+  stage,
+  isFinalStage,
+  videoUrls,
+}) {
   const router = useRouter();
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
   const poster = stage.content?.[0].coverImage?.asset.url;
@@ -155,6 +161,7 @@ export async function getStaticProps({ params }) {
       },
       isFinalStage,
       videoUrls,
+      currentStageIndex,
     },
   };
 }
