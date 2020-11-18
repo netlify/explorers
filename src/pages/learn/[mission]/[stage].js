@@ -8,7 +8,7 @@ import LoginNudge from '@components/LoginNudge';
 import { loadMissionBySlug, loadMissions } from '@context/missions';
 import { loadStageBySlug } from '@context/stages';
 import styles from './Stage.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useUserState } from '@context/user';
 import renderToString from 'next-mdx-remote/render-to-string';
@@ -83,6 +83,12 @@ export default function Stage({
       );
     }
   };
+
+  useEffect(() => {
+    router.events.on('routeChangeStart', () => {
+      setMissionComplete(false);
+    });
+  });
 
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
