@@ -16,8 +16,9 @@ import renderToString from 'next-mdx-remote/render-to-string';
 import removeMarkdown from 'remove-markdown';
 import { findTwitterUrl, parseTwitterHandle } from '@util/twitter';
 import { SITE_DOMAIN } from '@util/constants';
+import { getVideoUrls } from '@util/cloudinary';
 
-export default function Stage({ mission, stage }) {
+export default function Stage({ mission, stage, isFinalStage, videoUrls }) {
   const router = useRouter();
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
   const poster = stage.content?.[0].coverImage?.asset.url;
@@ -28,11 +29,6 @@ export default function Stage({ mission, stage }) {
   );
   const [missionComplete, setMissionComplete] = useState(false);
   const { user, getUser } = useUserState();
-
-  const currentStageIndex = mission.stages.findIndex(
-    (s) => s.title === stage.title
-  );
-  const isFinalStage = currentStageIndex === mission.stages.length - 1;
 
   const instructorTwitterHandle = parseTwitterHandle(
     findTwitterUrl(mission.instructor.social)
@@ -95,11 +91,11 @@ export default function Stage({ mission, stage }) {
             <div>
               {publicId && (
                 <VideoPlayer
+                  videoUrls={videoUrls}
                   publicId={publicId}
                   poster={poster}
                   title={stage.title}
                   emitStageComplete={emitStageComplete}
-                  isFinalStage={isFinalStage}
                 />
               )}
               <LoginNudge />
@@ -135,10 +131,21 @@ export async function getStaticProps({ params }) {
   const mission = await loadMissionBySlug(params.mission);
   const stage = await loadStageBySlug(params.stage);
 
+  const currentStageIndex = mission.stages.findIndex(
+    (s) => s.title === stage.title
+  );
+  const isFinalStage = currentStageIndex === mission.stages.length - 1;
+
   const renderedStageDescription = await renderToString(
     stage.content?.[0].body,
     {}
   );
+
+  const videoUrls = await getVideoUrls({
+    title: stage.title,
+    publicId: stage.content?.[0].cloudinaryVideo?.public_id,
+    isFinalStage,
+  });
 
   return {
     props: {
@@ -147,6 +154,8 @@ export async function getStaticProps({ params }) {
         ...stage,
         renderedStageDescription,
       },
+      isFinalStage,
+      videoUrls,
     },
   };
 }
