@@ -209,9 +209,8 @@ exports.getVideoUrls = async ({ title, publicId, isFinalStage }) => {
     ],
     transformation: transformationArray,
     eager_async: true,
-    // TODO update to prod
     eager_notification_url:
-      'https://deploy-preview-363--explorers.netlify.app/.netlify/functions/cloudinary-eager-notification',
+      'https://explorers.netlify.com/.netlify/functions/cloudinary-eager-notification',
   });
 
   const formats = {
