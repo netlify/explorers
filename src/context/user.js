@@ -20,7 +20,7 @@ export function redirectToOAuth(returnURL) {
   const successURL = returnURL || `${location.origin}${location.pathname}`;
 
   // redirect to start the OAuth flow
-  window.location.href = `https://jamstack-explorers.netlify.app/.netlify/functions/auth?url=${successURL}&csrf=${csrfToken}`;
+  window.location.href = `https://explorers.netlify.com/.netlify/functions/auth?url=${successURL}&csrf=${csrfToken}`;
 }
 
 export function getTokenFromHash() {
@@ -126,7 +126,9 @@ export function UserProvider({ children }) {
 
     const userWithAvatarFallback = {
       ...result,
-      avatar_url: result.avatar_url ?? 'https://via.placeholder.com/150',
+      avatar_url:
+        result.avatar_url ??
+        'https://res.cloudinary.com/netlify/image/upload/q_auto,f_auto,w_210/v1605632851/explorers/avatar.jpg',
     };
 
     setUser(userWithAvatarFallback);

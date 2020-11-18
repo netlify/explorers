@@ -23,10 +23,12 @@ const Mission = ({ mission }) => {
     findTwitterUrl(mission.instructor.social)
   );
 
+  const ogImage = `https://res.cloudinary.com/netlify/video/upload/q_auto,w_1280,h_720,c_fill,f_auto,so_2/l_text:Roboto_80_center:${mission.title},co_white,w_1000,c_fit/explorers/intro.jpg`;
+
   const pageMeta = {
-    title: `Jamstack Explorers - ${mission.title}`,
-    description: mission.blub,
-    image: mission.coverImage.asset.url,
+    title: `${mission.title} - Jamstack Explorers`,
+    description: `Learn about ${mission.title}. ${mission.blurb}`,
+    image: ogImage,
     url: `${SITE_DOMAIN}/learn/${mission.slug.current}`,
     creator: `@${instructorTwitterHandle}` || '@netlify',
   };

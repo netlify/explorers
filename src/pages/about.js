@@ -4,7 +4,7 @@ import { SITE_DOMAIN } from '@util/constants';
 
 export default function AboutPage() {
   const pageMeta = {
-    title: 'Jamstack Explorers - About',
+    title: 'About - Jamstack Explorers',
     description:
       "Learn about what Jamstack Explorers is and why you'll want to bookmark it!",
     url: `${SITE_DOMAIN}/about`,
@@ -13,7 +13,7 @@ export default function AboutPage() {
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
       <div>
-        <section>
+        <section className="section-contain is-dark">
           <div className={styles.about}>
             <h1>About</h1>
             <p>

@@ -25,7 +25,7 @@ function MissionTracker({ currentMission, currentStage, stages }) {
 
   return (
     <div className={styles.container}>
-      <section>
+      <section class="pt0">
         {tasks.map((task, index) => (
           <div
             key={`mt-${task.slug}-${index}`}
@@ -38,7 +38,7 @@ function MissionTracker({ currentMission, currentStage, stages }) {
         ))}
       </section>
 
-      <section>
+      <section class="p0">
         <svg
           viewBox={`0 0 30 ${tasks.length * 50}`}
           className={styles['tracker-svg']}

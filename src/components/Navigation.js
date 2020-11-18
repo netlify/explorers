@@ -47,7 +47,7 @@ function Navigation({ theme }) {
           </>
         )}
       </ul>
-      {!isMobile && <ul>{renderUser()}</ul>}
+      {!isMobile && renderUser()}
       {isMobile && (
         <>
           <Hamburger
@@ -85,7 +85,7 @@ function renderUser() {
 
   if (user && user.full_name) {
     return (
-      <>
+      <ul>
         <li>
           <Link href="/">
             <a className={styles.profile} onClick={logoutUser}>
@@ -105,13 +105,15 @@ function renderUser() {
             </a>
           </Link>
         </li>
-      </>
+      </ul>
     );
   } else {
     return (
-      <button onClick={() => redirectToOAuth()} className="btn btnprimary">
-        Log In with Netlify
-      </button>
+      <div>
+        <button onClick={() => redirectToOAuth()} className="btn btnprimary">
+          Log In with Netlify
+        </button>
+      </div>
     );
   }
 }

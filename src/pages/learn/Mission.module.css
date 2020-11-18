@@ -6,7 +6,7 @@
   .missiontout {
     display: grid;
     grid-template-columns: 0.5fr 1fr;
-    grid-template-rows: 350px 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-column-gap: 30px;
     grid-row-gap: 30px;
   }
