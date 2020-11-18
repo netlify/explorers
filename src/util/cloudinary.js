@@ -25,6 +25,21 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+/**
+ * Encodes characters for Cloudinary URL
+ * Encodes some not allowed in Cloudinary parameter values twice:
+ *   hash, comma, slash, question mark, backslash
+ *   https://support.cloudinary.com/hc/en-us/articles/202521512-How-to-add-a-slash-character-or-any-other-special-characters-in-text-overlays-
+ *
+ * @param {string} text
+ * @return {string}
+ */
+const cleanText = (text) => {
+  return encodeURIComponent(text).replace(/%(23|2C|2F|3F|5C)/g, '%25$1');
+};
+
+exports.cleanText = cleanText;
+
 exports.getVideoUrls = async ({ title, publicId, isFinalStage }) => {
   /*
    * okay, let’s go on a little tour of how Cloudinary’s video editing works.
@@ -124,7 +139,7 @@ exports.getVideoUrls = async ({ title, publicId, isFinalStage }) => {
         font_family: 'roboto',
         font_size: 80,
         text_align: 'center',
-        text: title, // <= display the stage title on top of the video
+        text: cleanText(title), // <= display the stage title on top of the video
       },
       width: 1000,
       crop: 'fit',
@@ -162,6 +177,7 @@ exports.getVideoUrls = async ({ title, publicId, isFinalStage }) => {
     eager_async: true,
     eager_notification_url:
       'https://explorers.netlify.com/.netlify/functions/cloudinary-eager-notification',
+    overwrite: false,
   });
 
   const formats = {
