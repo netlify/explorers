@@ -125,9 +125,9 @@ exports.getVideoUrls = async ({ title, publicId, isFinalStage }) => {
         font_size: 80,
         text_align: 'center',
         text: title, // <= display the stage title on top of the video
-        width: 1000,
-        crop: 'fit',
       },
+      width: 1000,
+      crop: 'fit',
       color: 'white',
     },
     { flags: 'layer_apply' }, // <= apply the text overlay
@@ -156,7 +156,7 @@ exports.getVideoUrls = async ({ title, publicId, isFinalStage }) => {
       [{ fetch_format: 'mp4', video_codec: 'h265' }, ...transformationArray],
       [{ fetch_format: 'webm', video_codec: 'vp9' }, ...transformationArray],
       [{ fetch_format: 'mp4', video_codec: 'h264' }, ...transformationArray],
-      [{ fetch_format: 'auto' }, ...transformationArray],
+      // [{ fetch_format: 'auto' }, ...transformationArray],
     ],
     transformation: transformationArray,
     eager_async: true,
@@ -167,7 +167,6 @@ exports.getVideoUrls = async ({ title, publicId, isFinalStage }) => {
   const formats = {
     mp4: 'video/mp4',
     webm: 'video/webm',
-    auto: '',
   };
 
   const codecs = {
