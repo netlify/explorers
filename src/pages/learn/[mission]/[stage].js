@@ -98,12 +98,13 @@ export default function Stage({
           className={`${styles['stage-content-wrapper']} section-contain margintop-lg`}
         >
           <div className="px2">
-            <h2 className={styles['stage-title']}>
+            <h2 className={styles['stage-main-title']}>
               {mission.title}{' '}
               <span className={styles['stage-title-addendum']}>
                 with {mission.instructor.name}
               </span>
             </h2>
+            <h2>{stage.title}</h2>
           </div>
 
           <div className={styles['stage-content']}>
