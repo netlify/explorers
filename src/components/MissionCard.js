@@ -4,9 +4,10 @@ import Link from 'next/link';
 
 const MissionCard = ({ mission }) => {
   const missionImageURL =
-    mission.coverImage.asset.url + '?fit=crop&crop=center&w=700&h=720';
+    mission.coverImage.asset.url + '?fit=crop&crop=center&fm=jpg&w=700&h=720';
   const instructorAvatarURL =
-    mission.instructor.avatar.asset.url + '?fit=crop&crop=entropy&w=60&h=60';
+    mission.instructor.avatar.asset.url +
+    '?fit=crop&crop=entropy&fm=jpg&w=60&h=60';
 
   return (
     <div

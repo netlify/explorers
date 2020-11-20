@@ -34,7 +34,7 @@ const Mission = ({ mission }) => {
   };
 
   const missionImageURL =
-    mission.coverImage.asset.url + '?fit=crop&crop=center&w=700&h=720';
+    mission.coverImage.asset.url + '?fit=crop&crop=center&fm=jpg&w=700&h=720';
 
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
