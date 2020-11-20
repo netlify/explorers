@@ -33,6 +33,9 @@ const Mission = ({ mission }) => {
     creator: `@${instructorTwitterHandle}` || '@netlify',
   };
 
+  const missionImageURL =
+    mission.coverImage.asset.url + '?fit=crop&crop=center&w=700&h=720';
+
   return (
     <Layout navtheme="dark" pageMeta={pageMeta}>
       <section className="intro px2">
@@ -40,7 +43,10 @@ const Mission = ({ mission }) => {
           <h1>This Mission: {mission.title}</h1>
           <div className={styles.missiondescriptioninstructor}>
             <img
-              src={mission.instructor.avatar?.asset?.url}
+              src={
+                mission.instructor.avatar?.asset?.url +
+                '?fit=crop&crop=entropy&w=120&h=120'
+              }
               className="avatar-lg"
             />
             <span className={styles.instructor}>
@@ -52,7 +58,7 @@ const Mission = ({ mission }) => {
             <div
               className={styles.card}
               style={{
-                backgroundImage: `url(${mission.coverImage.asset.url})`,
+                backgroundImage: `url(${missionImageURL})`,
               }}
             ></div>
             <div className={`${styles.missionblurb} is-dark`}>

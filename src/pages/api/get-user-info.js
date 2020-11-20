@@ -69,7 +69,8 @@ export default async function handler(req, res) {
       return {
         title: mission.title,
         instructor: mission.instructor.name,
-        coverImage: mission.coverImage.asset.url,
+        coverImage:
+          mission.coverImage.asset.url + '?fit=crop&crop=center&w=700&h=720',
         progress: completedStages / totalStages,
         completedStages,
         missionSlug,
