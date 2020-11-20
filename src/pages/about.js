@@ -26,11 +26,23 @@ export default function AboutPage() {
               button on the top right, and we'll use your Netlify account to
               show how far you've come in learning a particular topic.
             </p>
-            <img
-              src="/user-profile.jpg"
-              alt="user profile page on jamstack explorers"
-              className={styles.aboutimg}
-            />
+            <section className={styles['preview-video-wrapper']}>
+              <video
+                controls
+                className={styles['preview-video']}
+                poster="ihttps://res.cloudinary.com/netlify/video/upload/v1605720958/explorers/jamstack-explorers-preview.jpg"
+              >
+                <source
+                  src="https://res.cloudinary.com/netlify/video/upload/v1605720958/explorers/jamstack-explorers-preview.webm"
+                  type="video/webm"
+                />
+                <source
+                  src="https://res.cloudinary.com/netlify/video/upload/v1605720958/explorers/jamstack-explorers-preview.mp4"
+                  type="video/mp4"
+                />
+                Sorry. Your browser does not support embedded videos.
+              </video>
+            </section>
             <p>
               Once you've completed 3 missions (courses), we will give you a {}
               <strong>Certificate of Completion</strong> for your astounding
