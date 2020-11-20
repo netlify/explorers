@@ -31,7 +31,7 @@ And there’s nothing I can do
 
 The frontend is a Next site. Env vars are in Netlify, so work with Netlify Dev for easier local development.
 
-#### Prerequisite
+#### Prerequisites
 
 - [Netlify CLI](https://docs.netlify.com/cli/get-started/#installation)
 
@@ -54,6 +54,8 @@ Add the following env vars to `.env` at the project root:
 NEXT_PUBLIC_SANITY_GRAPHQL_URL=https://q8efilev.api.sanity.io/v1/graphql/production/default
 ```
 
+This is a read-only GraphQL API to pull Jamstack Explorers missions, stages, and other data.
+
 Start the site locally:
 
 ```sh
@@ -73,38 +75,9 @@ See `.env.EXAMPLE` for the required env vars.
 
 ### Sanity
 
-## Updating Content in Sanity's CMS
+See [the backend README](./backend/README.md) for details on the Sanity setup for this project.
 
-Please use the remote version of Sanity to update content: https://jamstackexplorers.sanity.studio/desk, we use Sanity locally just for development
-
-## Developing with Sanity
-
-**NOTE:** You _only_ need to get Sanity running locally if you need to make changes to the Sanity schema. Otherwise you can ignore this section for local development.
-
-```bash
-# install the Sanity CLI if you don’t have it already
-npm i -g @sanity/cli
-
-# go into the Sanity folder
-cd backend/
-
-# install sanity into the project
-sanity install
-
-# start the studio
-sanity start
-```
-
-> **NOTE:** you don’t have to run the studio locally during development. You _only_ need to run the studio locally if you’re making changes to the data schema.
-
-After making changes, you need to deploy both the studio and the GraphQL API.
-
-```sh
-sanity deploy
-sanity graphql deploy
-```
-
-## To Format Correctly
+### Code Formatting With Prettier
 
 We have a prettier pre-commit hook. To run formatting on the command line:
 
@@ -112,24 +85,10 @@ We have a prettier pre-commit hook. To run formatting on the command line:
 npm run format
 ```
 
-## To Get a Certificate
+### Certificate Generation
 
-Go to this repo: [https://github.com/sdras/az-certificate](https://github.com/sdras/az-certificate)
-You will find instructions for usage there.
+Certificate generation is managed through a [private repo](https://github.com/sdras/az-certificate). If you’re a project maintainer, you’ll need an invite to view it.
 
 ## How to commit to this repo!
 
-- We use the following branch convention:
-
-  ```
-  // Structure
-  <initials>/<issue #>/<title of issue camelcase>
-
-  // Example
-  sd/coolFeature
-  tzm/13/fixesThing
-  ```
-
-- Everything needs to be a pull request — no direct commits to `main`
-- PRs are merged with squash merges only and use [conventional commits](https://github.com/commitizen/cz-cli#if-your-repo-is-commitizen-friendly) for easier changelog generation
-- All PRs need to be approved by one of the CODEOWNERS
+See our [contributing guidelines](./CONTRIBUTING.md) for more info about getting involved!
