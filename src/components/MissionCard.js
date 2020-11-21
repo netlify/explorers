@@ -3,11 +3,17 @@ import styles from './MissionCard.module.css';
 import Link from 'next/link';
 
 const MissionCard = ({ mission }) => {
+  const missionImageURL =
+    mission.coverImage.asset.url + '?fit=crop&crop=center&fm=jpg&w=700&h=720';
+  const instructorAvatarURL =
+    mission.instructor.avatar.asset.url +
+    '?fit=crop&crop=entropy&fm=jpg&w=60&h=60';
+
   return (
     <div
       className={styles.card}
       style={{
-        backgroundImage: `url(${mission.coverImage.asset.url})`,
+        backgroundImage: `url(${missionImageURL})`,
       }}
     >
       <div className={styles['card-info']}>
@@ -18,7 +24,7 @@ const MissionCard = ({ mission }) => {
 
         <div className={styles['card-footer']}>
           <AvatarRow
-            src={mission.instructor.avatar.asset.url}
+            src={instructorAvatarURL}
             label={mission.instructor.name}
           />
           <div className={styles['card-button']}>
