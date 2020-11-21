@@ -10,6 +10,26 @@
   margin-bottom: 1rem;
 }
 
+.preview-video {
+  max-width: 100%;
+}
+
+.preview-video-wrapper {
+  padding: 30px 0;
+}
+
+@media screen and (min-width: 540px) {
+  .preview-video-wrapper {
+    padding: 60px 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .preview-video-wrapper {
+    padding: 90px 0;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .about {
     margin: 150px auto 100px;
