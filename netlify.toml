@@ -1,10 +1,13 @@
 [build]
   command = "npm run build"
-  publish = "out_publish"
-  functions = "out_functions"
+  publish = "publish"
+  functions = "functions"
 
 [dev]
   command = "npm run dev:netlify"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 [[plugins]]
   package = "netlify-plugin-cache-nextjs"
@@ -13,6 +16,6 @@
 package = "@netlify/plugin-sitemap"
 
   [plugins.inputs]
-  buildDir = "out_publish"
-  exclude = ['./out_publish/404.html']
+  buildDir = "publish"
+  exclude = ['./publish/404.html']
   baseUrl = "https://explorers.netlify.com"
