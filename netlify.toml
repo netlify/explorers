@@ -7,9 +7,6 @@
   command = "npm run dev:netlify"
 
 [[plugins]]
-  package = "@netlify/plugin-nextjs"
-
-[[plugins]]
   package = "netlify-plugin-cache-nextjs"
 
 [[plugins]]
