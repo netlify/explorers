@@ -66,49 +66,32 @@ export function UserProvider({ children }) {
   const [user, setUser] = React.useState();
   const [activity, setActivity] = React.useState();
 
-  //TODO: placeholder while we build this
-  const userdata = {
-    accredidationProgress: 0.34,
-    // TODO we don’t have categories right now, so we can’t determine this data
-    skills: [
-      {
-        data: {
-          jamstack: 0.4,
-          react: 0.65,
-          vue: 0.9,
-          angular: 0.67,
-          netlify: 0.8,
-        },
-        meta: { color: 'rgba(255, 68, 149, 0.7)' },
-      },
-      {
-        data: {
-          jamstack: 1,
-          react: 0.9,
-          vue: 0.5,
-          angular: 0.6,
-          netlify: 0.7,
-        },
-        meta: { color: 'rgba(170, 77, 232, 0.7)' },
-      },
-    ],
-    userCourses: [
-      {
-        title: 'Vue and Nuxt',
-        instructor: 'Sarah Drasner',
-        coverImage:
-          'https://cdn.sanity.io/images/q8efilev/production/e4313495f322e448fec7f41b833b0dabb3799178-800x714.jpg',
-        progress: 0.6,
-      },
-      {
-        title: 'Next and React',
-        instructor: 'Cassidy Williams',
-        coverImage:
-          'https://cdn.sanity.io/images/q8efilev/production/e4313495f322e448fec7f41b833b0dabb3799178-800x714.jpg',
-        progress: 0.3,
-      },
-    ],
-  };
+  // TODO we don’t have categories right now, so we can’t determine this data
+  // this is the shape of the data we need to display the radar chart
+  // const userdata = {
+  //   skills: [
+  //     {
+  //       data: {
+  //         jamstack: 0.4,
+  //         react: 0.65,
+  //         vue: 0.9,
+  //         angular: 0.67,
+  //         netlify: 0.8,
+  //       },
+  //       meta: { color: 'rgba(255, 68, 149, 0.7)' },
+  //     },
+  //     {
+  //       data: {
+  //         jamstack: 1,
+  //         react: 0.9,
+  //         vue: 0.5,
+  //         angular: 0.6,
+  //         netlify: 0.7,
+  //       },
+  //       meta: { color: 'rgba(170, 77, 232, 0.7)' },
+  //     },
+  //   ],
+  // };
 
   const logoutUser = () => {
     setActivity(undefined);
@@ -182,7 +165,6 @@ export function UserProvider({ children }) {
     token,
     status,
     redirectToOAuth,
-    userdata,
     activity,
     logoutUser,
     getUser,

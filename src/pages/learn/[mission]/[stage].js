@@ -26,7 +26,10 @@ export default function Stage({
 }) {
   const router = useRouter();
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
-  const poster = stage.content?.[0].coverImage?.asset.url;
+  const posterUrl = stage.content?.[0].coverImage?.asset.url;
+  const poster = posterUrl
+    ? posterUrl + '?fit=crop&crop=center&fm=jpg&w=1280&h=720'
+    : null;
   const description = hydrate(stage.renderedStageDescription);
   const descriptionMarkdown = stage.content?.[0].body;
   const descriptionMeta = removeMarkdown(

@@ -53,6 +53,8 @@ function Footer() {
             className={styles.netliheart}
             src="https://res.cloudinary.com/jlengstorf/image/upload/f_auto,q_auto,w_50/v1596146333/netlify/netliheart.png"
             alt="love"
+            width="25"
+            height="25"
           />{' '}
           by the{' '}
           <a href="https://www.netlify.com/?utm_source=jamstack-explorers&utm_medium=footer-link&utm_campaign=devex">
