@@ -30,7 +30,7 @@ export default function AboutPage() {
               <video
                 controls
                 className={styles['preview-video']}
-                poster="ihttps://res.cloudinary.com/netlify/video/upload/v1605720958/explorers/jamstack-explorers-preview.jpg"
+                poster="https://res.cloudinary.com/netlify/video/upload/v1605720958/explorers/jamstack-explorers-preview.jpg"
               >
                 <source
                   src="https://res.cloudinary.com/netlify/video/upload/v1605720958/explorers/jamstack-explorers-preview.webm"
