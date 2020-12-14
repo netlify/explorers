@@ -1,3 +1,8 @@
+.stage-content {
+  display: grid;
+  grid-row-gap: 60px;
+}
+
 .stage-content-wrapper {
   display: grid;
   grid-template-columns: 100%;
@@ -7,9 +12,9 @@
 
 @media screen and (min-width: 900px) {
   .stage-content {
-    display: grid;
     grid-template-columns: 2fr auto;
     grid-column-gap: 30px;
+    grid-row-gap: 0;
   }
 
   .stage-content-wrapper {
