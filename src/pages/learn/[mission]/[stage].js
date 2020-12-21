@@ -1,4 +1,7 @@
 import hydrate from 'next-mdx-remote/hydrate';
+import fs from 'fs';
+import path from 'path';
+import dayjs from 'dayjs';
 import Layout from '@components/Layout';
 import VideoPlayer from '@components/VideoPlayer';
 import ChonkyFooter from '@components/ChonkyFooter';
@@ -23,6 +26,7 @@ export default function Stage({
   stage,
   isFinalStage,
   videoUrls,
+  captionFilePath,
 }) {
   const router = useRouter();
   const publicId = stage.content?.[0].cloudinaryVideo?.public_id;
@@ -120,6 +124,7 @@ export default function Stage({
                     poster={poster}
                     title={stage.title}
                     emitStageComplete={emitStageComplete}
+                    captionFilePath={captionFilePath}
                   />
                 )}
                 <LoginNudge />
@@ -172,6 +177,38 @@ export async function getStaticProps({ params }) {
     isFinalStage,
   });
 
+  // XXX FIXME validate VTT processing & addition
+  let captionFilePath;
+  if (
+    stage.content?.[0].cloudinaryVideo?.public_id ===
+    'explorers/LCA-01-introduction.mp4'
+  ) {
+    const vtt =
+      'https://res.cloudinary.com/netlify/raw/upload/v1608580047/explorers/01-introduction.vtt';
+    const captions = await fetch(vtt).then((res) => res.text());
+
+    const updatedVTT = captions.replace(
+      /(\d{2}:\d{2}:\d{2})/gi,
+      (timestamp) => {
+        const [hours, minutes, seconds] = timestamp.split(':');
+
+        const time = dayjs()
+          .set('hour', hours)
+          .set('minute', minutes)
+          .set('second', seconds);
+
+        return time.add(11, 'seconds').format('HH:mm:ss');
+      }
+    );
+
+    captionFilePath = 'captions/01-introduction-adjusted.vtt';
+    fs.writeFileSync(
+      path.join(process.cwd(), 'public', captionFilePath),
+      updatedVTT,
+      'utf-8'
+    );
+  }
+
   return {
     props: {
       mission,
@@ -179,6 +216,7 @@ export async function getStaticProps({ params }) {
         ...stage,
         renderedStageDescription,
       },
+      captionFilePath,
       isFinalStage,
       videoUrls,
       currentStageIndex,
