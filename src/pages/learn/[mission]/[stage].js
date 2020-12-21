@@ -178,7 +178,7 @@ export async function getStaticProps({ params }) {
   });
 
   // XXX FIXME validate VTT processing & addition
-  let captionFilePath;
+  let captionFilePath = false;
   if (
     stage.content?.[0].cloudinaryVideo?.public_id ===
     'explorers/LCA-01-introduction.mp4'
