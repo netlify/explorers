@@ -179,12 +179,8 @@ export async function getStaticProps({ params }) {
 
   // XXX FIXME validate VTT processing & addition
   let captionFilePath = false;
-  if (
-    stage.content?.[0].cloudinaryVideo?.public_id ===
-    'explorers/LCA-01-introduction.mp4'
-  ) {
-    const vtt =
-      'https://res.cloudinary.com/netlify/raw/upload/v1608580047/explorers/01-introduction.vtt';
+  if (stage.content?.[0].cloudinaryVideo?.captions) {
+    const vtt = stage.content?.[0].cloudinaryVideo?.captions;
     const captions = await fetch(vtt).then((res) => res.text());
 
     const updatedVTT = captions.replace(
@@ -201,7 +197,7 @@ export async function getStaticProps({ params }) {
       }
     );
 
-    captionFilePath = 'captions/01-introduction-adjusted.vtt';
+    captionFilePath = `captions/${stage.slug.current}.vtt`;
     fs.writeFileSync(
       path.join(process.cwd(), 'public', captionFilePath),
       updatedVTT,
