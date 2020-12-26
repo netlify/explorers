@@ -5,16 +5,16 @@
  * to transform your
  * video streams
  * they say that I could just hand-code it
- * but that shit is weak
+ * but that’s not working
  *
  * HELLO FROM MY HELPER FIIIIIIIILES
- * THEY ADD A COUPLE THOUSAND LIIIIIIIIINES
+ * THEY’RE ADDING EXTRA KILOBYYYYYYYYYYTES
  * TO “HELP” YOU
  * I’M SORRY
- * FOR WHAT I DID TO YOUR SITE
+ * FOR BLOATING YOUR SITE
  * (DON’T TELL ADDY)
  * I CLEARLY HAD TO MEET A DEADLINE
- * (OF Q4)
+ * (IT’S Q4)
  */
 
 const cloudinary = require('cloudinary').v2;
@@ -59,7 +59,7 @@ exports.getVideoUrls = async ({ title, publicId, isFinalStage }) => {
     quality: 'auto',
     width: 1280,
     height: 720,
-    crop: 'fill',
+    crop: 'fill', // avoid letterboxing if videos are different sizes
   };
 
   const transformationArray = [
