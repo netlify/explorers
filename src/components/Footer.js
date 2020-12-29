@@ -23,8 +23,10 @@ function Footer() {
               </a>
             </li>
             <li>
-              Video transformations courtesy of{' '}
-              <a href="https://cloudinary.com/">Cloudinary</a>
+              Video processing provided by{' '}
+              <a href="https://cloudinary.com/solutions/video_management/features?utm_source=jamstack_explorers&utm_medium=referral&utm_campaign=cloudinary_video_api">
+                Cloudinary
+              </a>
             </li>
           </ul>
         </div>
