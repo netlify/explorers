@@ -19,6 +19,11 @@ export default {
       name: 'url',
       description: 'Click the link icon on your video to copy this.',
     },
+    {
+      type: "string",
+      name: "captions",
+      description: "Export from Descript by going to file>export click subtitles and make sure the format is VTT (Video Text Titles)"
+    }
   ],
   // inputComponent: Input,
   // preview: {
