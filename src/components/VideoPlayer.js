@@ -13,6 +13,7 @@ const VideoPlayer = ({
   poster,
   title,
   videoUrls,
+  captionFilePath,
 }) => {
   const { activity } = useUserState();
   const ref = React.useRef();
@@ -129,6 +130,15 @@ const VideoPlayer = ({
         {videoUrls.map(({ url, type }, index) => (
           <source key={`video-${index}`} src={url} type={type} />
         ))}
+        {captionFilePath && (
+          <track
+            label="English"
+            kind="subtitles"
+            srcLang="en"
+            src={`/${captionFilePath}`}
+            default
+          />
+        )}
         <p>Your browser does not support video.</p>
       </video>
     </div>

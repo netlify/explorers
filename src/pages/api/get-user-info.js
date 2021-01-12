@@ -80,7 +80,14 @@ export default async function handler(req, res) {
 
   // for now we’re hard-coding that ANY 3 completed missions earn a certificate
   const completedMissions = userMissions.filter((m) => m.progress === 1).length;
-  const certificateProgress = (completedMissions / 3).toFixed(2);
+
+  // TODO get 3 user missions with highest progress
+  // TODO multiply each mission progress * 1 / 3
+  const certificateProgress = userMissions
+    .sort((a, b) => b.progress - a.progress)
+    .slice(0, 3)
+    .reduce((progress, mission) => (progress += mission.progress / 3), 0)
+    .toFixed(2);
 
   // TODO radar chart data once we have tags
   //   skills: [
