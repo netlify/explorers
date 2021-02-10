@@ -79,6 +79,7 @@ Hasura with a new achievement:
   },
 }
  */
+const fetch = require('node-fetch');
 
 exports.handler = async (...args) => {
   // if (payload.event.data.new.type !== 'video-complete') {
@@ -91,8 +92,50 @@ exports.handler = async (...args) => {
   // if we get here, we need to actually check
   console.log(args);
 
+  const hasuraRole = payload.event.x - hasura - role;
+  const { achievement } = JSON.parse(payload.event.data.new);
+
+  const postToAchievements = await fetch(process.env.HASURA_GRAPHQL_URL, {
+    method: 'POST',
+    headers: {
+      'X-Hasura-Admin-Secret': process.env.HASURA_ADMIN_SECRET,
+      'X-Hasura-Role': hasuraRole,
+      'X-Hasura-User-Id': userId,
+    },
+    body: JSON.stringify({
+      query: `
+        query ($achievement: String!) {
+          achievement {
+            app
+            id
+            type
+            event_data
+            user_id
+            timestamp
+          }
+        }
+      `,
+      variables: {
+        achievement,
+      },
+    }),
+  }).then((res) => res.json());
+
+  if (result.errors) {
+    console.log(result.errors);
+    return {
+      statusCode: 500,
+      body: 'ruh roh',
+    };
+  }
+
   return {
     statusCode: 200,
-    body: 'ok',
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers':
+        'Origin, X-Requested-With, Content-Type, Accept',
+    },
+    body: JSON.stringify(result.data.achievement),
   };
 };
