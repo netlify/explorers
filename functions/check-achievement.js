@@ -84,7 +84,9 @@ exports.handler = async (event) => {
   // if we get here, we need to actually check
 
   const { payload } = JSON.parse(event.body);
-  const { new: newActivity } = JSON.parse(payload.event.data);
+  console.log({ payload });
+  const { new: newActivity } = payload.event.data;
+  console.log({ newActivity });
 
   const postToAchievements = await fetch(process.env.HASURA_API_ENDPOINT, {
     method: 'POST',
