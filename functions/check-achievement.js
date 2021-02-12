@@ -140,6 +140,6 @@ exports.handler = async (event) => {
       'Access-Control-Allow-Headers':
         'Origin, X-Requested-With, Content-Type, Accept',
     },
-    body: JSON.stringify(result.data.achievement),
+    body: 'OK',
   };
 };
