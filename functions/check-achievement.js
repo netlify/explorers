@@ -82,7 +82,7 @@ exports.handler = async (event) => {
   // }
 
   // if we get here, we need to actually check
-
+  console.log({ event });
   const { payload } = JSON.parse(event.body);
   console.log({ payload });
   const { new: newActivity } = payload.event.data;
