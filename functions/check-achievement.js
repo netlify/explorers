@@ -70,33 +70,22 @@ Hasura with a new achievement:
 
 See the achievement table in Hasura
  */
-
-const fetch = require('node-fetch');
+const { postToHasura } = require('./util/postToHasura');
 
 exports.handler = async (event) => {
-  // if (payload.event.data.new.type !== 'video-complete') {
-  //   return {
-  //     statusCode: 200,
-  //     body: 'ok',
-  //   };
-  // }
-
-  // if we get here, we need to actually check
-  console.log({ event });
   const payload = JSON.parse(event.body);
-  console.log({ payload });
   const { new: newActivity } = payload.event.data;
-  console.log({ newActivity });
 
-  const postToAchievements = await fetch(process.env.HASURA_API_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      'X-Hasura-Admin-Secret': process.env.HASURA_ADMIN_SECRET,
-      'X-Hasura-Role': 'app',
-    },
-    body: JSON.stringify({
-      query: `
-        mutation MyMutation(
+  if (newActivity.type !== 'mission-complete') {
+    console.log('!mission-complete');
+    return {
+      statusCode: 200,
+      body: 'ok',
+    };
+  }
+
+  postToHasura({
+    hasuraQuery: `mutation MyMutation(
           $app: String!,
           $event_data: jsonb!,
           $type: String!,
@@ -116,30 +105,19 @@ exports.handler = async (event) => {
             user_id
           }
         }`,
-      variables: {
-        app: newActivity.app,
-        event_data: {},
-        type: 'mission-complete',
-        user_id: newActivity.user_id,
-      },
-    }),
-  }).then((res) => res.json());
+    hasuraVariables: {
+      app: newActivity.app,
+      event_data: {},
+      type: 'mission-complete',
+      user_id: newActivity.user_id,
+    },
+  });
 
-  if (postToAchievements.errors) {
-    console.log(postToAchievements.errors);
+  if (postToHasura.errors) {
+    console.log(postToHasura.errors);
     return {
       statusCode: 500,
       body: 'ruh roh',
     };
   }
-
-  return {
-    statusCode: 200,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers':
-        'Origin, X-Requested-With, Content-Type, Accept',
-    },
-    body: 'OK',
-  };
 };
