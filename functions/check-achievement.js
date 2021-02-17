@@ -84,8 +84,8 @@ exports.handler = async (event) => {
     };
   }
 
-  postToHasura({
-    hasuraQuery: `mutation MyMutation(
+  const achievements = await postToHasura({
+    query: `mutation MyMutation(
           $app: String!,
           $event_data: jsonb!,
           $type: String!,
@@ -105,7 +105,7 @@ exports.handler = async (event) => {
             user_id
           }
         }`,
-    hasuraVariables: {
+    variables: {
       app: newActivity.app,
       event_data: {},
       type: 'mission-complete',
@@ -113,11 +113,20 @@ exports.handler = async (event) => {
     },
   });
 
-  if (postToHasura.errors) {
-    console.log(postToHasura.errors);
+  if (!achievements) {
     return {
       statusCode: 500,
-      body: 'ruh roh',
+      body: 'Oh no!',
     };
   }
+
+  return {
+    statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers':
+        'Origin, X-Requested-With, Content-Type, Accept',
+    },
+    body: 'Totally Ok',
+  };
 };
