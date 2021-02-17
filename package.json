@@ -24,6 +24,7 @@
     "netlify-plugin-cache-nextjs": "^1.5.2",
     "next": "^9.5.4",
     "next-mdx-remote": "^1.0.0",
+    "node-fetch": "^2.6.1",
     "react": "^16.13.1",
     "react-chartkick": "^0.4.1",
     "react-dom": "^16.13.1",
