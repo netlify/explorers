@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useUserState } from '@context/user';
 import { launchSchoolPrideConfetti } from '../util/confetti';
 import styles from './ModalCongrats.module.css';
 import IconClose from './IconClose';
