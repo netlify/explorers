@@ -7,6 +7,7 @@ import NetlifyLogo from './NetlifyLogo';
 import ExplorersLogo from './ExplorersLogo';
 import Hamburger from './Hamburger';
 
+import AchievementNudge from '@components/AchievementNudge';
 import { useUserState } from 'src/context/user';
 import { useMediaQuery } from '@hooks/useMediaQuery';
 
@@ -82,6 +83,7 @@ function Navigation({ theme }) {
           )}
         </>
       )}
+      <AchievementNudge />
     </nav>
   );
 }
