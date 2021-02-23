@@ -40,7 +40,7 @@ export default function Stage({
     descriptionMarkdown?.split('\n')?.[0] ?? ''
   );
   const [missionComplete, setMissionComplete] = useState(false);
-  const { user, getUser } = useUserState();
+  const { activity, user, getUser } = useUserState();
 
   const instructorTwitterHandle = parseTwitterHandle(
     findTwitterUrl(mission.instructor.social)
@@ -79,6 +79,10 @@ export default function Stage({
       currentMission.progress >= 1 &&
       !window.localStorage.getItem(localCookieName)
     ) {
+      activity.send('mission-complete', {
+        path: window.location.pathname,
+        mission: currentMission.missionSlug,
+      });
       setMissionComplete(true);
       window.localStorage.setItem(localCookieName, 'true');
     }
