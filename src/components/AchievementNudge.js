@@ -31,10 +31,3 @@ export default function AchievementNudge() {
     </aside>
   );
 }
-
-/** My Next.js Conditional rendering wahala
- * I want to return what I have on line 26 if line 17 is true.
- * If not, I want to return null
- * Help me 🤲🏽
- * You cannot make a request inside a function in React
- */
