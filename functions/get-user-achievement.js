@@ -3,7 +3,13 @@ const { postToHasura } = require('./util/postToHasura');
 exports.handler = async (event) => {
   const params = JSON.parse(event.body);
   const achievements = await postToHasura({
-    query: `query getUserAchievement($user_id: String){ achievements(where: {user_id: {_eq: $user_id}}) {event_data type }}`,
+    query: `query getUserAchievement($user_id: String) {
+  achievements(where: {user_id: {_eq: $user_id}, }) {
+    event_data
+    type
+    claimed
+  }
+}`,
     variables: {
       user_id: `${params.user_id}`,
     },

@@ -83,7 +83,6 @@ function Navigation({ theme }) {
           )}
         </>
       )}
-      <AchievementNudge />
     </nav>
   );
 }
@@ -94,6 +93,11 @@ function renderUser() {
   if (user && user.full_name) {
     return (
       <>
+        <li>
+          <Link href="/profile">
+            <a className={styles.profile}>{<AchievementNudge />}</a>
+          </Link>
+        </li>
         <li>
           <Link href="/">
             <a className={styles.profile} onClick={logoutUser}>

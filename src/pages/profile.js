@@ -4,9 +4,19 @@ import UserMaincontent from '@components/UserMaincontent';
 import { useUserState } from '@context/user';
 import style from './Profile.module.css';
 import { SITE_DOMAIN } from '@util/constants';
+import { useAchievementState } from '@context/achievement';
+import { useEffect, useState } from 'react';
+import { useAchievement } from '@hooks/useAchievement';
 
 export default function Profile() {
-  const { token, status, redirectToOAuth } = useUserState();
+  const { token, status, redirectToOAuth, user } = useUserState();
+  let achievementState = useAchievementState();
+
+  console.log('achievementState', achievementState);
+  // TODO: right now achievements is undef
+
+  const [achievements, setAchievements] = useState(achievementState);
+
   const pageMeta = {
     title: 'Profile - Jamstack Explorers',
     description: 'Track your progress in your user profile!',
@@ -46,7 +56,7 @@ export default function Profile() {
   return (
     <Layout navtheme="white" pageMeta={pageMeta}>
       <div className={style['profile-page']}>
-        <UserSidebar />
+        <UserSidebar achievement={achievements} />
         <UserMaincontent />
       </div>
     </Layout>
