@@ -5,17 +5,25 @@ import { useUserState } from '@context/user';
 import style from './Profile.module.css';
 import { SITE_DOMAIN } from '@util/constants';
 import { useAchievementState } from '@context/achievement';
-import { useEffect, useState } from 'react';
-import { useAchievement } from '@hooks/useAchievement';
 
 export default function Profile() {
   const { token, status, redirectToOAuth, user } = useUserState();
-  let achievementState = useAchievementState();
+  const { achievements } = useAchievementState();
 
-  console.log('achievementState', achievementState);
-  // TODO: right now achievements is undef
-
-  const [achievements, setAchievements] = useState(achievementState);
+  // useEffect(() => {
+  //   console.log('Inside effect ' + token);
+  //   console.log('poop');
+  //   if (user?.id) {
+  //     async function fetchData() {
+  //       const result = await fetch('.netlify/functions/get-user-achievement', {
+  //         method: 'POST',
+  //         body: JSON.stringify({ user_id: user.id }),
+  //       }).then((res) => res.json());
+  //       setAchievements(result.achievements);
+  //     }
+  //     fetchData();
+  //   }
+  // }, [user]);
 
   const pageMeta = {
     title: 'Profile - Jamstack Explorers',

@@ -1,42 +1,37 @@
-import { useEffect, useState } from 'react';
-// import { useAchievementState } from '@context/achievement';
-import { useUserState } from '@context/user';
-
+import { useAchievementState } from '@context/achievement';
+import { useRouter } from 'next/router';
 export default function AchievementNudge() {
-  // const achievementState = useAchievementState();
-  const [userAchievements, setUserAchievements] = useState([]);
-  const { user } = useUserState();
+  const { achievements, getAchievement } = useAchievementState();
 
-  /*
-    TODO
-    Get achievement from context, instead of calling endpoint again!
-  */
+  const router = useRouter();
 
-  //const achievements = achievementState
+  router.events.on('routeChangeStart', async (url) => {
+    // console.log('route changed to ' + url);
+    await getAchievement();
+  });
 
-  useEffect(() => {
-    if (user && user.id) {
-      console.log('userId', user.id);
-      async function fetchData() {
-        const result = await fetch('.netlify/functions/get-user-achievement', {
-          method: 'POST',
-          body: JSON.stringify({ user_id: user.id }),
-        }).then((res) => res.json());
-        setUserAchievements(result.achievements);
-      }
-      fetchData();
-      // console.log(userAchievements);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (user && user.id) {
+  //     async function fetchData() {
+  //       const result = await fetch('.netlify/functions/get-user-achievement', {
+  //         method: 'POST',
+  //         body: JSON.stringify({ user_id: user.id }),
+  //       }).then((res) => res.json());
+  //       setUserAchievements(result.achievements);
+  //     }
+  //     fetchData();
+  //   }
+  // }, []);
 
-  const unclaimedAchievement = userAchievements
-    .filter((achievement) => achievement.claimed == false)
-    .map(({ event_data, type, claimed }) => ({
-      event_data,
-      type,
-      claimed,
-    }));
-  console.log('unclaimed:', unclaimedAchievement);
+  const unclaimedAchievement =
+    (achievements &&
+      achievements
+        .filter((achievement) => achievement.claimed == false)
+        .map(({ claimed }) => ({
+          claimed,
+        }))) ||
+    [];
+
   if (!unclaimedAchievement.length > 0) return null;
   return (
     <>

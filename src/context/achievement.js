@@ -1,48 +1,30 @@
-import netlifyActivity from '@netlify/activity-hub';
 import { useUserState } from '@context/user';
 const AchievementStateContext = React.createContext();
-
-import { useRouter } from 'next/router';
 
 export function AchievementProvider({ children }) {
   const [status, setStatus] = React.useState('loading');
   const [achievements, setAchievements] = React.useState();
   const { user } = useUserState();
-  const router = useRouter();
 
-  const getAchievement = async (current) => {
-    console.log('ahcievements pre-run', achievements);
-
-    console.log('getAchievement runs');
-
+  const getAchievement = async () => {
     const result = await fetch('.netlify/functions/get-user-achievement', {
       method: 'POST',
       body: JSON.stringify({ user_id: user.id }),
     }).then((res) => res.json());
-
-    if (current) {
-      setAchievements(result.achievements);
-      setStatus('loaded');
-      console.log('ahcievements post-run', achievements);
-    }
-    return result;
+    setAchievements(result.achievements);
+    setStatus('loaded');
   };
 
   React.useEffect(() => {
-    let current = true;
-    // https://nextjs.org/docs/api-reference/next/router
-    if (user?.id && current) {
-      getAchievement(current);
+    if (user?.id) {
+      getAchievement();
     }
-
-    return () => {
-      current = false;
-    };
-  }, [router.pathname]);
+  }, [user]);
 
   const state = {
     achievements,
     status,
+    getAchievement,
   };
 
   return (
