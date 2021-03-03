@@ -7,6 +7,7 @@ import NetlifyLogo from './NetlifyLogo';
 import ExplorersLogo from './ExplorersLogo';
 import Hamburger from './Hamburger';
 
+import AchievementNudge from '@components/AchievementNudge';
 import { useUserState } from 'src/context/user';
 import { useMediaQuery } from '@hooks/useMediaQuery';
 
@@ -92,6 +93,11 @@ function renderUser() {
   if (user && user.full_name) {
     return (
       <>
+        <li>
+          <Link href="/profile">
+            <a className={styles.profile}>{<AchievementNudge />}</a>
+          </Link>
+        </li>
         <li>
           <Link href="/">
             <a className={styles.profile} onClick={logoutUser}>
