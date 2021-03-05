@@ -1,5 +1,7 @@
 import { useAchievementState } from '@context/achievement';
 import { useRouter } from 'next/router';
+import Rosette from '@components/Rosette';
+import styles from './AchievementBadge.module.css';
 export default function AchievementNudge() {
   const { achievements, getAchievement } = useAchievementState();
 
@@ -9,19 +11,6 @@ export default function AchievementNudge() {
     // console.log('route changed to ' + url);
     await getAchievement();
   });
-
-  // useEffect(() => {
-  //   if (user && user.id) {
-  //     async function fetchData() {
-  //       const result = await fetch('.netlify/functions/get-user-achievement', {
-  //         method: 'POST',
-  //         body: JSON.stringify({ user_id: user.id }),
-  //       }).then((res) => res.json());
-  //       setUserAchievements(result.achievements);
-  //     }
-  //     fetchData();
-  //   }
-  // }, []);
 
   const unclaimedAchievement =
     (achievements &&
@@ -34,8 +23,8 @@ export default function AchievementNudge() {
 
   if (!unclaimedAchievement.length > 0) return null;
   return (
-    <>
-      <div>🔔</div>
-    </>
+    <div className={styles.badge}>
+      <Rosette width="20" height="20" />
+    </div>
   );
 }

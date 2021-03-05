@@ -3,18 +3,9 @@ import UserProfilesvg from './UserProfilesvg';
 import UserRadar from './UserRadar';
 import UserDial from './UserDial';
 import { useUserState } from 'src/context/user';
-import { map } from 'lodash';
 
-function UserSidebar(props) {
+function UserSidebar() {
   const { user } = useUserState();
-  let achievements = null;
-
-  // console.log('sidebar');
-  // console.log(props);
-
-  if (props?.achievement) {
-    achievements = props.achievement;
-  }
 
   return (
     <div className={styles.sidebar}>
@@ -33,21 +24,6 @@ function UserSidebar(props) {
           <h4 className={styles.accreditation}>Certificate Progress</h4>
           <UserDial />
         </section>
-        <br></br> <br />
-        {achievements ? (
-          <section className={styles['section-item']}>
-            <h4 className={styles.accreditation}>Achievements</h4>
-
-            {achievements.map((achievement, index) => (
-              <div key={index} className={styles.achievement}>
-                <p>🎉 {achievement.type} 🎉</p>
-                {achievement.claimed === false ? (
-                  <button>Claim it</button>
-                ) : null}
-              </div>
-            ))}
-          </section>
-        ) : null}
       </div>
     </div>
   );

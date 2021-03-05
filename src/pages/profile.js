@@ -65,7 +65,7 @@ export default function Profile() {
     <Layout navtheme="white" pageMeta={pageMeta}>
       <div className={style['profile-page']}>
         <UserSidebar achievement={achievements} />
-        <UserMaincontent />
+        <UserMaincontent achievement={achievements} />
       </div>
     </Layout>
   );

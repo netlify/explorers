@@ -8,6 +8,7 @@ exports.handler = async (event) => {
     event_data
     type
     claimed
+    description
   }
 }`,
     variables: {

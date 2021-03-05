@@ -1,0 +1,40 @@
+.coursecontainer {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.coursecontainer:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.title {
+  text-transform: uppercase;
+  color: teal;
+  margin-left: 0.5rem;
+}
+
+.description {
+  color: #888;
+  padding: 0.5rem;
+}
+
+.btnclaim {
+  background-color: rgb(51, 50, 50);
+  color: white;
+  margin-left: 0.5rem;
+  border-radius: 0.3rem;
+  border-style: hidden;
+  text-transform: uppercase;
+}
+
+.btnclaimed {
+  background-color: grey;
+  color: white;
+  margin-left: 0.5rem;
+  border-radius: 0.3rem;
+  border-style: hidden;
+  text-transform: uppercase;
+}
