@@ -44,10 +44,11 @@ exports.handler = async (event) => {
   console.log({ event });
 
   const payload = JSON.parse(event.body);
+  const { new: relatedAchievement } = payload.event.data;
 
-  console.log({ payload });
+  console.log({ relatedAchievement });
 
-  console.log('This event hook was called!');
+  console.log('This event hook was called 123!');
 
   return {
     statusCode: 200,
