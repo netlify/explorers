@@ -9,16 +9,16 @@ exports.handler = async (event) => {
   if (newAchievement.type !== 'mission-complete') {
     return {
       statusCode: 200,
-      body: 'ok',
+      body: 'OK! No reward needed!',
     };
   }
 
   const newReward = await postToHasura({
     query: `
       mutation AddReward(
-        $achievement_id: Int,
-        $reward_type: String,
-        $reward_data: jsonb
+        $achievement_id: Int!,
+        $reward_type: String!,
+        $reward_data: jsonb!
       ) {
         insert_rewards_one(object: {
           achievement_id: $achievement_id,
@@ -45,7 +45,7 @@ exports.handler = async (event) => {
   if (!newReward) {
     return {
       statusCode: 500,
-      body: 'Oh no!',
+      body: 'Oh no! Check reward ran into an error!',
     };
   }
 
