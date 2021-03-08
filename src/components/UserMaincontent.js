@@ -10,12 +10,9 @@ function UserMaincontent(props) {
   const { user } = useUserState();
   const hasUserActivity = user.activity.userMissions.length;
 
-  console.log(props);
   let achievements = null;
   if (props?.achievement) {
     achievements = props.achievement;
-    console.log('achivement exists');
-    console.log(achievements);
   }
 
   if (!user.activity) {
