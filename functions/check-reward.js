@@ -1,11 +1,14 @@
 const { postToHasura } = require('./util/postToHasura');
 
 exports.handler = async (event) => {
-  console.log({ event });
-
   const payload = JSON.parse(event.body);
   const { new: newAchievement } = payload.event.data;
 
+  /**
+   * Step 1: Check whether achievement meets criteria
+   * for generating a reward. If not, stop function
+   * and move on.
+   */
   if (newAchievement.type !== 'mission-complete') {
     return {
       statusCode: 200,
@@ -13,6 +16,10 @@ exports.handler = async (event) => {
     };
   }
 
+  /**
+   * Step 2: Send request to generate reward.
+   * TODO: Create real reward with Shopify API
+   */
   const newReward = await postToHasura({
     query: `
       mutation AddReward(
@@ -56,6 +63,6 @@ exports.handler = async (event) => {
       'Access-Control-Allow-Headers':
         'Origin, X-Requested-With, Content-Type, Accept',
     },
-    body: 'Totally Ok',
+    body: 'Success! Reward was created successfully!',
   };
 };
