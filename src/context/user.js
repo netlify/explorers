@@ -29,6 +29,7 @@ export function getTokenFromHash() {
     return false;
   }
 
+  console.log(window.location.hash);
   // if there’s a hash, remove the # and parse the rest as a query string
   const querystring = window.location.hash.replace(/^#/, '');
   const { token, csrf } = Object.fromEntries(

@@ -18,6 +18,7 @@
     "chart.js": "^2.9.3",
     "cloudinary": "^1.23.0",
     "dayjs": "^1.9.7",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "fs-extra": "^9.0.1",
     "gsap": "^3.5.1",
     "lodash": "^4.17.20",
@@ -30,6 +31,7 @@
     "react-dom": "^16.13.1",
     "react-svg-radar-chart": "^1.2.0",
     "remove-markdown": "^0.3.0",
+    "sass": "^1.32.8",
     "simple-oauth2": "^4.1.0",
     "uuid": "^8.3.1"
   },
