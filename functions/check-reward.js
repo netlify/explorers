@@ -40,8 +40,12 @@ OPEN QUESTION: can we extend JSONB with Hasura actions?
 
 */
 
-exports.handler = async (...args) => {
-  console.log(args);
+exports.handler = async (event) => {
+  console.log({ event });
+
+  const payload = JSON.parse(event.body);
+
+  console.log({ payload });
 
   console.log('This event hook was called!');
 
