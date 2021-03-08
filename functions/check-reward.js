@@ -6,7 +6,7 @@ exports.handler = async (event) => {
   const payload = JSON.parse(event.body);
   const { new: newAchievement } = payload.event.data;
 
-  if (newAchivement.type !== 'mission-complete') {
+  if (newAchievement.type !== 'mission-complete') {
     return {
       statusCode: 200,
       body: 'ok',
