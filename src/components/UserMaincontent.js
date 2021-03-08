@@ -1,13 +1,22 @@
 import styles from './UserMaincontent.module.css';
 import UserActivityGraph from './UserActivityGraph';
 import UserMissionInfo from './UserMissionInfo';
+import UserAchievementInfo from './UserAchievementInfo';
 import Sun from './Sun';
 import { useUserState } from 'src/context/user';
 import Link from 'next/link';
 
-function UserMaincontent() {
+function UserMaincontent(props) {
   const { user } = useUserState();
   const hasUserActivity = user.activity.userMissions.length;
+
+  console.log(props);
+  let achievements = null;
+  if (props?.achievement) {
+    achievements = props.achievement;
+    console.log('achivement exists');
+    console.log(achievements);
+  }
 
   if (!user.activity) {
     return <p>loading...</p>;
@@ -51,6 +60,15 @@ function UserMaincontent() {
               <UserMissionInfo key={index} mission={mission} />
             ))}
           </div>
+
+          {achievements ? (
+            <div className={styles.profilecard}>
+              <h4 className={styles.profileh4}>Achievements and Rewards</h4>
+              {achievements.map((achievement, index) => (
+                <UserAchievementInfo key={index} achievements={achievement} />
+              ))}
+            </div>
+          ) : null}
         </div>
       </aside>
     );

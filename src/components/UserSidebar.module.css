@@ -21,7 +21,10 @@
   flex: 1;
   padding: 0;
 }
-
+.achievement {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
 @media screen and (min-width: 768px) {
   .sidebar {
     display: block;

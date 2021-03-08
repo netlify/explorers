@@ -7,6 +7,7 @@ import NetlifyLogo from './NetlifyLogo';
 import ExplorersLogo from './ExplorersLogo';
 import Hamburger from './Hamburger';
 
+import AchievementNudge from '@components/AchievementBadge';
 import { useUserState } from 'src/context/user';
 import { useMediaQuery } from '@hooks/useMediaQuery';
 
@@ -103,11 +104,14 @@ function renderUser() {
           <Link href="/profile">
             <a className={styles.profile}>
               <span className={styles.username}>{user.full_name}</span>
-              <img
-                className={styles.avatar}
-                src={user.avatar_url}
-                alt={`${user.full_name}’s avatar`}
-              />
+              <div className={styles.badge}>
+                <img
+                  className={styles.avatar}
+                  src={user.avatar_url}
+                  alt={`${user.full_name}’s avatar`}
+                />
+                <AchievementNudge />
+              </div>
             </a>
           </Link>
         </li>

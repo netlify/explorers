@@ -15,13 +15,11 @@ function UserSidebar() {
           <h3 className={styles.username}>{user.full_name}</h3>
           <h4 className={styles.usertitle}>Captain</h4>
         </section>
-
         <hr className={styles.hr} />
         {/*
           // TODO: when we have categories + more data, we want this back!
           <UserRadar />
         */}
-
         <section className={styles['section-item']}>
           <h4 className={styles.accreditation}>Certificate Progress</h4>
           <UserDial />
