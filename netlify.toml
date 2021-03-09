@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npm run build && time npm ls --all --json"
   publish = "publish"
   functions = "functions"
 
