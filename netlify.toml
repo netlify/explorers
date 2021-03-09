@@ -1,5 +1,5 @@
 [build]
-command = "npm run build && time npm ls --all --json | grep total"
+command = "time npm ls --depth=Infinity --prod | tail -n 10"
 functions = "functions"
 publish = "publish"
 
