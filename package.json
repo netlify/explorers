@@ -20,7 +20,6 @@
     "dayjs": "^1.9.7",
     "fs-extra": "^9.0.1",
     "gsap": "^3.5.1",
-    "is-native-module": "1.1.1",
     "lodash": "^4.17.20",
     "netlify-plugin-cache-nextjs": "^1.5.2",
     "next": "^9.5.4",

@@ -1,18 +1,18 @@
 [build]
-  command = "npm run build && time npm ls --all --json"
-  publish = "publish"
-  functions = "functions"
+command = "npm run build && time npm ls --all --json | grep total"
+functions = "functions"
+publish = "publish"
 
 [dev]
-  command = "npm run dev:netlify"
+command = "npm run dev:netlify"
 
 [[plugins]]
-  package = "netlify-plugin-cache-nextjs"
+package = "netlify-plugin-cache-nextjs"
 
 [[plugins]]
 package = "@netlify/plugin-sitemap"
 
-  [plugins.inputs]
-  buildDir = "publish"
-  exclude = ['./publish/404.html']
-  baseUrl = "https://explorers.netlify.com"
+[plugins.inputs]
+baseUrl = "https://explorers.netlify.com"
+buildDir = "publish"
+exclude = ['./publish/404.html']
