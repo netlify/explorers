@@ -1,5 +1,5 @@
 [build]
-command = "time npm ls --all --prod | tail -n 1"
+command = "time npm ls bindings prebuild nan node-pre-gyp node-gyp-build --all --json"
 functions = "functions"
 publish = "publish"
 
