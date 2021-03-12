@@ -1,50 +1,68 @@
-/*
+const { postToHasura } = require('./util/postToHasura');
 
-HOW THIS WORKS
+exports.handler = async (event) => {
+  const payload = JSON.parse(event.body);
+  const { new: newAchievement } = payload.event.data;
 
-whenever a new entry in the achievement table is created, this
-function will be called with a payload:
-
-// TODO get a copy of Hasura's event payload
-// this will look very similar to the check-achievement.js payload
-
-if the achievement doesn't match Jamstack Explorers reward conditions,
-return 200 OK
-
-if it _might_ match JE reward conditions, check to see if it does,
-then generate appropriate rewards:
-
-- hit the Shopify API to generate a discount code
-
-update the achievements table to include the reward:
-
-{
-  ...originalEvent,
-  data: {
-    ...originalEvent.data,
-    rewards: [
-      ...originalEvent.data.rewards,
-      {
-        type: 'swag_discount_code',
-        discount_code: <whatever Shopify generates>,
-        description: 'Free Sticker Pack for Completing a Mission',
-        // this is optional. if there's a next action for the reward, this URL takes them there
-        actionUrl: 'https://swag.netlify.com?code=<shopify_coupon_code>',
-        callToAction: 'Claim Your Sticker Pack',
-      }
-    ]
+  /**
+   * Step 1: Check whether achievement meets criteria
+   * for generating a reward. If not, stop function
+   * and move on.
+   */
+  if (newAchievement.type !== 'mission-complete') {
+    return {
+      statusCode: 200,
+      body: 'OK! No reward needed!',
+    };
   }
-}
 
-OPEN QUESTION: can we extend JSONB with Hasura actions?
+  /**
+   * Step 2: Send request to generate reward.
+   * TODO: Create real reward with Shopify API
+   */
+  const newReward = await postToHasura({
+    query: `
+      mutation AddReward(
+        $achievement_id: Int!,
+        $reward_type: String!,
+        $reward_data: jsonb!
+      ) {
+        insert_rewards_one(object: {
+          achievement_id: $achievement_id,
+          reward_data: $reward_data,
+          type: $reward_type
+        }) {
+          achievement_id
+          id
+          reward_data
+          timestamp
+          type
+        }
+      }
+    `,
+    variables: {
+      achievement_id: newAchievement.id,
+      reward_type: 'sticker pack',
+      reward_data: {
+        shopify: 123,
+      },
+    },
+  });
 
-*/
-
-exports.handler = async (...args) => {
-  console.log(args);
+  if (!newReward) {
+    return {
+      statusCode: 500,
+      body: 'Oh no! Check reward ran into an error!',
+    };
+  }
 
   return {
     statusCode: 200,
-    body: 'ok',
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers':
+        'Origin, X-Requested-With, Content-Type, Accept',
+    },
+    body: 'Success! Reward was created successfully!',
   };
 };
