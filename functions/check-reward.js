@@ -4,12 +4,8 @@ const {
 } = require('./util/createShopifyDiscountCode');
 
 exports.handler = async (event) => {
-  // const payload = JSON.parse(event.body);
-  // const { new: newAchievement } = payload.event.data
-
-  const newAchievement = {
-    type: 'mission-complete',
-  };
+  const payload = JSON.parse(event.body);
+  const { new: newAchievement } = payload.event.data;
 
   /**
    * Step 1: Check whether achievement meets criteria
