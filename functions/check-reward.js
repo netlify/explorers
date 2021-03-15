@@ -19,9 +19,8 @@ exports.handler = async (event) => {
     };
   }
 
-  const shopifyDiscountCode = await createShopifyDiscountCode();
-
-  console.log({ shopifyDiscountCode });
+  const { priceRuleCreate } = await createShopifyDiscountCode();
+  const { priceRuleDiscountCode: shopifyDiscountCode } = priceRuleCreate;
 
   /**
    * Step 2: Send request to generate reward.
@@ -51,7 +50,7 @@ exports.handler = async (event) => {
       achievement_id: newAchievement.id,
       reward_type: 'sticker pack',
       reward_data: {
-        ...shopifyDiscountCode.priceRuleDiscountCode,
+        ...shopifyDiscountCode,
       },
     },
   });
