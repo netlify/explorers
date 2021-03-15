@@ -1,3 +1,8 @@
+/**
+ * This function is called by the Shopify webhook
+ * whenever an order is created.
+ */
+
 const { postToHasura } = require('./util/postToHasura');
 
 exports.handler = async (event) => {
