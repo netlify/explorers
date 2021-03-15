@@ -96,13 +96,15 @@ exports.handler = async (event) => {
             app: $app,
             event_data: $event_data,
             type: $type,
-            user_id: $user_id
+            user_id: $user_id,
+            description: $description
           }) {
             app
             event_data
             timestamp
             type
-            user_id
+            user_id,
+            description
           }
         }`,
     variables: {
@@ -110,6 +112,8 @@ exports.handler = async (event) => {
       event_data: {},
       type: 'mission-complete',
       user_id: newActivity.user_id,
+      description:
+        'Work through every stage in a mission to earn credits in the Netlify Swag Store',
     },
   });
 
