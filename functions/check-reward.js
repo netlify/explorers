@@ -19,12 +19,13 @@ exports.handler = async (event) => {
     };
   }
 
-  const { priceRuleCreate } = await createShopifyDiscountCode();
+  const { priceRuleCreate } = await createShopifyDiscountCode(
+    newAchievement.id
+  );
   const { priceRuleDiscountCode: shopifyDiscountCode } = priceRuleCreate;
 
   /**
    * Step 2: Send request to generate reward.
-   * TODO: Create real reward with Shopify API
    */
   const newReward = await postToHasura({
     query: `
