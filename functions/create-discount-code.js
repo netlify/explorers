@@ -1,7 +1,11 @@
+const { postToHasura } = require('./util/postToHasura');
 const { postToShopify } = require('./util/postToSpotify');
 
 exports.handler = async (event) => {
   const payload = JSON.parse(event.body);
+
+  console.log({ event });
+  console.log({ payload });
 
   const newPriceRuleAndDiscountCode = await postToShopify({
     query: `
@@ -56,6 +60,26 @@ exports.handler = async (event) => {
       body: 'Oh no! Creating a price rule did not work :(',
     };
   }
+
+  // const updateRewardsInfo = await postToHasura({
+  //   query: `
+  //     mutation MyMutation($reward_data: jsonb!) {
+  //       update_rewards(_set: {reward_data: $reward_data}, where: {id: {_eq: 41}}) {
+  //         affected_rows
+  //         returning {
+  //           id
+  //           reward_data
+  //         }
+  //       }
+  //     }
+  //   `,
+  //   variables: {
+  //     reward_data: {
+  //       discountCode: 'test123',
+  //       claimed: 0,
+  //     },
+  //   },
+  // });
 
   return {
     statusCode: 200,
