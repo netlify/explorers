@@ -1,4 +1,5 @@
 const { postToShopify } = require('./postToShopify');
+const { v4: uuidv4 } = require('uuid');
 
 exports.createShopifyDiscountCode = async () => {
   const newDiscountCode = await postToShopify({
@@ -40,14 +41,14 @@ exports.createShopifyDiscountCode = async () => {
         title: 'Free Stickers',
         usageLimit: 1,
         validityPeriod: {
-          start: '2021-03-08',
+          start: new Date(),
         },
         value: {
           percentageValue: -100,
         },
       },
       priceRuleDiscountCode: {
-        code: 'phil-12843',
+        code: uuidv4(),
       },
     },
   });
