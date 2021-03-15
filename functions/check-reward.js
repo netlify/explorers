@@ -4,8 +4,12 @@ const {
 } = require('./util/createShopifyDiscountCode');
 
 exports.handler = async (event) => {
-  const payload = JSON.parse(event.body);
-  const { new: newAchievement } = payload.event.data;
+  // const payload = JSON.parse(event.body);
+  // const { new: newAchievement } = payload.event.data
+
+  const newAchievement = {
+    type: 'mission-complete',
+  };
 
   /**
    * Step 1: Check whether achievement meets criteria
@@ -19,7 +23,7 @@ exports.handler = async (event) => {
     };
   }
 
-  const shopifyDiscountCode = createShopifyDiscountCode();
+  const shopifyDiscountCode = await createShopifyDiscountCode();
 
   console.log({ shopifyDiscountCode });
 
@@ -51,7 +55,7 @@ exports.handler = async (event) => {
       achievement_id: newAchievement.id,
       reward_type: 'sticker pack',
       reward_data: {
-        shopify: 123,
+        ...shopifyDiscountCode.priceRuleDiscountCode,
       },
     },
   });

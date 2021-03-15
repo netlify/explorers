@@ -5,8 +5,12 @@ exports.createShopifyDiscountCode = async () => {
     query: `
       mutation priceRuleCreate(
         $priceRule: PriceRuleInput!,
-        $priceRuleDiscountCode:PriceRuleDiscountCodeInput!
+        $priceRuleDiscountCode: PriceRuleDiscountCodeInput!
       ) {
+        priceRuleCreate(
+          priceRule: $priceRule,
+          priceRuleDiscountCode: $priceRuleDiscountCode
+        ) {
           priceRule {
             id
           }
@@ -21,6 +25,7 @@ exports.createShopifyDiscountCode = async () => {
             message
           }
         }
+      }
     `,
     variables: {
       priceRule: {
@@ -35,7 +40,6 @@ exports.createShopifyDiscountCode = async () => {
         title: 'Free Stickers',
         usageLimit: 1,
         validityPeriod: {
-          // TODO: Update dynamic date
           start: '2021-03-08',
         },
         value: {
@@ -43,13 +47,10 @@ exports.createShopifyDiscountCode = async () => {
         },
       },
       priceRuleDiscountCode: {
-        // TODO: Create unique discount code
-        code: 'test456',
+        code: 'phil-12843',
       },
     },
   });
-
-  console.log(newDiscountCode);
 
   return newDiscountCode;
 };
