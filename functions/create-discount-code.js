@@ -1,32 +1,30 @@
-const { postToShopify } = require('./util/postToSpotify');
+const { postToShopify } = require('./util/postToShopify');
 
-exports.handler = async (event) => {
-  const payload = JSON.parse(event.body);
-
+exports.handler = async () => {
   const newPriceRuleAndDiscountCode = await postToShopify({
     query: `
-      mutation priceRuleCreate($priceRule: PriceRuleInput!) {
-        priceRuleCreate(priceRule: $priceRule) {
-          priceRule {
-            id
-          }
-          priceRuleDiscountCode {
-            id
-            code
-            usageCount
-          }
-          priceRuleUserErrors {
-            code
-            field
-            message
-          }
-        }
-      }
+mutation priceRuleCreate($priceRule: PriceRuleInput!, $priceRuleDiscountCode:PriceRuleDiscountCodeInput!) {
+  priceRuleCreate(priceRule: $priceRule, priceRuleDiscountCode: $priceRuleDiscountCode) {
+    priceRule {
+      id
+    }
+    priceRuleDiscountCode {
+      id
+      code
+      usageCount
+    }
+    priceRuleUserErrors {
+      code
+      field
+      message
+    }
+  }
+}
+
     `,
     // TODO: Make values dynamic
     variables: {
       priceRule: {
-        allocationLimit: 1,
         allocationMethod: 'EACH',
         customerSelection: {
           forAllCustomers: true,
