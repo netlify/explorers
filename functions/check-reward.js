@@ -1,4 +1,7 @@
 const { postToHasura } = require('./util/postToHasura');
+const {
+  createShopifyDiscountCode,
+} = require('./util/createShopifyDiscountCode');
 
 exports.handler = async (event) => {
   const payload = JSON.parse(event.body);
@@ -15,6 +18,10 @@ exports.handler = async (event) => {
       body: 'OK! No reward needed!',
     };
   }
+
+  const shopifyDiscountCode = createShopifyDiscountCode();
+
+  console.log({ shopifyDiscountCode });
 
   /**
    * Step 2: Send request to generate reward.
