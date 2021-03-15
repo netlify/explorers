@@ -6,6 +6,10 @@ const {
 exports.handler = async (event) => {
   const payload = JSON.parse(event.body);
   const { new: newAchievement } = payload.event.data;
+  const { priceRuleCreate } = await createShopifyDiscountCode(
+    newAchievement.id
+  );
+  const { priceRuleDiscountCode: shopifyDiscountCode } = priceRuleCreate;
 
   /**
    * Step 1: Check whether achievement meets criteria
@@ -19,10 +23,12 @@ exports.handler = async (event) => {
     };
   }
 
-  const { priceRuleCreate } = await createShopifyDiscountCode(
-    newAchievement.id
-  );
-  const { priceRuleDiscountCode: shopifyDiscountCode } = priceRuleCreate;
+  if (!shopifyDiscountCode) {
+    return {
+      statusCode: 500,
+      body: 'Unable to create Shopify reward.',
+    };
+  }
 
   /**
    * Step 2: Send request to generate reward.
