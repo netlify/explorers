@@ -10,7 +10,8 @@ exports.handler = async (event) => {
     query: `
       mutation priceRuleCreate(
         $priceRule: PriceRuleInput!,
-        $priceRuleDiscountCode:PriceRuleDiscountCodeInput!) {
+        $priceRuleDiscountCode:PriceRuleDiscountCodeInput!
+      ) {
           priceRule {
             id
           }
@@ -25,9 +26,7 @@ exports.handler = async (event) => {
             message
           }
         }
-      }
     `,
-    // TODO: Make values dynamic
     variables: {
       priceRule: {
         allocationMethod: 'EACH',
@@ -41,6 +40,7 @@ exports.handler = async (event) => {
         title: 'Free Stickers',
         usageLimit: 1,
         validityPeriod: {
+          // TODO: Update dynamic date
           start: '2021-03-08',
         },
         value: {
@@ -48,6 +48,7 @@ exports.handler = async (event) => {
         },
       },
       priceRuleDiscountCode: {
+        // TODO: Create unique discount code
         code: 'test456',
       },
     },
