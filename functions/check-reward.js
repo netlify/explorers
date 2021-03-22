@@ -1,8 +1,15 @@
 const { postToHasura } = require('./util/postToHasura');
+const {
+  createShopifyDiscountCode,
+} = require('./util/createShopifyDiscountCode');
 
 exports.handler = async (event) => {
   const payload = JSON.parse(event.body);
   const { new: newAchievement } = payload.event.data;
+  const { priceRuleCreate } = await createShopifyDiscountCode(
+    newAchievement.id
+  );
+  const { priceRuleDiscountCode: shopifyDiscountCode } = priceRuleCreate;
 
   /**
    * Step 1: Check whether achievement meets criteria
@@ -16,9 +23,15 @@ exports.handler = async (event) => {
     };
   }
 
+  if (!shopifyDiscountCode) {
+    return {
+      statusCode: 500,
+      body: 'Unable to create Shopify reward.',
+    };
+  }
+
   /**
    * Step 2: Send request to generate reward.
-   * TODO: Create real reward with Shopify API
    */
   const newReward = await postToHasura({
     query: `
@@ -44,7 +57,7 @@ exports.handler = async (event) => {
       achievement_id: newAchievement.id,
       reward_type: 'sticker pack',
       reward_data: {
-        shopify: 123,
+        ...shopifyDiscountCode,
       },
     },
   });
