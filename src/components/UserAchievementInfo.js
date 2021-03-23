@@ -1,9 +1,10 @@
 // import styles from './UserCourseInfo.module.css';
 import styles from './UserAchievement.module.css';
 import Rosette from '@components/Rosette';
-import Link from 'next/link';
 
 function UserAchievementInfo({ achievements }) {
+  const [showCode, setShowCode] = React.useState(false);
+  const disCountCode = achievements.rewards[0].reward_data.code;
   return (
     <div className={styles.coursecontainer}>
       <div className={styles.coverimage}>
@@ -17,9 +18,26 @@ function UserAchievementInfo({ achievements }) {
           <p>{achievements.description}</p>
         </div>
         <div>
-          {achievements.claimed === false ? (
-            <button className={styles.btnclaim}>Claim Reward</button>
-          ) : achievements.claimed === true ? (
+          {achievements.rewards[0].is_claimed === false ? (
+            <div>
+              <button
+                onClick={() => setShowCode(true)}
+                className={styles.btnclaim}
+              >
+                Claim Reward
+              </button>
+              {showCode ? (
+                <p
+                  onClick={() => {
+                    navigator.clipboard.writeText(disCountCode);
+                  }}
+                  className={styles.discount}
+                >
+                  Your Discount Code 👉🏼👉🏼 {disCountCode}
+                </p>
+              ) : null}
+            </div>
+          ) : achievements.rewards[0].is_claimed === true ? (
             <button className={styles.btnclaimed}>Claimed </button>
           ) : null}
         </div>

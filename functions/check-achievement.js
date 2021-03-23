@@ -113,7 +113,7 @@ exports.handler = async (event) => {
       type: 'mission-complete',
       user_id: newActivity.user_id,
       description:
-        'Work through every stage in a mission to earn credits in the Netlify Swag Store',
+        'You completed every stage in a mission to earn this reward in the Netlify Swag Store. Go ahead and claim your reward enjoy!',
     },
   });
 

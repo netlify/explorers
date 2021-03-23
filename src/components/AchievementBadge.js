@@ -15,7 +15,7 @@ export default function AchievementNudge() {
   const unclaimedAchievement =
     (achievements &&
       achievements
-        .filter((achievement) => achievement.claimed == false)
+        .filter((achievement) => achievement.rewards[0].is_claimed == false)
         .map(({ claimed }) => ({
           claimed,
         }))) ||

@@ -28,6 +28,7 @@
   border-radius: 0.3rem;
   border-style: hidden;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .btnclaimed {
@@ -37,4 +38,11 @@
   border-radius: 0.3rem;
   border-style: hidden;
   text-transform: uppercase;
+}
+
+.discount {
+  margin: 1rem;
+  cursor: copy;
+  color: teal;
+  font-size: 1em;
 }

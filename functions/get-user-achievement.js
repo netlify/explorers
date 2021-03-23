@@ -7,10 +7,12 @@ exports.handler = async (event) => {
   achievements(where: {user_id: {_eq: $user_id}, }) {
     event_data
     type
-    claimed
     description
+    rewards{is_claimed id reward_data type }
   }
-}`,
+}
+`,
+
     variables: {
       user_id: `${params.user_id}`,
     },
