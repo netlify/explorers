@@ -1,41 +1,48 @@
-// import styles from './UserCourseInfo.module.css';
-import styles from './UserAchievement.module.css';
+import styles from './UserAchievementInfo.module.css';
 import Rosette from '@components/Rosette';
+import Link from 'next/link';
 
 function UserAchievementInfo({ achievements }) {
-  const [showCode, setShowCode] = React.useState(false);
   const disCountCode = achievements.rewards[0].reward_data.code;
   return (
-    <div className={styles.coursecontainer}>
-      <div className={styles.coverimage}>
+    <div className={styles.achievementcontainer}>
+      <div>
         <Rosette width="35" height="35" />
       </div>
-      <div className={styles.content}>
+      <div>
         <div className={styles.title}>
-          <p className={styles.courseLink}>{achievements.type}</p>
+          <p>{achievements.type}</p>
         </div>
         <div className={styles.description}>
           <p>{achievements.description}</p>
         </div>
         <div>
           {achievements.rewards[0].is_claimed === false ? (
-            <div>
-              <button
-                onClick={() => setShowCode(true)}
-                className={styles.btnclaim}
-              >
-                Claim Reward
-              </button>
-              {showCode ? (
+            <div className={styles.rewardcontent}>
+              <button className={styles.btnclaim}>Reward Unlocked</button>
+              <div className={styles.description}>
+                <p>
+                  Congratulations, explorer! You've unlocked this reward code
+                  below, which you can use at the{' '}
+                  <Link href="https://swag.netlify.com/">
+                    <a>Netlify Swag Store</a>
+                  </Link>{' '}
+                  during checkout to get{' '}
+                  <Link href="https://swag.netlify.com/product/jamstack-sticker-packs">
+                    <a>these stickers</a>
+                  </Link>{' '}
+                  for free!
+                </p>
+              </div>
+              <div className={styles.discount}>
                 <p
                   onClick={() => {
                     navigator.clipboard.writeText(disCountCode);
                   }}
-                  className={styles.discount}
                 >
-                  Your Discount Code 👉🏼👉🏼 {disCountCode}
+                  {disCountCode}
                 </p>
-              ) : null}
+              </div>
             </div>
           ) : achievements.rewards[0].is_claimed === true ? (
             <button className={styles.btnclaimed}>Claimed </button>

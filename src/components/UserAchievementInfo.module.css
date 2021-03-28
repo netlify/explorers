@@ -1,11 +1,11 @@
-.coursecontainer {
+.achievementcontainer {
   display: flex;
   margin-bottom: 20px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
 
-.coursecontainer:last-child {
+.achievementcontainer:last-child {
   border-bottom: none;
   margin-bottom: 0;
 }
@@ -22,13 +22,12 @@
 }
 
 .btnclaim {
-  background-color: rgb(51, 50, 50);
+  background-color: rgb(105, 103, 103);
   color: white;
   margin-left: 0.5rem;
   border-radius: 0.3rem;
   border-style: hidden;
   text-transform: uppercase;
-  cursor: pointer;
 }
 
 .btnclaimed {
@@ -41,8 +40,16 @@
 }
 
 .discount {
-  margin: 1rem;
+  margin-left: 0.5rem;
   cursor: copy;
-  color: teal;
+  color: #888;
+  padding: 0.5rem;
+  text-align: center;
   font-size: 1em;
+  border-radius: 0.3rem;
+  background-color: rgb(228, 228, 228);
+  text-transform: uppercase;
+  border-color: rgb(195, 195, 195);
+  border-style: solid;
+  border-width: thin;
 }
