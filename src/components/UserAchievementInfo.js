@@ -1,6 +1,5 @@
 import styles from './UserAchievementInfo.module.css';
 import Rosette from '@components/Rosette';
-import Link from 'next/link';
 
 function UserAchievementInfo({ achievements }) {
   const disCountCode = achievements.rewards[0].reward_data.code;
@@ -22,15 +21,18 @@ function UserAchievementInfo({ achievements }) {
               <button className={styles.btnclaim}>Reward Unlocked</button>
               <div className={styles.description}>
                 <p>
-                  Congratulations, explorer! You've unlocked this reward code
-                  below, which you can use at the{' '}
-                  <Link href="https://swag.netlify.com/">
-                    <a>Netlify Swag Store</a>
-                  </Link>{' '}
+                  Congratulations, Explorer! You've unlocked the reward code
+                  below, which you can copy and use at the{' '}
+                  <a className={styles.link} href="https://swag.netlify.com/">
+                    Netlify Swag Store
+                  </a>{' '}
                   during checkout to get{' '}
-                  <Link href="https://swag.netlify.com/product/jamstack-sticker-packs">
-                    <a>these stickers</a>
-                  </Link>{' '}
+                  <a
+                    className={styles.link}
+                    href="https://swag.netlify.com/product/jamstack-sticker-packs"
+                  >
+                    these stickers
+                  </a>{' '}
                   for free!
                 </p>
               </div>

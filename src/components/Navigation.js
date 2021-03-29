@@ -1,13 +1,10 @@
 import Link from 'next/link';
 import { useState } from 'react';
-
 import styles from './Navigation.module.css';
-
 import NetlifyLogo from './NetlifyLogo';
 import ExplorersLogo from './ExplorersLogo';
 import Hamburger from './Hamburger';
-
-import AchievementNudge from '@components/AchievementBadge';
+import AchievementBadge from '@components/AchievementBadge';
 import { useUserState } from 'src/context/user';
 import { useMediaQuery } from '@hooks/useMediaQuery';
 
@@ -110,7 +107,7 @@ function renderUser() {
                   src={user.avatar_url}
                   alt={`${user.full_name}’s avatar`}
                 />
-                <AchievementNudge />
+                <AchievementBadge />
               </div>
             </a>
           </Link>
