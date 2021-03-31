@@ -25,7 +25,7 @@
   background-color: rgb(105, 103, 103);
   color: white;
   margin-left: 0.5rem;
-  border-radius: 0.3rem;
+  border-radius: 0.2rem;
   border-style: hidden;
   text-transform: uppercase;
 }
@@ -34,7 +34,7 @@
   background-color: grey;
   color: white;
   margin-left: 0.5rem;
-  border-radius: 0.3rem;
+  border-radius: 0.2rem;
   border-style: hidden;
   text-transform: uppercase;
 }
@@ -52,9 +52,4 @@
   border-color: rgb(195, 195, 195);
   border-style: solid;
   border-width: thin;
-}
-.link {
-  color: #888;
-  font-weight: bold;
-  text-decoration: underline;
 }

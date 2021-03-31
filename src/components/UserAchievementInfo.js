@@ -20,17 +20,12 @@ function UserAchievementInfo({ achievements }) {
             <div className={styles.rewardcontent}>
               <button className={styles.btnclaim}>Reward Unlocked</button>
               <div className={styles.description}>
-                <p>
+                <p className="rewards">
                   Congratulations, Explorer! You've unlocked the reward code
                   below, which you can copy and use at the{' '}
-                  <a className={styles.link} href="https://swag.netlify.com/">
-                    Netlify Swag Store
-                  </a>{' '}
+                  <a href="https://swag.netlify.com/">Netlify Swag Store</a>{' '}
                   during checkout to get{' '}
-                  <a
-                    className={styles.link}
-                    href="https://swag.netlify.com/product/jamstack-sticker-packs"
-                  >
+                  <a href="https://swag.netlify.com/product/jamstack-sticker-packs">
                     these stickers
                   </a>{' '}
                   for free!
