@@ -1,25 +1,47 @@
-// import styles from './UserCourseInfo.module.css';
-import styles from './UserAchievement.module.css';
+import styles from './UserAchievementInfo.module.css';
 import Rosette from '@components/Rosette';
-import Link from 'next/link';
 
 function UserAchievementInfo({ achievements }) {
+  const disCountCode = achievements.rewards[0].reward_data.code;
   return (
-    <div className={styles.coursecontainer}>
-      <div className={styles.coverimage}>
+    <div className={styles.achievementcontainer}>
+      <div>
         <Rosette width="35" height="35" />
       </div>
-      <div className={styles.content}>
+      <div>
         <div className={styles.title}>
-          <p className={styles.courseLink}>{achievements.type}</p>
+          <p>{achievements.type}</p>
         </div>
         <div className={styles.description}>
           <p>{achievements.description}</p>
         </div>
         <div>
-          {achievements.claimed === false ? (
-            <button className={styles.btnclaim}>Claim Reward</button>
-          ) : achievements.claimed === true ? (
+          {achievements.rewards[0].is_claimed === false ? (
+            <div className={styles.rewardcontent}>
+              <button className={styles.btnclaim}>Reward Unlocked</button>
+              <div className={styles.description}>
+                <p className="rewards">
+                  Congratulations, Explorer! You've unlocked the reward code
+                  below, which you can copy and use at the{' '}
+                  <a href="https://swag.netlify.com/">Netlify Swag Store</a>{' '}
+                  during checkout to get{' '}
+                  <a href="https://swag.netlify.com/product/jamstack-sticker-packs">
+                    these stickers
+                  </a>{' '}
+                  for free!
+                </p>
+              </div>
+              <div className={styles.discount}>
+                <p
+                  onClick={() => {
+                    navigator.clipboard.writeText(disCountCode);
+                  }}
+                >
+                  {disCountCode}
+                </p>
+              </div>
+            </div>
+          ) : achievements.rewards[0].is_claimed === true ? (
             <button className={styles.btnclaimed}>Claimed </button>
           ) : null}
         </div>

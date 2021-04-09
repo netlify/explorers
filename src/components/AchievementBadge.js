@@ -14,11 +14,9 @@ export default function AchievementNudge() {
 
   const unclaimedAchievement =
     (achievements &&
-      achievements
-        .filter((achievement) => achievement.claimed == false)
-        .map(({ claimed }) => ({
-          claimed,
-        }))) ||
+      achievements.filter(
+        (achievement) => achievement.rewards[0].is_claimed == false
+      )) ||
     [];
 
   if (!unclaimedAchievement.length > 0) return null;
