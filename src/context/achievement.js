@@ -7,7 +7,7 @@ export function AchievementProvider({ children }) {
   const { user } = useUserState();
 
   const getAchievement = async () => {
-    const result = await fetch('.netlify/functions/get-user-achievement', {
+    const result = await fetch('/.netlify/functions/get-user-achievement', {
       method: 'POST',
       body: JSON.stringify({ user_id: user.id }),
     }).then((res) => res.json());
