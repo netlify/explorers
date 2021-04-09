@@ -90,6 +90,7 @@ exports.handler = async (event) => {
           $event_data: jsonb!,
           $type: String!,
           $user_id: String!,
+          $description: String!,
         )
        {
           insert_achievements_one(object: {
