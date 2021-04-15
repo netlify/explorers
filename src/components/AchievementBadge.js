@@ -1,5 +1,4 @@
 import { useAchievementState } from '@context/achievement';
-import { useRouter } from 'next/router';
 import Rosette from '@components/Rosette';
 import styles from './AchievementBadge.module.css';
 export default function AchievementNudge() {
@@ -8,7 +7,7 @@ export default function AchievementNudge() {
   const unclaimedAchievement =
     (achievements &&
       achievements.filter(
-        (achievement) => achievement.rewards[0].is_claimed == false
+        (achievement) => achievement?.rewards?.[0]?.is_claimed === false
       )) ||
     [];
 
