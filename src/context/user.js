@@ -1,4 +1,5 @@
 import netlifyActivity from '@netlify/activity-hub';
+import { useRouter } from 'next/router';
 
 const UserStateContext = React.createContext();
 
@@ -23,13 +24,12 @@ export function redirectToOAuth(returnURL) {
   window.location.href = `/.netlify/functions/auth?url=${successURL}&csrf=${csrfToken}`;
 }
 
-export function getTokenFromHash() {
+export function getTokenFromHash(router) {
   // if there’s no hash, do nothing
   if (!window.location.hash) {
     return false;
   }
 
-  console.log(window.location.hash);
   // if there’s a hash, remove the # and parse the rest as a query string
   const querystring = window.location.hash.replace(/^#/, '');
   const { token, csrf } = Object.fromEntries(
@@ -52,16 +52,13 @@ export function getTokenFromHash() {
   );
 
   // remove the hash from the URL so no one accidentally copy-pastes it
-  window.history.pushState(
-    '',
-    document.title,
-    window.location.pathname + window.location.search
-  );
+  router.push(window.location.pathname, undefined, { shallow: true });
 
   return token;
 }
 
 export function UserProvider({ children }) {
+  const router = useRouter();
   const [status, setStatus] = React.useState('loading');
   const [token, setToken] = React.useState();
   const [user, setUser] = React.useState();
@@ -126,7 +123,7 @@ export function UserProvider({ children }) {
       ? JSON.parse(storedToken)?.access_token
       : false;
 
-    setToken(getTokenFromHash() || accessToken);
+    setToken(getTokenFromHash(router) || accessToken);
   }, []);
 
   React.useEffect(() => {
