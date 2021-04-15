@@ -122,6 +122,7 @@ exports.handler = async (event) => {
 
   if (!achievements) {
     console.error({ achievements });
+    console.error(JSON.stringify(achievements.extensions));
 
     return {
       statusCode: 500,
