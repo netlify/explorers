@@ -118,12 +118,11 @@ exports.handler = async (event) => {
       description:
         'Work through every stage in a mission to earn credits in the Netlify Swag Store',
     },
+  }).then((data) => {
+    console.log(data);
   });
 
   if (!achievements) {
-    console.error({ achievements });
-    console.error(JSON.stringify(achievements.extensions));
-
     return {
       statusCode: 500,
       body: 'Oh no!',
