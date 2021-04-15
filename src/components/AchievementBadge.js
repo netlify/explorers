@@ -5,13 +5,6 @@ import styles from './AchievementBadge.module.css';
 export default function AchievementNudge() {
   const { achievements, getAchievement } = useAchievementState();
 
-  const router = useRouter();
-
-  router.events.on('routeChangeStart', async (url) => {
-    // console.log('route changed to ' + url);
-    await getAchievement();
-  });
-
   const unclaimedAchievement =
     (achievements &&
       achievements.filter(
