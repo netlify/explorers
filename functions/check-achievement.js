@@ -119,6 +119,8 @@ exports.handler = async (event) => {
   });
 
   if (!achievements) {
+    console.error({ achievements });
+
     return {
       statusCode: 500,
       body: 'Oh no!',
