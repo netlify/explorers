@@ -76,6 +76,8 @@ exports.handler = async (event) => {
   const payload = JSON.parse(event.body);
   const { new: newActivity } = payload.event.data;
 
+  console.log({ payload });
+
   if (newActivity.type !== 'mission-complete') {
     console.log('!mission-complete');
     return {
