@@ -25,12 +25,12 @@ exports.handler = async (event) => {
   if (!discountCodes.length > 0) {
     console.error('Failed to retrieve discount codes from Shopify');
     return {
-      statusCode: 500,
+      statusCode: 200,
       body: 'Failed to retrieve discount codes from Shopify',
     };
   }
 
-  if (!allRewards.length > 0) {
+  if (!allRewards.rewards.length > 0) {
     console.error('Failed to retrieve rewards from Hasura');
     return {
       statusCode: 500,
