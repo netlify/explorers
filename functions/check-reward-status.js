@@ -7,8 +7,9 @@ const { postToHasura } = require('./util/postToHasura');
 
 exports.handler = async (event) => {
   const payload = JSON.parse(event.body);
-  console.dir(payload, { depth: Infinity });
   const { discount_codes: discountCodes } = payload;
+
+  console.log({ discountCodes, discount_codes: payload.discount_codes });
 
   const allRewards = await postToHasura({
     query: `
@@ -21,14 +22,16 @@ exports.handler = async (event) => {
     `,
   });
 
-  if (!discountCodes) {
+  if (!discountCodes.length > 0) {
+    console.error('Failed to retrieve discount codes from Shopify');
     return {
       statusCode: 500,
       body: 'Failed to retrieve discount codes from Shopify',
     };
   }
 
-  if (!allRewards) {
+  if (!allRewards.length > 0) {
+    console.error('Failed to retrieve rewards from Hasura');
     return {
       statusCode: 500,
       body: 'Failed to retrieve rewards from Hasura',
