@@ -52,7 +52,7 @@ export function getTokenFromHash(router) {
   );
 
   // remove the hash from the URL so no one accidentally copy-pastes it
-  router.push(window.location.pathname, undefined, { shallow: true });
+  router.replace(window.location.pathname, undefined, { shallow: true });
 
   return token;
 }
