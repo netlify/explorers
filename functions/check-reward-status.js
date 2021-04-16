@@ -41,7 +41,7 @@ exports.handler = async (event) => {
   discountCodes.forEach(async (discountCode) => {
     try {
       const discountCodeMatch = allRewards.rewards.find(
-        (item) => item.reward_data.code === discountCode
+        (item) => item.reward_data.code === discountCode.code
       );
 
       if (discountCodeMatch) {
