@@ -7,6 +7,7 @@ const { postToHasura } = require('./util/postToHasura');
 
 exports.handler = async (event) => {
   const payload = JSON.parse(event.body);
+  console.dir(payload, { depth: Infinity });
   const { discount_codes: discountCodes } = payload;
 
   const allRewards = await postToHasura({
@@ -41,6 +42,7 @@ exports.handler = async (event) => {
       );
 
       if (discountCodeMatch) {
+        console.log('Found a discount code!');
         await postToHasura({
           query: `
             mutation MyMutation($reward_id: Int!) {
@@ -65,6 +67,8 @@ exports.handler = async (event) => {
       console.error('Failure to update rewards: ', err);
     }
   });
+
+  console.log('hello?');
 
   return {
     statusCode: 200,
