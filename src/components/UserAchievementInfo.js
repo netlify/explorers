@@ -2,7 +2,12 @@ import styles from './UserAchievementInfo.module.css';
 import Rosette from '@components/Rosette';
 
 function UserAchievementInfo({ achievements }) {
-  const disCountCode = achievements.rewards[0].reward_data.code;
+  const discountCode = achievements?.rewards?.[0]?.reward_data?.code || false;
+
+  if (!discountCode) {
+    return null;
+  }
+
   return (
     <div className={styles.achievementcontainer}>
       <div>
@@ -34,10 +39,10 @@ function UserAchievementInfo({ achievements }) {
               <div className={styles.discount}>
                 <p
                   onClick={() => {
-                    navigator.clipboard.writeText(disCountCode);
+                    navigator.clipboard.writeText(discountCode);
                   }}
                 >
-                  {disCountCode}
+                  {discountCode}
                 </p>
               </div>
             </div>

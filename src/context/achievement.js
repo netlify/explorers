@@ -7,11 +7,23 @@ export function AchievementProvider({ children }) {
   const { user } = useUserState();
 
   const getAchievement = async () => {
-    const result = await fetch('/.netlify/functions/get-user-achievement', {
-      method: 'POST',
-      body: JSON.stringify({ user_id: user.id }),
-    }).then((res) => res.json());
-    setAchievements(result.achievements);
+    const achievements = await fetch(
+      '/.netlify/functions/get-user-achievement',
+      {
+        method: 'POST',
+        body: JSON.stringify({ user_id: user.id }),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const filtered = data.achievements.filter((a) => {
+          return a.rewards.length > 0;
+        });
+
+        return filtered;
+      });
+
+    setAchievements(achievements);
     setStatus('loaded');
   };
 
