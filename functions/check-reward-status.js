@@ -45,8 +45,7 @@ exports.handler = async (event) => {
       );
 
       if (discountCodeMatch) {
-        console.log('Found a discount code!');
-        console.log({ discountCodeMatch });
+        console.log('Discount code found!');
         const postResults = await postToHasura({
           query: `
             mutation UpdateRewardStatus($reward_id: Int!) {
@@ -66,8 +65,6 @@ exports.handler = async (event) => {
             reward_id: discountCodeMatch.id,
           },
         });
-        console.log({ postResults });
-        console.log('New log after post call');
       }
     } catch (err) {
       console.error('Failure to update rewards: ', err);
@@ -80,7 +77,6 @@ exports.handler = async (event) => {
   });
 
   await Promise.all(discountPromises);
-  console.log('Everything is done');
 
   return {
     statusCode: 200,
