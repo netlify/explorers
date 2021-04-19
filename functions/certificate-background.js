@@ -177,6 +177,7 @@ exports.handler = async (event, context) => {
   })
 
   console.log(`Time to return ${name} ${date}`);
+  
   console.log(writer.getContents().toString("base64"));
  
 
