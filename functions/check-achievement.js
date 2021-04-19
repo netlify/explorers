@@ -112,7 +112,7 @@ exports.handler = async (event) => {
         }`,
     variables: {
       app: newActivity.app,
-      event_data: {},
+      event_data: newActivity.event_data,
       type: 'mission-complete',
       user_id: newActivity.user_id,
       description:
