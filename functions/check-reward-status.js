@@ -47,7 +47,7 @@ exports.handler = async (event) => {
       if (discountCodeMatch) {
         console.log('Found a discount code!');
         console.log({ discountCodeMatch });
-        await postToHasura({
+        const postResults = await postToHasura({
           query: `
             mutation UpdateRewardStatus($reward_id: Int!) {
               update_rewards(
@@ -66,6 +66,7 @@ exports.handler = async (event) => {
             reward_id: discountCodeMatch.id,
           },
         });
+        console.log({ postResults });
       }
     } catch (err) {
       console.error('Failure to update rewards: ', err);
