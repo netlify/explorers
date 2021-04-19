@@ -18,7 +18,7 @@ function UserDial() {
     event.preventDefault();
 
     const certURL = new URL(
-      'https://azcertificate.azurewebsites.net/api/Certificate'
+      window.location.origin + '/.netlify/functions/certificate-3-missions'
     );
     certURL.searchParams.set('name', user.full_name);
     certURL.searchParams.set('date', new Date().toLocaleDateString());
