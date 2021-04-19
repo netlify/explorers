@@ -67,14 +67,20 @@ exports.handler = async (event) => {
           },
         });
         console.log({ postResults });
+        console.log('New log after post call');
+
+        return {
+          statusCode: 200,
+          body: 'Checked reward',
+        };
       }
     } catch (err) {
       console.error('Failure to update rewards: ', err);
+
+      return {
+        statusCode: 500,
+        body: 'Reward check failed.',
+      };
     }
   });
-
-  return {
-    statusCode: 200,
-    body: 'Checked reward',
-  };
 };
