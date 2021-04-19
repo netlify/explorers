@@ -76,6 +76,8 @@ exports.handler = async (event) => {
   const payload = JSON.parse(event.body);
   const { new: newActivity } = payload.event.data;
 
+  console.log({ eventData: payload.event.data });
+
   if (newActivity.type !== 'mission-complete') {
     console.log('!mission-complete');
     return {
@@ -84,12 +86,30 @@ exports.handler = async (event) => {
     };
   }
 
-  const achievements = await postToHasura({
-    query: `mutation MyMutation(
+  const currentAchievements = await postToHasura({
+    query: `
+      query GetUserAchievements($user_id: String!) {
+        achievements(where: {user_id: {_eq: $user_id}}) {
+          id
+          type
+        }
+      }
+    `,
+    variables: {
+      user_id: newActivity.user_id,
+    },
+  });
+
+  // Simple check on whether achievements exist.
+  // Will require more detailed checks when more achievements exists
+  if (currentAchievements.length > 0) {
+    const newAchievement = await postToHasura({
+      query: `mutation AddAchievement(
           $app: String!,
           $event_data: jsonb!,
           $type: String!,
           $user_id: String!,
+          $description: String!,
         )
        {
           insert_achievements_one(object: {
@@ -107,30 +127,35 @@ exports.handler = async (event) => {
             description
           }
         }`,
-    variables: {
-      app: newActivity.app,
-      event_data: {},
-      type: 'mission-complete',
-      user_id: newActivity.user_id,
-      description:
-        'Work through every stage in a mission to earn credits in the Netlify Swag Store',
-    },
-  });
+      variables: {
+        app: newActivity.app,
+        event_data: newActivity.event_data,
+        type: 'mission-complete',
+        user_id: newActivity.user_id,
+        description:
+          'Work through every stage in a mission to earn credits in the Netlify Swag Store',
+      },
+    }).then((data) => {
+      console.log(data);
+    });
 
-  if (!achievements) {
+    if (!newAchievement) {
+      return {
+        statusCode: 200,
+        body: 'New achievement created!',
+      };
+    }
+  } else {
+    console.log('Achievement already exists.');
+
     return {
-      statusCode: 500,
-      body: 'Oh no!',
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers':
+          'Origin, X-Requested-With, Content-Type, Accept',
+      },
+      body: 'Achievement already exists.',
     };
   }
-
-  return {
-    statusCode: 200,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers':
-        'Origin, X-Requested-With, Content-Type, Accept',
-    },
-    body: 'Totally Ok',
-  };
 };

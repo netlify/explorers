@@ -5,7 +5,7 @@ exports.createShopifyDiscountCode = async (achievementId) => {
   try {
     const newDiscountCode = await postToShopify({
       query: `
-        mutation priceRuleCreate(
+        mutation CreatePriceRule(
           $priceRule: PriceRuleInput!,
           $priceRuleDiscountCode: PriceRuleDiscountCodeInput!
         ) {
