@@ -86,8 +86,23 @@ exports.handler = async (event) => {
     };
   }
 
-  const achievements = await postToHasura({
-    query: `mutation AddAchievement(
+  const currentAchievements = await postToHasura({
+    query: `
+      query GetUserAchievements($user_id: String!) {
+        achievements(where: {user_id: {_eq: $user_id}}) {
+          id
+          type
+        }
+      }
+    `,
+    variables: {
+      user_id: newActivity.user_id,
+    },
+  });
+
+  if (currentAchievements.length > 0) {
+    const newAchievement = await postToHasura({
+      query: `mutation AddAchievement(
           $app: String!,
           $event_data: jsonb!,
           $type: String!,
@@ -110,32 +125,43 @@ exports.handler = async (event) => {
             description
           }
         }`,
-    variables: {
-      app: newActivity.app,
-      event_data: newActivity.event_data,
-      type: 'mission-complete',
-      user_id: newActivity.user_id,
-      description:
-        'Work through every stage in a mission to earn credits in the Netlify Swag Store',
-    },
-  }).then((data) => {
-    console.log(data);
-  });
+      variables: {
+        app: newActivity.app,
+        event_data: newActivity.event_data,
+        type: 'mission-complete',
+        user_id: newActivity.user_id,
+        description:
+          'Work through every stage in a mission to earn credits in the Netlify Swag Store',
+      },
+    }).then((data) => {
+      console.log(data);
+    });
 
-  if (!achievements) {
+    if (!newAchievement) {
+      return {
+        statusCode: 200,
+        body: 'New achievement created!',
+      };
+    } else {
+      return {
+        statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers':
+            'Origin, X-Requested-With, Content-Type, Accept',
+        },
+        body: 'Achievement was not created.',
+      };
+    }
+  } else {
     return {
-      statusCode: 500,
-      body: 'Oh no!',
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers':
+          'Origin, X-Requested-With, Content-Type, Accept',
+      },
+      body: 'Achievement already exists.',
     };
   }
-
-  return {
-    statusCode: 200,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers':
-        'Origin, X-Requested-With, Content-Type, Accept',
-    },
-    body: 'Totally Ok',
-  };
 };
