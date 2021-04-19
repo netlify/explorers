@@ -87,7 +87,7 @@ exports.handler = async (event) => {
   }
 
   const achievements = await postToHasura({
-    query: `mutation MyMutation(
+    query: `mutation AddAchievement(
           $app: String!,
           $event_data: jsonb!,
           $type: String!,

@@ -49,7 +49,7 @@ exports.handler = async (event) => {
         console.log({ discountCodeMatch });
         await postToHasura({
           query: `
-            mutation MyMutation($reward_id: Int!) {
+            mutation UpdateRewardStatus($reward_id: Int!) {
               update_rewards(
                 where: {id: {_eq: $reward_id}},
                 _set: {is_claimed: true}
