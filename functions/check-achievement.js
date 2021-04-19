@@ -76,6 +76,8 @@ exports.handler = async (event) => {
   const payload = JSON.parse(event.body);
   const { new: newActivity } = payload.event.data;
 
+  console.log({ eventData: payload.event.data });
+
   if (newActivity.type !== 'mission-complete') {
     console.log('!mission-complete');
     return {
@@ -90,6 +92,7 @@ exports.handler = async (event) => {
           $event_data: jsonb!,
           $type: String!,
           $user_id: String!,
+          $description: String!,
         )
        {
           insert_achievements_one(object: {
@@ -115,6 +118,8 @@ exports.handler = async (event) => {
       description:
         'Work through every stage in a mission to earn credits in the Netlify Swag Store',
     },
+  }).then((data) => {
+    console.log(data);
   });
 
   if (!achievements) {

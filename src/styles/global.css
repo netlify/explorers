@@ -287,6 +287,11 @@ p {
   text-decoration: underline;
 }
 
+.rewards a {
+  color: #3a3a3a;
+  text-decoration: underline;
+}
+
 /* ---- SVG STYLES ----- */
 
 /* Radar */

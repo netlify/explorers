@@ -9,6 +9,8 @@ exports.handler = async (event) => {
   const payload = JSON.parse(event.body);
   const { discount_codes: discountCodes } = payload;
 
+  console.log({ discountCodes, discount_codes: payload.discount_codes });
+
   const allRewards = await postToHasura({
     query: `
       query RewardsList {
@@ -20,14 +22,16 @@ exports.handler = async (event) => {
     `,
   });
 
-  if (!discountCodes) {
+  if (!discountCodes.length > 0) {
+    console.error('Failed to retrieve discount codes from Shopify');
     return {
-      statusCode: 500,
+      statusCode: 200,
       body: 'Failed to retrieve discount codes from Shopify',
     };
   }
 
-  if (!allRewards) {
+  if (!allRewards.rewards.length > 0) {
+    console.error('Failed to retrieve rewards from Hasura');
     return {
       statusCode: 500,
       body: 'Failed to retrieve rewards from Hasura',
@@ -37,10 +41,11 @@ exports.handler = async (event) => {
   discountCodes.forEach(async (discountCode) => {
     try {
       const discountCodeMatch = allRewards.rewards.find(
-        (item) => item.reward_data.code === discountCode
+        (item) => item.reward_data.code === discountCode.code
       );
 
       if (discountCodeMatch) {
+        console.log('Found a discount code!');
         await postToHasura({
           query: `
             mutation MyMutation($reward_id: Int!) {
@@ -65,6 +70,8 @@ exports.handler = async (event) => {
       console.error('Failure to update rewards: ', err);
     }
   });
+
+  console.log('hello?');
 
   return {
     statusCode: 200,
