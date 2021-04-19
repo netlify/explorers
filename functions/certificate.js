@@ -7,8 +7,8 @@ exports.handler = async (event, context) => {
   
   console.log('Here we go here we go here we go now');
 
-  const name = event.queryStringParameters.name || 'Jam Daddy'
-  const date = event.queryStringParameters.date || '11.02.2020'
+  const name = event.queryStringParameters.name || 'Jam Daddy';
+  const date = event.queryStringParameters.date || '11.02.2020';
 
   const background = `<svg
       xmlns="http://www.w3.org/2000/svg"
@@ -160,25 +160,27 @@ exports.handler = async (event, context) => {
         fill="url(#radial-gradient)"
       />
       <path class="cls-26" d="M38.24 354.59h737.17" />
-    </svg>`
+    </svg>`;
 
   const doc = new PDFDocument({
     layout: 'landscape',
     size: 'A4',
-  })
+  });
+
+  await SVGtoPDF(doc, background);
 
   let writer = new streamBuffers.WritableStreamBuffer()
 
   await new Promise((resolve, reject) => {
-    writer.on('finish', resolve)
-    doc.pipe(writer)
-    SVGtoPDF(doc, background)
-    doc.end()
-  })
+    writer.on('finish', resolve);
+    doc.pipe(writer);
+    SVGtoPDF(doc, background);
+    doc.end();
+  });
 
   console.log(`Time to return ${name} ${date}`);
   
-  console.log(writer.getContents().toString("base64"));
+  console.log(writer.getContentsAsString('base64'));
  
 
   return {
@@ -187,7 +189,7 @@ exports.handler = async (event, context) => {
       'Content-type': 'application/pdf',
     },
     // body: " writer.getContents()"
-    body: writer.getContents().toString("base64"),
+    body: writer.getContentsAsString('base64'),
     isBase64Encoded: true
   };
 
