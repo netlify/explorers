@@ -167,28 +167,25 @@ exports.handler = async (event, context) => {
     size: 'A4',
   });
 
-  await SVGtoPDF(doc, background);
-
   let writer = new streamBuffers.WritableStreamBuffer()
 
   await new Promise((resolve, reject) => {
     writer.on('finish', resolve);
     doc.pipe(writer);
     SVGtoPDF(doc, background);
+    console.log("writing")
     doc.end();
   });
 
   console.log(`Time to return ${name} ${date}`);
-  
-  console.log(writer.getContentsAsString('base64'));
- 
+
+
 
   return {
     statusCode: 200,
     headers: {
-      'Content-type': 'application/pdf',
+      'Content-type': 'application/pdf'
     },
-    // body: " writer.getContents()"
     body: writer.getContentsAsString('base64'),
     isBase64Encoded: true
   };
