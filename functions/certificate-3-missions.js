@@ -4,9 +4,6 @@ const SVGtoPDF = require('svg-to-pdfkit')
 
 exports.handler = async (event, context) => {
 
-  
-  console.log('Here we go here we go here we go now');
-
   const name = event.queryStringParameters.name || 'Jam Daddy';
   const date = event.queryStringParameters.date || '11.02.2020';
 
@@ -173,13 +170,10 @@ exports.handler = async (event, context) => {
     writer.on('finish', resolve);
     doc.pipe(writer);
     SVGtoPDF(doc, background);
-    console.log("writing")
     doc.end();
   });
 
   console.log(`Time to return ${name} ${date}`);
-
-
 
   return {
     statusCode: 200,
