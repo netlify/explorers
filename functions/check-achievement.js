@@ -100,6 +100,8 @@ exports.handler = async (event) => {
     },
   });
 
+  // Simple check on whether achievements exist.
+  // Will require more detailed checks when more achievements exists
   if (currentAchievements.length > 0) {
     const newAchievement = await postToHasura({
       query: `mutation AddAchievement(
@@ -142,18 +144,10 @@ exports.handler = async (event) => {
         statusCode: 200,
         body: 'New achievement created!',
       };
-    } else {
-      return {
-        statusCode: 200,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Headers':
-            'Origin, X-Requested-With, Content-Type, Accept',
-        },
-        body: 'Achievement was not created.',
-      };
     }
   } else {
+    console.log('Achievement already exists.');
+
     return {
       statusCode: 200,
       headers: {
