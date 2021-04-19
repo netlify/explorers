@@ -38,7 +38,7 @@ exports.handler = async (event) => {
     };
   }
 
-  discountCodes.forEach(async (discountCode) => {
+  const discountPromises = discountCodes.map(async (discountCode) => {
     try {
       const discountCodeMatch = allRewards.rewards.find(
         (item) => item.reward_data.code === discountCode.code
@@ -68,11 +68,6 @@ exports.handler = async (event) => {
         });
         console.log({ postResults });
         console.log('New log after post call');
-
-        return {
-          statusCode: 200,
-          body: 'Checked reward',
-        };
       }
     } catch (err) {
       console.error('Failure to update rewards: ', err);
@@ -83,4 +78,12 @@ exports.handler = async (event) => {
       };
     }
   });
+
+  await Promise.all(discountPromises);
+  console.log('Everything is done');
+
+  return {
+    statusCode: 200,
+    body: 'Checked reward',
+  };
 };
