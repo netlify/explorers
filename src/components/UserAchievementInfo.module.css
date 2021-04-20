@@ -21,19 +21,25 @@
   padding: 0.5rem;
 }
 
-.btnclaim {
+.claim {
   background-color: rgb(105, 103, 103);
   color: white;
+  display: block;
   margin-left: 0.5rem;
+  padding: 0.3rem;
+  max-width: 8rem;
   border-radius: 0.2rem;
   border-style: hidden;
   text-transform: uppercase;
 }
 
-.btnclaimed {
+.claimed {
   background-color: grey;
   color: white;
+  display: block;
   margin-left: 0.5rem;
+  padding: 0.3rem;
+  max-width: 4rem;
   border-radius: 0.2rem;
   border-style: hidden;
   text-transform: uppercase;
@@ -52,4 +58,9 @@
   border-color: rgb(195, 195, 195);
   border-style: solid;
   border-width: thin;
+}
+
+.copy {
+  display: block;
+  float: right;
 }
