@@ -76,8 +76,6 @@ exports.handler = async (event) => {
   const payload = JSON.parse(event.body);
   const { new: newActivity } = payload.event.data;
 
-  console.log({ eventData: payload.event.data });
-
   if (newActivity.type !== 'mission-complete') {
     console.log('!mission-complete');
     return {
@@ -100,11 +98,11 @@ exports.handler = async (event) => {
     },
   });
 
-  console.log({ currentAchievements });
-
-  // Simple check on whether achievements exist.
-  // Will require more detailed checks when more achievements exists
-  if (currentAchievements.achievements.length < 1) {
+  if (
+    currentAchievements.achievements.find(
+      (ach) => ach.type === 'mission-complete'
+    )
+  ) {
     const newAchievement = await postToHasura({
       query: `mutation AddAchievement(
           $app: String!,
