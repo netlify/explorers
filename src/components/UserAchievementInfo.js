@@ -1,5 +1,6 @@
 import styles from './UserAchievementInfo.module.css';
 import Rosette from '@components/Rosette';
+import CopyButton from '@components/CopyButton';
 
 function UserAchievementInfo({ achievements }) {
   const discountCode = achievements?.rewards?.[0]?.reward_data?.code || false;
@@ -23,17 +24,14 @@ function UserAchievementInfo({ achievements }) {
         <div>
           {achievements.rewards[0].is_claimed === false ? (
             <div className={styles.rewardcontent}>
-              <button className={styles.btnclaim}>Reward Unlocked</button>
+              <span className={styles.claim}>Reward Unlocked </span>
               <div className={styles.description}>
                 <p className="rewards">
                   Congratulations, Explorer! You've unlocked the reward code
                   below, which you can copy and use at the{' '}
                   <a href="https://swag.netlify.com/">Netlify Swag Store</a>{' '}
                   during checkout to get{' '}
-                  <a href="https://swag.netlify.com/product/jamstack-sticker-packs">
-                    these stickers
-                  </a>{' '}
-                  for free!
+                  <a href="https://ntl.fyi/3tRhT77">these stickers</a> for free!
                 </p>
               </div>
               <div className={styles.discount}>
@@ -42,12 +40,15 @@ function UserAchievementInfo({ achievements }) {
                     navigator.clipboard.writeText(discountCode);
                   }}
                 >
-                  {discountCode}
+                  {discountCode}{' '}
+                  <span className={styles.copy}>
+                    <CopyButton />
+                  </span>
                 </p>
               </div>
             </div>
           ) : achievements.rewards[0].is_claimed === true ? (
-            <button className={styles.btnclaimed}>Claimed </button>
+            <span className={styles.claimed}>Claimed </span>
           ) : null}
         </div>
       </div>
