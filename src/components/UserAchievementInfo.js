@@ -31,10 +31,7 @@ function UserAchievementInfo({ achievements }) {
                   below, which you can copy and use at the{' '}
                   <a href="https://swag.netlify.com/">Netlify Swag Store</a>{' '}
                   during checkout to get{' '}
-                  <a href="https://swag.netlify.com/product/jamstack-sticker-packs">
-                    these stickers
-                  </a>{' '}
-                  for free!
+                  <a href="https://ntl.fyi/3tRhT77">these stickers</a> for free!
                 </p>
               </div>
               <div className={styles.discount}>
