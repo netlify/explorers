@@ -104,7 +104,7 @@ exports.handler = async (event) => {
 
   // Simple check on whether achievements exist.
   // Will require more detailed checks when more achievements exists
-  if (currentAchievements.achievements.length > 0) {
+  if (currentAchievements.achievements.length < 1) {
     const newAchievement = await postToHasura({
       query: `mutation AddAchievement(
           $app: String!,
