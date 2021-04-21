@@ -99,7 +99,7 @@ exports.handler = async (event) => {
   });
 
   if (
-    currentAchievements.achievements.find(
+    !currentAchievements.achievements.find(
       (ach) => ach.type === 'mission-complete'
     )
   ) {
