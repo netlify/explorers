@@ -100,6 +100,8 @@ exports.handler = async (event) => {
     },
   });
 
+  console.log({ currentAchievements });
+
   // Simple check on whether achievements exist.
   // Will require more detailed checks when more achievements exists
   if (currentAchievements.length > 0) {
