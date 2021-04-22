@@ -31,7 +31,7 @@ exports.createShopifyDiscountCode = async (achievementId) => {
       `,
       variables: {
         priceRule: {
-          allocationMethod: 'EACH',
+          allocationMethod: 'ACROSS',
           customerSelection: {
             forAllCustomers: true,
           },
