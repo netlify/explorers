@@ -5,51 +5,60 @@ exports.createShopifyDiscountCode = async (achievementId) => {
   try {
     const newDiscountCode = await postToShopify({
       query: `
-        mutation CreatePriceRule(
-          $priceRule: PriceRuleInput!,
-          $priceRuleDiscountCode: PriceRuleDiscountCodeInput!
+        mutation CreateDiscountCode(
+          $discountParams: DiscountCodeBasicInput!
         ) {
-          priceRuleCreate(
-            priceRule: $priceRule,
-            priceRuleDiscountCode: $priceRuleDiscountCode
+          discountCodeBasicCreate(
+            basicCodeDiscount: $discountParams
           ) {
-            priceRule {
-              id
-            }
-            priceRuleDiscountCode {
-              id
-              code
-              usageCount
-            }
-            priceRuleUserErrors {
-              code
+            userErrors {
               field
               message
+              code
+            }
+            codeDiscountNode {
+              id
+              codeDiscount {
+                ... on DiscountCodeBasic {
+                  title
+                  summary
+                  status
+                  codes(first: 10) {
+                    edges {
+                      node {
+                        code
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
       `,
       variables: {
-        priceRule: {
-          allocationMethod: 'ACROSS',
-          customerSelection: {
-            forAllCustomers: true,
-          },
-          itemEntitlements: {
-            productIds: ['gid://shopify/Product/4871257882763'],
-          },
-          target: 'LINE_ITEM',
-          title: `Free Stickers - Achievement #${achievementId}`,
+        discountParams: {
+          title: 'Jamstack Explorers — Mission Complete Reward',
+          startsAt: new Date(),
           usageLimit: 1,
-          validityPeriod: {
-            start: new Date(),
+          appliesOncePerCustomer: true,
+          customerSelection: {
+            all: true,
           },
-          value: {
-            percentageValue: -100,
-          },
-        },
-        priceRuleDiscountCode: {
           code: uuidv4(),
+          customerGets: {
+            value: {
+              discountAmount: {
+                amount: 2.0,
+                appliesOnEachItem: false,
+              },
+            },
+            items: {
+              products: {
+                productsToAdd: ['gid://shopify/Product/4871257882763'],
+              },
+            },
+          },
         },
       },
     });
