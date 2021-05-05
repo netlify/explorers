@@ -25,8 +25,6 @@ const VideoPlayer = ({
 
     // 2 debounced functions to make sure both fire at least once
     const sendProgressDebounced = debounce(activity.send, 500);
-    const sendCompleteDebounced = debounce(activity.send, 500);
-    const emitStageCompleteDebounced = debounce(emitStageComplete, 250);
 
     const activityData = {
       videoId: publicId,
@@ -60,7 +58,7 @@ const VideoPlayer = ({
       sendProgressDebounced('video-progress', { ...activityData, percentage });
     };
 
-    const handleCompleted = (event) => {
+    const handleCompleted = debounce(async (event) => {
       // if they've watched all of the video except the last 2 seconds, it’s done
       const { isComplete } = getCompletionData(event.target);
 
@@ -68,15 +66,17 @@ const VideoPlayer = ({
         return;
       }
 
-      emitStageCompleteDebounced();
-      sendCompleteDebounced('video-complete', activityData);
-    };
+      // stage complete is sent in as a callback so we can wait for the activity
+      // to be stored and updated in the user state. otherwise, we might check
+      // mission status before things are updated and get a false negative
+      await activity.send('video-complete', activityData, emitStageComplete);
+    }, 500);
 
     const handlePause = (event) => {
       const { isCompleteIsh } = getCompletionData(event.target);
 
       if (isCompleteIsh) {
-        sendCompleteDebounced('video-complete', activityData);
+        activity.send('video-complete', activityData, emitStageComplete);
       }
     };
 

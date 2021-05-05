@@ -63,11 +63,11 @@ export default function Stage({
   };
 
   const emitStageComplete = () => {
+    getUser();
+
     const currentMission = user.activity.userMissions.find(
       (userMission) => userMission.title === mission.title
     );
-
-    getUser();
 
     const localCookieName = `finalMissionConfetti-${mission.title}`;
 
