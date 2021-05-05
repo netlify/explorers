@@ -77,7 +77,6 @@ exports.handler = async (event) => {
   const { new: newActivity } = payload.event.data;
 
   if (newActivity.type !== 'mission-complete') {
-    console.log('!mission-complete');
     return {
       statusCode: 200,
       body: 'ok',
@@ -135,8 +134,6 @@ exports.handler = async (event) => {
         description:
           'Work through every stage in a mission to earn credits in the Netlify Swag Store',
       },
-    }).then((data) => {
-      console.log(data);
     });
 
     if (!newAchievement) {
@@ -146,8 +143,6 @@ exports.handler = async (event) => {
       };
     }
   } else {
-    console.log('Achievement already exists.');
-
     return {
       statusCode: 200,
       headers: {

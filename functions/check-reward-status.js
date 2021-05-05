@@ -9,8 +9,6 @@ exports.handler = async (event) => {
   const payload = JSON.parse(event.body);
   const { discount_codes: discountCodes } = payload;
 
-  console.log({ discountCodes, discount_codes: payload.discount_codes });
-
   const allRewards = await postToHasura({
     query: `
       query RewardsList {
@@ -45,8 +43,7 @@ exports.handler = async (event) => {
       );
 
       if (discountCodeMatch) {
-        console.log('Discount code found!');
-        const postResults = await postToHasura({
+        await postToHasura({
           query: `
             mutation UpdateRewardStatus($reward_id: Int!) {
               update_rewards(
