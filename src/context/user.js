@@ -64,9 +64,6 @@ export function UserProvider({ children }) {
   const [user, setUser] = React.useState();
   const [activity, setActivity] = React.useState();
 
-  // set this flag to 'dirty' to refetch user data
-  const [dirtyDirtyData, setDirtyDirtyData] = React.useState('clean');
-
   // TODO we don’t have categories right now, so we can’t determine this data
   // this is the shape of the data we need to display the radar chart
   // const userdata = {
@@ -118,6 +115,8 @@ export function UserProvider({ children }) {
     setUser(userWithAvatarFallback);
     setStatus('loaded');
     cache[token] = userWithAvatarFallback;
+
+    return userWithAvatarFallback;
   }
 
   React.useEffect(() => {
@@ -155,10 +154,6 @@ export function UserProvider({ children }) {
         app: 'jamstack-explorers',
       });
       const send = async (type, eventData, callback = () => {}) => {
-        if (type === 'video-complete') {
-          setDirtyDirtyData('dirty');
-        }
-
         await activityHubSendData(type, eventData);
 
         await callback();
@@ -169,14 +164,6 @@ export function UserProvider({ children }) {
 
     createActivityObject();
   }, [user]);
-
-  React.useEffect(() => {
-    if (dirtyDirtyData !== 'dirty') {
-      return;
-    }
-
-    getUser();
-  }, [dirtyDirtyData]);
 
   const state = {
     user,

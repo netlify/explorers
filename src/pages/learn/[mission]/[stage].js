@@ -62,10 +62,10 @@ export default function Stage({
     setMissionComplete(false);
   };
 
-  const emitStageComplete = () => {
-    getUser();
+  const emitStageComplete = async () => {
+    const updatedUser = await getUser();
 
-    const currentMission = user.activity.userMissions.find(
+    const currentMission = updatedUser.activity.userMissions.find(
       (userMission) => userMission.title === mission.title
     );
 
