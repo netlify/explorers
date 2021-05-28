@@ -3,7 +3,9 @@ import Rosette from '@components/Rosette';
 import CopyButton from '@components/CopyButton';
 
 function UserAchievementInfo({ achievements }) {
-  const discountCode = achievements?.rewards?.[0]?.reward_data?.code || false;
+  const discountCode =
+    achievements?.rewards?.[0]?.reward_data?.codeDiscount?.codes?.edges?.[0]
+      ?.node?.code || false;
 
   if (!discountCode) {
     return null;
