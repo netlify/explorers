@@ -6,7 +6,8 @@
       "@context/*": ["src/context/*"],
       "@hooks/*": ["src/hooks/*"],
       "@util/*": ["src/util/*"],
-      "@public/*": ["public/*"]
+      "@public/*": ["public/*"],
+      "@node_modules/*": ["node_modules/*"]
     }
   }
 }
