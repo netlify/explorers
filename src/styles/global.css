@@ -39,6 +39,8 @@
   font-display: swap;
 }
 
+@import '~@netlify/community-nav/nav.css';
+
 :root {
   /* colors */
   --color-gray: #444;
