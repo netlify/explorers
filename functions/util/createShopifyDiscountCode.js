@@ -63,6 +63,8 @@ exports.createShopifyDiscountCode = async (achievementId) => {
       },
     });
 
+    console.log({ newDiscountCode });
+
     return newDiscountCode;
   } catch (error) {
     console.error(`Shopify Discount Code Creation: `, error);
