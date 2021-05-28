@@ -6,10 +6,10 @@ const {
 exports.handler = async (event) => {
   const payload = JSON.parse(event.body);
   const { new: newAchievement } = payload.event.data;
-  const { priceRuleCreate } = await createShopifyDiscountCode(
+  const { discountCodeBasicCreate } = await createShopifyDiscountCode(
     newAchievement.id
   );
-  const { priceRuleDiscountCode: shopifyDiscountCode } = priceRuleCreate;
+  const { codeDiscountNode: shopifyDiscountCode } = discountCodeBasicCreate;
 
   /**
    * Step 1: Check whether achievement meets criteria
