@@ -64,6 +64,12 @@ exports.createShopifyDiscountCode = async (achievementId) => {
     });
 
     console.log({ newDiscountCode });
+    console.log({ basicCreate: newDiscountCode.discountCodeBasicCreate });
+    console.log({
+      codeDiscountNode: JSON.stringify(
+        newDiscountCode.discountCodeBasicCreate.codeDiscountNode
+      ),
+    });
 
     return newDiscountCode;
   } catch (error) {
