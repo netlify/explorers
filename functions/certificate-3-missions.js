@@ -1,9 +1,8 @@
-const PDFDocument = require('pdfkit')
-const streamBuffers = require('stream-buffers')
-const SVGtoPDF = require('svg-to-pdfkit')
+const PDFDocument = require('pdfkit');
+const streamBuffers = require('stream-buffers');
+const SVGtoPDF = require('svg-to-pdfkit');
 
 exports.handler = async (event, context) => {
-
   const name = event.queryStringParameters.name || 'Jam Daddy';
   const date = event.queryStringParameters.date || '11.02.2020';
 
@@ -164,7 +163,7 @@ exports.handler = async (event, context) => {
     size: 'A4',
   });
 
-  let writer = new streamBuffers.WritableStreamBuffer()
+  let writer = new streamBuffers.WritableStreamBuffer();
 
   await new Promise((resolve, reject) => {
     writer.on('finish', resolve);
@@ -178,10 +177,9 @@ exports.handler = async (event, context) => {
   return {
     statusCode: 200,
     headers: {
-      'Content-type': 'application/pdf'
+      'Content-type': 'application/pdf',
     },
     body: writer.getContentsAsString('base64'),
-    isBase64Encoded: true
+    isBase64Encoded: true,
   };
-
-}
+};
