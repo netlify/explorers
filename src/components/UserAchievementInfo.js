@@ -30,10 +30,16 @@ function UserAchievementInfo({ achievements }) {
               <div className={styles.description}>
                 <p className="rewards">
                   Congratulations, Explorer! You've unlocked the reward code
-                  below, which you can copy and use at the{' '}
-                  <a href="https://swag.netlify.com/">Netlify Swag Store</a>{' '}
+                  below, which you can copy and use at the Netlify Swag Store
                   during checkout to get{' '}
-                  <a href="https://ntl.fyi/3tRhT77">these stickers</a> for free!
+                  <a
+                    href="https://ntl.fyi/3tRhT77"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    these stickers
+                  </a>{' '}
+                  for free!
                 </p>
               </div>
               <div className={styles.discount}>
