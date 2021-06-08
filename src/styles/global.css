@@ -39,7 +39,7 @@
   font-display: swap;
 }
 
-@import '~@netlify/community-nav/nav.css';
+@import '~@netlify/marketing-community-nav/nav.css';
 
 :root {
   /* colors */
