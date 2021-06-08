@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from './Navigation.module.css';
-import Nav from '@netlify/marketing-community-nav';
+import Nav from '@netlify/marketing-community-nav/nav.js';
 import { useUserState } from 'src/context/user';
 
 function Navigation() {
