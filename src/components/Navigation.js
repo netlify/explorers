@@ -8,7 +8,7 @@ function Navigation() {
     <>
       <netlify-ui-community-nav
         class={`ncn ${styles.navigation}`}
-        version="1.0"
+        version="1.0.9"
       >
         <header className="ncn-header">
           <a href="https://netlify.com" className="ncn-home">
@@ -51,12 +51,15 @@ function Navigation() {
           </a>
           <details
             className="ncn-menu"
-            data-close-click-outside
+            data-close-click-outside="(max-width: 63.1875em)"
+            data-force-state-closed="(max-width: 63.1875em)"
             data-close-esc
             data-modal="(max-width: 39.9375em)"
           >
             <summary>
-              <div className="ncn-menu-hed">Jamstack Explorers</div>
+              <a href="/" className="ncn-menu-hed">
+                Jamstack Explorers
+              </a>
             </summary>
             <nav className="ncn-menu-c" data-close-click-outside-curtain>
               <a
@@ -78,7 +81,7 @@ function Navigation() {
                 Learning Platform
               </a>
               <a
-                href="https://remotelyinteresting.transistor.fm/"
+                href="https://remotelyinteresting.netlify.com/"
                 className="ncn-menulink ncn-menulink-podcast"
                 aria-current="page"
               >
