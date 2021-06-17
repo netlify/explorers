@@ -8,7 +8,7 @@ function Navigation() {
     <>
       <netlify-ui-community-nav
         class={`ncn ${styles.navigation}`}
-        version="1.0.9"
+        version="1.0.10"
       >
         <header className="ncn-header">
           <a href="https://netlify.com" className="ncn-home">
