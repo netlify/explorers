@@ -1,16 +1,16 @@
 {
-  "private": true,
   "name": "@netlify/jamstack-explorers",
+  "private": true,
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "next build",
+    "format": "prettier --write '**/*.{js,jsx,ts,tsx,json,md}'",
     "dev": "ntl dev",
     "dev:netlify": "next dev",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "build": "next build",
     "prestart": "npm run build",
     "start": "next start",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo 'Write tests! -> https://gatsby.dev/unit-testing' && exit 1"
   },
   "dependencies": {
     "@netlify/activity-hub": "^1.1.2",
@@ -46,7 +46,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\""
+      "pre-commit": "prettier --check '**/*.{js,jsx,ts,tsx,json,md}'"
     }
   }
 }
