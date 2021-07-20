@@ -2,6 +2,7 @@
   🚀👩‍🚀👨‍🚀<br />
   Jamstack Explorers
 </h1>
+
 <p align="center">Presented by Netlify</p>
 
 Ground Control to Major Tom  
@@ -27,28 +28,31 @@ And there’s nothing I can do
 
 ## Local Development
 
-### Front-End
+### Frontend
 
-The frontend is a Next site. Env vars are in Netlify, so work with Netlify Dev for easier local development.
+The frontend is a Next site. Environment variable are set in Netlify, so work with Netlify Dev for easier local development.
 
-#### Prerequisites
+#### Requirements
 
+- [Node.js](https://nodejs.org/)
 - [Netlify CLI](https://docs.netlify.com/cli/get-started/#installation)
 
-#### Instructions
+#### Installation
 
-```bash
-# clone the repo
-git clone git@github.com:netlify/explorers.git
+1. Install Node.
+1. Clone the repo.
+    ```sh
+    git clone git@github.com:netlify/explorers.git
+    cd explorers/
+    ```
+1. Install project packages.
+    ```sh
+    npm install
+    ```
 
-# move into the new project
-cd explorers/
+#### Configuration
 
-# install dependencies
-npm install
-```
-
-Add the following env vars to `.env` at the project root:
+Add the following environment variable to a `.env` file at the project root:
 
 ```
 NEXT_PUBLIC_SANITY_GRAPHQL_URL=https://q8efilev.api.sanity.io/v1/graphql/production/default
@@ -56,14 +60,15 @@ NEXT_PUBLIC_SANITY_GRAPHQL_URL=https://q8efilev.api.sanity.io/v1/graphql/product
 
 This is a read-only GraphQL API to pull Jamstack Explorers missions, stages, and other data.
 
-Start the site locally:
+#### Usage
+
+Start the server for local development:
 
 ```sh
-# start the site for local development
 npm run dev
 ```
 
-The site will open at `http://localhost:8888`.
+The browser will open at `http://localhost:8888`.
 
 ### OAuth
 
@@ -75,7 +80,7 @@ See `.env.EXAMPLE` for the required env vars.
 
 ### Sanity
 
-See [the backend README](./backend/README.md) for details on the Sanity setup for this project.
+See [the backend README](/backend/README.md) for details on the Sanity setup for this project.
 
 ### Code Formatting With Prettier
 
@@ -91,7 +96,7 @@ Certificate generation is managed through a [private repo](https://github.com/sd
 
 ## How to commit to this repo!
 
-See our [contributing guidelines](./CONTRIBUTING.md) for more info about getting involved!
+See our [contributing guidelines](/CONTRIBUTING.md) for more info about getting involved!
 
 ## How to contribute mission!
 
