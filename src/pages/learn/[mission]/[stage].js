@@ -43,7 +43,7 @@ export default function Stage({
   const { activity, user, getUser } = useUserState();
 
   const instructorTwitterHandle = parseTwitterHandle(
-    findTwitterUrl(mission.instructor.social)
+    findTwitterUrl(mission.instructors[0].social)
   );
 
   const ogImage = `https://res.cloudinary.com/netlify/video/upload/q_auto,w_1280,h_720,c_fill,f_auto,so_2/l_text:Roboto_80_center:${stage.title},co_white,w_1000,c_fit/explorers/intro.jpg`;
@@ -112,7 +112,7 @@ export default function Stage({
             <h2 className={styles['stage-main-title']}>
               {mission.title}{' '}
               <span className={styles['stage-title-addendum']}>
-                with {mission.instructor.name}
+                with {mission.instructors[0].name}
               </span>
             </h2>
             <h2>{stage.title}</h2>

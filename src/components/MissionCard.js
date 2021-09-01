@@ -6,7 +6,7 @@ const MissionCard = ({ mission }) => {
   const missionImageURL =
     mission.coverImage.asset.url + '?fit=crop&crop=center&fm=jpg&w=700&h=720';
   const instructorAvatarURL =
-    mission.instructor.avatar.asset.url +
+    mission.instructors[0].avatar.asset.url +
     '?fit=crop&crop=entropy&fm=jpg&w=60&h=60';
 
   return (
@@ -25,7 +25,7 @@ const MissionCard = ({ mission }) => {
         <div className={styles['card-footer']}>
           <AvatarRow
             src={instructorAvatarURL}
-            label={mission.instructor.name}
+            label={mission.instructors[0].name}
           />
           <div className={styles['card-button']}>
             <Link href="/learn/[slug]" as={`/learn/${mission.slug.current}`}>

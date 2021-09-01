@@ -68,7 +68,7 @@ export default async function handler(req, res) {
 
       return {
         title: mission.title,
-        instructor: mission.instructor.name,
+        instructor: mission.instructors[0].name,
         coverImage:
           mission.coverImage.asset.url +
           '?fit=crop&crop=center&fm=jpg&w=700&h=720',
