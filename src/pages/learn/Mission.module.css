@@ -1,3 +1,11 @@
+.avatar {
+  margin-left: -30px;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
 .missiontout {
   background-color: rgba(0, 0, 0, 0.5);
 }

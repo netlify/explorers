@@ -42,13 +42,17 @@ const Mission = ({ mission }) => {
         <div className="section-contain">
           <h1>This Mission: {mission.title}</h1>
           <div className={styles.missiondescriptioninstructor}>
-            <img
-              src={
-                mission.instructors[0].avatar?.asset?.url +
-                '?fit=crop&crop=entropy&w=120&h=120'
-              }
-              className="avatar-lg"
-            />
+            {mission.instructors.map((instructor) => {
+              return (
+                <img
+                  src={
+                    instructor.avatar?.asset?.url +
+                    '?fit=crop&crop=entropy&w=120&h=120'
+                  }
+                  className={`${styles.avatar} avatar-lg`}
+                />
+              );
+            })}
             <span className={styles.instructor}>
               <span>
                 {mission.instructors.length > 1
