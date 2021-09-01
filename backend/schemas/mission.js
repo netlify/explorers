@@ -41,13 +41,14 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'instructor',
-      title: 'Instructor',
-      type: 'reference',
+      name: 'instructors',
+      title: 'Instructor(s)',
+      type: 'array',
       validation: (Rule) => Rule.required(),
-      to: [
+      of: [
         {
-          type: 'instructor',
+          type: 'reference',
+          to: { type: 'instructor' },
         },
       ],
     },
