@@ -42,25 +42,15 @@ export default function Stage({
   const [missionComplete, setMissionComplete] = useState(false);
   const { activity, user, getUser } = useUserState();
 
-  let instructorNames;
-  let instructorTwitterHandles;
-
-  if (mission.instructors.length > 1) {
-    instructorNames = mission.instructors
-      .map((instructor) => instructor.name)
-      .join(' & ');
-    instructorTwitterHandles = mission.instructors
-      .map(
-        (instructor) =>
-          `@${parseTwitterHandle(findTwitterUrl(instructor.social))}`
-      )
-      .join(' & ');
-  } else {
-    instructorNames = mission.instructors[0].name;
-    instructorTwitterHandles = parseTwitterHandle(
-      findTwitterUrl(mission.instructors[0].social)
-    );
-  }
+  const instructorNames = mission.instructors
+    .map((instructor) => instructor.name)
+    .join(' & ');
+  const instructorTwitterHandles = mission.instructors
+    .map(
+      (instructor) =>
+        `@${parseTwitterHandle(findTwitterUrl(instructor.social))}`
+    )
+    .join(' & ');
 
   const ogImage = `https://res.cloudinary.com/netlify/video/upload/q_auto,w_1280,h_720,c_fill,f_auto,so_2/l_text:Roboto_80_center:${stage.title},co_white,w_1000,c_fit/explorers/intro.jpg`;
 
