@@ -50,8 +50,9 @@ export default function Stage({
       .map((instructor) => instructor.name)
       .join(' & ');
     instructorTwitterHandles = mission.instructors
-      .map((instructor) =>
-        parseTwitterHandle(findTwitterUrl(instructor.social))
+      .map(
+        (instructor) =>
+          `@${parseTwitterHandle(findTwitterUrl(instructor.social))}`
       )
       .join(' & ');
   } else {
@@ -68,9 +69,7 @@ export default function Stage({
     description: descriptionMeta,
     url: `${SITE_DOMAIN}/learn/${mission.slug.current}/${stage.slug.current}`,
     image: ogImage,
-    creator: instructorTwitterHandles
-      ? `@${instructorTwitterHandles}`
-      : '@netlify',
+    creator: instructorTwitterHandles ? instructorTwitterHandles : '@netlify',
   };
 
   const closeModal = () => {
