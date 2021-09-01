@@ -5,9 +5,6 @@ import Link from 'next/link';
 const MissionCard = ({ mission }) => {
   const missionImageURL =
     mission.coverImage.asset.url + '?fit=crop&crop=center&fm=jpg&w=700&h=720';
-  const instructorAvatarURL =
-    mission.instructors[0].avatar.asset.url +
-    '?fit=crop&crop=entropy&fm=jpg&w=60&h=60';
 
   return (
     <div
@@ -23,10 +20,7 @@ const MissionCard = ({ mission }) => {
         </div>
 
         <div className={styles['card-footer']}>
-          <AvatarRow
-            src={instructorAvatarURL}
-            label={mission.instructors[0].name}
-          />
+          <AvatarRow instructors={mission.instructors} />
           <div className={styles['card-button']}>
             <Link href="/learn/[slug]" as={`/learn/${mission.slug.current}`}>
               <a className="btn btndark">Launch Mission</a>
