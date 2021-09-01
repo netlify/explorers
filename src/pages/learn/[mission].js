@@ -50,8 +50,16 @@ const Mission = ({ mission }) => {
               className="avatar-lg"
             />
             <span className={styles.instructor}>
-              <span>Instructor: </span>
-              <strong>{mission.instructors[0].name}</strong>
+              <span>
+                {mission.instructors.length > 1
+                  ? 'Instructors: '
+                  : 'Instructor: '}
+              </span>
+              <strong>
+                {mission.instructors
+                  .map((instructor) => instructor.name)
+                  .join(' & ')}
+              </strong>
             </span>
           </div>
           <div className={styles.missiontout}>
