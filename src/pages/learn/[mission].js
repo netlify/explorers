@@ -20,7 +20,7 @@ const Mission = ({ mission }) => {
   });
 
   const instructorTwitterHandle = parseTwitterHandle(
-    findTwitterUrl(mission.instructor.social)
+    findTwitterUrl(mission.instructors[0].social)
   );
 
   const ogImage = `https://res.cloudinary.com/netlify/video/upload/q_auto,w_1280,h_720,c_fill,f_auto,so_2/l_text:Roboto_80_center:${mission.title},co_white,w_1000,c_fit/explorers/intro.jpg`;
@@ -42,16 +42,28 @@ const Mission = ({ mission }) => {
         <div className="section-contain">
           <h1>This Mission: {mission.title}</h1>
           <div className={styles.missiondescriptioninstructor}>
-            <img
-              src={
-                mission.instructor.avatar?.asset?.url +
-                '?fit=crop&crop=entropy&w=120&h=120'
-              }
-              className="avatar-lg"
-            />
+            {mission.instructors.map((instructor) => {
+              return (
+                <img
+                  src={
+                    instructor.avatar?.asset?.url +
+                    '?fit=crop&crop=entropy&w=120&h=120'
+                  }
+                  className={`${styles.avatar} avatar-lg`}
+                />
+              );
+            })}
             <span className={styles.instructor}>
-              <span>Instructor: </span>
-              <strong>{mission.instructor.name}</strong>
+              <span>
+                {mission.instructors.length > 1
+                  ? 'Instructors: '
+                  : 'Instructor: '}
+              </span>
+              <strong>
+                {mission.instructors
+                  .map((instructor) => instructor.name)
+                  .join(' & ')}
+              </strong>
             </span>
           </div>
           <div className={styles.missiontout}>

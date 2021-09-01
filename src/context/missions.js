@@ -26,7 +26,7 @@ export const loadMissions = async () => {
               current
             }
           }
-          instructor {
+          instructors {
             name
             avatar {
               asset {
@@ -54,7 +54,7 @@ export const loadMissionBySlug = async (slug) => {
           slug {
             current
           }
-          instructor {
+          instructors {
             name
             avatar {
               asset {

@@ -24,9 +24,7 @@
 
 .card-footer {
   margin-top: 10px;
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-auto-flow: row;
+  display: flex;
   justify-content: space-between;
 }
 

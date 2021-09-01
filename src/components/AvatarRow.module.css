@@ -1,3 +1,12 @@
+/* -- Avatar -- */
+.avatar {
+  margin-left: -15px;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
 /* -- Avatar Row -- */
 .avatar-row {
   display: flex;
