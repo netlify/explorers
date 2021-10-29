@@ -16,7 +16,7 @@ function UserMissionInfo({ mission }) {
         </p>
       </div>
       <div className={styles.instructor}>
-        <p>{mission.instructors[0]}</p>
+        <p>{mission.instructor}</p>
       </div>
       <div className={styles.tracker}>
         <Tracker progress={mission.progress} />
