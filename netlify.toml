@@ -1,3 +1,4 @@
 # Jamstack Explorers has been retired. This site only serves redirects.
 [build]
+  command = "echo 'static redirects only, nothing to build'"
   publish = "public"
