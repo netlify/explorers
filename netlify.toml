@@ -1,18 +1,4 @@
+# Jamstack Explorers has been retired. This site only serves redirects.
 [build]
-  command = "npm run build"
-  publish = "publish"
-  functions = "functions"
-
-[dev]
-  command = "npm run dev:netlify"
-
-[[plugins]]
-  package = "netlify-plugin-cache-nextjs"
-
-[[plugins]]
-package = "@netlify/plugin-sitemap"
-
-  [plugins.inputs]
-  buildDir = "publish"
-  exclude = ['./publish/404.html']
-  baseUrl = "https://explorers.netlify.com"
+  command = "echo 'static redirects only, nothing to build'"
+  publish = "public"
